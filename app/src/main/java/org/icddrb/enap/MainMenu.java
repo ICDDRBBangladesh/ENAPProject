@@ -1,9 +1,10 @@
-package org.icddrb.standard;
+package org.icddrb.enap;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,6 +35,16 @@ public class MainMenu extends Activity {
             g = Global.getInstance();
             DEVICEID    = MySharedPreferences.getValue(this,"deviceid");
             ENTRYUSER   = MySharedPreferences.getValue(this,"userid");
+
+            Button cmdRegistration = (Button) findViewById(R.id.cmdRegistration);
+            cmdRegistration.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    finish();
+                    Intent f1 = new Intent(getApplicationContext(),Registration.class);
+                    startActivity(f1);
+                }
+            });
+
 
             cmdDataSync = (Button) findViewById(R.id.cmdDataSync);
             cmdDataSync.setOnClickListener(new View.OnClickListener() {

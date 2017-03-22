@@ -10,18 +10,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="org.icddrb.standard.MainActivity"
+    tools:context="org.icddrb.enap.MainActivity"
     tools:showIn="@layout/app_bar_main">
-
-    <ScrollView android:layout_marginTop="20sp"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:isScrollContainer="true"
-        android:overScrollMode="always"
-        android:scrollbarAlwaysDrawVerticalTrack="true"
-        android:scrollbarStyle="outsideInset"
-        android:scrollbars="vertical">
-        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingTop="0sp">
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingTop="20sp">
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -29,7 +20,7 @@
                 android:paddingTop="0sp">
 
                 <Button
-                    android:id="@+id/cmdOutpatient"
+                    android:id="@+id/cmdRegistration"
                     style="@style/menuButtonStyle"
                     android:layout_width="fill_parent"
                     android:layout_marginBottom="5sp"
@@ -37,17 +28,122 @@
                     android:layout_marginRight="20sp"
                     android:background="@drawable/button_style_gray"
                     android:gravity="center|center_vertical"
-                    android:text="Menu Button"
+                    android:text="Registration and Tracking"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/cmdLDObj"
+                    style="@style/menuButtonStyle"
+                    android:layout_width="fill_parent"
+                    android:layout_marginBottom="5sp"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginRight="20sp"
+                    android:background="@drawable/button_style_sky"
+                    android:gravity="center|center_vertical"
+                    android:text="Labour and Delivery Observation"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/cmdKMCObj"
+                    style="@style/menuButtonStyle"
+                    android:layout_width="fill_parent"
+                    android:layout_marginBottom="5sp"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginRight="20sp"
+                    android:background="@drawable/button_style_sky"
+                    android:gravity="center|center_vertical"
+                    android:text="KMC Observation"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+
+                <Button
+                    android:id="@+id/cmdMRecall"
+                    style="@style/menuButtonStyle"
+                    android:layout_width="fill_parent"
+                    android:layout_marginBottom="5sp"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginRight="20sp"
+                    android:background="@drawable/button_style_yellow"
+                    android:gravity="center|center_vertical"
+                    android:text="Maternal Recall Survey"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp" />
 
 
 
+                <Button
+                    android:id="@+id/cmdLDDataExt"
+                    style="@style/menuButtonStyle"
+                    android:layout_width="fill_parent"
+                    android:layout_marginBottom="5sp"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginRight="20sp"
+                    android:background="@drawable/button_style_gray"
+                    android:gravity="center|center_vertical"
+                    android:text="Labour and Delivery Data Extraction"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/cmdKMCDataExt"
+                    style="@style/menuButtonStyle"
+                    android:layout_width="fill_parent"
+                    android:layout_marginBottom="5sp"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginRight="20sp"
+                    android:background="@drawable/button_style_gray"
+                    android:gravity="center|center_vertical"
+                    android:text="KMC Data Extraction"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+
+                <Button
+                    android:id="@+id/cmdSepsis"
+                    style="@style/menuButtonStyle"
+                    android:layout_width="fill_parent"
+                    android:layout_marginBottom="5sp"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginRight="20sp"
+                    android:background="@drawable/button_style_gray"
+                    android:gravity="center|center_vertical"
+                    android:text="Infection Management Verification"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/cmdACS"
+                    style="@style/menuButtonStyle"
+                    android:layout_width="fill_parent"
+                    android:layout_marginBottom="5sp"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginRight="20sp"
+                    android:background="@drawable/button_style_gray"
+                    android:gravity="center|center_vertical"
+                    android:text="ACS Verification"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/cmdFollowup"
+                    style="@style/menuButtonStyle"
+                    android:layout_width="fill_parent"
+                    android:layout_marginBottom="5sp"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginRight="20sp"
+                    android:background="@drawable/button_style_gray"
+                    android:gravity="center|center_vertical"
+                    android:text="Follow-up"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:paddingTop="0sp" android:layout_weight="2">
                 <Button
                     android:id="@+id/cmdDataSync"
@@ -55,7 +151,7 @@
                     android:layout_width="match_parent"
                     android:layout_marginBottom="5sp"
                     android:layout_marginLeft="20sp"
-                    android:layout_marginRight="10sp"
+                    android:layout_marginRight="20sp"
                     android:layout_marginTop="20sp"
                     android:background="@drawable/button_style_sky"
                     android:gravity="center|center_vertical"
@@ -68,15 +164,16 @@
                     style="@style/menuButtonStyle"
                     android:layout_width="fill_parent"
                     android:layout_marginBottom="5sp"
-                    android:layout_marginLeft="10sp"
+                    android:layout_marginLeft="20sp"
                     android:layout_marginRight="20sp"
                     android:layout_marginTop="20sp"
-                    android:background="@drawable/button_style_yellow"
+                    android:background="@drawable/button_style_red"
                     android:gravity="center|center_vertical"
                     android:text="Exit"
                     android:textColor="#ffffff"
                     android:textSize="20sp" android:layout_weight="1"/>
             </LinearLayout>
+
         </LinearLayout>
-    </ScrollView>
+
 </RelativeLayout>

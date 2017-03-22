@@ -324,7 +324,7 @@ public class Global {
 
 		if(DT.length()!=10)
 		{
-			Message = "Date should be 10 digit [dd/mm/yyyy].";
+			Message = "Invalid date format.";
 		}
 		else if(!DT.substring(2, 3).equals("/") | !DT.substring(5, 6).equals("/"))
 		{

@@ -1,4 +1,4 @@
-package org.icddrb.standard;
+package DataSync;
 
 import android.app.NotificationManager;
 import android.app.Service;
@@ -64,7 +64,7 @@ public class DataSyncService extends Service
                 new Thread() {
                     public void run() {
                         try {
-                            Connection.SyncDataService(UniqueID);
+                            //Connection.SyncDataService(UniqueID);
                         } catch (Exception e) {
 
                         }

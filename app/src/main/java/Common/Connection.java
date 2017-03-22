@@ -16,7 +16,7 @@ import android.widget.ArrayAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import org.icddrb.standard.R;
+import org.icddrb.enap.R;
 
 import java.io.File;
 import java.lang.reflect.Type;
@@ -45,6 +45,8 @@ public class Connection extends SQLiteOpenHelper {
         super(context, DBLocation, null, DATABASE_VERSION);
         dbContext = context;
         ud_context = context;
+
+        //Save("Drop table Registration");
     }
 
     //Split function
@@ -88,6 +90,17 @@ public class Connection extends SQLiteOpenHelper {
                 });
         builder.show();
 
+    }
+
+    public static void MessageBoxNotClose(Context ClassName, String Msg) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ClassName);
+        builder.setMessage(Msg)
+                .setTitle("Message")
+                .setCancelable(true)
+                //.setIcon(R.drawable.logo)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton("Ok", null);
+        builder.show();
     }
 
     //Check whether internet connectivity available or not
@@ -948,7 +961,7 @@ public class Connection extends SQLiteOpenHelper {
 
     //Rebuild Local Database from Server
     //----------------------------------------------------------------------------------------------
-    public void RebuildDatabase(String DeviceID) {
+    public void RebuildDatabase(String CountryCode, String FaciCode, String DeviceID) {
         List<String> listItem = new ArrayList<String>();
         listItem = DownloadJSONList("Select TableName+'^'+TableScript from DatabaseTab");
 
@@ -979,8 +992,16 @@ public class Connection extends SQLiteOpenHelper {
             UniqueField = "TableName";
             Res = DownloadJSON(SQLStr, TableName, VariableList, UniqueField);
 
+            this.Sync_Download_Rebuild("Country", "CountryCode='"+ CountryCode +"'");
+            this.Sync_Download_Rebuild("Facility", "CountryCode='"+ CountryCode +"' and FaciCode='"+ FaciCode +"'");
             this.Sync_Download_Rebuild("DeviceList", "DeviceId='" + DeviceID + "'");
-            this.Sync_Download_Rebuild("DataCollector", "");
+            this.Sync_Download_Rebuild("DataCollector", "FaciCode='"+ FaciCode +"'");
+            this.Sync_Download_Rebuild("DCJobType", "");
+            this.Sync_Download_Rebuild("LocationDC","");
+            this.Sync_Download_Rebuild("ObjTableList","");
+            this.Sync_Download_Rebuild("ObjVarList","");
+            //this.Sync_Download_Rebuild("AreaDB","CCode='"+ CountryCode +"'");
+            this.Sync_Download("Registration", DeviceID,"CountryCode='"+ CountryCode +"' and FaciCode='"+ FaciCode +"'");
 
             //Project Specific Database Sync
             //--------------------------------------------------------------------------------------
@@ -992,6 +1013,7 @@ public class Connection extends SQLiteOpenHelper {
             //Download data from server
             //------------------------------------------------------------------------------
             /*
+
             String[] TableList = new String[]{
                     "Screening",
             };
@@ -1133,6 +1155,48 @@ public class Connection extends SQLiteOpenHelper {
             Res = DownloadJSON_Update_Sync_Management(SQL, TableName, VariableList, UniqueField, UserId);
         }
     }
+
+
+    public void Sync_Download_Registration(String TableName, String UserId, String WhereClause, String totalRegistraton) {
+        //Retrieve sync parameter
+        //------------------------------------------------------------------------------------------
+        String[] SyncParam = Sync_Parameter(TableName);
+
+        String SQLStr = SyncParam[0];
+        String VariableList = SyncParam[1];
+        String UniqueField = SyncParam[2];
+        String SQL_VariableList = SyncParam[3];
+        String Res = "";
+        String SQL = "";
+
+        //Generate Unique ID field
+        //------------------------------------------------------------------------------------------
+        String[] U = UniqueField.split(",");
+        String UID = "";
+        //String UID_Sync = "";
+        for (int i = 0; i < U.length; i++) {
+            if (i == 0)
+                UID = "cast(t." + U[i] + " as varchar(50))";
+            else
+                UID += "+cast(t." + U[i] + " as varchar(50))";
+        }
+
+        //Execute batch download
+        //------------------------------------------------------------------------------------------
+            SQL = "Select "+ SQL_VariableList + " from " + TableName + " as t";
+            SQL += " where not exists(select * from Sync_Management where";
+            SQL += " lower(TableName)  = lower('" + TableName + "') and";
+            SQL += " UniqueID   = " + UID + " and";
+            SQL += " convert(varchar(19),modifydate,120) = convert(varchar(19),t.modifydate,120) and";
+            SQL += " UserId   ='" + UserId + "')";
+            if (WhereClause.length() > 0) {
+                SQL += " and " + WhereClause;
+            }
+            SQL += " order by date(EnDt) desc limit "+ totalRegistraton;
+
+            Res = DownloadJSON_Update_Sync_Management(SQL, TableName, VariableList, UniqueField, UserId);
+    }
+
 
     //done
     //download data from server and include those id's into Table: Sync_Management
@@ -1788,7 +1852,7 @@ public class Connection extends SQLiteOpenHelper {
     }
 
     //06 Feb 2017
-    public static void SyncDataService(String UniqueID)
+    public static void SyncDataService(String CountryCode, String FaciCode, String UniqueID)
     {
         try {
             Connection C = new Connection(ud_context);
@@ -1796,7 +1860,9 @@ public class Connection extends SQLiteOpenHelper {
             //Reqular data sync
             //--------------------------------------------------------------------------------------
             C.Sync_DatabaseStructure(UniqueID);
-            C.Sync_Download("DataCollector", UniqueID, "");
+            C.Sync_Download("DataCollector", UniqueID, "FaciCode='"+ FaciCode +"'");
+            C.Sync_Download("LocationDC", UniqueID, "FaciCode='"+ FaciCode +"'");
+            C.Sync_Download("AreaDB",UniqueID,"CCode='"+ CountryCode +"'");
 
             //Sync_Download
             // Parameter 1: table Name
@@ -1819,4 +1885,12 @@ public class Connection extends SQLiteOpenHelper {
 
     }
 
+
+    //DC wise Access , different location
+    public static String[] DCLocationAccess(String UserId){
+        Connection C = new Connection(ud_context);
+        //Select d.UserId,d.UserName,l.LocCode from DataCollector d inner join LocationDC l on d.FaciCode=l.FaciCode and d.UserId=l.UserId
+        String[] d = C.getArrayList("Select l.LocCode from DataCollector d inner join LocationDC l on d.FaciCode=l.FaciCode and d.UserId=l.UserId");
+        return d;
+    }
 }

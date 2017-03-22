@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/objCheckList"
+	android:layout_width="match_parent" android:gravity="center_horizontal|center_vertical"
+	android:layout_height="wrap_content"
+	android:background="#FFFFFF"
+	android:clickable="true"
+	android:focusable="true"
+	android:layout_marginLeft="5sp"
+	android:layout_marginRight="5sp"
+	android:layout_marginTop="5sp"
+	android:layout_marginBottom="5sp">
+	<Button android:id="@+id/objDescription" android:background="@drawable/button_style_yellow"
+		android:textColor="#000000" android:gravity="center_horizontal|center_vertical"
+		android:layout_width="match_parent"
+		android:layout_height="150sp"
+		android:textSize="18dp"/>
+
+</RelativeLayout>

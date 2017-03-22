@@ -1,4 +1,4 @@
-package org.icddrb.standard;
+package org.icddrb.enap;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -25,7 +25,6 @@ import java.net.URL;
 import Common.Connection;
 import Common.Global;
 import Common.ProjectSetting;
-import DataSync.Sync_Service;
 import Utility.MySharedPreferences;
 
 public class LoginActivity extends Activity {
@@ -127,6 +126,8 @@ public class LoginActivity extends Activity {
                     {
                         String[] U = Connection.split(uid.getSelectedItem().toString(),'-');
                         sp.save(LoginActivity.this,"userid",U[0]);
+                        sp.save(LoginActivity.this,"countrycode","1");
+                        sp.save(LoginActivity.this,"facilitycode","1");
 
                         if (!C.Existence("Select * from DataCollector where UserId='" + U[0] + "' and Pass='" + pass.getText().toString() + "'"))
                         {
@@ -169,7 +170,7 @@ public class LoginActivity extends Activity {
                                     public void run() {
                                         try {
                                             finish();
-                                            Intent f1 = new Intent(getApplicationContext(),MainMenu.class);
+                                            Intent f1 = new Intent(getApplicationContext(),MainActivity.class);
                                             startActivity(f1);
                                         } catch (Exception e) {
 
@@ -207,7 +208,7 @@ public class LoginActivity extends Activity {
                             public void run() {
                                 try {
                                     finish();
-                                    Intent f1 = new Intent(getApplicationContext(),MainMenu.class);
+                                    Intent f1 = new Intent(getApplicationContext(),MainActivity.class);
                                     startActivity(f1);
                                 } catch (Exception e) {
 

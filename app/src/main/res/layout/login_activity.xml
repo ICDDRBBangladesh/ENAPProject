@@ -61,6 +61,7 @@
 
     </LinearLayout>
 
+
     <LinearLayout android:layout_marginLeft="50sp" android:layout_marginRight="50sp" android:layout_marginTop="0sp" android:layout_marginBottom="20sp" android:layout_width="fill_parent"  android:layout_height="wrap_content" android:layout_gravity="center">
         <EditText android:id="@+id/pass"
             android:layout_width="match_parent"
