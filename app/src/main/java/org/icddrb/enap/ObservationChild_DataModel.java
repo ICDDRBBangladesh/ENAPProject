@@ -2,13 +2,14 @@ package org.icddrb.enap;
 
 import android.content.Context;
 import android.database.Cursor;
-import Common.Connection;
-import Common.Global;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Observation_DataModel{
+import Common.Connection;
+import Common.Global;
+
+public class ObservationChild_DataModel {
     private String _CountryCode = "";
     public String getCountryCode(){
         return _CountryCode;
@@ -166,17 +167,17 @@ public class Observation_DataModel{
     }
 
 
-    public List<Observation_DataModel> SelectAll(Context context, String SQL)
+    public List<ObservationChild_DataModel> SelectAll(Context context, String SQL)
     {
         Connection C = new Connection(context);
-        List<Observation_DataModel> data = new ArrayList<Observation_DataModel>();
-        Observation_DataModel d = new Observation_DataModel();
+        List<ObservationChild_DataModel> data = new ArrayList<ObservationChild_DataModel>();
+        ObservationChild_DataModel d = new ObservationChild_DataModel();
         Cursor cur = C.ReadData(SQL);
 
         cur.moveToFirst();
         while(!cur.isAfterLast())
         {
-            d = new Observation_DataModel();
+            d = new ObservationChild_DataModel();
             d._TableId = cur.getString(cur.getColumnIndex("TableId"));
             d._DataID = cur.getString(cur.getColumnIndex("DataID"));
             d._VarName = cur.getString(cur.getColumnIndex("VarName"));

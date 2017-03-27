@@ -1,28 +1,20 @@
 package org.icddrb.enap;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
-import android.text.TextWatcher;
 import android.view.GestureDetector;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -31,34 +23,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import Common.Connection;
 import Common.Global;
-import Common.ProjectSetting;
 import Utility.MySharedPreferences;
 
 /**
  * Created by TanvirHossain on 05/12/2016.
  */
 
-public class Observation_Time extends AppCompatActivity {
+public class Observation_Time_Orig extends AppCompatActivity {
     //Disabled Back/Home key
     //--------------------------------------------------------------------------------------------------
     @Override
@@ -103,14 +85,10 @@ public class Observation_Time extends AppCompatActivity {
     static String TABLEID = "";
     static String DATAID  = "";
     static String VARIABLENAME = "";
-    static String WOMAN_CHILD = "";
-
     Global g;
     Connection C;
     private Boolean spinnerTouched = false;
     GridLayoutManager manager;
-    LinearLayout secChildSl;
-    Spinner spnChildSl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,10 +102,9 @@ public class Observation_Time extends AppCompatActivity {
         COUNTRYCODE = sp.getValue(this, "countrycode");
         FACICODE    = sp.getValue(this, "facicode");
 
-        IDbundle    = getIntent().getExtras();
-        TABLEID     = IDbundle.getString("tableid");;
-        DATAID      = IDbundle.getString("dataid");
-        WOMAN_CHILD = "w";//IDbundle.getString("womanchild");
+        IDbundle = getIntent().getExtras();
+        TABLEID  = IDbundle.getString("tableid");;
+        DATAID   = IDbundle.getString("dataid");
 
         VARIABLENAME = "";
         /*
@@ -229,36 +206,7 @@ public class Observation_Time extends AppCompatActivity {
         });*/
         recyclerView.setLayoutManager(manager);
 
-        secChildSl = (LinearLayout)findViewById(R.id.secChildSl);
-        spnChildSl = (Spinner)findViewById(R.id.spnChildSl);
-        List<String> listChild = new ArrayList<String>();
-        listChild.add("1");
-        listChild.add("2");
-        listChild.add("3");
-        ArrayAdapter<String> adptrchild= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listChild);
-        spnChildSl.setAdapter(adptrchild);
-        spnChildSl.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                if(WOMAN_CHILD.equals("c")) {
-                    String CSL = spnChildSl.getSelectedItem().toString();
-                    prepareVariableListData(TABLEID, DATAID, WOMAN_CHILD, CSL);
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                // your code here
-            }
-
-        });
-
-        if(WOMAN_CHILD.equals("w"))
-            secChildSl.setVisibility(View.GONE);
-        else if(WOMAN_CHILD.equals("c"))
-            secChildSl.setVisibility(View.VISIBLE);
-
-        prepareVariableListData(TABLEID, DATAID, WOMAN_CHILD,"");
+        prepareVariableListData(TABLEID, DATAID, "w","");
     }
 
     public void refreshAdapter(){
@@ -269,11 +217,6 @@ public class Observation_Time extends AppCompatActivity {
         TABLEID = TableId;
         DATAID  = DataId;
         String SQL = "";
-        WOMAN_CHILD = WomanChild;
-        if(WOMAN_CHILD.equals("w"))
-            secChildSl.setVisibility(View.GONE);
-        else if(WOMAN_CHILD.equals("c"))
-            secChildSl.setVisibility(View.VISIBLE);
 
         if(WomanChild.equals("w")) {
             SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate)";
@@ -293,8 +236,7 @@ public class Observation_Time extends AppCompatActivity {
             SQL += " and o.DataID='" + DataId + "'";
             SQL += " Where v.TableId='" + TableId + "'";
             SQL += " order by ObjSeq1";
-        }
-        else if(WomanChild.equals("c")) {
+        }else if(WomanChild.equals("c")) {
             SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,SL,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate)";
             SQL += " Select '"+ COUNTRYCODE +"' CountryCode,'"+ FACICODE +"' FaciCode, '"+ TableId +"' TableId,'"+ DataId +"' DataID, VarName,'"+ ChildSL +"','N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'"+ DEVICEID +"' DeviceId,'"+ ENTRYUSER +"' EntryUser,''Upload,''modifyDate from ObjVarList v";
             SQL += " where not exists(select CountryCode from Observation where CountryCode='"+ COUNTRYCODE +"' and FaciCode='"+ FACICODE +"' and TableId='"+ TableId +"' and DataId='"+ DataId +"' and VarName=v.VarName and SL=v.SL)";
@@ -309,7 +251,7 @@ public class Observation_Time extends AppCompatActivity {
             SQL += " left outer join Observation o on v.TableId=o.TableId and v.VarName=o.VarName";
             SQL += " and o.CountryCode='" + COUNTRYCODE + "' and o.FaciCode='" + FACICODE + "'";
             SQL += " and o.TableId='" + TableId + "'";
-            SQL += " and o.DataID='" + DataId + "' and ifnull(o.SL,'')='"+ ChildSL +"'";
+            SQL += " and o.DataID='" + DataId + "' and o.SL='"+ ChildSL +"'";
             SQL += " Where v.TableId='" + TableId + "'";
             SQL += " order by ObjSeq1";
         }
@@ -460,15 +402,13 @@ public class Observation_Time extends AppCompatActivity {
 
                 holder.objCheckList.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
+
                         Observation_DataModel obj = new Observation_DataModel();
                         obj.setCountryCode(COUNTRYCODE);
                         obj.setFaciCode(FACICODE);
                         obj.setTableId(TABLEID);
                         obj.setDataID(DATAID);
                         obj.setVarName(varlist.getVarName());
-
-                        if(WOMAN_CHILD.equals("c"))
-                            obj.setSL(varlist.getSL());
 
                         if(varlist.getStatus().equals("Y")) {
                             obj.setObserv("C");
@@ -498,7 +438,7 @@ public class Observation_Time extends AppCompatActivity {
                         obj.setEnDt(Global.DateTimeNowYMDHMS());
                         obj.setDeviceID(DEVICEID);
                         obj.setEntryUser(ENTRYUSER);
-                        obj.SaveUpdateData(Observation_Time.this);
+                        obj.SaveUpdateData(Observation_Time_Orig.this);
 
                         //recyclerView.invalidate();
                         //mAdapter.notifyItemChanged(position);
@@ -536,8 +476,6 @@ public class Observation_Time extends AppCompatActivity {
                         obj.setTableId(TABLEID);
                         obj.setDataID(DATAID);
                         obj.setVarName(varlist.getVarName());
-                        if(WOMAN_CHILD.equals("c"))
-                            obj.setSL(varlist.getSL());
 
                         if(varlist.getStatus().equals("Y")) {
                             obj.setObserv("C");
@@ -571,7 +509,7 @@ public class Observation_Time extends AppCompatActivity {
                         obj.setEnDt(Global.DateTimeNowYMDHMS());
                         obj.setDeviceID(DEVICEID);
                         obj.setEntryUser(ENTRYUSER);
-                        obj.SaveUpdateData(Observation_Time.this);
+                        obj.SaveUpdateData(Observation_Time_Orig.this);
 
                         //recyclerView.invalidate();
                         //mAdapter.notifyItemChanged(position);
@@ -663,7 +601,7 @@ public class Observation_Time extends AppCompatActivity {
                 for(int i=0;i<Opn.length;i++){
                     listSpinnerItem.add(Opn[i].toString().trim());
                 }
-                ArrayAdapter<String> adptrMotEthnicity= new ArrayAdapter<String>(Observation_Time.this, android.R.layout.simple_spinner_item, listSpinnerItem);
+                ArrayAdapter<String> adptrMotEthnicity= new ArrayAdapter<String>(Observation_Time_Orig.this, android.R.layout.simple_spinner_item, listSpinnerItem);
 
                 holder.spnDataList.setAdapter(adptrMotEthnicity);
 
@@ -695,8 +633,6 @@ public class Observation_Time extends AppCompatActivity {
                             obj.setTableId(TABLEID);
                             obj.setDataID(DATAID);
                             obj.setVarName(varlist.getVarName());
-                            if(WOMAN_CHILD.equals("c"))
-                                obj.setSL(varlist.getSL());
 
                             obj.setVarData(holder.spnDataList.getSelectedItemPosition() > 0 ? holder.spnDataList.getSelectedItem().toString() : "");
                             obj.setObserv("Y");
@@ -709,7 +645,7 @@ public class Observation_Time extends AppCompatActivity {
                             obj.setEnDt(Global.DateTimeNowYMDHMS());
                             obj.setDeviceID(DEVICEID);
                             obj.setEntryUser(ENTRYUSER);
-                            obj.SaveUpdateData(Observation_Time.this);
+                            obj.SaveUpdateData(Observation_Time_Orig.this);
 
                             mAdapter.variableList.set(position, varlist);
 
@@ -804,14 +740,6 @@ public class Observation_Time extends AppCompatActivity {
         }
         public void setVarName(String newValue){
             _VarName = newValue;
-        }
-
-        private String _SL = "";
-        public String getSL(){
-            return _SL;
-        }
-        public void setSL(String newValue){
-            _SL = newValue;
         }
 
         private String _Description = "";

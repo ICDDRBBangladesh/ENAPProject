@@ -206,16 +206,16 @@ public class Observation extends TabActivity{
                     Observation_Time activity = (Observation_Time) getLocalActivityManager().getActivity(tabId);
 
                     if (tabId.equals("BirthObj")) {
-                        activity.prepareVariableListData("1", DATAID);
+                        activity.prepareVariableListData("1", DATAID,"w","");
                         activity.refreshAdapter();
                     } else if (tabId.equals("Newborn")) {
-                        activity.prepareVariableListData("2", DATAID);
+                        activity.prepareVariableListData("2", DATAID,"c","1");
                         activity.refreshAdapter();
                     } else if (tabId.equals("BirthAsph")) {
-                        activity.prepareVariableListData("3", DATAID);
+                        activity.prepareVariableListData("3", DATAID,"w","");
                         activity.refreshAdapter();
                     } else if (tabId.equals("PPH")) {
-                        activity.prepareVariableListData("4", DATAID);
+                        activity.prepareVariableListData("4", DATAID,"w","");
                         activity.refreshAdapter();
                     }else if (tabId.equals("finalOut")){
                         LD_Outcome activity1 = (LD_Outcome) getLocalActivityManager().getActivity(tabId);
@@ -429,7 +429,7 @@ public class Observation extends TabActivity{
                     LD_Outcome activity1;
                     if(LOCATION.equals(ProjectSetting.LABOR_AND_DELIVERY_ID)) {
                         activity = (Observation_Time) getLocalActivityManager().getActivity("BirthObj");
-                        activity.prepareVariableListData("1", DATAID);
+                        activity.prepareVariableListData("1", DATAID,"w","");
                         activity.refreshAdapter();
 
                         activity1 = (LD_Outcome) getLocalActivityManager().getActivity("finalOut");
@@ -441,7 +441,7 @@ public class Observation extends TabActivity{
 
                     }else if(LOCATION.equals(ProjectSetting.LABOR_AND_DELIVERY_ID)) {
                         activity = (Observation_Time) getLocalActivityManager().getActivity("KmcObj");
-                        activity.prepareVariableListData("6", DATAID);
+                        activity.prepareVariableListData("6", DATAID,"w","");
                         activity.refreshAdapter();
                     }
 
