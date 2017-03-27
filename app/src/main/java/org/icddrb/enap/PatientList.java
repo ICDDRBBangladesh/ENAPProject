@@ -110,6 +110,7 @@ public class PatientList extends AppCompatActivity {
         setContentView(R.layout.patient_list);
         g = Global.getInstance();
 
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         DEVICEID    = sp.getValue(this, "deviceid");
         ENTRYUSER   = sp.getValue(this, "userid");
         COUNTRYCODE = sp.getValue(this, "countrycode");
@@ -477,7 +478,7 @@ public class PatientList extends AppCompatActivity {
             p.setPatAge("Age: "+ (item.getRegisType().equals(ProjectSetting.LABOR_AND_DELIVERY_ID)? item.getMotAge()+ " years" : item.getAgeNewborn()+" "+ (item.getAgeNewbornDMY().equals("1")?"days":(item.getAgeNewbornDMY().equals("2")?"month":"years"))));
 
             p.setPatAgeDMY(item.getAgeNewbornDMY());
-            p.setPatSex(item.getRegisType().equals(ProjectSetting.LABOR_AND_DELIVERY_ID)?"": item.getSex().equals("1")?"Male":(item.getSex().equals("1")?"Female":"Ambiguous"));
+            p.setPatSex(item.getRegisType().equals(ProjectSetting.LABOR_AND_DELIVERY_ID)?"": item.getSex().equals("1")?"Male":(item.getSex().equals("2")?"Female":"Ambiguous"));
             p.setPatDOB(item.getRegisType().equals(ProjectSetting.LABOR_AND_DELIVERY_ID)?item.getMotDOB():item.getDOBNewborn());
             p.setRegDate(item.getRegDate());
             p.setRegTime(item.getRegTime());
@@ -591,6 +592,7 @@ public class PatientList extends AppCompatActivity {
                 }
                 if(patient.getLocation().equals(jobloc[i]) & JOBTYPE.equals(ProjectSetting.JT_OBSERVATION)){
                     holder.cmdObj.setEnabled(true);
+                    holder.cmdRS.setEnabled(true);
                 }
                 if(patient.getLocation().equals(jobloc[i]) & JOBTYPE.equals(ProjectSetting.JT_EXIT_INTERVIEW)){
                     holder.cmdRS.setEnabled(true);
@@ -629,6 +631,33 @@ public class PatientList extends AppCompatActivity {
                 }
             });
 
+
+            holder.cmdRS.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Bundle IDbundle = new Bundle();
+                    //String TABLEID = "";
+                    //if(patient.getLocation().equals(ProjectSetting.LABOR_AND_DELIVERY_ID)) TABLEID = "1";
+                    //else if(patient.getLocation().equals(ProjectSetting.KMC_ID)) TABLEID = "6";
+
+                    IDbundle.putString("location", patient.getLocation());
+                    IDbundle.putString("dataid", patient.getDataID());
+                    //IDbundle.putString("tableid", TABLEID);
+                    IDbundle.putString("studyid", patient.getStudyID());
+                    IDbundle.putString("hospitalid", patient.getHospitalID());
+                    IDbundle.putString("name",patient.getpatName());
+                    IDbundle.putString("address",patient.getMainAddress());
+                    IDbundle.putString("age", patient.getPatAge() + (patient.getLocation().equals(ProjectSetting.LABOR_AND_DELIVERY_ID)?"": "   "+ patient.getPatSex()));
+
+                    IDbundle.putString("ob", patient.getObserve());
+                    IDbundle.putString("mrs", patient.getObserve());
+                    IDbundle.putString("de", patient.getObserve());
+                    Intent intent = new Intent(getApplicationContext(), RecallSurvS1.class);
+                    //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtras(IDbundle);
+                    startActivity(intent);
+                    //getApplicationContext().startActivity(intent);
+                }
+            });
 
             holder.secRow.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {

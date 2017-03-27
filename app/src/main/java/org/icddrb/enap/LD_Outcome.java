@@ -147,9 +147,9 @@
     MySharedPreferences sp;
 
     Bundle IDbundle;
-    public static String COUNTRYCODE = "";
-     public static String FACICODE = "";
-     public static String DATAID = "";
+    public String COUNTRYCODE = "";
+    public String FACICODE = "";
+    public String DATAID = "";
 
  public void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
@@ -534,7 +534,16 @@
 
  public void ClearForm()
  {
-
+     dtpdod.setText("");
+     txttod.setText("");
+     rdogrpmatcond.clearCheck();
+     spnmatdschd.setSelection(0);
+     txtmatdschdoth.setText("");
+     spnbcond.setSelection(0);
+     dtpbcondDT.setText("");
+     txtbcondTM.setText("");
+     spnbdschd.setSelection(0);
+     txtbdschdOth.setText("");
  }
  private void DataSave()
  {

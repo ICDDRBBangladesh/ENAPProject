@@ -463,7 +463,60 @@ public class Observation_Time extends AppCompatActivity {
                     holder.objCheckList.setBackgroundColor(Color.parseColor("#FFFFFF"));
                 }
 
-                holder.txtData.addTextChangedListener(new TextWatcher() {
+                holder.btnData.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+
+                        if(holder.txtData.getText().length() == 0) return;
+
+                        Observation_DataModel obj = new Observation_DataModel();
+                        obj.setCountryCode(COUNTRYCODE);
+                        obj.setFaciCode(FACICODE);
+                        obj.setTableId(TABLEID);
+                        obj.setDataID(DATAID);
+                        obj.setVarName(varlist.getVarName());
+
+                        if(varlist.getStatus().equals("Y")) {
+                            obj.setObserv("C");
+                            varlist.setStatus("C");
+                            mAdapter.variableList.set(position,varlist);
+                        }
+                        else if(varlist.getStatus().equals("C")) {
+                            obj.setObserv("N");
+                            varlist.setStatus("N");
+                            mAdapter.variableList.set(position,varlist);
+                        }
+                        else if(varlist.getStatus().equals("N")) {
+                            obj.setObserv("Y");
+                            varlist.setStatus("Y");
+                            mAdapter.variableList.set(position,varlist);
+                        }
+                        else {
+                            obj.setObserv("N");
+                            varlist.setStatus("N");
+                            mAdapter.variableList.set(position,varlist);
+                        }
+
+                        obj.setVarData(holder.txtData.getText().toString());
+                        obj.setObserv("Y");
+                        varlist.setStatus("Y");
+                        varlist.setVarData(holder.txtData.getText().toString());
+
+                        obj.setObservDT(Global.DateNowYMD());
+                        obj.setFirstTm(g.CurrentTime24());
+                        obj.setFinalTm(g.CurrentTime24());
+                        obj.setEnDt(Global.DateTimeNowYMDHMS());
+                        obj.setDeviceID(DEVICEID);
+                        obj.setEntryUser(ENTRYUSER);
+                        obj.SaveUpdateData(Observation_Time.this);
+
+                        //recyclerView.invalidate();
+                        //mAdapter.notifyItemChanged(position);
+                        holder.txtData.requestFocus();
+                        mAdapter.notifyDataSetChanged();
+                    }
+                });
+
+                /*holder.txtData.addTextChangedListener(new TextWatcher() {
                     public void afterTextChanged(Editable s) {
                         if(holder.txtData.getText().length() != 4) return;
 
@@ -518,7 +571,7 @@ public class Observation_Time extends AppCompatActivity {
                     public void beforeTextChanged(CharSequence s, int start,int count, int after) {}
 
                     public void onTextChanged(CharSequence s, int start,int before, int count) {}
-                });
+                });*/
 
             }
             //Dropdown List
@@ -547,6 +600,7 @@ public class Observation_Time extends AppCompatActivity {
                     listSpinnerItem.add(Opn[i].toString().trim());
                 }
                 ArrayAdapter<String> adptrMotEthnicity= new ArrayAdapter<String>(Observation_Time.this, android.R.layout.simple_spinner_item, listSpinnerItem);
+
                 holder.spnDataList.setAdapter(adptrMotEthnicity);
 
                 if(varlist.getVarData().length()>0) {

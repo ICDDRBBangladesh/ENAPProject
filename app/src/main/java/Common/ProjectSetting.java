@@ -25,7 +25,7 @@ public class ProjectSetting {
 
     //**********************************************************************************************
     public static String Country        = BANGLADESH;
-    public static String VersionDate    = "22032017"; //Format: DDMMYYYY
+    public static String VersionDate    = "27032017"; //Format: DDMMYYYY
     //**********************************************************************************************
 
     //Location

@@ -9,7 +9,7 @@
     <View android:layout_height="1dip" android:layout_width="fill_parent" android:layout_marginBottom="0sp" android:background="#CCCCCC" />
     <LinearLayout android:id="@+id/secRegisType" android:layout_width="fill_parent" android:weightSum="4" android:paddingTop="10sp" android:layout_height="wrap_content" android:orientation="horizontal" android:background="#978AD9">
         <Button android:id="@+id/cmdLD" android:layout_width="250sp" android:layout_weight="2" android:layout_height="60sp" android:background="@drawable/button_style_line_green"
-            android:textSize="20sp" android:text="Labor and Delivery" android:textColor="#006699" android:layout_marginBottom="10sp" android:layout_marginLeft="10sp" android:layout_marginRight="5sp"/>
+            android:textSize="20sp" android:text="Labour and Delivery" android:textColor="#006699" android:layout_marginBottom="10sp" android:layout_marginLeft="10sp" android:layout_marginRight="5sp"/>
         <Button android:id="@+id/cmdKMC" android:layout_width="100sp" android:layout_weight="1" android:layout_height="60sp" android:background="@drawable/button_style_line_green"
             android:textSize="20sp" android:text="KMC" android:textColor="#006699" android:layout_marginBottom="10sp" android:layout_marginLeft="0sp" android:layout_marginRight="5sp"/>
         <Button android:id="@+id/cmdSepsis" android:layout_width="100sp" android:layout_weight="1" android:layout_height="60sp" android:background="@drawable/button_style_line_green"

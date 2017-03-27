@@ -173,7 +173,11 @@ public class Observation extends TabActivity{
                 Patient_List_Form(LOCATION);
             }});
 
+        final ProgressDialog progDailog = ProgressDialog.show(Observation.this, "", "Please Wait . . .", true);
+        progDailog.show();
         PopulateTab(LOCATION, DATAID,TABLEID);
+        progDailog.dismiss();
+
     }
 
     public static void setTabColor(TabHost tabhost) {
@@ -200,6 +204,7 @@ public class Observation extends TabActivity{
                 }else {
                     setTabColor(tabHost1);
                     Observation_Time activity = (Observation_Time) getLocalActivityManager().getActivity(tabId);
+
                     if (tabId.equals("BirthObj")) {
                         activity.prepareVariableListData("1", DATAID);
                         activity.refreshAdapter();
@@ -212,6 +217,13 @@ public class Observation extends TabActivity{
                     } else if (tabId.equals("PPH")) {
                         activity.prepareVariableListData("4", DATAID);
                         activity.refreshAdapter();
+                    }else if (tabId.equals("finalOut")){
+                        LD_Outcome activity1 = (LD_Outcome) getLocalActivityManager().getActivity(tabId);
+                        activity1.COUNTRYCODE = COUNTRYCODE;
+                        activity1.FACICODE = FACICODE;
+                        activity1.DATAID = DATAID;
+                        activity1.ClearForm();
+                        activity1.DataSearch(COUNTRYCODE, FACICODE, DATAID);
                     }
                 }
 
@@ -411,17 +423,19 @@ public class Observation extends TabActivity{
                     patientAge.setText(o.get("patage"));
                     patientAddress.setText(o.get("mainaddress"));
 
+                    tabHost1.setCurrentTab(4);
                     tabHost1.setCurrentTab(0);
                     Observation_Time activity;
+                    LD_Outcome activity1;
                     if(LOCATION.equals(ProjectSetting.LABOR_AND_DELIVERY_ID)) {
                         activity = (Observation_Time) getLocalActivityManager().getActivity("BirthObj");
                         activity.prepareVariableListData("1", DATAID);
                         activity.refreshAdapter();
 
-                        LD_Outcome activity1 = (LD_Outcome) getLocalActivityManager().getActivity("finalOut");
-                        LD_Outcome.COUNTRYCODE = COUNTRYCODE;
-                        LD_Outcome.FACICODE = FACICODE;
-                        LD_Outcome.DATAID = DATAID;
+                        activity1 = (LD_Outcome) getLocalActivityManager().getActivity("finalOut");
+                        activity1.COUNTRYCODE = COUNTRYCODE;
+                        activity1.FACICODE = FACICODE;
+                        activity1.DATAID = DATAID;
                         activity1.ClearForm();
                         activity1.DataSearch(COUNTRYCODE, FACICODE, DATAID);
 

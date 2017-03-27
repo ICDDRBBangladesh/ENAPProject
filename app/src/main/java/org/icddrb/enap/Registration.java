@@ -270,6 +270,7 @@
      View linegaadm;
      TextView Vlblgaadm;
      EditText txtgaadm;
+     EditText txtgaadmi;
      LinearLayout secgameth;
      View linegameth;
      TextView Vlblgameth;
@@ -384,6 +385,8 @@
     static String FACICODE = "";
     static String DATAID = "";
     static String LOCATIONID = "";
+     static String JOBTYPE     = "";
+     static String JOBLOCATION = "";
 
     static String SID = "";
 
@@ -404,6 +407,7 @@
          ENTRYUSER = sp.getValue(this, "userid");
          COUNTRYCODE = sp.getValue(this, "countrycode");
          FACICODE    = sp.getValue(this, "facicode");
+         JOBTYPE     = sp.getValue(this, "jobtype");
 
          IDbundle = getIntent().getExtras();
          DATAID      = IDbundle.getString("dataid");
@@ -516,7 +520,104 @@
                if (rb.isChecked()) rbData = d_rdogrpConsent[i];
              }
 
-             if(rbData.equalsIgnoreCase("2"))
+             if(rbData.equalsIgnoreCase("1"))
+             {
+                 if(SID.length()==0)
+                     txtStudyID.setText(NewStudyID(DEVICEID));
+                 else
+                     txtStudyID.setText(NewStudyID(SID));
+
+
+                 secStudyID.setVisibility(View.VISIBLE);
+                 lineStudyID.setVisibility(View.VISIBLE);
+                 //secMotRegis.setVisibility(View.VISIBLE);
+                 //lineMotRegis.setVisibility(View.VISIBLE);
+                 secMotName.setVisibility(View.VISIBLE);
+                 lineMotName.setVisibility(View.VISIBLE);
+                 secMotDOB.setVisibility(View.VISIBLE);
+                 lineMotDOB.setVisibility(View.VISIBLE);
+                 secMotDOBDK.setVisibility(View.VISIBLE);
+                 lineMotDOBDK.setVisibility(View.VISIBLE);
+                 secMotAge.setVisibility(View.VISIBLE);
+                 lineMotAge.setVisibility(View.VISIBLE);
+                 secMotEthnicity.setVisibility(View.VISIBLE);
+                 lineMotEthnicity.setVisibility(View.VISIBLE);
+                 secMotReligion.setVisibility(View.VISIBLE);
+                 lineMotReligion.setVisibility(View.VISIBLE);
+                 secAddress1.setVisibility(View.VISIBLE);
+                 lineAddress1.setVisibility(View.VISIBLE);
+                 secAddress2.setVisibility(View.VISIBLE);
+                 lineAddress2.setVisibility(View.VISIBLE);
+                 secAddress3.setVisibility(View.VISIBLE);
+                 lineAddress3.setVisibility(View.VISIBLE);
+                 secAddress4.setVisibility(View.VISIBLE);
+                 lineAddress4.setVisibility(View.VISIBLE);
+                 secAddressDetail.setVisibility(View.VISIBLE);
+                 lineAddressDetail.setVisibility(View.VISIBLE);
+                 secMotContact.setVisibility(View.VISIBLE);
+                 lineMotContact.setVisibility(View.VISIBLE);
+                 secAltContact.setVisibility(View.VISIBLE);
+                 lineAltContact.setVisibility(View.VISIBLE);
+                 seclbl1.setVisibility(View.VISIBLE);
+                    /*secNameNewBorn.setVisibility(View.VISIBLE);
+                    lineNameNewBorn.setVisibility(View.VISIBLE);
+                    secDOBNewborn.setVisibility(View.VISIBLE);
+                    lineDOBNewborn.setVisibility(View.VISIBLE);
+                    secAgeNewborn.setVisibility(View.VISIBLE);
+                    lineAgeNewborn.setVisibility(View.VISIBLE);
+                    secAgeNewbornDMY.setVisibility(View.VISIBLE);
+                    lineAgeNewbornDMY.setVisibility(View.VISIBLE);*/
+
+                 if(LOCATIONID.equals(ProjectSetting.LABOR_AND_DELIVERY_ID)){
+                     secMotRegis.setVisibility(View.GONE);
+                     secNameNewBorn.setVisibility(View.GONE);
+                     lineNameNewBorn.setVisibility(View.GONE);
+                     secDOBNewborn.setVisibility(View.GONE);
+                     lineDOBNewborn.setVisibility(View.GONE);
+                     secAgeNewborn.setVisibility(View.GONE);
+                     secAgeNewbornDMY.setVisibility(View.GONE);
+                     secSex.setVisibility(View.GONE);
+                     rdogrpSex.clearCheck();
+                     secMotStudyIDReType.setVisibility(View.GONE);
+                     secFatherName.setVisibility(View.GONE);
+
+                     secKMCPreObs.setVisibility(View.GONE);
+                     secLDPreObs.setVisibility(View.VISIBLE);
+
+                 }else if(LOCATIONID.equals(ProjectSetting.KMC_ID)){
+                     secMotRegis.setVisibility(View.VISIBLE);
+                     secNameNewBorn.setVisibility(View.VISIBLE);
+                     lineNameNewBorn.setVisibility(View.VISIBLE);
+                     secDOBNewborn.setVisibility(View.VISIBLE);
+                     lineDOBNewborn.setVisibility(View.VISIBLE);
+                     secAgeNewborn.setVisibility(View.VISIBLE);
+                     secAgeNewbornDMY.setVisibility(View.GONE);
+                     secSex.setVisibility(View.VISIBLE);
+                     secMotStudyIDReType.setVisibility(View.GONE);
+                     secFatherName.setVisibility(View.VISIBLE);
+
+                     secKMCPreObs.setVisibility(View.VISIBLE);
+                     secLDPreObs.setVisibility(View.GONE);
+
+
+                 }else if(LOCATIONID.equals(ProjectSetting.SEPSIS_ID)){
+                     secMotRegis.setVisibility(View.VISIBLE);
+                     secNameNewBorn.setVisibility(View.VISIBLE);
+                     lineNameNewBorn.setVisibility(View.VISIBLE);
+                     secDOBNewborn.setVisibility(View.VISIBLE);
+                     lineDOBNewborn.setVisibility(View.VISIBLE);
+                     secAgeNewborn.setVisibility(View.VISIBLE);
+                     secAgeNewbornDMY.setVisibility(View.GONE);
+                     secSex.setVisibility(View.VISIBLE);
+                     secMotStudyIDReType.setVisibility(View.GONE);
+                     secFatherName.setVisibility(View.VISIBLE);
+
+                     secKMCPreObs.setVisibility(View.GONE);
+                     secLDPreObs.setVisibility(View.GONE);
+
+                 }
+             }
+             else //if(rbData.equalsIgnoreCase("2"))
              {
                     secStudyID.setVisibility(View.GONE);
                     lineStudyID.setVisibility(View.GONE);
@@ -586,93 +687,11 @@
                     seclbl1.setVisibility(View.GONE);
                     secFatherName.setVisibility(View.GONE);
                     secMotStudyIDReType.setVisibility(View.GONE);
+
+                 secKMCPreObs.setVisibility(View.GONE);
+                 secLDPreObs.setVisibility(View.GONE);
              }
-             else
-             {
-                 if(SID.length()==0)
-                    txtStudyID.setText(NewStudyID(DEVICEID));
-                 else
-                     txtStudyID.setText(NewStudyID(SID));
 
-
-                    secStudyID.setVisibility(View.VISIBLE);
-                    lineStudyID.setVisibility(View.VISIBLE);
-                    //secMotRegis.setVisibility(View.VISIBLE);
-                    //lineMotRegis.setVisibility(View.VISIBLE);
-                    secMotName.setVisibility(View.VISIBLE);
-                    lineMotName.setVisibility(View.VISIBLE);
-                    secMotDOB.setVisibility(View.VISIBLE);
-                    lineMotDOB.setVisibility(View.VISIBLE);
-                    secMotDOBDK.setVisibility(View.VISIBLE);
-                    lineMotDOBDK.setVisibility(View.VISIBLE);
-                    secMotAge.setVisibility(View.VISIBLE);
-                    lineMotAge.setVisibility(View.VISIBLE);
-                    secMotEthnicity.setVisibility(View.VISIBLE);
-                    lineMotEthnicity.setVisibility(View.VISIBLE);
-                    secMotReligion.setVisibility(View.VISIBLE);
-                    lineMotReligion.setVisibility(View.VISIBLE);
-                    secAddress1.setVisibility(View.VISIBLE);
-                    lineAddress1.setVisibility(View.VISIBLE);
-                    secAddress2.setVisibility(View.VISIBLE);
-                    lineAddress2.setVisibility(View.VISIBLE);
-                    secAddress3.setVisibility(View.VISIBLE);
-                    lineAddress3.setVisibility(View.VISIBLE);
-                    secAddress4.setVisibility(View.VISIBLE);
-                    lineAddress4.setVisibility(View.VISIBLE);
-                    secAddressDetail.setVisibility(View.VISIBLE);
-                    lineAddressDetail.setVisibility(View.VISIBLE);
-                    secMotContact.setVisibility(View.VISIBLE);
-                    lineMotContact.setVisibility(View.VISIBLE);
-                    secAltContact.setVisibility(View.VISIBLE);
-                    lineAltContact.setVisibility(View.VISIBLE);
-                    seclbl1.setVisibility(View.VISIBLE);
-                    /*secNameNewBorn.setVisibility(View.VISIBLE);
-                    lineNameNewBorn.setVisibility(View.VISIBLE);
-                    secDOBNewborn.setVisibility(View.VISIBLE);
-                    lineDOBNewborn.setVisibility(View.VISIBLE);
-                    secAgeNewborn.setVisibility(View.VISIBLE);
-                    lineAgeNewborn.setVisibility(View.VISIBLE);
-                    secAgeNewbornDMY.setVisibility(View.VISIBLE);
-                    lineAgeNewbornDMY.setVisibility(View.VISIBLE);*/
-
-                 if(LOCATIONID.equals(ProjectSetting.LABOR_AND_DELIVERY_ID)){
-                     secMotRegis.setVisibility(View.GONE);
-                     secNameNewBorn.setVisibility(View.GONE);
-                     lineNameNewBorn.setVisibility(View.GONE);
-                     secDOBNewborn.setVisibility(View.GONE);
-                     lineDOBNewborn.setVisibility(View.GONE);
-                     secAgeNewborn.setVisibility(View.GONE);
-                     secAgeNewbornDMY.setVisibility(View.GONE);
-                     secSex.setVisibility(View.GONE);
-                     rdogrpSex.clearCheck();
-                     secMotStudyIDReType.setVisibility(View.GONE);
-                     secFatherName.setVisibility(View.GONE);
-
-                 }else if(LOCATIONID.equals(ProjectSetting.KMC_ID)){
-                     secMotRegis.setVisibility(View.VISIBLE);
-                     secNameNewBorn.setVisibility(View.VISIBLE);
-                     lineNameNewBorn.setVisibility(View.VISIBLE);
-                     secDOBNewborn.setVisibility(View.VISIBLE);
-                     lineDOBNewborn.setVisibility(View.VISIBLE);
-                     secAgeNewborn.setVisibility(View.VISIBLE);
-                     secAgeNewbornDMY.setVisibility(View.GONE);
-                     secSex.setVisibility(View.VISIBLE);
-                     secMotStudyIDReType.setVisibility(View.GONE);
-                     secFatherName.setVisibility(View.VISIBLE);
-
-                 }else if(LOCATIONID.equals(ProjectSetting.SEPSIS_ID)){
-                     secMotRegis.setVisibility(View.VISIBLE);
-                     secNameNewBorn.setVisibility(View.VISIBLE);
-                     lineNameNewBorn.setVisibility(View.VISIBLE);
-                     secDOBNewborn.setVisibility(View.VISIBLE);
-                     lineDOBNewborn.setVisibility(View.VISIBLE);
-                     secAgeNewborn.setVisibility(View.VISIBLE);
-                     secAgeNewbornDMY.setVisibility(View.GONE);
-                     secSex.setVisibility(View.VISIBLE);
-                     secMotStudyIDReType.setVisibility(View.GONE);
-                     secFatherName.setVisibility(View.VISIBLE);
-                 }
-             }
             }
          public void onNothingSelected(AdapterView<?> adapterView) {
              return;
@@ -1046,34 +1065,34 @@
              secFatherName.setVisibility(View.GONE);
              secMotStudyIDReType.setVisibility(View.GONE);
 
-             secLDPreObs.setVisibility(View.VISIBLE);
+             //secLDPreObs.setVisibility(View.VISIBLE);
          }else if(LOCATIONID.equals(ProjectSetting.KMC_ID)){
              lblTitle.setText(ProjectSetting.KMC_NAME);
-             secMotRegis.setVisibility(View.VISIBLE);
-             secNameNewBorn.setVisibility(View.VISIBLE);
-             lineNameNewBorn.setVisibility(View.VISIBLE);
-             secDOBNewborn.setVisibility(View.VISIBLE);
-             lineDOBNewborn.setVisibility(View.VISIBLE);
-             secAgeNewborn.setVisibility(View.VISIBLE);
+             secMotRegis.setVisibility(View.GONE);
+             secNameNewBorn.setVisibility(View.GONE);
+             lineNameNewBorn.setVisibility(View.GONE);
+             secDOBNewborn.setVisibility(View.GONE);
+             lineDOBNewborn.setVisibility(View.GONE);
+             secAgeNewborn.setVisibility(View.GONE);
              //lineAgeNewbornDMY.setVisibility(View.VISIBLE);
              secAgeNewbornDMY.setVisibility(View.GONE);
-             secSex.setVisibility(View.VISIBLE);
-             secFatherName.setVisibility(View.VISIBLE);
+             secSex.setVisibility(View.GONE);
+             secFatherName.setVisibility(View.GONE);
              secMotStudyIDReType.setVisibility(View.GONE);
 
-             secKMCPreObs.setVisibility(View.VISIBLE);
+             //secKMCPreObs.setVisibility(View.VISIBLE);
          }else if(LOCATIONID.equals(ProjectSetting.SEPSIS_ID)){
              lblTitle.setText(ProjectSetting.SEPSIS_NAME);
-             secMotRegis.setVisibility(View.VISIBLE);
-             secNameNewBorn.setVisibility(View.VISIBLE);
-             lineNameNewBorn.setVisibility(View.VISIBLE);
-             secDOBNewborn.setVisibility(View.VISIBLE);
-             lineDOBNewborn.setVisibility(View.VISIBLE);
-             secAgeNewborn.setVisibility(View.VISIBLE);
+             secMotRegis.setVisibility(View.GONE);
+             secNameNewBorn.setVisibility(View.GONE);
+             lineNameNewBorn.setVisibility(View.GONE);
+             secDOBNewborn.setVisibility(View.GONE);
+             lineDOBNewborn.setVisibility(View.GONE);
+             secAgeNewborn.setVisibility(View.GONE);
              //lineAgeNewbornDMY.setVisibility(View.VISIBLE);
              secAgeNewbornDMY.setVisibility(View.GONE);
-             secSex.setVisibility(View.VISIBLE);
-             secFatherName.setVisibility(View.VISIBLE);
+             secSex.setVisibility(View.GONE);
+             secFatherName.setVisibility(View.GONE);
              secMotStudyIDReType.setVisibility(View.GONE);
          }
 
@@ -1081,11 +1100,18 @@
          DataSearchObsHis(COUNTRYCODE,FACICODE,DATAID);
          KMCPreObs_DataSearch(COUNTRYCODE,FACICODE,DATAID);
 
+
         Button cmdSave = (Button) findViewById(R.id.cmdSave);
         cmdSave.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {
             DataSave();
         }});
+
+         if(JOBTYPE.equals(ProjectSetting.JT_REGISTRATION)){
+             cmdSave.setVisibility(View.VISIBLE);
+         }else{
+             cmdSave.setVisibility(View.GONE);
+         }
      }
      catch(Exception  e)
      {
@@ -1379,18 +1405,20 @@
                  txtyrslstbth.requestFocus();
                  return;
              }
-             DV = Global.DateValidate(dtpedd.getText().toString());
+             /*DV = Global.DateValidate(dtpedd.getText().toString());
              if (DV.length() != 0 & !chkeddDK.isChecked() & secedd.isShown()) {
                  Connection.MessageBox(Registration.this, "Expected date of delivery:" + DV);
                  dtpedd.requestFocus();
                  return;
-             } else if (txtgaadm.getText().toString().length() == 0 & secgaadm.isShown()) {
+             } */
+
+             if (txtgaadmi.getText().toString().length() == 0 & secgaadm.isShown()) {
                  Connection.MessageBox(Registration.this, "Required field: Gestational age at admission (weeks).");
-                 txtgaadm.requestFocus();
+                 txtgaadmi.requestFocus();
                  return;
-             } else if (Integer.valueOf(txtgaadm.getText().toString().length() == 0 ? "0" : txtgaadm.getText().toString()) < 0 || Integer.valueOf(txtgaadm.getText().toString().length() == 0 ? "45" : txtgaadm.getText().toString()) > 45) {
-                 Connection.MessageBox(Registration.this, "Value should be between 0 and 45(Gestational age at admission (weeks)).");
-                 txtgaadm.requestFocus();
+             } else if ((Integer.valueOf(txtgaadmi.getText().toString().length() == 0 ? "10" : txtgaadmi.getText().toString()) < 10 || Integer.valueOf(txtgaadmi.getText().toString().length() == 0 ? "45" : txtgaadmi.getText().toString()) > 45) & !txtgaadmi.getText().toString().equals("97")) {
+                 Connection.MessageBox(Registration.this, "Value should be between 10 and 45, 97(Gestational age at admission (weeks)).");
+                 txtgaadmi.requestFocus();
                  return;
              } else if (!rdogameth1.isChecked() & !rdogameth2.isChecked() & !rdogameth3.isChecked() & !rdogameth4.isChecked() & secgameth.isShown()) {
                  Connection.MessageBox(Registration.this, "Select anyone options from (Gestational age assessment method).");
@@ -1457,8 +1485,8 @@
                  Connection.MessageBox(Registration.this, "Required field: Gestational age at admission (weeks)-97 for Dont know.");
                  txtgaadm.requestFocus();
                  return;
-             } else if (Integer.valueOf(txtgaadm.getText().toString().length() == 0 ? "10" : txtgaadm.getText().toString()) < 10 || Integer.valueOf(txtgaadm.getText().toString().length() == 0 ? "48" : txtgaadm.getText().toString()) > 48) {
-                 Connection.MessageBox(Registration.this, "Value should be between 10 and 48(Gestational age at admission (weeks)-97 for Dont know).");
+             } else if ((Integer.valueOf(txtgaadm.getText().toString().length() == 0 ? "10" : txtgaadm.getText().toString()) < 10 || Integer.valueOf(txtgaadm.getText().toString().length() == 0 ? "48" : txtgaadm.getText().toString()) > 48) & !txtgaadm.getText().toString().equals("97")) {
+                 Connection.MessageBox(Registration.this, "Value should be between 10 and 48, 97(Gestational age at admission (weeks)-97 for Dont know).");
                  txtgaadm.requestFocus();
                  return;
              } else if (spnplacedeliv.getSelectedItemPosition() == 0 & secplacedeliv.isShown()) {
@@ -2052,7 +2080,7 @@
          secgaadm=(LinearLayout)findViewById(R.id.secgaadm);
          linegaadm=(View)findViewById(R.id.linegaadm);
          Vlblgaadm=(TextView) findViewById(R.id.Vlblgaadm);
-         txtgaadm=(EditText) findViewById(R.id.txtgaadm);
+         txtgaadmi=(EditText) findViewById(R.id.txtgaadmi);
          secgameth=(LinearLayout)findViewById(R.id.secgameth);
          linegameth=(View)findViewById(R.id.linegameth);
          Vlblgameth = (TextView) findViewById(R.id.Vlblgameth);
@@ -2158,7 +2186,7 @@
                  else
                  {
                      secbheartrateadm.setVisibility(View.VISIBLE);
-                     linebheartrateadm.setVisibility(View.VISIBLE);
+                     //linebheartrateadm.setVisibility(View.VISIBLE);
                  }
              }
              public void onNothingSelected(AdapterView<?> adapterView) {
@@ -2191,34 +2219,34 @@
                      secbheartratenum.setVisibility(View.GONE);
                      linebheartratenum.setVisibility(View.GONE);
                      txtbheartratenum.setText("");
-                     secanybcompadm.setVisibility(View.GONE);
-                     lineanybcompadm.setVisibility(View.GONE);
-                     rdogrpanybcompadm.clearCheck();
+                     //secanybcompadm.setVisibility(View.GONE);
+                     //lineanybcompadm.setVisibility(View.GONE);
+                     //rdogrpanybcompadm.clearCheck();
                  }
                  else if(rbData.equalsIgnoreCase("2"))
                  {
                      secbheartratenum.setVisibility(View.GONE);
                      linebheartratenum.setVisibility(View.GONE);
                      txtbheartratenum.setText("");
-                     secanybcompadm.setVisibility(View.GONE);
-                     lineanybcompadm.setVisibility(View.GONE);
-                     rdogrpanybcompadm.clearCheck();
+                     //secanybcompadm.setVisibility(View.GONE);
+                     //lineanybcompadm.setVisibility(View.GONE);
+                     //rdogrpanybcompadm.clearCheck();
                  }
                  else if(rbData.equalsIgnoreCase("7"))
                  {
                      secbheartratenum.setVisibility(View.GONE);
                      linebheartratenum.setVisibility(View.GONE);
                      txtbheartratenum.setText("");
-                     secanybcompadm.setVisibility(View.GONE);
-                     lineanybcompadm.setVisibility(View.GONE);
-                     rdogrpanybcompadm.clearCheck();
+                     //secanybcompadm.setVisibility(View.GONE);
+                     //lineanybcompadm.setVisibility(View.GONE);
+                     //rdogrpanybcompadm.clearCheck();
                  }
                  else
                  {
                      secbheartratenum.setVisibility(View.VISIBLE);
                      linebheartratenum.setVisibility(View.VISIBLE);
-                     secanybcompadm.setVisibility(View.VISIBLE);
-                     lineanybcompadm.setVisibility(View.VISIBLE);
+                     //secanybcompadm.setVisibility(View.VISIBLE);
+                     //lineanybcompadm.setVisibility(View.VISIBLE);
                  }
              }
              public void onNothingSelected(AdapterView<?> adapterView) {
@@ -2294,16 +2322,16 @@
          linebheartratenum.setVisibility(View.GONE);
          secbheartratenum.setVisibility(View.GONE);
          linebheartratenum.setVisibility(View.GONE);
-         secanybcompadm.setVisibility(View.GONE);
-         lineanybcompadm.setVisibility(View.GONE);
-         secbheartratenum.setVisibility(View.GONE);
-         linebheartratenum.setVisibility(View.GONE);
-         secanybcompadm.setVisibility(View.GONE);
-         lineanybcompadm.setVisibility(View.GONE);
-         secbheartratenum.setVisibility(View.GONE);
-         linebheartratenum.setVisibility(View.GONE);
-         secanybcompadm.setVisibility(View.GONE);
-         lineanybcompadm.setVisibility(View.GONE);
+         //secanybcompadm.setVisibility(View.GONE);
+         //lineanybcompadm.setVisibility(View.GONE);
+         //secbheartratenum.setVisibility(View.GONE);
+         //linebheartratenum.setVisibility(View.GONE);
+         //secanybcompadm.setVisibility(View.GONE);
+         //lineanybcompadm.setVisibility(View.GONE);
+         //secbheartratenum.setVisibility(View.GONE);
+         //linebheartratenum.setVisibility(View.GONE);
+         //secanybcompadm.setVisibility(View.GONE);
+         //lineanybcompadm.setVisibility(View.GONE);
      }
 
 
@@ -2335,7 +2363,7 @@
              objSave.setyrslstbth(txtyrslstbth.getText().toString());
              objSave.setedd(dtpedd.getText().toString().length() > 0 ? Global.DateConvertYMD(dtpedd.getText().toString()) : dtpedd.getText().toString());
              objSave.seteddDK((chkeddDK.isChecked()?"1":(seceddDK.isShown()?"2":"")));
-             objSave.setgaadm(txtgaadm.getText().toString());
+             objSave.setgaadm(txtgaadmi.getText().toString());
              String[] d_rdogrpgameth = new String[] {"1","2","3","7"};
              objSave.setgameth("");
              for (int i = 0; i < rdogrpgameth.getChildCount(); i++)
@@ -2449,7 +2477,7 @@
                  {
                      chkeddDK.setChecked(false);
                  }
-                 txtgaadm.setText(item.getgaadm());
+                 txtgaadmi.setText(item.getgaadm());
                  String[] d_rdogrpgameth = new String[] {"1","2","3","7"};
                  for (int i = 0; i < d_rdogrpgameth.length; i++)
                  {
