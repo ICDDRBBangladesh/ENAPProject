@@ -27,29 +27,33 @@
     <View android:id="@+id/lineDataID" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
     <LinearLayout android:id="@+id/secadwghedkmc" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
         <TextView android:id="@+id/lbladwghedkmc" android:text="23." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/Vlbladwghedkmc" android:text="Baby weighed at admission" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrpadwghedkmc" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
+        <TextView android:id="@+id/Vlbladwghedkmc" android:text="Baby weighed at admission" android:layout_width="280sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <RadioGroup android:id="@+id/rdogrpadwghedkmc" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
          
            <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdoadwghedkmc1" android:text="Yes"/>
            <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdoadwghedkmc2" android:text="No"/>
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdoadwghedkmc3" android:text="Don't Know"/>
         </RadioGroup>
     </LinearLayout>
+
     <View android:id="@+id/lineadwghedkmc" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
     <LinearLayout android:id="@+id/secadwghtkmc" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
         <TextView android:id="@+id/lbladwghtkmc" android:text="24." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/Vlbladwghtkmc" android:text="Baby’s weight at admission (gram)" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-         <EditText android:id="@+id/txtadwghtkmc" android:maxLength="4" android:layout_width="100sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlbladwghtkmc" android:text="Baby’s weight at admission (gram)" android:layout_width="280sp" android:layout_height="wrap_content" android:textSize="20sp" />
+         <EditText android:id="@+id/txtadwghtkmc" android:maxLength="4" android:layout_width="70sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+        <CheckBox android:id="@+id/chkadwghtkmcDK" android:text="Don't Know" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10sp" android:textSize="20sp" />
     </LinearLayout>
     <View android:id="@+id/lineadwghtkmc" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
     <LinearLayout android:id="@+id/secgaadm" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
         <TextView android:id="@+id/lblgaadm" android:text="25." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/Vlblgaadm" android:text="Gestational age at admission (weeks)-97 for Dont know" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-         <EditText android:id="@+id/txtgaadm" android:maxLength="2" android:layout_width="100sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblgaadm" android:text="Gestational age at admission (weeks)" android:layout_width="280sp" android:layout_height="wrap_content" android:textSize="20sp" />
+         <EditText android:id="@+id/txtgaadm" android:maxLength="2" android:layout_width="70sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+        <CheckBox android:id="@+id/chkgaadmDK" android:text="Don't Know" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10sp" android:textSize="20sp" />
     </LinearLayout>
     <View android:id="@+id/linegaadm" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
     <LinearLayout android:id="@+id/secplacedeliv" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
         <TextView android:id="@+id/lblplacedeliv" android:text="26." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/Vlblplacedeliv" android:text="Place of Delivery" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblplacedeliv" android:text="Place of Delivery" android:layout_width="280sp" android:layout_height="wrap_content" android:textSize="20sp" />
         <Spinner android:id="@+id/spnplacedeliv" android:drawSelectorOnTop="true" android:layout_width="200sp" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="20sp" />
     </LinearLayout>
     <View android:id="@+id/lineplacedeliv" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />

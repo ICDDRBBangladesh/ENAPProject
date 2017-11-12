@@ -20,6 +20,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.Html;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -110,7 +111,11 @@ public class Observation_Time extends AppCompatActivity {
     private Boolean spinnerTouched = false;
     GridLayoutManager manager;
     LinearLayout secChildSl;
-    Spinner spnChildSl;
+    public Spinner spnChildSl;
+    RadioGroup rdogrpChildSl;
+    RadioButton rdoChildSl1;
+    RadioButton rdoChildSl2;
+    RadioButton rdoChildSl3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -165,7 +170,11 @@ public class Observation_Time extends AppCompatActivity {
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                VariableList_DataModel variable = variableList.get(position);
+                try {
+                    VariableList_DataModel variable = variableList.get(position);
+                }catch(Exception ex){
+
+                }
                 //Toast.makeText(getApplicationContext(), variable.getDescription() + " is selected!", Toast.LENGTH_SHORT).show();
             }
 
@@ -178,44 +187,34 @@ public class Observation_Time extends AppCompatActivity {
 
         manager = new GridLayoutManager(this, 4);
         //dynamically changing the total number of column
-        /*manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
                 //Labour and Delivery
                 if(TABLEID.equals("1")) {
-                    if (position == 1) {
+                    if (position == 16) {
                         return 2;
-                    } else if (position == 2) {
-                        return 3;
-                    } else if (position == 9) {
-                        return 3;
-                    } else if (position == 32) {
-                        return 3;
+                    } else if (position == 17) {
+                        return 2;
                     }else {
                         return 1;
                     }
                 }
-                //Birth Asphyxia and Resuscitation
+                //Newborn
                 else if(TABLEID.equals("2")) {
-                    if (position == 1) {
+                    return 1;
+                }
+                //Resus
+                else if(TABLEID.equals("3")) {
+                    if (position == 2|position == 3|position == 4|position == 5|position == 6) {
                         return 2;
-                    } else if (position == 3) {
-                        return 2;
-                    } else if (position == 5) {
-                        return 2;
-                    } else if (position == 7) {
-                        return 1;
-                    } else if (position == 9) {
-                        return 3;
-                    } else if (position == 18) {
-                        return 1;
                     }else {
                         return 1;
                     }
                 }
-                //PPH
-                else if(TABLEID.equals("3")) {
-                    if (position == 10) {
+                //PPHx
+                else if(TABLEID.equals("4")) {
+                    if (position == 0|position == 17|position == 20|position == 31) {
                         return 2;
                     }else {
                         return 1;
@@ -224,9 +223,8 @@ public class Observation_Time extends AppCompatActivity {
                     return 1;
                 }
 
-                //return 2; //(3 - position % 3);
             }
-        });*/
+        });
         recyclerView.setLayoutManager(manager);
 
         secChildSl = (LinearLayout)findViewById(R.id.secChildSl);
@@ -237,12 +235,45 @@ public class Observation_Time extends AppCompatActivity {
         listChild.add("3");
         ArrayAdapter<String> adptrchild= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listChild);
         spnChildSl.setAdapter(adptrchild);
-        spnChildSl.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+        rdogrpChildSl=(RadioGroup)findViewById(R.id.rdogrpChildSl);
+        rdoChildSl1=(RadioButton)findViewById(R.id.rdoChildSl1);
+        rdoChildSl2=(RadioButton)findViewById(R.id.rdoChildSl2);
+        rdoChildSl3=(RadioButton)findViewById(R.id.rdoChildSl3);
+        rdogrpChildSl.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId)
+            {
+                switch(checkedId)
+                {
+                    case R.id.rdoChildSl1:
+                        prepareVariableListData(TABLEID, DATAID, WOMAN_CHILD, "1");
+                        mAdapter.notifyDataSetChanged();
+                        break;
+                    case R.id.rdoChildSl2:
+                        prepareVariableListData(TABLEID, DATAID, WOMAN_CHILD, "2");
+                        mAdapter.notifyDataSetChanged();
+                        break;
+                    case R.id.rdoChildSl3:
+                        prepareVariableListData(TABLEID, DATAID, WOMAN_CHILD, "3");
+                        mAdapter.notifyDataSetChanged();
+                        break;
+                }
+            }
+        });
+
+        /*spnChildSl.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 if(WOMAN_CHILD.equals("c")) {
                     String CSL = spnChildSl.getSelectedItem().toString();
-                    prepareVariableListData(TABLEID, DATAID, WOMAN_CHILD, CSL);
+                    //prepareVariableListData(TABLEID, DATAID, WOMAN_CHILD, CSL);
+                    mAdapter.notifyDataSetChanged();
+                }else if(WOMAN_CHILD.equals("r")) {
+                    String CSL = spnChildSl.getSelectedItem().toString();
+                    //prepareVariableListData(TABLEID, DATAID, WOMAN_CHILD, CSL);
+                    mAdapter.notifyDataSetChanged();
                 }
             }
 
@@ -251,14 +282,16 @@ public class Observation_Time extends AppCompatActivity {
                 // your code here
             }
 
-        });
+        });*/
 
         if(WOMAN_CHILD.equals("w"))
             secChildSl.setVisibility(View.GONE);
         else if(WOMAN_CHILD.equals("c"))
             secChildSl.setVisibility(View.VISIBLE);
+        else if(WOMAN_CHILD.equals("r"))
+            secChildSl.setVisibility(View.VISIBLE);
 
-        prepareVariableListData(TABLEID, DATAID, WOMAN_CHILD,"");
+        //prepareVariableListData(TABLEID, DATAID, WOMAN_CHILD,"");
     }
 
     public void refreshAdapter(){
@@ -270,22 +303,101 @@ public class Observation_Time extends AppCompatActivity {
         DATAID  = DataId;
         String SQL = "";
         WOMAN_CHILD = WomanChild;
+        List<String> listChild = new ArrayList<String>();
+        Integer totalChild = 1;
         if(WOMAN_CHILD.equals("w"))
             secChildSl.setVisibility(View.GONE);
-        else if(WOMAN_CHILD.equals("c"))
+        else if(WOMAN_CHILD.equals("c")) {
             secChildSl.setVisibility(View.VISIBLE);
+            /*if(C.Existence("Select VarData from Observation where DataId='"+ DATAID +"' and VarName='Numbirth'")){
+                String CH = C.ReturnSingleValue("Select VarData from Observation where DataId='"+ DATAID +"' and VarName='Numbirth'");
+                totalChild = Integer.parseInt(CH.length()==0?"1":CH);
+            }*/
+            String CH = C.ReturnSingleValue("Select VarData from Observation where DataId='"+ DATAID +"' and VarName='Numbirth'");
+            totalChild = Integer.parseInt(CH.length()==0?"1":CH);
+
+            if(totalChild==1){
+                rdoChildSl1.setVisibility(View.VISIBLE);
+                rdoChildSl2.setVisibility(View.GONE);
+                rdoChildSl3.setVisibility(View.GONE);
+            }else if(totalChild==2){
+                rdoChildSl1.setVisibility(View.VISIBLE);
+                rdoChildSl2.setVisibility(View.VISIBLE);
+                rdoChildSl3.setVisibility(View.GONE);
+            }else if(totalChild==3){
+                rdoChildSl1.setVisibility(View.VISIBLE);
+                rdoChildSl2.setVisibility(View.VISIBLE);
+                rdoChildSl3.setVisibility(View.VISIBLE);
+            }
+
+            /*for(int i=1;i<=totalChild;i++)
+                listChild.add(String.valueOf(i));
+
+            ArrayAdapter<String> adptrchild= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listChild);
+            spnChildSl.setAdapter(adptrchild);*/
+
+        }
+        else if(WOMAN_CHILD.equals("r")) {
+            secChildSl.setVisibility(View.VISIBLE);
+            String CH = C.ReturnSingleValue("Select VarData from Observation where DataId='"+ DATAID +"' and VarName='Numbirth'");
+            totalChild = Integer.parseInt(CH.length()==0?"1":CH);
+
+            /*if(C.Existence("Select VarData from Observation where DataId='"+ DATAID +"' and VarName='Numbirth'")){
+                totalChild = Integer.parseInt(C.ReturnSingleValue("Select VarData from Observation where DataId='"+ DATAID +"' and VarName='Numbirth'"));
+            }*/
+            if(totalChild==1){
+                rdoChildSl1.setVisibility(View.VISIBLE);
+                rdoChildSl2.setVisibility(View.GONE);
+                rdoChildSl3.setVisibility(View.GONE);
+            }else if(totalChild==2){
+                rdoChildSl1.setVisibility(View.VISIBLE);
+                rdoChildSl2.setVisibility(View.VISIBLE);
+                rdoChildSl3.setVisibility(View.GONE);
+            }else if(totalChild==3){
+                rdoChildSl1.setVisibility(View.VISIBLE);
+                rdoChildSl2.setVisibility(View.VISIBLE);
+                rdoChildSl3.setVisibility(View.VISIBLE);
+            }
+        }
+
+        ChildSL = ChildSL.length()==0?"1":ChildSL;
+        //Table:1
+        SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,SL,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate,Active)";
+        SQL += " Select '" + COUNTRYCODE + "' CountryCode,'" + FACICODE + "' FaciCode, '1' TableId,'" + DataId + "' DataID, VarName,'','N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'" + DEVICEID + "' DeviceId,'" + ENTRYUSER + "' EntryUser,'2'Upload,'" + Global.DateTimeNowYMDHMS() + "' modifyDate,v.Active from ObjVarList v";
+        SQL += " where TableId='1' and not exists(select CountryCode from Observation where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and TableId='1' and DataId='" + DataId + "' and VarName=v.VarName and SL='')";
+        C.Save(SQL);
+
+        //Table:2
+        SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,SL,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate,Active)";
+        SQL += " Select '" + COUNTRYCODE + "' CountryCode,'" + FACICODE + "' FaciCode, '2' TableId,'" + DataId + "' DataID, VarName,'" + ChildSL + "','N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'" + DEVICEID + "' DeviceId,'" + ENTRYUSER + "' EntryUser,'2'Upload,'" + Global.DateTimeNowYMDHMS() + "' modifyDate,v.Active from ObjVarList v";
+        SQL += " where TableId='2' and not exists(select CountryCode from Observation where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and TableId='2' and DataId='" + DataId + "' and VarName=v.VarName and SL='" + ChildSL + "')";
+        C.Save(SQL);
+
+        //Table:3
+        SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,SL,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate,Active)";
+        SQL += " Select '" + COUNTRYCODE + "' CountryCode,'" + FACICODE + "' FaciCode, '3' TableId,'" + DataId + "' DataID, VarName,'" + ChildSL + "','N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'" + DEVICEID + "' DeviceId,'" + ENTRYUSER + "' EntryUser,'2'Upload,'" + Global.DateTimeNowYMDHMS() + "' modifyDate,v.Active from ObjVarList v";
+        SQL += " where TableId='3' and not exists(select CountryCode from Observation where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and TableId='3' and DataId='" + DataId + "' and VarName=v.VarName and SL='" + ChildSL + "')";
+        C.Save(SQL);
+
+        //Table:4
+        SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,SL,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate,Active)";
+        SQL += " Select '" + COUNTRYCODE + "' CountryCode,'" + FACICODE + "' FaciCode, '4' TableId,'" + DataId + "' DataID, VarName,'','N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'" + DEVICEID + "' DeviceId,'" + ENTRYUSER + "' EntryUser,'2'Upload,'" + Global.DateTimeNowYMDHMS() + "' modifyDate,v.Active from ObjVarList v";
+        SQL += " where TableId='4' and not exists(select CountryCode from Observation where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and TableId='4' and DataId='" + DataId + "' and VarName=v.VarName and SL='')";
+        C.Save(SQL);
+
 
         if(WomanChild.equals("w")) {
-            SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate)";
-            SQL += " Select '"+ COUNTRYCODE +"' CountryCode,'"+ FACICODE +"' FaciCode, '"+ TableId +"' TableId,'"+ DataId +"' DataID, VarName,'N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'"+ DEVICEID +"' DeviceId,'"+ ENTRYUSER +"' EntryUser,''Upload,''modifyDate from ObjVarList v";
-            SQL += " where not exists(select CountryCode from Observation where CountryCode='"+ COUNTRYCODE +"' and FaciCode='"+ FACICODE +"' and TableId='"+ TableId +"' and DataId='"+ DataId +"' and VarName=v.VarName)";
-            C.Save(SQL);
-
-            SQL = " Select v.TableId, v.VarName, v.Description, v.ObjSeq1, v.ObjSeq2, (case when o.Observ is null then '' else o.Observ end) Status,";
+            if(TableId.equals("1")) {
+                SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,SL,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate,Active)";
+                SQL += " Select '" + COUNTRYCODE + "' CountryCode,'" + FACICODE + "' FaciCode, '" + TableId + "' TableId,'" + DataId + "' DataID, VarName,'','N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'" + DEVICEID + "' DeviceId,'" + ENTRYUSER + "' EntryUser,'2'Upload,'" + Global.DateTimeNowYMDHMS() + "' modifyDate,v.Active from ObjVarList v";
+                SQL += " where TableId='" + TableId + "' and not exists(select CountryCode from Observation where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and TableId='" + TableId + "' and DataId='" + DataId + "' and VarName=v.VarName)";
+                C.Save(SQL);
+            }
+            SQL = " Select v.TableId, v.VarName, (case when o.sl is null then '' else o.sl end)SL, v.Description, v.ObjSeq1, v.ObjSeq2, (case when o.Observ is null then '' else o.Observ end) Status,";
             SQL += " VarData,";
             SQL += " ControlType,";
             SQL += " VarOption,";
-            SQL += " Color";
+            SQL += " VarLength, VarDataType, Color, (case when length(o.Active)=0 or o.Active is null then v.Active else o.Active end)Active, Important, ForceVar";
             SQL += " from ObjVarList v";
             SQL += " left outer join Observation o on v.TableId=o.TableId and v.VarName=o.VarName";
             SQL += " and o.CountryCode='" + COUNTRYCODE + "' and o.FaciCode='" + FACICODE + "'";
@@ -294,17 +406,19 @@ public class Observation_Time extends AppCompatActivity {
             SQL += " Where v.TableId='" + TableId + "'";
             SQL += " order by ObjSeq1";
         }
-        else if(WomanChild.equals("c")) {
-            SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,SL,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate)";
-            SQL += " Select '"+ COUNTRYCODE +"' CountryCode,'"+ FACICODE +"' FaciCode, '"+ TableId +"' TableId,'"+ DataId +"' DataID, VarName,'"+ ChildSL +"','N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'"+ DEVICEID +"' DeviceId,'"+ ENTRYUSER +"' EntryUser,''Upload,''modifyDate from ObjVarList v";
-            SQL += " where not exists(select CountryCode from Observation where CountryCode='"+ COUNTRYCODE +"' and FaciCode='"+ FACICODE +"' and TableId='"+ TableId +"' and DataId='"+ DataId +"' and VarName=v.VarName and SL=v.SL)";
-            C.Save(SQL);
+        else if(WomanChild.equals("c") & TableId.equals("2")) {
+            /*if(TableId.equals("2")) {
+                SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,SL,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate)";
+                SQL += " Select '" + COUNTRYCODE + "' CountryCode,'" + FACICODE + "' FaciCode, '" + TableId + "' TableId,'" + DataId + "' DataID, VarName,'" + ChildSL + "','N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'" + DEVICEID + "' DeviceId,'" + ENTRYUSER + "' EntryUser,'2'Upload,'" + Global.DateTimeNowYMDHMS() + "' modifyDate from ObjVarList v";
+                SQL += " where TableId='" + TableId + "' and not exists(select CountryCode from Observation where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and TableId='" + TableId + "' and DataId='" + DataId + "' and VarName=v.VarName and SL='" + ChildSL + "')";
+                C.Save(SQL);
+            }*/
 
-            SQL = " Select v.TableId, v.VarName, v.Description, v.ObjSeq1, v.ObjSeq2, (case when o.Observ is null then '' else o.Observ end) Status,";
+            SQL = " Select v.TableId, v.VarName, (case when o.sl is null then '' else o.sl end)SL, v.Description, v.ObjSeq1, v.ObjSeq2, (case when o.Observ is null then '' else o.Observ end) Status,";
             SQL += " VarData,";
             SQL += " ControlType,";
             SQL += " VarOption,";
-            SQL += " Color";
+            SQL += " VarLength, VarDataType, Color, (case when length(o.Active)=0 or o.Active is null then v.Active else o.Active end)Active, Important, ForceVar";
             SQL += " from ObjVarList v";
             SQL += " left outer join Observation o on v.TableId=o.TableId and v.VarName=o.VarName";
             SQL += " and o.CountryCode='" + COUNTRYCODE + "' and o.FaciCode='" + FACICODE + "'";
@@ -313,7 +427,48 @@ public class Observation_Time extends AppCompatActivity {
             SQL += " Where v.TableId='" + TableId + "'";
             SQL += " order by ObjSeq1";
         }
+        else if(WomanChild.equals("r") & TableId.equals("3")) {
+            ChildSL = ChildSL.length()==0?"1":ChildSL;
+            if(TableId.equals("3")) {
+                SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,SL,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate,Active)";
+                SQL += " Select '" + COUNTRYCODE + "' CountryCode,'" + FACICODE + "' FaciCode, '" + TableId + "' TableId,'" + DataId + "' DataID, VarName,'" + ChildSL + "','N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'" + DEVICEID + "' DeviceId,'" + ENTRYUSER + "' EntryUser,'2'Upload,'" + Global.DateTimeNowYMDHMS() + "' modifyDate,v.Active from ObjVarList v";
+                SQL += " where TableId='" + TableId + "' and not exists(select CountryCode from Observation where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and TableId='" + TableId + "' and DataId='" + DataId + "' and VarName=v.VarName and SL='" + ChildSL + "')";
+                C.Save(SQL);
+            }
 
+            SQL = " Select v.TableId, v.VarName, (case when o.sl is null then '' else o.sl end)SL, v.Description, v.ObjSeq1, v.ObjSeq2, (case when o.Observ is null then '' else o.Observ end) Status,";
+            SQL += " VarData,";
+            SQL += " ControlType,";
+            SQL += " VarOption,";
+            SQL += " VarLength, VarDataType, Color, (case when length(o.Active)=0 or o.Active is null then v.Active else o.Active end)Active, Important, ForceVar";
+            SQL += " from ObjVarList v";
+            SQL += " left outer join Observation o on v.TableId=o.TableId and v.VarName=o.VarName";
+            SQL += " and o.CountryCode='" + COUNTRYCODE + "' and o.FaciCode='" + FACICODE + "'";
+            SQL += " and o.TableId='" + TableId + "'";
+            SQL += " and o.DataID='" + DataId + "' and ifnull(o.SL,'')='"+ ChildSL +"'";
+            SQL += " Where v.TableId='" + TableId + "'";
+            SQL += " order by ObjSeq1";
+        }else if(WomanChild.equals("w") & TableId.equals("4")) {
+            if(TableId.equals("4")) {
+                SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,SL,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate,Active)";
+                SQL += " Select '" + COUNTRYCODE + "' CountryCode,'" + FACICODE + "' FaciCode, '" + TableId + "' TableId,'" + DataId + "' DataID, VarName,'','N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'" + DEVICEID + "' DeviceId,'" + ENTRYUSER + "' EntryUser,'2'Upload,'" + Global.DateTimeNowYMDHMS() + "' modifyDate,v.Active from ObjVarList v";
+                SQL += " where TableId='" + TableId + "' and not exists(select CountryCode from Observation where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and TableId='" + TableId + "' and DataId='" + DataId + "' and VarName=v.VarName)";
+                C.Save(SQL);
+            }
+
+            SQL = " Select v.TableId, v.VarName, (case when o.sl is null then '' else o.sl end)SL, v.Description, v.ObjSeq1, v.ObjSeq2, (case when o.Observ is null then '' else o.Observ end) Status,";
+            SQL += " VarData,";
+            SQL += " ControlType,";
+            SQL += " VarOption,";
+            SQL += " VarLength, VarDataType, Color, (case when length(o.Active)=0 or o.Active is null then v.Active else o.Active end)Active, Important, ForceVar";
+            SQL += " from ObjVarList v";
+            SQL += " left outer join Observation o on v.TableId=o.TableId and v.VarName=o.VarName";
+            SQL += " and o.CountryCode='" + COUNTRYCODE + "' and o.FaciCode='" + FACICODE + "'";
+            SQL += " and o.TableId='" + TableId + "'";
+            SQL += " and o.DataID='" + DataId + "'";
+            SQL += " Where v.TableId='" + TableId + "'";
+            SQL += " order by ObjSeq1";
+        }
         Observation_VarList_DataModel d = new Observation_VarList_DataModel();
         List<Observation_VarList_DataModel> data = d.ObservationList(this, SQL);
 
@@ -324,6 +479,7 @@ public class Observation_Time extends AppCompatActivity {
             VariableList_DataModel p = new VariableList_DataModel();
             p.setTableId(item.getTableId());
             p.setVarName(item.getVarName());
+            p.setSL(item.getSL());
             p.setDescription(item.getDescription());
             p.setObjSeq1(item.getObjSeq1());
             p.setObjSeq2(item.getObjSeq2());
@@ -332,13 +488,22 @@ public class Observation_Time extends AppCompatActivity {
             p.setVarData(item.getVarData()==null?"":item.getVarData());
             p.setControlType(item.getControlType());
             p.setVarOption(item.getVarOption());
+
+            p.setVarLength(item.getVarLength());
+            p.setVarDataType(item.getVarDataType());
             p.setColor(item.getColor());
+            p.setActive(item.getActive());
+            p.setColor(item.getColor());
+            p.setImportant(item.getImportant());
+            p.setForceVar(item.getForceVar());
+
             count +=1;
             variableList.add(p);
         }
 
         //lblCountVariable.setText("(Total: "+ String.valueOf(count) +")");
         //mAdapter.notifyDataSetChanged();
+        //refreshAdapter();
     }
 
     public class VariableListAdapter extends RecyclerView.Adapter<VariableListAdapter.MyViewHolder> {
@@ -350,7 +515,7 @@ public class Observation_Time extends AppCompatActivity {
             public Spinner spnDataList;
             public EditText txtData;
             public ImageButton btnData;
-
+            public View lineImportant;
             public MyViewHolder(View view) {
                 super(view);
                 objDescription = (TextView) view.findViewById(R.id.objDescription);
@@ -362,6 +527,7 @@ public class Observation_Time extends AppCompatActivity {
                 btnData = (ImageButton) view.findViewById(R.id.btnData);
                 txtData.setInputType(InputType.TYPE_CLASS_NUMBER);
                 txtData.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4)});
+                lineImportant = (View) view.findViewById(R.id.lineImportant);
             }
         }
 
@@ -381,46 +547,42 @@ public class Observation_Time extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final VariableListAdapter.MyViewHolder holder, final int position) {
             final VariableList_DataModel varlist = variableList.get(position);
-            holder.objDescription.setText(varlist.getDescription());
+            //holder.objDescription.setText(varlist.getDescription());
+            //holder.objDescription.setText(Html.fromHtml("<font color=\"#FF0000\">*</font>"+ varlist.getDescription()));
 
-            /*manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            if(varlist.getImportant().equals("1"))
+                holder.objDescription.setText(Html.fromHtml("<font color=\"#FF0000\">*</font>"+ varlist.getDescription()));
+            else
+                holder.objDescription.setText(varlist.getDescription());
+
+            manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
                 @Override
                 public int getSpanSize(int position) {
                     //Labour and Delivery
                     if(TABLEID.equals("1")) {
-                        if (position == 1) {
+                        if (position == 16) {
                             return 2;
-                        } else if (position == 2) {
-                            return 3;
-                        } else if (position == 9) {
-                            return 3;
-                        } else if (position == 32) {
-                            return 3;
+                        } else if (position == 17) {
+                            return 2;
                         }else {
                             return 1;
                         }
                     }
-                    //Birth Asphyxia and Resuscitation
+                    //Newborn
                     else if(TABLEID.equals("2")) {
-                        if (position == 1) {
+                        return 1;
+                    }
+                    //Resus
+                    else if(TABLEID.equals("3")) {
+                        if (position == 2|position == 3|position == 4|position == 5|position == 6) {
                             return 2;
-                        } else if (position == 3) {
-                            return 2;
-                        } else if (position == 5) {
-                            return 2;
-                        } else if (position == 7) {
-                            return 1;
-                        } else if (position == 9) {
-                            return 3;
-                        } else if (position == 18) {
-                            return 1;
                         }else {
                             return 1;
                         }
                     }
                     //PPH
-                    else if(TABLEID.equals("3")) {
-                        if (position == 10) {
+                    else if(TABLEID.equals("4")) {
+                        if (position == 0|position == 17|position == 20|position == 31) {
                             return 2;
                         }else {
                             return 1;
@@ -429,279 +591,546 @@ public class Observation_Time extends AppCompatActivity {
                         return 1;
                     }
 
-                    //return 2; //(3 - position % 3);
                 }
-            });*/
+            });
             recyclerView.setLayoutManager(manager);
-
-
 
             holder.objDescription.setVisibility(View.GONE);
             holder.dataDescription.setVisibility(View.GONE);
             holder.spnDataList.setVisibility(View.GONE);
             holder.txtData.setVisibility(View.GONE);
             holder.btnData.setVisibility(View.GONE);
+            //**************************************************************************************
+            try {
+                //Command Button
+                if (varlist.getControlType().equals("1")) {
+                    holder.objDescription.setVisibility(View.VISIBLE);
+                    holder.dataDescription.setVisibility(View.GONE);
+                    holder.spnDataList.setVisibility(View.GONE);
 
-            //Command Button
-            if(varlist.getControlType().equals("1")){
-                holder.objDescription.setVisibility(View.VISIBLE);
-                holder.dataDescription.setVisibility(View.GONE);
-                holder.spnDataList.setVisibility(View.GONE);
+                    //Active
+                    if (varlist.getActive().equals("1")) {
+                        //holder.objCheckList.setVisibility(View.VISIBLE);
+                        holder.objCheckList.setEnabled(true);
+                        holder.txtData.setEnabled(true);
+                        holder.btnData.setEnabled(true);
+                        holder.objCheckList.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        //holder.objCheckList.setBackgroundColor(Color.parseColor("#69CB3F"));
 
-                if(varlist.getStatus().equals("Y")){
-                    holder.objCheckList.setBackgroundColor(Color.parseColor("#69CB3F"));
-                }else if(varlist.getStatus().equals("C")){
-                    holder.objCheckList.setBackgroundColor(Color.parseColor("#FAAC58"));
-                }else if(varlist.getStatus().equals("N")){
-                    holder.objCheckList.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                }else{
-                    holder.objCheckList.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                }
-
-                holder.objCheckList.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        Observation_DataModel obj = new Observation_DataModel();
-                        obj.setCountryCode(COUNTRYCODE);
-                        obj.setFaciCode(FACICODE);
-                        obj.setTableId(TABLEID);
-                        obj.setDataID(DATAID);
-                        obj.setVarName(varlist.getVarName());
-
-                        if(WOMAN_CHILD.equals("c"))
-                            obj.setSL(varlist.getSL());
-
-                        if(varlist.getStatus().equals("Y")) {
-                            obj.setObserv("C");
-                            varlist.setStatus("C");
-                            mAdapter.variableList.set(position,varlist);
+                        if (varlist.getStatus().equals("Y")) {
+                            holder.objCheckList.setBackgroundColor(Color.parseColor("#69CB3F"));
+                        } else if (varlist.getStatus().equals("C")) {
+                            holder.objCheckList.setBackgroundColor(Color.parseColor("#FF0000"));
+                        } else if (varlist.getStatus().equals("N")) {
+                            holder.objCheckList.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        } else {
+                            holder.objCheckList.setBackgroundColor(Color.parseColor("#D7D7D7"));
                         }
-                        else if(varlist.getStatus().equals("C")) {
-                            obj.setObserv("N");
-                            varlist.setStatus("N");
-                            mAdapter.variableList.set(position,varlist);
-                        }
-                        else if(varlist.getStatus().equals("N")) {
-                            obj.setObserv("Y");
-                            varlist.setStatus("Y");
-                            mAdapter.variableList.set(position,varlist);
-                        }
-                        else {
-                            obj.setObserv("N");
-                            varlist.setStatus("N");
-                            mAdapter.variableList.set(position,varlist);
-                        }
-
-                        obj.setVarData("");
-                        obj.setObservDT(Global.DateNowYMD());
-                        obj.setFirstTm(g.CurrentTime24());
-                        obj.setFinalTm(g.CurrentTime24());
-                        obj.setEnDt(Global.DateTimeNowYMDHMS());
-                        obj.setDeviceID(DEVICEID);
-                        obj.setEntryUser(ENTRYUSER);
-                        obj.SaveUpdateData(Observation_Time.this);
-
-                        //recyclerView.invalidate();
-                        //mAdapter.notifyItemChanged(position);
-                        mAdapter.notifyDataSetChanged();
-                    }
-                });
-            }
-            //TextBox
-            else if(varlist.getControlType().equals("2")){
-                holder.objDescription.setVisibility(View.VISIBLE);
-                holder.txtData.setVisibility(View.VISIBLE);
-                holder.btnData.setVisibility(View.VISIBLE);
-                holder.dataDescription.setVisibility(View.GONE);
-                holder.spnDataList.setVisibility(View.GONE);
-                holder.txtData.setText(varlist.getVarData());
-
-                if(varlist.getStatus().equals("Y")){
-                    holder.objCheckList.setBackgroundColor(Color.parseColor("#69CB3F"));
-                }else if(varlist.getStatus().equals("C")){
-                    holder.objCheckList.setBackgroundColor(Color.parseColor("#FAAC58"));
-                }else if(varlist.getStatus().equals("N")){
-                    holder.objCheckList.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                }else{
-                    holder.objCheckList.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                }
-
-                holder.btnData.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-
-                        if(holder.txtData.getText().length() == 0) return;
-
-                        Observation_DataModel obj = new Observation_DataModel();
-                        obj.setCountryCode(COUNTRYCODE);
-                        obj.setFaciCode(FACICODE);
-                        obj.setTableId(TABLEID);
-                        obj.setDataID(DATAID);
-                        obj.setVarName(varlist.getVarName());
-                        if(WOMAN_CHILD.equals("c"))
-                            obj.setSL(varlist.getSL());
-
-                        if(varlist.getStatus().equals("Y")) {
-                            obj.setObserv("C");
-                            varlist.setStatus("C");
-                            mAdapter.variableList.set(position,varlist);
-                        }
-                        else if(varlist.getStatus().equals("C")) {
-                            obj.setObserv("N");
-                            varlist.setStatus("N");
-                            mAdapter.variableList.set(position,varlist);
-                        }
-                        else if(varlist.getStatus().equals("N")) {
-                            obj.setObserv("Y");
-                            varlist.setStatus("Y");
-                            mAdapter.variableList.set(position,varlist);
-                        }
-                        else {
-                            obj.setObserv("N");
-                            varlist.setStatus("N");
-                            mAdapter.variableList.set(position,varlist);
-                        }
-
-                        obj.setVarData(holder.txtData.getText().toString());
-                        obj.setObserv("Y");
-                        varlist.setStatus("Y");
-                        varlist.setVarData(holder.txtData.getText().toString());
-
-                        obj.setObservDT(Global.DateNowYMD());
-                        obj.setFirstTm(g.CurrentTime24());
-                        obj.setFinalTm(g.CurrentTime24());
-                        obj.setEnDt(Global.DateTimeNowYMDHMS());
-                        obj.setDeviceID(DEVICEID);
-                        obj.setEntryUser(ENTRYUSER);
-                        obj.SaveUpdateData(Observation_Time.this);
-
-                        //recyclerView.invalidate();
-                        //mAdapter.notifyItemChanged(position);
-                        holder.txtData.requestFocus();
-                        mAdapter.notifyDataSetChanged();
-                    }
-                });
-
-                /*holder.txtData.addTextChangedListener(new TextWatcher() {
-                    public void afterTextChanged(Editable s) {
-                        if(holder.txtData.getText().length() != 4) return;
-
-                        Observation_DataModel obj = new Observation_DataModel();
-                        obj.setCountryCode(COUNTRYCODE);
-                        obj.setFaciCode(FACICODE);
-                        obj.setTableId(TABLEID);
-                        obj.setDataID(DATAID);
-                        obj.setVarName(varlist.getVarName());
-
-                        if(varlist.getStatus().equals("Y")) {
-                            obj.setObserv("C");
-                            varlist.setStatus("C");
-                            mAdapter.variableList.set(position,varlist);
-                        }
-                        else if(varlist.getStatus().equals("C")) {
-                            obj.setObserv("N");
-                            varlist.setStatus("N");
-                            mAdapter.variableList.set(position,varlist);
-                        }
-                        else if(varlist.getStatus().equals("N")) {
-                            obj.setObserv("Y");
-                            varlist.setStatus("Y");
-                            mAdapter.variableList.set(position,varlist);
-                        }
-                        else {
-                            obj.setObserv("N");
-                            varlist.setStatus("N");
-                            mAdapter.variableList.set(position,varlist);
-                        }
-
-                        obj.setVarData(holder.txtData.getText().toString());
-                        obj.setObserv("Y");
-                        varlist.setStatus("Y");
-                        varlist.setVarData(holder.txtData.getText().toString());
-
-                        obj.setObservDT(Global.DateNowYMD());
-                        obj.setFirstTm(g.CurrentTime24());
-                        obj.setFinalTm(g.CurrentTime24());
-                        obj.setEnDt(Global.DateTimeNowYMDHMS());
-                        obj.setDeviceID(DEVICEID);
-                        obj.setEntryUser(ENTRYUSER);
-                        obj.SaveUpdateData(Observation_Time.this);
-
-                        //recyclerView.invalidate();
-                        //mAdapter.notifyItemChanged(position);
-                        holder.txtData.requestFocus();
-                        mAdapter.notifyDataSetChanged();
-
+                    } else {
+                        //holder.objCheckList.setVisibility(View.INVISIBLE);
+                        holder.objCheckList.setEnabled(false);
+                        holder.txtData.setEnabled(false);
+                        holder.btnData.setEnabled(false);
+                        holder.objCheckList.setBackgroundColor(Color.parseColor("#D7D7D7"));
                     }
 
-                    public void beforeTextChanged(CharSequence s, int start,int count, int after) {}
-
-                    public void onTextChanged(CharSequence s, int start,int before, int count) {}
-                });*/
-
-            }
-            //Dropdown List
-            else if(varlist.getControlType().equals("3")){
-                int pos = 0;
-
-                holder.objDescription.setVisibility(View.GONE);
-                holder.dataDescription.setText(varlist.getDescription());
-                holder.dataDescription.setVisibility(View.VISIBLE);
-                holder.spnDataList.setVisibility(View.VISIBLE);
-
-                if(varlist.getStatus().equals("Y") & varlist.getVarData().length()!=0){
-                    holder.objCheckList.setBackgroundColor(Color.parseColor("#69CB3F"));
-                }else if(varlist.getStatus().equals("C") & varlist.getVarData().length()!=0){
-                    holder.objCheckList.setBackgroundColor(Color.parseColor("#FAAC58"));
-                }else if(varlist.getStatus().equals("N") & varlist.getVarData().length()!=0){
-                    holder.objCheckList.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                }else{
-                    holder.objCheckList.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                }
-
-                String[] Opn = varlist.getVarOption().split(",");
-                List<String> listSpinnerItem = new ArrayList<String>();
-                listSpinnerItem.add("");
-                for(int i=0;i<Opn.length;i++){
-                    listSpinnerItem.add(Opn[i].toString().trim());
-                }
-                ArrayAdapter<String> adptrMotEthnicity= new ArrayAdapter<String>(Observation_Time.this, android.R.layout.simple_spinner_item, listSpinnerItem);
-
-                holder.spnDataList.setAdapter(adptrMotEthnicity);
-
-                if(varlist.getVarData().length()>0) {
-                    for (int i = 0; i < holder.spnDataList.getCount(); i++) {
-                        if ((holder.spnDataList.getItemAtPosition(i).equals(varlist.getVarData()))) {
-                            pos = i;
-                        }
-                    }
-
-                    holder.spnDataList.setSelection(pos);
-                }
-
-                holder.spnDataList.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        spinnerTouched = true;
-                        return false;
-                    }
-                });
-
-                holder.spnDataList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int p, long id) {
-                        if(spinnerTouched==true) {
+                    holder.objCheckList.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
                             Observation_DataModel obj = new Observation_DataModel();
                             obj.setCountryCode(COUNTRYCODE);
                             obj.setFaciCode(FACICODE);
                             obj.setTableId(TABLEID);
                             obj.setDataID(DATAID);
                             obj.setVarName(varlist.getVarName());
-                            if(WOMAN_CHILD.equals("c"))
+
+                            if (WOMAN_CHILD.equals("c") | WOMAN_CHILD.equals("r"))
                                 obj.setSL(varlist.getSL());
 
-                            obj.setVarData(holder.spnDataList.getSelectedItemPosition() > 0 ? holder.spnDataList.getSelectedItem().toString() : "");
+                            if (varlist.getStatus().equals("Y")) {
+                                obj.setObserv("C");
+                                varlist.setStatus("C");
+                                mAdapter.variableList.set(position, varlist);
+                            } else if (varlist.getStatus().equals("C")) {
+                                obj.setObserv("N");
+                                varlist.setStatus("N");
+                                mAdapter.variableList.set(position, varlist);
+                            } else if (varlist.getStatus().equals("N")) {
+                                obj.setObserv("Y");
+                                varlist.setStatus("Y");
+                                mAdapter.variableList.set(position, varlist);
+                            } else {
+                                obj.setObserv("N");
+                                varlist.setStatus("N");
+                                mAdapter.variableList.set(position, varlist);
+                            }
+
+                            obj.setVarData("");
+                            obj.setObservDT(Global.DateNowYMD());
+                            obj.setFirstTm(g.CurrentTime24());
+                            obj.setFinalTm(g.CurrentTime24());
+                            obj.setEnDt(Global.DateTimeNowYMDHMS());
+                            obj.setDeviceID(DEVICEID);
+                            obj.setEntryUser(ENTRYUSER);
+                            obj.SaveUpdateData(Observation_Time.this);
+
+                            //Skip Rule
+
+                            //Table: L&D 1st and 2nd Stage
+                            //-----------------------------------------------------------------------------------------------------
+                            //Observation Start
+                            if(varlist.getVarName().equalsIgnoreCase("ObjStart") & varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=26; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    if(!varlist1.getVarName().equalsIgnoreCase("LiqTyp") & !varlist1.getVarName().equalsIgnoreCase("LiqSmlTyp") & !varlist1.getVarName().equalsIgnoreCase("ObjPlaceOth")) {
+                                        varlist1.setActive("1");
+                                        C.Save("Update Observation set Active='1' where DataID='" + obj.getDataID() + "' and VarName='" + varlist1.getVarName() + "'");
+                                    }else{
+                                        varlist1.setActive("2");
+                                        varlist1.setStatus("N");
+                                        varlist1.setVarData("");
+                                        C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    }
+                                }
+                            }else if(varlist.getVarName().equalsIgnoreCase("ObjStart") & !varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=26; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }
+
+                            //Liquor Check
+                            if(varlist.getVarName().equalsIgnoreCase("LiqChk") & varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=2; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("1");
+                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }else if(varlist.getVarName().equalsIgnoreCase("LiqChk") & !varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=2; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }
+
+
+                            //Table: Newborn
+                            //-----------------------------------------------------------------------------------------------------
+                            String CSL = varlist.getSL();
+                            //if(rdoChildSl1.isChecked()) CSL = "1"; else if(rdoChildSl2.isChecked()) CSL = "2"; else if(rdoChildSl3.isChecked()) CSL = "3";
+                            if(varlist.getVarName().equalsIgnoreCase("BabyDel") & varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=22; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    if(!varlist1.getVarName().equalsIgnoreCase("DelPlaceOth") & !varlist1.getVarName().equalsIgnoreCase("CordApTypOth") & !varlist1.getVarName().equalsIgnoreCase("CordApTyp") & !varlist1.getVarName().equalsIgnoreCase("BabyWrpTyp")) {
+                                        varlist1.setActive("1");
+                                        C.Save("Update Observation set Active='1' where DataID='" + obj.getDataID() + "' and SL='"+ CSL +"' and VarName='" + varlist1.getVarName() + "'");
+                                    }else{
+                                        varlist1.setActive("2");
+                                        varlist1.setStatus("N");
+                                        varlist1.setVarData("");
+                                        C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    }
+                                }
+                            }else if(varlist.getVarName().equalsIgnoreCase("BabyDel") & !varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=22; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }
+
+                            //Cord Apply
+                            if(varlist.getVarName().equalsIgnoreCase("CordAppl") & varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=1; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("1");
+                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }else if(varlist.getVarName().equalsIgnoreCase("CordAppl") & !varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=1; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }
+
+                            //Baby Wrap
+                            if(varlist.getVarName().equalsIgnoreCase("BabyWrp") & varlist.getStatus().equals("Y")){
+                                VariableList_DataModel varlist1 = variableList.get(position + 1);
+                                varlist1.setActive("2");
+                                varlist1.setStatus("N");
+                                varlist1.setVarData("");
+                                C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+
+                                VariableList_DataModel varlist2 = variableList.get(position + 2);
+                                varlist2.setActive("1");
+                                C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist2.getVarName() +"'");
+
+                            }else if(varlist.getVarName().equalsIgnoreCase("BabyWrp") & !varlist.getStatus().equals("Y")){
+                                VariableList_DataModel varlist1 = variableList.get(position + 2);
+                                varlist1.setActive("2");
+                                varlist1.setStatus("N");
+                                varlist1.setVarData("");
+                                C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+
+                                VariableList_DataModel varlist2 = variableList.get(position + 1);
+                                varlist2.setActive("1");
+                                C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist2.getVarName() +"'");
+                            }
+
+                            //Birth Weight
+                            if(varlist.getVarName().equalsIgnoreCase("BabyWt") & varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=2; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("1");
+                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }else if(varlist.getVarName().equalsIgnoreCase("BabyWt") & !varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=2; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }
+
+
+                            //Table: Resus
+                            //-----------------------------------------------------------------------------------------------------
+                            if(varlist.getVarName().equalsIgnoreCase("BirthAsp") & varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=34; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    if(!varlist1.getVarName().equalsIgnoreCase("StimOut") & !varlist1.getVarName().equalsIgnoreCase("MNOut")
+                                            & !varlist1.getVarName().equalsIgnoreCase("SucType")
+                                            & !varlist1.getVarName().equalsIgnoreCase("SucOut")
+
+                                            & !varlist1.getVarName().equalsIgnoreCase("MaskPos")
+                                            & !varlist1.getVarName().equalsIgnoreCase("MaskSize")
+                                            & !varlist1.getVarName().equalsIgnoreCase("HeadPos")
+                                            & !varlist1.getVarName().equalsIgnoreCase("BgMskInfSt")
+                                            & !varlist1.getVarName().equalsIgnoreCase("BgMskInfEn")
+                                            & !varlist1.getVarName().equalsIgnoreCase("EofTCycle")
+                                            & !varlist1.getVarName().equalsIgnoreCase("BreathMin")
+                                            & !varlist1.getVarName().equalsIgnoreCase("BreathMinAuto")
+                                            & !varlist1.getVarName().equalsIgnoreCase("ChkChtMov")
+                                            & !varlist1.getVarName().equalsIgnoreCase("ReposHead")
+                                            & !varlist1.getVarName().equalsIgnoreCase("ChkHeartSou")
+                                            & !varlist1.getVarName().equalsIgnoreCase("ChkHeartSouOut")
+
+                                            & !varlist1.getVarName().equalsIgnoreCase("ChtCompType1")
+                                            & !varlist1.getVarName().equalsIgnoreCase("ChtCompType2")
+                                            ) {
+                                        varlist1.setActive("1");
+                                        C.Save("Update Observation set Active='1' where DataID='" + obj.getDataID() + "' and SL='"+ CSL +"' and VarName='" + varlist1.getVarName() + "'");
+                                    }else{
+                                        varlist1.setActive("2");
+                                        varlist1.setStatus("N");
+                                        varlist1.setVarData("");
+                                        C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    }
+                                }
+                            }else if(varlist.getVarName().equalsIgnoreCase("BirthAsp") & !varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=34; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }
+
+                            //Stimulation
+                            if(varlist.getVarName().equalsIgnoreCase("StimDone") & varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=1; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("1");
+                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }else if(varlist.getVarName().equalsIgnoreCase("StimDone") & !varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=1; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }
+                            //Mouth Throat
+                            if(varlist.getVarName().equalsIgnoreCase("MNChk") & varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=1; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("1");
+                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }else if(varlist.getVarName().equalsIgnoreCase("MNChk") & !varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=1; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }
+                            //Suction
+                            if(varlist.getVarName().equalsIgnoreCase("SucDone") & varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=2; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("1");
+                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }else if(varlist.getVarName().equalsIgnoreCase("SucDone") & !varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=2; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }
+                            //Bag and Mask
+                            if(varlist.getVarName().equalsIgnoreCase("BagMask") & varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=12; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("1");
+                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }else if(varlist.getVarName().equalsIgnoreCase("BagMask") & !varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=12; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }
+                            //Drug1
+                            if(varlist.getVarName().equalsIgnoreCase("ChtCompDrug1") & varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=1; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("1");
+                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }else if(varlist.getVarName().equalsIgnoreCase("ChtCompDrug1") & !varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=1; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }
+                            //Drug2
+                            if(varlist.getVarName().equalsIgnoreCase("ChtCompDrug2") & varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=1; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("1");
+                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }else if(varlist.getVarName().equalsIgnoreCase("ChtCompDrug2") & !varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=1; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }
+
+
+                            //Table: 3rd Stage & PPH
+                            //-----------------------------------------------------------------------------------------------------
+                            //Uterotonic given after delivery
+                            if(varlist.getVarName().equalsIgnoreCase("Utero") & varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=4; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("1");
+                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }else if(varlist.getVarName().equalsIgnoreCase("Utero") & !varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=4; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }
+
+                            //Uterotonic given after PPH
+                            if(varlist.getVarName().equalsIgnoreCase("UtePPH") & varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=2; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("1");
+                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }else if(varlist.getVarName().equalsIgnoreCase("UtePPH") & !varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=2; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }
+
+                            //Antibiotic given
+                            if(varlist.getVarName().equalsIgnoreCase("AntGiv") & varlist.getStatus().equals("Y")){
+                                VariableList_DataModel varlist1 = variableList.get(position + 1);
+                                varlist1.setActive("1");
+                                C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+
+                                VariableList_DataModel varlist2 = variableList.get(position + 3);
+                                varlist2.setActive("1");
+                                C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist2.getVarName() +"'");
+
+                            }else if(varlist.getVarName().equalsIgnoreCase("AntGiv") & !varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=4; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }
+
+                            //Analgesia Given
+                            if(varlist.getVarName().equalsIgnoreCase("AnalGiv") & varlist.getStatus().equals("Y")){
+                                VariableList_DataModel varlist1 = variableList.get(position + 1);
+                                varlist1.setActive("1");
+                                C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+
+                                VariableList_DataModel varlist2 = variableList.get(position + 3);
+                                varlist2.setActive("1");
+                                C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist2.getVarName() +"'");
+
+                            }else if(varlist.getVarName().equalsIgnoreCase("AnalGiv") & !varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=4; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }
+
+                            //Manual Removal of Placenta (MRP)
+                            if(varlist.getVarName().equalsIgnoreCase("MRPlacen") & varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=2; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("1");
+                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }else if(varlist.getVarName().equalsIgnoreCase("MRPlacen") & !varlist.getStatus().equals("Y")){
+                                for(int i=1; i<=2; i++) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + i);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+                            }
+
+
+                            mAdapter.variableList.set(position, varlist);
+                            //recyclerView.invalidate();
+                            //mAdapter.notifyItemChanged(position);
+                            mAdapter.notifyDataSetChanged();
+                        }
+                    });
+                }
+
+
+                //TextBox
+                else if (varlist.getControlType().equals("2")) {
+                    holder.objDescription.setVisibility(View.VISIBLE);
+                    holder.txtData.setVisibility(View.VISIBLE);
+                    holder.btnData.setVisibility(View.VISIBLE);
+                    holder.dataDescription.setVisibility(View.GONE);
+                    holder.spnDataList.setVisibility(View.GONE);
+                    holder.txtData.setText(varlist.getVarData());
+
+                    //Length
+                    if (varlist.getVarLength().length() != 0)
+                        holder.txtData.setFilters(new InputFilter[]{new InputFilter.LengthFilter(Integer.valueOf(varlist.getVarLength()))});
+
+                    //Data Type
+                    if (varlist.getVarDataType().equals("1"))
+                        holder.txtData.setInputType(InputType.TYPE_CLASS_TEXT);
+                    else if (varlist.getVarDataType().equals("2"))
+                        holder.txtData.setInputType(InputType.TYPE_CLASS_NUMBER);
+                    else holder.txtData.setInputType(InputType.TYPE_CLASS_TEXT);
+
+
+                    //Active
+                    if (varlist.getActive().equals("1")) {
+                        holder.objCheckList.setEnabled(true);
+                        holder.txtData.setEnabled(true);
+                        holder.btnData.setEnabled(true);
+                        holder.objCheckList.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+                        if (varlist.getStatus().equals("Y")) {
+                            holder.objCheckList.setBackgroundColor(Color.parseColor("#69CB3F"));
+                        } else if (varlist.getStatus().equals("C")) {
+                            holder.objCheckList.setBackgroundColor(Color.parseColor("#FF0000"));
+                        } else if (varlist.getStatus().equals("N")) {
+                            holder.objCheckList.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        } else {
+                            holder.objCheckList.setBackgroundColor(Color.parseColor("#D7D7D7"));
+                        }
+                    } else {
+                        holder.objCheckList.setEnabled(false);
+                        holder.txtData.setEnabled(false);
+                        holder.btnData.setEnabled(false);
+                        holder.objCheckList.setBackgroundColor(Color.parseColor("#D7D7D7"));
+                    }
+
+
+                    holder.btnData.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+
+                            if (holder.txtData.getText().length() == 0) return;
+
+                            Observation_DataModel obj = new Observation_DataModel();
+                            obj.setCountryCode(COUNTRYCODE);
+                            obj.setFaciCode(FACICODE);
+                            obj.setTableId(TABLEID);
+                            obj.setDataID(DATAID);
+                            obj.setVarName(varlist.getVarName());
+                            if (WOMAN_CHILD.equals("c") | WOMAN_CHILD.equals("r"))
+                                obj.setSL(varlist.getSL());
+
+                            if (varlist.getStatus().equals("Y")) {
+                                obj.setObserv("C");
+                                varlist.setStatus("C");
+                                mAdapter.variableList.set(position, varlist);
+                            } else if (varlist.getStatus().equals("C")) {
+                                obj.setObserv("N");
+                                varlist.setStatus("N");
+                                mAdapter.variableList.set(position, varlist);
+                            } else if (varlist.getStatus().equals("N")) {
+                                obj.setObserv("Y");
+                                varlist.setStatus("Y");
+                                mAdapter.variableList.set(position, varlist);
+                            } else {
+                                obj.setObserv("N");
+                                varlist.setStatus("N");
+                                mAdapter.variableList.set(position, varlist);
+                            }
+
+                            obj.setVarData(holder.txtData.getText().toString());
                             obj.setObserv("Y");
                             varlist.setStatus("Y");
-                            varlist.setVarData(holder.spnDataList.getSelectedItemPosition() > 0 ? holder.spnDataList.getSelectedItem().toString() : "");
+                            varlist.setVarData(holder.txtData.getText().toString());
 
                             obj.setObservDT(Global.DateNowYMD());
                             obj.setFirstTm(g.CurrentTime24());
@@ -711,74 +1140,310 @@ public class Observation_Time extends AppCompatActivity {
                             obj.setEntryUser(ENTRYUSER);
                             obj.SaveUpdateData(Observation_Time.this);
 
-                            mAdapter.variableList.set(position, varlist);
-
                             //recyclerView.invalidate();
                             //mAdapter.notifyItemChanged(position);
-                            //mAdapter.notifyDataSetChanged();
+                            holder.txtData.requestFocus();
                             mAdapter.notifyDataSetChanged();
-                            spinnerTouched = false;
+                        }
+                    });
+                }
+
+
+                //Dropdown List
+                else if (varlist.getControlType().equals("3")) {
+                    int pos = 0;
+
+                    holder.objDescription.setVisibility(View.GONE);
+                    holder.dataDescription.setText(varlist.getDescription());
+                    holder.dataDescription.setVisibility(View.VISIBLE);
+                    holder.spnDataList.setVisibility(View.VISIBLE);
+
+                    //Active
+                    if (varlist.getActive().equals("1")) {
+                        holder.objCheckList.setEnabled(true);
+                        holder.txtData.setEnabled(true);
+                        holder.btnData.setEnabled(true);
+                        holder.spnDataList.setVisibility(View.VISIBLE);
+                        holder.objCheckList.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        //holder.objCheckList.setBackgroundColor(Color.parseColor("#69CB3F"));
+
+                        if (varlist.getStatus().equals("Y")) {
+                            holder.objCheckList.setBackgroundColor(Color.parseColor("#69CB3F"));
+                        } else if (varlist.getStatus().equals("C")) {
+                            holder.objCheckList.setBackgroundColor(Color.parseColor("#FF0000"));
+                        } else if (varlist.getStatus().equals("N")) {
+                            holder.objCheckList.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        } else {
+                            holder.objCheckList.setBackgroundColor(Color.parseColor("#D7D7D7"));
+                        }
+                    } else {
+                        //holder.objCheckList.setVisibility(View.INVISIBLE);
+                        holder.objCheckList.setEnabled(false);
+                        holder.txtData.setEnabled(false);
+                        holder.btnData.setEnabled(false);
+                        holder.spnDataList.setVisibility(View.GONE);
+                        holder.objCheckList.setBackgroundColor(Color.parseColor("#D7D7D7"));
+                    }
+
+
+                    String[] Opn = varlist.getVarOption().split(",");
+                    List<String> listSpinnerItem = new ArrayList<String>();
+                    listSpinnerItem.add("");
+
+                    if(COUNTRYCODE.equals(ProjectSetting.NEPAL) & varlist.getVarName().equalsIgnoreCase("objplace")){
+                        listSpinnerItem.add("Labour Room");
+                        listSpinnerItem.add("Other");
+                        //listSpinnerItem.add("MNSC");
+                    }else if(COUNTRYCODE.equals(ProjectSetting.NEPAL) & (varlist.getVarName().equalsIgnoreCase("deltypsta")|varlist.getVarName().equalsIgnoreCase("deltypfnl"))){
+                        listSpinnerItem.add("Vaginal");
+                        listSpinnerItem.add("Vaginal Breech");
+                        listSpinnerItem.add("Forcep");
+                        listSpinnerItem.add("Vacuum");
+                        listSpinnerItem.add("Emergency CS");
+                    }else if(COUNTRYCODE.equals(ProjectSetting.NEPAL) & varlist.getVarName().equalsIgnoreCase("DelPlace")) {
+                        listSpinnerItem.add("Labour Room");
+                        listSpinnerItem.add("Other");
+                    }else if(!COUNTRYCODE.equals(ProjectSetting.NEPAL) & varlist.getVarName().equalsIgnoreCase("DelPlace")) {
+                        listSpinnerItem.add("Labour Room");
+                        listSpinnerItem.add("Admission Room");
+                        listSpinnerItem.add("Labour Room");
+                        listSpinnerItem.add("Operation Theatre");
+                        listSpinnerItem.add("Other");
+                    }
+                    else {
+                        for (int i = 0; i < Opn.length; i++) {
+                            listSpinnerItem.add(Opn[i].toString().trim());
                         }
                     }
 
-                    @Override
-                    public void onNothingSelected(AdapterView<?> parentView) {
-                        // your code here
+                    ArrayAdapter<String> adptrMotEthnicity = new ArrayAdapter<String>(Observation_Time.this, android.R.layout.simple_spinner_item, listSpinnerItem);
+
+                    holder.spnDataList.setAdapter(adptrMotEthnicity);
+
+                    if (varlist.getVarData().length() > 0) {
+                        for (int i = 0; i < holder.spnDataList.getCount(); i++) {
+                            if ((holder.spnDataList.getItemAtPosition(i).equals(varlist.getVarData()))) {
+                                pos = i;
+                            }
+                        }
+
+                        holder.spnDataList.setSelection(pos);
                     }
 
-                });
+                    holder.spnDataList.setOnTouchListener(new View.OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            spinnerTouched = true;
+                            return false;
+                        }
+                    });
+
+                    holder.spnDataList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int p, long id) {
+                            if (spinnerTouched == true) {
+                                //View v = spinner.getSelectedView();
+                                //((TextView)selectedItemView).setTextColor(Color.RED);
+                                //((TextView)selectedItemView).setTextSize(12);
+
+                                Observation_DataModel obj = new Observation_DataModel();
+                                obj.setCountryCode(COUNTRYCODE);
+                                obj.setFaciCode(FACICODE);
+                                obj.setTableId(TABLEID);
+                                obj.setDataID(DATAID);
+                                obj.setVarName(varlist.getVarName());
+                                if (WOMAN_CHILD.equals("c") | WOMAN_CHILD.equals("r"))
+                                    obj.setSL(varlist.getSL());
+
+                                obj.setVarData(holder.spnDataList.getSelectedItemPosition() > 0 ? holder.spnDataList.getSelectedItem().toString() : "");
+                                if(holder.spnDataList.getSelectedItemPosition()==0) {
+                                    obj.setObserv("N");
+                                    varlist.setStatus("N");
+                                }else{
+                                    obj.setObserv("Y");
+                                    varlist.setStatus("Y");
+                                }
+
+                                varlist.setVarData(holder.spnDataList.getSelectedItemPosition() > 0 ? holder.spnDataList.getSelectedItem().toString() : "");
+
+                                obj.setObservDT(Global.DateNowYMD());
+                                obj.setFirstTm(g.CurrentTime24());
+                                obj.setFinalTm(g.CurrentTime24());
+                                obj.setEnDt(Global.DateTimeNowYMDHMS());
+                                obj.setDeviceID(DEVICEID);
+                                obj.setEntryUser(ENTRYUSER);
+                                obj.SaveUpdateData(Observation_Time.this);
+
+                                //Skip Rule
+
+                                //Table: L&D 1st and 2nd Stage
+                                //Observation Place: Other
+                                if(varlist.getVarName().equalsIgnoreCase("ObjPlace") & holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("other")){
+                                    VariableList_DataModel varlist1 = variableList.get(position+1);
+                                    varlist1.setActive("1");
+                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }else if(varlist.getVarName().equalsIgnoreCase("ObjPlace") & !holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("other")) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + 1);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+
+                                //Table: Newborn
+                                //Place of Birth: Other
+                                if(varlist.getVarName().equalsIgnoreCase("DelPlace") & holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("other")){
+                                    VariableList_DataModel varlist1 = variableList.get(position+1);
+                                    varlist1.setActive("1");
+                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }else if(varlist.getVarName().equalsIgnoreCase("DelPlace") & !holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("other")) {
+                                    VariableList_DataModel varlist1 = variableList.get(position + 1);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+
+                                //Cord apply type
+                                if(varlist.getVarName().equalsIgnoreCase("CordApTyp") & holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("other")){
+                                    VariableList_DataModel varlist1 = variableList.get(position+1);
+                                    varlist1.setActive("1");
+                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }else if(varlist.getVarName().equalsIgnoreCase("CordApTyp") & !holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("other")){
+                                    VariableList_DataModel varlist1 = variableList.get(position + 1);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+
+
+                                //Bleeding after delivery
+                                //stop on 02 oct 2017
+                                //if(varlist.getVarName().equalsIgnoreCase("PPH") & !holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("normal")){
+                                //update on: 02 oct 2017
+                                if(varlist.getVarName().equalsIgnoreCase("PPH")){
+                                    for(int i=1; i<=35; i++) {
+                                        VariableList_DataModel varlist1 = variableList.get(position + i);
+                                        if(!varlist1.getVarName().equalsIgnoreCase("UtePPHTyp") & !varlist1.getVarName().equalsIgnoreCase("UtePPHRoute")
+                                                & !varlist1.getVarName().equalsIgnoreCase("AntGivTyp")
+                                                & !varlist1.getVarName().equalsIgnoreCase("AntiGivTypOth")
+                                                & !varlist1.getVarName().equalsIgnoreCase("AntGivRout")
+                                                & !varlist1.getVarName().equalsIgnoreCase("AntiGivRoutOth")
+
+                                                & !varlist1.getVarName().equalsIgnoreCase("AnalGivTyp")
+                                                & !varlist1.getVarName().equalsIgnoreCase("AnalGivTypOth")
+                                                & !varlist1.getVarName().equalsIgnoreCase("AnalGivRout")
+                                                & !varlist1.getVarName().equalsIgnoreCase("AnalGivRoutOth")
+
+                                                & !varlist1.getVarName().equalsIgnoreCase("HWashMRP")
+                                                & !varlist1.getVarName().equalsIgnoreCase("SGlovMRP")
+                                                ) {
+                                            varlist1.setActive("1");
+                                            C.Save("Update Observation set Active='1' where DataID='" + obj.getDataID() + "' and VarName='" + varlist1.getVarName() + "'");
+                                        }else{
+                                            varlist1.setActive("2");
+                                            varlist1.setStatus("N");
+                                            varlist1.setVarData("");
+                                            C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                        }
+                                    }
+                                }
+                                //stop on 02 oct 2017
+                                /*else if(varlist.getVarName().equalsIgnoreCase("PPH") & holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("normal")){
+                                    for(int i=1; i<=35; i++) {
+                                        VariableList_DataModel varlist1 = variableList.get(position + i);
+
+                                        if(varlist1.getVarName().equalsIgnoreCase("MRPlacen") | varlist1.getVarName().equalsIgnoreCase("AntGiv") | varlist1.getVarName().equalsIgnoreCase("AnalGiv")) {
+                                            varlist1.setActive("1");
+                                            C.Save("Update Observation set Active='1' where DataID='" + obj.getDataID() + "' and VarName='" + varlist1.getVarName() + "'");
+                                        }else {
+                                            varlist1.setActive("2");
+                                            varlist1.setStatus("N");
+                                            varlist1.setVarData("");
+                                            C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='" + obj.getDataID() + "' and VarName='" + varlist1.getVarName() + "'");
+                                        }
+                                    }
+                                }*/
+
+
+                                //Antibiotic Type
+                                if(varlist.getVarName().equalsIgnoreCase("AntGivTyp") & holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("others")){
+                                    VariableList_DataModel varlist1 = variableList.get(position+1);
+                                    varlist1.setActive("1");
+                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }else if(varlist.getVarName().equalsIgnoreCase("AntGivTyp") & !holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("others")){
+                                    VariableList_DataModel varlist1 = variableList.get(position + 1);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+
+                                //Antibiotic Route
+                                if(varlist.getVarName().equalsIgnoreCase("AntGivRout") & holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("others")){
+                                    VariableList_DataModel varlist1 = variableList.get(position+1);
+                                    varlist1.setActive("1");
+                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }else if(varlist.getVarName().equalsIgnoreCase("AntGivRout") & !holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("others")){
+                                    VariableList_DataModel varlist1 = variableList.get(position + 1);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+
+                                //Analgesia Type
+                                if(varlist.getVarName().equalsIgnoreCase("AnalGivTyp") & holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("others")){
+                                    VariableList_DataModel varlist1 = variableList.get(position+1);
+                                    varlist1.setActive("1");
+                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }else if(varlist.getVarName().equalsIgnoreCase("AnalGivTyp") & !holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("other")){
+                                    VariableList_DataModel varlist1 = variableList.get(position + 1);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+
+                                //Analgesia Route
+                                if(varlist.getVarName().equalsIgnoreCase("AnalGivRout") & holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("others")){
+                                    VariableList_DataModel varlist1 = variableList.get(position+1);
+                                    varlist1.setActive("1");
+                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }else if(varlist.getVarName().equalsIgnoreCase("AnalGivRout") & !holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("other")){
+                                    VariableList_DataModel varlist1 = variableList.get(position + 1);
+                                    varlist1.setActive("2");
+                                    varlist1.setStatus("N");
+                                    varlist1.setVarData("");
+                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                }
+
+
+                                mAdapter.variableList.set(position, varlist);
+
+                                //recyclerView.invalidate();
+                                //mAdapter.notifyItemChanged(position);
+                                //mAdapter.notifyDataSetChanged();
+                                mAdapter.notifyDataSetChanged();
+                                spinnerTouched = false;
+                            }
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parentView) {
+                            // your code here
+                        }
+
+                    });
+
+                }
+            }catch(Exception ex)
+            {
 
             }
+            //**************************************************************************************
 
-
-
-
-
-            /*holder.objCheckList.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-
-                    Observation_DataModel obj = new Observation_DataModel();
-                    obj.setCountryCode(COUNTRYCODE);
-                    obj.setFaciCode(FACICODE);
-                    obj.setTableId(TABLEID);
-                    obj.setDataID(DATAID);
-                    obj.setVarName(varlist.getVarName());
-
-                    if(varlist.getStatus().equals("Y")) {
-                        obj.setObserv("C");
-                        varlist.setStatus("C");
-                        mAdapter.variableList.set(position,varlist);
-                    }
-                    else if(varlist.getStatus().equals("C")) {
-                        obj.setObserv("N");
-                        varlist.setStatus("N");
-                        mAdapter.variableList.set(position,varlist);
-                    }
-                    else if(varlist.getStatus().equals("N")) {
-                        obj.setObserv("Y");
-                        varlist.setStatus("Y");
-                        mAdapter.variableList.set(position,varlist);
-                    }
-                    else {
-                        obj.setObserv("N");
-                        varlist.setStatus("N");
-                        mAdapter.variableList.set(position,varlist);
-                    }
-
-                    obj.setVarData("");
-                    obj.setObservDT(Global.DateNowYMD());
-                    obj.setFirstTm(g.CurrentTime24());
-                    obj.setFinalTm(g.CurrentTime24());
-                    obj.setEnDt(Global.DateTimeNowYMDHMS());
-                    obj.setDeviceID(DEVICEID);
-                    obj.setEntryUser(ENTRYUSER);
-                    obj.SaveUpdateData(Observation_Time.this);
-
-                    //recyclerView.invalidate();
-                    //mAdapter.notifyItemChanged(position);
-                    mAdapter.notifyDataSetChanged();
-                }
-            });*/
 
         }
 
@@ -870,12 +1535,52 @@ public class Observation_Time extends AppCompatActivity {
             _VarOption = newValue;
         }
 
+        private String _VarLength = "";
+        public String getVarLength(){
+            return _VarLength;
+        }
+        public void setVarLength(String newValue){
+            _VarLength = newValue;
+        }
+
+        private String _VarDataType = "";
+        public String getVarDataType(){
+            return _VarDataType;
+        }
+        public void setVarDataType(String newValue){
+            _VarDataType = newValue;
+        }
+
         private String _Color = "";
         public String getColor(){
             return _Color;
         }
         public void setColor(String newValue){
             _Color = newValue;
+        }
+
+        private String _Active = "";
+        public String getActive(){
+            return _Active;
+        }
+        public void setActive(String newValue){
+            _Active = newValue;
+        }
+
+        private String _Important = "";
+        public String getImportant(){
+            return _Important;
+        }
+        public void setImportant(String newValue){
+            _Important = newValue;
+        }
+
+        private String _ForceVar = "";
+        public String getForceVar(){
+            return _ForceVar;
+        }
+        public void setForceVar(String newValue){
+            _ForceVar = newValue;
         }
     }
 
@@ -985,10 +1690,14 @@ public class Observation_Time extends AppCompatActivity {
 
         @Override
         public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+            try {
+                View child = rv.findChildViewUnder(e.getX(), e.getY());
+                if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
+                    clickListener.onClick(child, rv.getChildPosition(child));
+                }
+            }
+            catch(Exception ex){
 
-            View child = rv.findChildViewUnder(e.getX(), e.getY());
-            if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
-                clickListener.onClick(child, rv.getChildPosition(child));
             }
             return false;
         }

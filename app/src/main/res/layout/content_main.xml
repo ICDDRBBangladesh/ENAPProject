@@ -12,12 +12,23 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="org.icddrb.enap.MainActivity"
     tools:showIn="@layout/app_bar_main">
+
+
         <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingTop="20sp">
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingTop="0sp">
+                <TextView
+                    android:id="@+id/lblProjectTitle"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="5sp"
+                    android:gravity="center|center_vertical"
+                    android:text="QA/Supervisor"
+                    android:textColor="#ff0000"
+                    android:textSize="35sp" android:textStyle="bold"/>
 
                 <Button
                     android:id="@+id/cmdRegistration"
@@ -29,6 +40,19 @@
                     android:background="@drawable/button_style_gray"
                     android:gravity="center|center_vertical"
                     android:text="Registration and Tracking"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/cmdPatientAssign"
+                    style="@style/menuButtonStyle"
+                    android:layout_width="fill_parent"
+                    android:layout_marginBottom="5sp"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginRight="20sp"
+                    android:background="@drawable/button_style_gray"
+                    android:gravity="center|center_vertical"
+                    android:text="Patient Assign"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp" />
 
@@ -66,7 +90,7 @@
                     android:layout_marginBottom="5sp"
                     android:layout_marginLeft="20sp"
                     android:layout_marginRight="20sp"
-                    android:background="@drawable/button_style_yellow"
+                    android:background="@drawable/button_style_yellow1"
                     android:gravity="center|center_vertical"
                     android:text="Maternal Recall Survey"
                     android:textColor="#FFFFFF"
@@ -83,23 +107,9 @@
                     android:layout_marginRight="20sp"
                     android:background="@drawable/button_style_gray"
                     android:gravity="center|center_vertical"
-                    android:text="Labour and Delivery Data Extraction"
+                    android:text="Data Extraction"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp" />
-
-                <Button
-                    android:id="@+id/cmdKMCDataExt"
-                    style="@style/menuButtonStyle"
-                    android:layout_width="fill_parent"
-                    android:layout_marginBottom="5sp"
-                    android:layout_marginLeft="20sp"
-                    android:layout_marginRight="20sp"
-                    android:background="@drawable/button_style_gray"
-                    android:gravity="center|center_vertical"
-                    android:text="KMC Data Extraction"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
-
 
                 <Button
                     android:id="@+id/cmdSepsis"
@@ -153,7 +163,7 @@
                     android:layout_marginLeft="20sp"
                     android:layout_marginRight="20sp"
                     android:layout_marginTop="20sp"
-                    android:background="@drawable/button_style_sky"
+                    android:background="@drawable/button_style_green"
                     android:gravity="center|center_vertical"
                     android:text="Data Sync"
                     android:textColor="#ffffff"
@@ -174,6 +184,18 @@
                     android:textSize="20sp" android:layout_weight="1"/>
             </LinearLayout>
 
-        </LinearLayout>
 
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|bottom"
+        android:orientation="horizontal">
+        <TextView android:id="@+id/txtUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20sp"
+            android:text="User Name"
+            android:textColor="@color/theme_color" />
+    </LinearLayout>
 </RelativeLayout>

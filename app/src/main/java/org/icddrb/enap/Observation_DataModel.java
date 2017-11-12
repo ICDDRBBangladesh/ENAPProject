@@ -154,7 +154,7 @@ public class Observation_DataModel{
         String SQL = "";
         try
         {
-            SQL = "Update "+ TableName +" Set Upload='2',varData='"+ _VarData +"',modifyDate='"+ Global.DateTimeNowYMDHMS() +"',Observ = '"+ _Observ +"',ObservDT = '"+ _ObservDT +"',FirstTm=(case when length(FirstTm)=0 then '"+ _FirstTm +"' else FirstTm end),FinalTm = '"+ _FinalTm +"',EnDt=(case when length(EnDt)=0 then '"+ Global.DateTimeNowYMDHMS() +"' else EnDt end)  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and TableId='"+ _TableId +"' and DataID='"+ _DataID +"' and VarName='"+ _VarName +"' and SL='"+ _SL +"'";
+            SQL = "Update "+ TableName +" Set Upload='2',SL='"+ _SL +"',varData='"+ _VarData +"',modifyDate='"+ Global.DateTimeNowYMDHMS() +"',Observ = '"+ _Observ +"',ObservDT = '"+ _ObservDT +"',FirstTm=(case when length(FirstTm)=0 then '"+ _FirstTm +"' else FirstTm end),FinalTm = '"+ _FinalTm +"',EnDt=(case when length(EnDt)=0 then '"+ Global.DateTimeNowYMDHMS() +"' else EnDt end)  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and TableId='"+ _TableId +"' and DataID='"+ _DataID +"' and VarName='"+ _VarName +"' and SL='"+ _SL +"'";
             C.Save(SQL);
             C.close();
         }

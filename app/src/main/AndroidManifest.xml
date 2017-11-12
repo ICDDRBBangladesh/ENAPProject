@@ -20,13 +20,13 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo"
+        android:icon="@drawable/enaplogo"
         android:label="@string/app_name"
-        android:supportsRtl="true"
+        android:supportsRtl="true" android:largeHeap="true"
         android:theme="@style/CustomTheme">
         <activity
             android:name="org.icddrb.enap.Login"
-            android:label="@string/app_name">
+            android:label="ENAP">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -65,6 +65,39 @@
         <activity android:name=".Observation_Time" />
         <activity android:name=".MainActivity1" />
         <activity android:name=".LD_Outcome" />
+
+        <activity android:name=".KMC_Init" />
+        <activity android:name=".KMC_Pos" />
+        <activity android:name=".KMC_Pos_list" />
+        <activity android:name=".KMC_Feed_list" />
+        <activity android:name=".KMC_Feed" />
+        <activity android:name=".KMC_Outcome" />
+
         <activity android:name=".RecallSurvS1" />
+        <activity android:name=".RecallSurvS2" />
+        <activity android:name=".RecallSurvS3" />
+        <activity android:name=".RecallSurvS4" />
+        <activity android:name=".RecallSurvS5" />
+        <activity android:name=".KMC_Treat" />
+        <activity android:name=".KMC_DataExt" />
+        <activity android:name=".LD_DataExt_old" />
+        <activity android:name=".MRS_FinalStatus" />
+        <activity android:name=".LD_DataExt" />
+        <activity android:name=".MainActivity2" />
+        <activity android:name=".Acs_Veri" />
+        <activity android:name=".Infver_Pdetail" />
+        <activity android:name=".Infver_Denomin" />
+        <activity android:name=".Infver_SupCare" />
+        <activity android:name=".Infver_labInv" />
+        <activity android:name=".Infver_Outcome" />
+        <activity android:name=".Infver_Anti_list" />
+        <activity android:name=".Infver_Anti" />
+        <activity android:name=".MRS_FollowUp" />
+
+        <activity android:name=".MRS_Photo"
+            android:label="Visual Prompt Picture"
+            android:theme="@android:style/Theme.DeviceDefault.Dialog" />
+        <activity android:name=".Infver_Inj" />
+        <activity android:name=".Infver_Inj_list" />
     </application>
 </manifest>

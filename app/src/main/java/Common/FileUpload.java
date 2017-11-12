@@ -23,7 +23,6 @@ public class FileUpload extends AsyncTask<String, Integer, Void>
                     ProjectSetting.Namespace + "/"+
                     ProjectSetting.ProjectName.toLowerCase() +"/fileup.aspx",
                     params[1].toString(),"description");
-
     	    hfu.Send_Now(fstrm);
         }
 

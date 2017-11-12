@@ -35,6 +35,15 @@ import android.content.Context;
         public void setStudyID(String newValue){
               _StudyID = newValue;
          }
+
+     private String _prebirthkmc = "";
+     public String getprebirthkmc(){
+         return _prebirthkmc;
+     }
+     public void setprebirthkmc(String newValue){
+         _prebirthkmc = newValue;
+     }
+
         private String _knowadwgtkmc = "";
         public String getknowadwgtkmc(){
               return _knowadwgtkmc;
@@ -308,6 +317,60 @@ import android.content.Context;
         public void setbfmethDur(String newValue){
               _bfmethDur = newValue;
          }
+
+
+     private String _bfmethA = "";
+     public String getbfmethA(){
+         return _bfmethA;
+     }
+     public void setbfmethA(String newValue){
+         _bfmethA = newValue;
+     }
+     private String _bfmethA1 = "";
+     public String getbfmethA1(){
+         return _bfmethA1;
+     }
+     public void setbfmethA1(String newValue){
+         _bfmethA1 = newValue;
+     }
+
+     private String _bfmethB = "";
+     public String getbfmethB(){
+         return _bfmethB;
+     }
+     public void setbfmethB(String newValue){
+         _bfmethB = newValue;
+     }
+     private String _bfmethB1 = "";
+     public String getbfmethB1(){return _bfmethB1;}
+     public void setbfmethB1(String newValue){
+         _bfmethB1 = newValue;
+     }
+
+     private String _bfmethC = "";
+     public String getbfmethC(){
+         return _bfmethC;
+     }
+     public void setbfmethC(String newValue){
+         _bfmethC = newValue;
+     }
+     private String _bfmethC1 = "";
+     public String getbfmethC1(){
+         return _bfmethC1;
+     }
+     public void setbfmethC1(String newValue){
+         _bfmethC1 = newValue;
+     }
+
+     private String _bfmethD = "";
+     public String getbfmethD(){
+         return _bfmethD;
+     }
+     public void setbfmethD(String newValue){
+         _bfmethD = newValue;
+     }
+
+
         private String _knowunwellsigns = "";
         public String getknowunwellsigns(){
               return _knowunwellsigns;
@@ -504,7 +567,7 @@ import android.content.Context;
             String SQL = "";
             try
               {
-                 SQL = "Insert into "+ TableName +" (CountryCode,FaciCode,DataId,StudyID,knowadwgtkmc,adwgtkmc,adwgtkmcDK,helpkmc,knowkmc,kmc,kmcwho,kmcwhoOth,kmcreasA,kmcreasB,kmcreasC,kmcreasD,kmcreasE,kmcreasF,kmcreasOth,kmcreasG,kmcposA,kmcposB,kmcposC,kmcposD,kmcposE,kmcposF,kmcposG,kmcposH,kmcposI,kmcedA,kmcedB,kmcedC,kmcedD,kmcedE,kmcedF,kmcedG,kmcedH,kmctime,kmctimeDK,reasnokmc,reasnokmcOth,bfmeth,bfmethDur,knowunwellsigns,unwellsignsA,unwellsignsB,unwellsignsC,unwellsignsD,unwellsignsE,unwellsignsF,unwellsignsFOth,unwellsignsG,prediscouns,counconsA,counconsB,counconsC,loskmc,loskmcDK,knowdiswgt,diswgtkmc,diswgtkmcDK,comments,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload,modifyDate)Values('"+ _CountryCode +"', '"+ _FaciCode +"', '"+ _DataId +"', '"+ _StudyID +"', '"+ _knowadwgtkmc +"', '"+ _adwgtkmc +"', '"+ _adwgtkmcDK +"', '"+ _helpkmc +"', '"+ _knowkmc +"', '"+ _kmc +"', '"+ _kmcwho +"', '"+ _kmcwhoOth +"', '"+ _kmcreasA +"', '"+ _kmcreasB +"', '"+ _kmcreasC +"', '"+ _kmcreasD +"', '"+ _kmcreasE +"', '"+ _kmcreasF +"', '"+ _kmcreasOth +"', '"+ _kmcreasG +"', '"+ _kmcposA +"', '"+ _kmcposB +"', '"+ _kmcposC +"', '"+ _kmcposD +"', '"+ _kmcposE +"', '"+ _kmcposF +"', '"+ _kmcposG +"', '"+ _kmcposH +"', '"+ _kmcposI +"', '"+ _kmcedA +"', '"+ _kmcedB +"', '"+ _kmcedC +"', '"+ _kmcedD +"', '"+ _kmcedE +"', '"+ _kmcedF +"', '"+ _kmcedG +"', '"+ _kmcedH +"', '"+ _kmctime +"', '"+ _kmctimeDK +"', '"+ _reasnokmc +"', '"+ _reasnokmcOth +"', '"+ _bfmeth +"', '"+ _bfmethDur +"', '"+ _knowunwellsigns +"', '"+ _unwellsignsA +"', '"+ _unwellsignsB +"', '"+ _unwellsignsC +"', '"+ _unwellsignsD +"', '"+ _unwellsignsE +"', '"+ _unwellsignsF +"', '"+ _unwellsignsFOth +"', '"+ _unwellsignsG +"', '"+ _prediscouns +"', '"+ _counconsA +"', '"+ _counconsB +"', '"+ _counconsC +"', '"+ _loskmc +"', '"+ _loskmcDK +"', '"+ _knowdiswgt +"', '"+ _diswgtkmc +"', '"+ _diswgtkmcDK +"', '"+ _comments +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"', '"+ _modifyDate +"')";
+                 SQL = "Insert into "+ TableName +" (CountryCode,FaciCode,DataId,StudyID,prebirthkmc,knowadwgtkmc,adwgtkmc,adwgtkmcDK,helpkmc,knowkmc,kmc,kmcwho,kmcwhoOth,kmcreasA,kmcreasB,kmcreasC,kmcreasD,kmcreasE,kmcreasF,kmcreasOth,kmcreasG,kmcposA,kmcposB,kmcposC,kmcposD,kmcposE,kmcposF,kmcposG,kmcposH,kmcposI,kmcedA,kmcedB,kmcedC,kmcedD,kmcedE,kmcedF,kmcedG,kmcedH,kmctime,kmctimeDK,reasnokmc,reasnokmcOth,bfmeth,bfmethDur,bfmethA, bfmethA1, bfmethB, bfmethB1, bfmethC, bfmethC1, bfmethD,knowunwellsigns,unwellsignsA,unwellsignsB,unwellsignsC,unwellsignsD,unwellsignsE,unwellsignsF,unwellsignsFOth,unwellsignsG,prediscouns,counconsA,counconsB,counconsC,loskmc,loskmcDK,knowdiswgt,diswgtkmc,diswgtkmcDK,comments,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload,modifyDate)Values('"+ _CountryCode +"', '"+ _FaciCode +"', '"+ _DataId +"', '"+ _StudyID +"','"+ _prebirthkmc +"', '"+ _knowadwgtkmc +"', '"+ _adwgtkmc +"', '"+ _adwgtkmcDK +"', '"+ _helpkmc +"', '"+ _knowkmc +"', '"+ _kmc +"', '"+ _kmcwho +"', '"+ _kmcwhoOth +"', '"+ _kmcreasA +"', '"+ _kmcreasB +"', '"+ _kmcreasC +"', '"+ _kmcreasD +"', '"+ _kmcreasE +"', '"+ _kmcreasF +"', '"+ _kmcreasOth +"', '"+ _kmcreasG +"', '"+ _kmcposA +"', '"+ _kmcposB +"', '"+ _kmcposC +"', '"+ _kmcposD +"', '"+ _kmcposE +"', '"+ _kmcposF +"', '"+ _kmcposG +"', '"+ _kmcposH +"', '"+ _kmcposI +"', '"+ _kmcedA +"', '"+ _kmcedB +"', '"+ _kmcedC +"', '"+ _kmcedD +"', '"+ _kmcedE +"', '"+ _kmcedF +"', '"+ _kmcedG +"', '"+ _kmcedH +"', '"+ _kmctime +"', '"+ _kmctimeDK +"', '"+ _reasnokmc +"', '"+ _reasnokmcOth +"', '"+ _bfmeth +"', '"+ _bfmethDur +"','"+ _bfmethA +"', '"+ _bfmethA1 +"', '"+ _bfmethB +"', '"+ _bfmethB1 +"', '"+ _bfmethC +"', '"+ _bfmethC1 +"', '"+ _bfmethD +"', '"+ _knowunwellsigns +"', '"+ _unwellsignsA +"', '"+ _unwellsignsB +"', '"+ _unwellsignsC +"', '"+ _unwellsignsD +"', '"+ _unwellsignsE +"', '"+ _unwellsignsF +"', '"+ _unwellsignsFOth +"', '"+ _unwellsignsG +"', '"+ _prediscouns +"', '"+ _counconsA +"', '"+ _counconsB +"', '"+ _counconsC +"', '"+ _loskmc +"', '"+ _loskmcDK +"', '"+ _knowdiswgt +"', '"+ _diswgtkmc +"', '"+ _diswgtkmcDK +"', '"+ _comments +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"', '"+ _modifyDate +"')";
                  C.Save(SQL);
                  C.close();
               }
@@ -522,7 +585,7 @@ import android.content.Context;
             String SQL = "";
             try
               {
-                 SQL = "Update "+ TableName +" Set Upload='2',modifyDate='" + _modifyDate + "' ,CountryCode = '"+ _CountryCode +"',FaciCode = '"+ _FaciCode +"',DataId = '"+ _DataId +"',StudyID = '"+ _StudyID +"',knowadwgtkmc = '"+ _knowadwgtkmc +"',adwgtkmc = '"+ _adwgtkmc +"',adwgtkmcDK = '"+ _adwgtkmcDK +"',helpkmc = '"+ _helpkmc +"',knowkmc = '"+ _knowkmc +"',kmc = '"+ _kmc +"',kmcwho = '"+ _kmcwho +"',kmcwhoOth = '"+ _kmcwhoOth +"',kmcreasA = '"+ _kmcreasA +"',kmcreasB = '"+ _kmcreasB +"',kmcreasC = '"+ _kmcreasC +"',kmcreasD = '"+ _kmcreasD +"',kmcreasE = '"+ _kmcreasE +"',kmcreasF = '"+ _kmcreasF +"',kmcreasOth = '"+ _kmcreasOth +"',kmcreasG = '"+ _kmcreasG +"',kmcposA = '"+ _kmcposA +"',kmcposB = '"+ _kmcposB +"',kmcposC = '"+ _kmcposC +"',kmcposD = '"+ _kmcposD +"',kmcposE = '"+ _kmcposE +"',kmcposF = '"+ _kmcposF +"',kmcposG = '"+ _kmcposG +"',kmcposH = '"+ _kmcposH +"',kmcposI = '"+ _kmcposI +"',kmcedA = '"+ _kmcedA +"',kmcedB = '"+ _kmcedB +"',kmcedC = '"+ _kmcedC +"',kmcedD = '"+ _kmcedD +"',kmcedE = '"+ _kmcedE +"',kmcedF = '"+ _kmcedF +"',kmcedG = '"+ _kmcedG +"',kmcedH = '"+ _kmcedH +"',kmctime = '"+ _kmctime +"',kmctimeDK = '"+ _kmctimeDK +"',reasnokmc = '"+ _reasnokmc +"',reasnokmcOth = '"+ _reasnokmcOth +"',bfmeth = '"+ _bfmeth +"',bfmethDur = '"+ _bfmethDur +"',knowunwellsigns = '"+ _knowunwellsigns +"',unwellsignsA = '"+ _unwellsignsA +"',unwellsignsB = '"+ _unwellsignsB +"',unwellsignsC = '"+ _unwellsignsC +"',unwellsignsD = '"+ _unwellsignsD +"',unwellsignsE = '"+ _unwellsignsE +"',unwellsignsF = '"+ _unwellsignsF +"',unwellsignsFOth = '"+ _unwellsignsFOth +"',unwellsignsG = '"+ _unwellsignsG +"',prediscouns = '"+ _prediscouns +"',counconsA = '"+ _counconsA +"',counconsB = '"+ _counconsB +"',counconsC = '"+ _counconsC +"',loskmc = '"+ _loskmc +"',loskmcDK = '"+ _loskmcDK +"',knowdiswgt = '"+ _knowdiswgt +"',diswgtkmc = '"+ _diswgtkmc +"',diswgtkmcDK = '"+ _diswgtkmcDK +"',comments = '"+ _comments +"'  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and DataId='"+ _DataId +"'";
+                 SQL = "Update "+ TableName +" Set Upload='2',modifyDate='" + _modifyDate + "' ,CountryCode = '"+ _CountryCode +"',FaciCode = '"+ _FaciCode +"',DataId = '"+ _DataId +"',StudyID = '"+ _StudyID +"',prebirthkmc='"+ _prebirthkmc +"',knowadwgtkmc = '"+ _knowadwgtkmc +"',adwgtkmc = '"+ _adwgtkmc +"',adwgtkmcDK = '"+ _adwgtkmcDK +"',helpkmc = '"+ _helpkmc +"',knowkmc = '"+ _knowkmc +"',kmc = '"+ _kmc +"',kmcwho = '"+ _kmcwho +"',kmcwhoOth = '"+ _kmcwhoOth +"',kmcreasA = '"+ _kmcreasA +"',kmcreasB = '"+ _kmcreasB +"',kmcreasC = '"+ _kmcreasC +"',kmcreasD = '"+ _kmcreasD +"',kmcreasE = '"+ _kmcreasE +"',kmcreasF = '"+ _kmcreasF +"',kmcreasOth = '"+ _kmcreasOth +"',kmcreasG = '"+ _kmcreasG +"',kmcposA = '"+ _kmcposA +"',kmcposB = '"+ _kmcposB +"',kmcposC = '"+ _kmcposC +"',kmcposD = '"+ _kmcposD +"',kmcposE = '"+ _kmcposE +"',kmcposF = '"+ _kmcposF +"',kmcposG = '"+ _kmcposG +"',kmcposH = '"+ _kmcposH +"',kmcposI = '"+ _kmcposI +"',kmcedA = '"+ _kmcedA +"',kmcedB = '"+ _kmcedB +"',kmcedC = '"+ _kmcedC +"',kmcedD = '"+ _kmcedD +"',kmcedE = '"+ _kmcedE +"',kmcedF = '"+ _kmcedF +"',kmcedG = '"+ _kmcedG +"',kmcedH = '"+ _kmcedH +"',kmctime = '"+ _kmctime +"',kmctimeDK = '"+ _kmctimeDK +"',reasnokmc = '"+ _reasnokmc +"',reasnokmcOth = '"+ _reasnokmcOth +"',bfmeth = '"+ _bfmeth +"',bfmethDur = '"+ _bfmethDur +"',bfmethA='"+ _bfmethA +"', bfmethA1='"+ _bfmethA1 +"', bfmethB='"+ _bfmethB +"', bfmethB1='"+ _bfmethB1 +"', bfmethC='"+ _bfmethC +"', bfmethC1='"+ _bfmethC1 +"', bfmethD='"+ _bfmethD +"',knowunwellsigns = '"+ _knowunwellsigns +"',unwellsignsA = '"+ _unwellsignsA +"',unwellsignsB = '"+ _unwellsignsB +"',unwellsignsC = '"+ _unwellsignsC +"',unwellsignsD = '"+ _unwellsignsD +"',unwellsignsE = '"+ _unwellsignsE +"',unwellsignsF = '"+ _unwellsignsF +"',unwellsignsFOth = '"+ _unwellsignsFOth +"',unwellsignsG = '"+ _unwellsignsG +"',prediscouns = '"+ _prediscouns +"',counconsA = '"+ _counconsA +"',counconsB = '"+ _counconsB +"',counconsC = '"+ _counconsC +"',loskmc = '"+ _loskmc +"',loskmcDK = '"+ _loskmcDK +"',knowdiswgt = '"+ _knowdiswgt +"',diswgtkmc = '"+ _diswgtkmc +"',diswgtkmcDK = '"+ _diswgtkmcDK +"',comments = '"+ _comments +"'  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and DataId='"+ _DataId +"'";
                  C.Save(SQL);
                  C.close();
               }
@@ -549,6 +612,8 @@ import android.content.Context;
                 d._FaciCode = cur.getString(cur.getColumnIndex("FaciCode"));
                 d._DataId = cur.getString(cur.getColumnIndex("DataId"));
                 d._StudyID = cur.getString(cur.getColumnIndex("StudyID"));
+
+                d._prebirthkmc = cur.getString(cur.getColumnIndex("prebirthkmc"));
                 d._knowadwgtkmc = cur.getString(cur.getColumnIndex("knowadwgtkmc"));
                 d._adwgtkmc = cur.getString(cur.getColumnIndex("adwgtkmc"));
                 d._adwgtkmcDK = cur.getString(cur.getColumnIndex("adwgtkmcDK"));
@@ -588,6 +653,15 @@ import android.content.Context;
                 d._reasnokmcOth = cur.getString(cur.getColumnIndex("reasnokmcOth"));
                 d._bfmeth = cur.getString(cur.getColumnIndex("bfmeth"));
                 d._bfmethDur = cur.getString(cur.getColumnIndex("bfmethDur"));
+
+                d._bfmethA = cur.getString(cur.getColumnIndex("bfmethA"));
+                d._bfmethA1 = cur.getString(cur.getColumnIndex("bfmethA1"));
+                d._bfmethB = cur.getString(cur.getColumnIndex("bfmethB"));
+                d._bfmethB1 = cur.getString(cur.getColumnIndex("bfmethB1"));
+                d._bfmethC = cur.getString(cur.getColumnIndex("bfmethC"));
+                d._bfmethC1 = cur.getString(cur.getColumnIndex("bfmethC1"));
+                d._bfmethD = cur.getString(cur.getColumnIndex("bfmethD"));
+
                 d._knowunwellsigns = cur.getString(cur.getColumnIndex("knowunwellsigns"));
                 d._unwellsignsA = cur.getString(cur.getColumnIndex("unwellsignsA"));
                 d._unwellsignsB = cur.getString(cur.getColumnIndex("unwellsignsB"));

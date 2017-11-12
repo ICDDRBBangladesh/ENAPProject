@@ -1,460 +1,2786 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="fill_parent"  android:layout_height="wrap_content" android:scrollbars="vertical">
-    <LinearLayout android:layout_width="fill_parent" android:layout_height="@dimen/heading_height" android:orientation="horizontal" android:background="@color/pageHeadingBack">
-        <ImageButton android:id="@+id/cmdBack" android:background="@color/pageHeadingBack" android:src="@drawable/back" android:layout_width="50sp" android:layout_height="match_parent"/>
-        <TextView android:id="@+id/lblHeading" android:text="Socio-economic status"  android:paddingLeft="10sp" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center_vertical" android:textSize="20sp" android:textColor="@color/pageHeading"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:scrollbars="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/heading_height"
+        android:background="@color/pageHeadingBack"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/cmdBack"
+            android:layout_width="50sp"
+            android:layout_height="match_parent"
+            android:background="@color/pageHeadingBack"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/lblHeading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="10sp"
+            android:text="RecallSurvS5"
+            android:textColor="@color/pageHeading"
+            android:textSize="20sp" />
     </LinearLayout>
-    <View android:layout_height="1dip" android:layout_width="fill_parent" android:layout_marginBottom="5sp" android:background="#CCCCCC" />
-<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:overScrollMode="always" android:isScrollContainer="true" android:scrollbarAlwaysDrawVerticalTrack="true" android:scrollbarStyle="outsideInset" android:scrollbars="vertical">
-    <LinearLayout android:layout_marginLeft="10sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical">
-    <LinearLayout android:id="@+id/secCountryCode" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblCountryCode" android:visibility="gone" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblCountryCode" android:text="CountryCode" android:layout_width="200sp" android:layout_height="wrap_content" android:textSize="20sp" />
-         <EditText android:id="@+id/txtCountryCode" android:maxLength="1" android:layout_width="40sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
-    </LinearLayout>
-    <View android:id="@+id/lineCountryCode" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/secFaciCode" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblFaciCode" android:visibility="gone" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblFaciCode" android:text="FaciCode" android:layout_width="200sp" android:layout_height="wrap_content" android:textSize="20sp" />
-         <EditText android:id="@+id/txtFaciCode" android:maxLength="1" android:layout_width="40sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
-    </LinearLayout>
-    <View android:id="@+id/lineFaciCode" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/secDataId" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblDataId" android:visibility="gone" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblDataId" android:text="Data ID" android:layout_width="200sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <EditText android:id="@+id/txtDataId" android:maxLength="10" android:layout_width="150sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
-    </LinearLayout>
-    <View android:id="@+id/lineDataId" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/secStudyID" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblStudyID" android:text="" android:visibility="gone" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblStudyID" android:text="Participant ID" android:layout_width="200sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <EditText android:id="@+id/txtStudyID" android:maxLength="9" android:layout_width="150sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
-    </LinearLayout>
-    <View android:id="@+id/lineStudyID" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/seclblSecV" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-        <TextView android:id="@+id/lblHlblSecV" android:text=" Section V: Socio-economic status" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="20sp" style="@style/rowHeading"/>
-    </LinearLayout>
-    <View android:id="@+id/linelblSecV" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/seclbl01" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-        <TextView android:id="@+id/lblHlbl01" android:text="01. Does your household have" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="20sp" style="@style/rowHeading"/>
-    </LinearLayout>
-    <View android:id="@+id/linelbl01" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhitemsA" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhitemsA" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhitemsA" android:text="a) Electricity" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhitemsA" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhitemsA1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhitemsA2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhitemsA" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhitemsB" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhitemsB" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhitemsB" android:text="b) Refrigerator" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhitemsB" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhitemsB1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhitemsB2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhitemsB" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhitemsC" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhitemsC" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhitemsC" android:text="c) Radio" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhitemsC" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhitemsC1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhitemsC2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhitemsC" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhitemsD" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhitemsD" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhitemsD" android:text="d) Television" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhitemsD" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhitemsD1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhitemsD2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhitemsD" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhitemsE" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhitemsE" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhitemsE" android:text="e) Table" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhitemsE" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhitemsE1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhitemsE2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhitemsE" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhitemsF" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhitemsF" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhitemsF" android:text="f) Chair" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhitemsF" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhitemsF1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhitemsF2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhitemsF" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhitemsG" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhitemsG" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhitemsG" android:text="g) Bed" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhitemsG" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhitemsG1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhitemsG2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhitemsG" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhitemsH" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhitemsH" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhitemsH" android:text="h) Computer" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhitemsH" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhitemsH1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhitemsH2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhitemsH" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhitemsI" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhitemsI" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhitemsI" android:text="i) Mobile phone" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhitemsI" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhitemsI1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhitemsI2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhitemsI" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/secTelevisionNo" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblTelevisionNo" android:text="01a." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblTelevisionNo" android:text="How many televisions do you own?" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-         <EditText android:id="@+id/txtTelevisionNo" android:maxLength="1" android:layout_width="40sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
-    </LinearLayout>
-    <View android:id="@+id/lineTelevisionNo" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/seclbl02" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-        <TextView android:id="@+id/lblHlbl02" android:text="02. What type of fuel does your household mainly use for cooking?" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="20sp" style="@style/rowHeading"/>
-    </LinearLayout>
-    <View android:id="@+id/linelbl02" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhfuelA" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhfuelA" android:text="a." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhfuelA" android:text="Electricity" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhfuelA" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhfuelA1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhfuelA2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhfuelA" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhfuelB" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhfuelB" android:text="b." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhfuelB" android:text="Gas" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhfuelB" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhfuelB1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhfuelB2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhfuelB" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhfuelC" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhfuelC" android:text="c." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhfuelC" android:text="Kerosene" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhfuelC" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhfuelC1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhfuelC2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhfuelC" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhfuelD" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhfuelD" android:text="d." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhfuelD" android:text="Animal dung" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhfuelD" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhfuelD1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhfuelD2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhfuelD" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhfuelE" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhfuelE" android:text="e." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhfuelE" android:text="Charcoal/coal" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhfuelE" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhfuelE1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhfuelE2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhfuelE" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhfuelF" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhfuelF" android:text="f." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhfuelF" android:text="Wood" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhfuelF" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhfuelF1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhfuelF2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhfuelF" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhfuelG" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhfuelG" android:text="g." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhfuelG" android:text="No food cooked in household" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhfuelG" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhfuelG1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhfuelG2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhfuelG" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhfuelH" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhfuelH" android:text="h." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhfuelH" android:text="Other" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhfuelH" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhfuelH1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhfuelH2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhfuelH" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhfuelHOth" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhfuelHOth" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhfuelHOth" android:text="Specify" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <EditText android:id="@+id/txthhfuelHOth" android:maxLength="100" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
-    </LinearLayout>
-    <View android:id="@+id/linehhfuelHOth" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/seclbl03" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-        <TextView android:id="@+id/lblHlbl03" android:text="03. Main material of the floor." android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="20sp" style="@style/rowHeading"/>
-    </LinearLayout>
-    <View android:id="@+id/linelbl03" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhflmatA" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhflmatA" android:text="a." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhflmatA" android:text="Natural floor, such as dirt, earth, sand, dung" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhflmatA" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhflmatA1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhflmatA2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhflmatA" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhflmatB" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhflmatB" android:text="b." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhflmatB" android:text="Rudimentary floor, such as wood, palm/bamboo" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhflmatB" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhflmatB1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhflmatB2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhflmatB" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhflmatC" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhflmatC" android:text="c." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhflmatC" android:text="Finished floor, such as cement, polished wood, vinyl strips, tiles," android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhflmatC" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhflmatC1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhflmatC2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhflmatC" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhflmatD" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhflmatD" android:text="d." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhflmatD" android:text="Other, specify, such as carpet:" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhflmatD" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhflmatD1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhflmatD2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhflmatD" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhflmatDOth" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhflmatDOth" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhflmatDOth" android:text="Specify" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <EditText android:id="@+id/txthhflmatDOth" android:maxLength="100" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
-    </LinearLayout>
-    <View android:id="@+id/linehhflmatDOth" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/seclbl04" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-        <TextView android:id="@+id/lblHlbl04" android:text="04 Main material of the walls." android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="20sp" style="@style/rowHeading"/>
-    </LinearLayout>
-    <View android:id="@+id/linelbl04" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhWmatA" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhWmatA" android:text="a." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhWmatA" android:text="Natural walls, such as no walls, dirt, cane/palm/trunks" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhWmatA" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhWmatA1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhWmatA2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhWmatA" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhWmatB" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhWmatB" android:text="b." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhWmatB" android:text="Rudimentary walls, such as bamboo with mud, stone with mud, plywood, cardboard, reused wood" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhWmatB" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhWmatB1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhWmatB2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhWmatB" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhWmatC" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhWmatC" android:text="c." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhWmatC" android:text="Finished walls, such as cement, cement blocks, bricks, wood planks/shingles, polished wood," android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhWmatC" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhWmatC1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhWmatC2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhWmatC" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhWmatD" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhWmatD" android:text="d." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhWmatD" android:text="Other" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhWmatD" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhWmatD1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhWmatD2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhWmatD" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhWmatDOth" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhWmatDOth" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhWmatDOth" android:text="Specify" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <EditText android:id="@+id/txthhWmatDOth" android:maxLength="100" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
-    </LinearLayout>
-    <View android:id="@+id/linehhWmatDOth" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/seclbl05" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-        <TextView android:id="@+id/lblHlbl05" android:text="05. Main material of the roof" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="20sp" style="@style/rowHeading"/>
-    </LinearLayout>
-    <View android:id="@+id/linelbl05" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhrmatA" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhrmatA" android:text="a." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhrmatA" android:text="Natural roofing, such as no roof, thatch/palm leaf, sod" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhrmatA" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhrmatA1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhrmatA2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhrmatA" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhrmatB" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhrmatB" android:text="b." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhrmatB" android:text="Rudimentary roofing, such as wood, rustic mat, cardboard, palm/bamboo" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhrmatB" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhrmatB1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhrmatB2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhrmatB" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhrmatC" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhrmatC" android:text="c." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhrmatC" android:text="Finished roofing, such as metal, iron sheets, shingles, tiles, cement" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhrmatC" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhrmatC1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhrmatC2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhrmatC" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhrmatD" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhrmatD" android:text="d." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhrmatD" android:text="Other" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhrmatD" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhrmatD1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhrmatD2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhrmatD" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhrmatDOth" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhrmatDOth" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhrmatDOth" android:text="Specify" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <EditText android:id="@+id/txthhrmatDOth" android:maxLength="100" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
-    </LinearLayout>
-    <View android:id="@+id/linehhrmatDOth" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhrooms" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhrooms" android:text="06." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/Vlblhhrooms" android:text="How many rooms in this household are used for sleeping?" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-         <EditText android:id="@+id/txthhrooms" android:maxLength="2" android:layout_width="40sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
-    </LinearLayout>
-    <View android:id="@+id/linehhrooms" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/seclbl07" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-        <TextView android:id="@+id/lblHlbl07" android:text="07. Does any member of this household own:" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="20sp" style="@style/rowHeading"/>
-    </LinearLayout>
-    <View android:id="@+id/linelbl07" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhvehA" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhvehA" android:text="a." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhvehA" android:text="A bicycle/rickshaw?" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhvehA" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhvehA1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhvehA2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhvehA" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhvehB" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhvehB" android:text="b." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhvehB" android:text="A motorcycle or motor scooter?" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhvehB" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhvehB1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhvehB2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhvehB" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhvehC" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhvehC" android:text="c." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhvehC" android:text="An animal-drawn cart?" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhvehC" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhvehC1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhvehC2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhvehC" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhvehD" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhvehD" android:text="d." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhvehD" android:text="A car or truck?" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhvehD" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhvehD1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhvehD2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhvehD" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhvehE" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhvehE" android:text="e." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblhhvehE" android:text="A boat with motor" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhvehE" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhvehE1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhvehE2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhvehE" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/sechhaccount" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblhhaccount" android:text="08." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/Vlblhhaccount" android:text="Does any member of this household have a bank /cooperative/or other savings account?" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <RadioGroup android:id="@+id/rdogrphhaccount" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
-         
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhaccount1" android:text="Yes"/>
-           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdohhaccount2" android:text="No"/>
-        </RadioGroup>
-    </LinearLayout>
-    <View android:id="@+id/linehhaccount" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-    <LinearLayout android:id="@+id/seccomments" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblcomments" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/Vlblcomments" android:text="INTERVIEWER COMMENTS" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <EditText android:id="@+id/txtcomments" android:maxLength="100" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
-    </LinearLayout>
-    <View android:id="@+id/linecomments" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
-       <LinearLayout android:layout_width="fill_parent" android:paddingTop="20sp" android:layout_height="wrap_content" android:orientation="horizontal">
-       	<Button android:id="@+id/cmdSave" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/button_style_green"
-       			android:textSize="20sp" android:text=" Save -> Continue " android:textColor="#FFFFFF" android:layout_marginBottom="20sp" android:layout_marginLeft="20sp" android:layout_marginRight="20sp"/>
-       </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:layout_marginBottom="5sp"
+        android:background="#CCCCCC"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:isScrollContainer="true"
+        android:overScrollMode="always"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarStyle="outsideInset"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/secCountryCode"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/lblCountryCode"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblCountryCode"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="CountryCode"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtCountryCode"
+                    style="@style/customEdit"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineCountryCode"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/secFaciCode"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/lblFaciCode"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblFaciCode"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="FaciCode"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtFaciCode"
+                    style="@style/customEdit"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineFaciCode"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/secDataId"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/lblDataId"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblDataId"
+                    android:layout_width="370sp"
+                    android:layout_height="wrap_content"
+                    android:text="DataId"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtDataId"
+                    style="@style/customEdit"
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="10"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineDataId"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/secStudyID"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/lblStudyID"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblStudyID"
+                    android:layout_width="370sp"
+                    android:layout_height="wrap_content"
+                    android:text="ParticipantID"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtStudyID"
+                    style="@style/customEdit"
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="9"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_marginTop="10sp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView android:textColor="#006699"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="I will now ask you some questions about your household and items that you might own."
+                    android:textSize="20sp" />
+            </LinearLayout>
+            <View
+                android:id="@+id/lineStudyID"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/seclblSecV"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/lblHlblSecV"
+                    style="@style/rowHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Section V	Socio-economic status"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblSecV"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclbl01"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlbl01"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="01. Does your household have the following items: READ ANSWER CHOICES"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelbl01"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechhitemsA"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhitemsA"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhitemsA"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="a) Electricity"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhitemsA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhitemsA1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhitemsA2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehhitemsA"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechhitemsB"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhitemsB"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhitemsB"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="b) Refrigerator"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhitemsB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhitemsB1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhitemsB2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehhitemsB"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechhitemsC"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhitemsC"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhitemsC"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="c) Radio"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhitemsC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhitemsC1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhitemsC2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehhitemsC"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechhitemsD"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhitemsD"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhitemsD"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="d) Television"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhitemsD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhitemsD1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhitemsD2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehhitemsD"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechhitemsE"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhitemsE"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhitemsE"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="e) Table"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhitemsE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhitemsE1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhitemsE2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehhitemsE"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechhitemsF"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhitemsF"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhitemsF"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="f) Chair"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhitemsF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhitemsF1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhitemsF2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehhitemsF"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechhitemsG"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhitemsG"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhitemsG"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="g) Bed"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhitemsG"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhitemsG1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhitemsG2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehhitemsG"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechhitemsH"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhitemsH"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhitemsH"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="h) Computer"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhitemsH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhitemsH1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhitemsH2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehhitemsH"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechhitemsI"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhitemsI"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhitemsI"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="i) Mobile phone"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhitemsI"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhitemsI1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhitemsI2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehhitemsI"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secTelevisionNo"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblTelevisionNo"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="01a."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblTelevisionNo"
+                    android:layout_width="340sp"
+                    android:layout_height="wrap_content"
+                    android:text="How many televisions do you own?"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtTelevisionNo"
+                    style="@style/customEdit"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+
+
+
+
+            <View
+                android:id="@+id/linecooking"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seccooking"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblcooking"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="02."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblcooking"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="What type of fuel does your household mainly use for cooking?"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spncooking"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/seccookingOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblcookingOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblcookingOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="Other (Specify)"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtcookingOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linefloor"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secfloor"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblfloor"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="03."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblfloor"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="What is the main material of the floor in your home?"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spnfloor"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/secfloorOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblfloorOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblfloorOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="Other (Specify)"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtfloorOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+            <View
+                android:id="@+id/linewall"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secwalls"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblwalls"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="04."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblwalls"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="What is the main material of the wall in your home?"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spnwalls"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/secwallsOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblwallsOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblwallsOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="Other (Specify)"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtwallsOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+
+            <View
+                android:id="@+id/lineroof"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secroof"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblroof"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="05."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblroof"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="What is the main material of the roof in your home?"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spnroof"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/secroofOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblroofOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblroofOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="Other (Specify)"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtroofOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+
+
+
+
+
+            <View android:visibility="gone"
+                android:id="@+id/lineTelevisionNo"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/seclbl02"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlbl02"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="02. What type of fuel does your household mainly use for cooking?"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linelbl02"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhfuelA"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhfuelA"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhfuelA"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="a) Electricity"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhfuelA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhfuelA1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhfuelA2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhfuelA"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhfuelB"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhfuelB"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhfuelB"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="b) Gas"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhfuelB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhfuelB1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhfuelB2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhfuelB"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhfuelC"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhfuelC"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhfuelC"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="c) Kerosene"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhfuelC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhfuelC1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhfuelC2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhfuelC"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhfuelD"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhfuelD"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhfuelD"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="d) Animal dung"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhfuelD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhfuelD1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhfuelD2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhfuelD"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhfuelE"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhfuelE"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhfuelE"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="e) Charcoal/coal"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhfuelE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhfuelE1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhfuelE2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhfuelE"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhfuelF"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhfuelF"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhfuelF"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="f) Wood"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhfuelF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhfuelF1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhfuelF2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhfuelF"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhfuelG"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhfuelG"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhfuelG"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="g) No food cooked in household"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhfuelG"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhfuelG1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhfuelG2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhfuelG"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhfuelH"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhfuelH"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhfuelH"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="h) Other"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhfuelH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhfuelH1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhfuelH2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhfuelH"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhfuelHOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhfuelHOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhfuelHOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="   Specify"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txthhfuelHOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhfuelHOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/seclbl03"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlbl03"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="03. Main material of the floor."
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linelbl03"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhflmatA"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhflmatA"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhflmatA"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="a) Natural floor, such as dirt, earth, sand, dung"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhflmatA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhflmatA1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhflmatA2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhflmatA"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhflmatB"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhflmatB"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhflmatB"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="b) Rudimentary floor, such as wood, palm/bamboo"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhflmatB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhflmatB1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhflmatB2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhflmatB"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhflmatC"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhflmatC"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhflmatC"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="c) Finished floor, such as cement, polished wood, vinyl strips, tiles"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhflmatC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhflmatC1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhflmatC2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhflmatC"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhflmatD"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhflmatD"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhflmatD"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="d) Other, specify, such as carpet:"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhflmatD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhflmatD1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhflmatD2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhflmatD"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhflmatDOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhflmatDOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhflmatDOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="   Specify"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txthhflmatDOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhflmatDOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/seclbl04"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlbl04"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="04 Main material of the walls."
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linelbl04"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhWmatA"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhWmatA"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhWmatA"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="a) Natural walls, such as no walls, dirt, cane/palm/trunks"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhWmatA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhWmatA1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhWmatA2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhWmatA"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhWmatB"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhWmatB"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhWmatB"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="b) Rudimentary walls, such as bamboo with mud, stone with mud, plywood, cardboard, reused wood"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhWmatB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhWmatB1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhWmatB2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhWmatB"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhWmatC"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhWmatC"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhWmatC"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="c) Finished walls, such as cement, cement blocks, bricks, wood planks/shingles, polished wood"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhWmatC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhWmatC1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhWmatC2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhWmatC"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhWmatD"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhWmatD"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhWmatD"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="d) Other"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhWmatD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhWmatD1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhWmatD2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhWmatD"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhWmatDOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhWmatDOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhWmatDOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="   Specify"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txthhWmatDOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhWmatDOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/seclbl05"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlbl05"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="05. Main material of the roof"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linelbl05"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhrmatA"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhrmatA"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhrmatA"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="a) Natural roofing, such as no roof, thatch/palm leaf, sod"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhrmatA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhrmatA1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhrmatA2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhrmatA"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhrmatB"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhrmatB"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhrmatB"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="b) Rudimentary roofing, such as wood, rustic mat, cardboard, palm/bamboo"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhrmatB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhrmatB1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhrmatB2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhrmatB"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhrmatC"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhrmatC"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhrmatC"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="c) Finished roofing, such as metal, iron sheets, shingles, tiles, cement"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhrmatC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhrmatC1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhrmatC2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhrmatC"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhrmatD"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhrmatD"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhrmatD"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="d) Other"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhrmatD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhrmatD1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhrmatD2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View android:visibility="gone"
+                android:id="@+id/linehhrmatD"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout android:visibility="gone"
+                android:id="@+id/sechhrmatDOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhrmatDOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhrmatDOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="   Specify"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txthhrmatDOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehhrmatDOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechhrooms"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhrooms"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="06."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblhhrooms"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="How many rooms in this household are used for sleeping?"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txthhrooms"
+                    style="@style/customEdit"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehhrooms"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclbl07"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlbl07"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="07. Does any member of this household own: READ ANSWER CHOICES"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelbl07"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechhvehA"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhvehA"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhvehA"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="a) A bicycle/rickshaw?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhvehA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhvehA1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhvehA2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehhvehA"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechhvehB"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhvehB"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhvehB"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="b) A motorcycle or motor scooter?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhvehB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhvehB1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhvehB2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehhvehB"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechhvehC"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhvehC"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhvehC"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="c) An animal-drawn cart?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhvehC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhvehC1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhvehC2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehhvehC"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechhvehD"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhvehD"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhvehD"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="d) A car or truck?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhvehD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhvehD1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhvehD2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehhvehD"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechhvehE"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhvehE"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhhvehE"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="e) A boat with motor?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhvehE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhvehE1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhvehE2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehhvehE"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechhaccount"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhhaccount"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="08."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblhhaccount"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Does any member of this household have a bank /cooperative/or other savings account?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrphhaccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdohhaccount1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdohhaccount2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+
+            <View
+                android:id="@+id/linecomments1"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Thank you for taking time to answer these questions. IF CONSENTED TO FOLLOW UP STUDY: I now will take a measurement of your baby’s head and we will contact you on your mobile for the follow up study."
+                    android:textColor="#006699"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehhaccount"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seccomments"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblcomments"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblcomments"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="INTERVIEWER COMMENTS"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtcomments"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linecomments"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20sp">
+
+                <Button
+                    android:id="@+id/cmdSave"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20sp"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginRight="20sp"
+                    android:background="@drawable/button_style_green"
+                    android:text=" Save -> Continue "
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

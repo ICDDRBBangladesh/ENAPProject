@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -59,6 +60,14 @@ public class Login extends Activity {
             sp.save(this,"deviceid","");
             sp.save(this,"userid","");
 
+            TextView lblProjectTitle = (TextView)findViewById(R.id.lblProjectTitle);
+            if(ProjectSetting.ProjectTitle.length()==0){
+                lblProjectTitle.setVisibility(View.GONE);
+            }else{
+                lblProjectTitle.setVisibility(View.VISIBLE);
+                lblProjectTitle.setText(ProjectSetting.ProjectTitle);
+            }
+
             final TextView UniqueUserId      = (TextView)findViewById(R.id.UniqueUserId);
             final EditText uid      = (EditText)findViewById(R.id.userid);
             final EditText pass    = (EditText)findViewById(R.id.pass);
@@ -69,7 +78,7 @@ public class Login extends Activity {
             //Need to update date every time whenever shared updated system
             //*********************************************************************
             SystemUpdateDT = ProjectSetting.VersionDate;
-            lblSystemDate.setText("Version: 1.0, Built on:"+ SystemUpdateDT);
+            lblSystemDate.setText("Version: 1.0, Built on: "+ SystemUpdateDT);
 
             //Check for Internet connectivity
             networkAvailable = Connection.haveNetworkConnection(Login.this);
@@ -97,7 +106,7 @@ public class Login extends Activity {
             //Device Unique ID
             final String UniqueID = C.ReturnSingleValue("Select DeviceId from DeviceList");
             sp.save(this,"deviceid",UniqueID);
-            UniqueUserId.setText("Unique ID :"+ UniqueID);
+            UniqueUserId.setText("Device ID : "+ UniqueID);
 
             String[] CC  = C.ReturnSingleValue("Select c.CountryCode||'-'||C.CountryName||'-'||f.FaciCode||'-'||f.FaciName from Country c,Facility f where c.CountryCode=f.CountryCode").split("-");
             String CCode = CC[0];
@@ -109,11 +118,25 @@ public class Login extends Activity {
             sp.save(Login.this,"facicode",FCode);
             sp.save(Login.this,"faciname",FName);
             Facility.setText(FName);
-            Country.setText(CName);
+
+            if(ProjectSetting.apiName.equals("enap_dev")) {
+                //Country.setText(CName + " - Development");
+                Country.setText("Development");
+                Country.setTextColor(Color.RED);
+            }
+            else {
+                if(ProjectSetting.Country.equals(ProjectSetting.BANGLADESH))
+                    Country.setText(ProjectSetting.COUNTRY_NAME_BANGLADESH);
+                else if(ProjectSetting.Country.equals(ProjectSetting.NEPAL))
+                    Country.setText(ProjectSetting.COUNTRY_NAME_Nepal);
+                else if(ProjectSetting.Country.equals(ProjectSetting.TANZANIA))
+                    Country.setText(ProjectSetting.COUNTRY_NAME_Tanzania);
+            }
 
             //**************************************************************************************
             if (networkAvailable)
             {
+                //C.Sync_Download("DataCollector", UniqueID, "CountryCode='"+ CCode +"' and FaciCode='"+ FCode +"'");
                 Intent syncService = new Intent(this, Sync_Service.class);
                 startService(syncService);
             }
@@ -158,9 +181,16 @@ public class Login extends Activity {
                         String jt = "";
                         String jl = "";
 
-                        SQL = "Select d.JobType||'-'||l.LocCode from DataCollector d";
+                        SQL = "Select JobType from DataCollector where UserId='"+ UID +"'";
+                        jt = C.ReturnSingleValue(SQL);
+                        sp.save(Login.this,"jobtype", jt.toString());
+                        sp.save(Login.this,"userid", UID);
+
+                        /*SQL = "Select d.JobType||'-'||l.LocCode from DataCollector d";
                         SQL += " Left outer join LocationDC l on d.facicode=l.facicode and d.userid=l.userid";
                         SQL += " where d.UserId='"+ UID +"' and l.Active='1'";
+
+                        SQL = "Select JobType from DataCollector where UserId='"+ UID +"'";
 
                         List<String> userAccess = new ArrayList<String>();
                         userAccess = C.getDataList(SQL);
@@ -171,8 +201,8 @@ public class Login extends Activity {
                             jobloc += jobloc.length()==0?jl:","+jl;
                         }
                         sp.save(Login.this,"jobtype", jt.toString());
-                        sp.save(Login.this,"jobloc", jobloc.toString());
-                        sp.save(Login.this,"userid", UID);
+                        sp.save(Login.this,"jobloc", jobloc.toString());*/
+
 
                         //Store Last Login information
                         C.Save("Delete from LastLogin");
@@ -196,12 +226,12 @@ public class Login extends Activity {
                             else
                             {
                                 //check for system date
-                                if(ServerDate.equals(Global.TodaysDateforCheck())==false)
+                                /*if(ServerDate.equals(Global.TodaysDateforCheck())==false)
                                 {
                                     Connection.MessageBox(Login.this, "আপনার ট্যাব এর তারিখ সঠিক নয় ["+ Global.DateNowDMY() +"]।");
                                     startActivity(new Intent(android.provider.Settings.ACTION_DATE_SETTINGS));
                                     return;
-                                }
+                                }*/
 
                                 final ProgressDialog progDailog = ProgressDialog.show(Login.this, "", "Please Wait . . .", true);
 

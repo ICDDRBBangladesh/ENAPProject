@@ -27,6 +27,7 @@ public class SettingForm extends Activity {
     static String DeviceID    = "";
     static String FACOCODE    = "";
     TextView lblTitle;
+    TextView lblProjectTitle;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try
@@ -42,6 +43,13 @@ public class SettingForm extends Activity {
 
             lblTitle = (TextView)findViewById(R.id.lblTitle);
             lblTitle.setTextColor(Color.parseColor("#006699"));
+            lblProjectTitle=(TextView)findViewById(R.id.lblProjectTitle);
+            lblProjectTitle.setText(ProjectSetting.ProjectTitle);
+            if(ProjectSetting.ProjectTitle.length()>0){
+                lblProjectTitle.setVisibility(View.VISIBLE);
+            }else{
+                lblProjectTitle.setVisibility(View.GONE);
+            }
 
             final Spinner spnCountry = (Spinner)findViewById(R.id.spnCountry);
             final Spinner spnFacility = (Spinner)findViewById(R.id.spnFacility);
@@ -64,7 +72,8 @@ public class SettingForm extends Activity {
 
 
             final Spinner spnUser = (Spinner)findViewById(R.id.spnUser);
-            SpinnerItem(spnUser, "select DeviceId+'-'+DeviceName from DeviceList order by DeviceId");
+            //SpinnerItem(spnUser, "select DeviceId+'-'+DeviceName from DeviceList where LEFT(DeviceID,1) in('"+ spnCountry.getSelectedItem().toString().split("-")[0] +"') and Setting='1' order by DeviceId");
+            SpinnerItem(spnUser, "select DeviceId+'-'+DeviceName from DeviceList where Setting='1' order by DeviceId");
 
             Button cmdSave = (Button)findViewById(R.id.cmdSave);
             cmdSave.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +124,7 @@ public class SettingForm extends Activity {
                     }
                 }
             });
+
         }
         catch(Exception ex)
         {

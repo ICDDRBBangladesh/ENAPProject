@@ -29,6 +29,14 @@ public class Observation_VarList_DataModel {
         _VarName = newValue;
     }
 
+    private String _SL = "";
+    public String getSL(){
+        return _SL;
+    }
+    public void setSL(String newValue){
+        _SL = newValue;
+    }
+
     private String _Description = "";
     public String getDescription(){
         return _Description;
@@ -73,9 +81,53 @@ public class Observation_VarList_DataModel {
     public String getVarOption(){
         return _VarOption;
     }
+
+    private String _VarLength = "";
+    public String getVarLength(){
+        return _VarLength;
+    }
+    public void setVarLength(String newValue){
+        _VarLength = newValue;
+    }
+
+    private String _VarDataType = "";
+    public String getVarDataType(){
+        return _VarDataType;
+    }
+    public void setVarDataType(String newValue){
+        _VarDataType = newValue;
+    }
+
     private String _Color = "";
     public String getColor(){
         return _Color;
+    }
+    public void setColor(String newValue){
+        _Color = newValue;
+    }
+
+    private String _Active = "";
+    public String getActive(){
+        return _Active;
+    }
+    public void setActive(String newValue){
+        _Active = newValue;
+    }
+
+    private String _Important = "";
+    public String getImportant(){
+        return _Important;
+    }
+    public void setImportant(String newValue){
+        _Important = newValue;
+    }
+
+    private String _ForceVar = "";
+    public String getForceVar(){
+        return _ForceVar;
+    }
+    public void setForceVar(String newValue){
+        _ForceVar = newValue;
     }
 
     public List<Observation_VarList_DataModel> ObservationList(Context context, String SQL)
@@ -91,6 +143,7 @@ public class Observation_VarList_DataModel {
             d = new Observation_VarList_DataModel();
             d._TableId = cur.getString(cur.getColumnIndex("TableId"));
             d._VarName = cur.getString(cur.getColumnIndex("VarName"));
+            d._SL = cur.getString(cur.getColumnIndex("SL"));
             d._Description = cur.getString(cur.getColumnIndex("Description"));
             d._ObjSeq1 = cur.getString(cur.getColumnIndex("ObjSeq1"));
             d._ObjSeq2 = cur.getString(cur.getColumnIndex("ObjSeq2"));
@@ -98,8 +151,12 @@ public class Observation_VarList_DataModel {
             d._VarData = cur.getString(cur.getColumnIndex("VarData"));
             d._ControlType = cur.getString(cur.getColumnIndex("ControlType"));
             d._VarOption = cur.getString(cur.getColumnIndex("VarOption"));
+            d._VarLength = cur.getString(cur.getColumnIndex("VarLength"));
+            d._VarDataType = cur.getString(cur.getColumnIndex("VarDataType"));
             d._Color = cur.getString(cur.getColumnIndex("Color"));
-
+            d._Active = cur.getString(cur.getColumnIndex("Active"));
+            d._Important = cur.getString(cur.getColumnIndex("Important"));
+            d._ForceVar = cur.getString(cur.getColumnIndex("ForceVar"));
             data.add(d);
 
             cur.moveToNext();

@@ -8,7 +8,7 @@
 	android:layout_marginLeft="5sp"
 	android:layout_marginRight="5sp"
 	android:layout_marginTop="5sp"
-	android:layout_marginBottom="5sp">
+	android:layout_marginBottom="0sp">
 	<TextView android:id="@+id/objDescription"
 		android:textColor="#000000" android:gravity="center_horizontal|center_vertical"
 		android:layout_width="match_parent"
@@ -20,16 +20,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16dp"/>
+
 	<Spinner android:id="@+id/spnDataList" android:paddingLeft="5dp"
-		android:layout_width="match_parent" android:textSize="16sp"
-		android:layout_height="wrap_content"/>
+		android:layout_width="match_parent" android:textSize="14sp"
+		android:layout_height="35sp"/>
 
 	<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_gravity="center_vertical|center_horizontal">
-		<EditText android:id="@+id/txtData" android:paddingLeft="5dp" android:paddingRight="5dp" android:inputType="number"
-			android:layout_width="70dp"
+		<EditText android:id="@+id/txtData" android:paddingLeft="5dp" android:paddingRight="5dp" android:inputType="text"
+			android:layout_width="70sp" android:imeOptions="actionDone"
 			android:layout_height="40sp" android:textSize="18sp" android:gravity="center"/>
 		<ImageButton android:id="@+id/btnData" android:layout_marginLeft="10sp" android:src="@drawable/ic_action_save"
 			android:layout_width="wrap_content"
 			android:layout_height="35sp" android:background="#FFFFFF" />
     </LinearLayout>
+
+	<View android:id="@+id/lineImportant" android:visibility="gone" android:gravity="bottom" android:layout_height="8dip" android:layout_width="8dip" android:background="#FF0000" />
 </LinearLayout>

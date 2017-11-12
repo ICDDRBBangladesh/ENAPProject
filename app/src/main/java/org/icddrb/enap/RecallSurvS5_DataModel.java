@@ -105,7 +105,68 @@ import android.content.Context;
         public void setTelevisionNo(String newValue){
               _TelevisionNo = newValue;
          }
-        private String _hhfuelA = "";
+
+     private String _cooking = "";
+     public String getcooking(){
+         return _cooking;
+     }
+     public void setcooking(String newValue){
+         _cooking = newValue;
+     }
+     private String _cookingOth = "";
+     public String getcookingOth(){
+         return _cookingOth;
+     }
+     public void setcookingOth(String newValue){
+         _cookingOth = newValue;
+     }
+
+     private String _floor = "";
+     public String getfloor(){
+         return _floor;
+     }
+     public void setfloor(String newValue){
+         _floor = newValue;
+     }
+     private String _floorOth = "";
+     public String getfloorOth(){
+         return _floorOth;
+     }
+     public void setfloorOth(String newValue){
+         _floorOth = newValue;
+     }
+
+     private String _walls = "";
+     public String getwalls(){
+         return _walls;
+     }
+     public void setwalls(String newValue){
+         _walls = newValue;
+     }
+     private String _wallsOth = "";
+     public String getwallsOth(){
+         return _wallsOth;
+     }
+     public void setwallsOth(String newValue){
+         _wallsOth = newValue;
+     }
+
+     private String _roof = "";
+     public String getroof(){
+         return _roof;
+     }
+     public void setroof(String newValue){
+         _roof = newValue;
+     }
+     private String _roofOth = "";
+     public String getroofOth(){
+         return _roofOth;
+     }
+     public void setroofOth(String newValue){
+         _roofOth = newValue;
+     }
+
+     private String _hhfuelA = "";
         public String gethhfuelA(){
               return _hhfuelA;
          }
@@ -392,7 +453,7 @@ import android.content.Context;
             String SQL = "";
             try
               {
-                 SQL = "Insert into "+ TableName +" (CountryCode,FaciCode,DataId,StudyID,hhitemsA,hhitemsB,hhitemsC,hhitemsD,hhitemsE,hhitemsF,hhitemsG,hhitemsH,hhitemsI,TelevisionNo,hhfuelA,hhfuelB,hhfuelC,hhfuelD,hhfuelE,hhfuelF,hhfuelG,hhfuelH,hhfuelHOth,hhflmatA,hhflmatB,hhflmatC,hhflmatD,hhflmatDOth,hhWmatA,hhWmatB,hhWmatC,hhWmatD,hhWmatDOth,hhrmatA,hhrmatB,hhrmatC,hhrmatD,hhrmatDOth,hhrooms,hhvehA,hhvehB,hhvehC,hhvehD,hhvehE,hhaccount,comments,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload,modifyDate)Values('"+ _CountryCode +"', '"+ _FaciCode +"', '"+ _DataId +"', '"+ _StudyID +"', '"+ _hhitemsA +"', '"+ _hhitemsB +"', '"+ _hhitemsC +"', '"+ _hhitemsD +"', '"+ _hhitemsE +"', '"+ _hhitemsF +"', '"+ _hhitemsG +"', '"+ _hhitemsH +"', '"+ _hhitemsI +"', '"+ _TelevisionNo +"', '"+ _hhfuelA +"', '"+ _hhfuelB +"', '"+ _hhfuelC +"', '"+ _hhfuelD +"', '"+ _hhfuelE +"', '"+ _hhfuelF +"', '"+ _hhfuelG +"', '"+ _hhfuelH +"', '"+ _hhfuelHOth +"', '"+ _hhflmatA +"', '"+ _hhflmatB +"', '"+ _hhflmatC +"', '"+ _hhflmatD +"', '"+ _hhflmatDOth +"', '"+ _hhWmatA +"', '"+ _hhWmatB +"', '"+ _hhWmatC +"', '"+ _hhWmatD +"', '"+ _hhWmatDOth +"', '"+ _hhrmatA +"', '"+ _hhrmatB +"', '"+ _hhrmatC +"', '"+ _hhrmatD +"', '"+ _hhrmatDOth +"', '"+ _hhrooms +"', '"+ _hhvehA +"', '"+ _hhvehB +"', '"+ _hhvehC +"', '"+ _hhvehD +"', '"+ _hhvehE +"', '"+ _hhaccount +"', '"+ _comments +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"', '"+ _modifyDate +"')";
+                 SQL = "Insert into "+ TableName +" (CountryCode,FaciCode,DataId,StudyID,hhitemsA,hhitemsB,hhitemsC,hhitemsD,hhitemsE,hhitemsF,hhitemsG,hhitemsH,hhitemsI,TelevisionNo,cooking,cookingOth,floor,floorOth,walls,wallsOth,roof,roofOth,hhfuelA,hhfuelB,hhfuelC,hhfuelD,hhfuelE,hhfuelF,hhfuelG,hhfuelH,hhfuelHOth,hhflmatA,hhflmatB,hhflmatC,hhflmatD,hhflmatDOth,hhWmatA,hhWmatB,hhWmatC,hhWmatD,hhWmatDOth,hhrmatA,hhrmatB,hhrmatC,hhrmatD,hhrmatDOth,hhrooms,hhvehA,hhvehB,hhvehC,hhvehD,hhvehE,hhaccount,comments,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload,modifyDate)Values('"+ _CountryCode +"', '"+ _FaciCode +"', '"+ _DataId +"', '"+ _StudyID +"', '"+ _hhitemsA +"', '"+ _hhitemsB +"', '"+ _hhitemsC +"', '"+ _hhitemsD +"', '"+ _hhitemsE +"', '"+ _hhitemsF +"', '"+ _hhitemsG +"', '"+ _hhitemsH +"', '"+ _hhitemsI +"', '"+ _TelevisionNo +"','"+ _cooking +"','"+ _cookingOth +"','"+ _floor +"','"+ _floorOth +"','"+ _walls +"','"+ _wallsOth +"','"+ _roof +"','"+ _roofOth +"', '"+ _hhfuelA +"', '"+ _hhfuelB +"', '"+ _hhfuelC +"', '"+ _hhfuelD +"', '"+ _hhfuelE +"', '"+ _hhfuelF +"', '"+ _hhfuelG +"', '"+ _hhfuelH +"', '"+ _hhfuelHOth +"', '"+ _hhflmatA +"', '"+ _hhflmatB +"', '"+ _hhflmatC +"', '"+ _hhflmatD +"', '"+ _hhflmatDOth +"', '"+ _hhWmatA +"', '"+ _hhWmatB +"', '"+ _hhWmatC +"', '"+ _hhWmatD +"', '"+ _hhWmatDOth +"', '"+ _hhrmatA +"', '"+ _hhrmatB +"', '"+ _hhrmatC +"', '"+ _hhrmatD +"', '"+ _hhrmatDOth +"', '"+ _hhrooms +"', '"+ _hhvehA +"', '"+ _hhvehB +"', '"+ _hhvehC +"', '"+ _hhvehD +"', '"+ _hhvehE +"', '"+ _hhaccount +"', '"+ _comments +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"', '"+ _modifyDate +"')";
                  C.Save(SQL);
                  C.close();
               }
@@ -410,7 +471,7 @@ import android.content.Context;
             String SQL = "";
             try
               {
-                 SQL = "Update "+ TableName +" Set Upload='2',modifyDate='" + _modifyDate + "' ,CountryCode = '"+ _CountryCode +"',FaciCode = '"+ _FaciCode +"',DataId = '"+ _DataId +"',StudyID = '"+ _StudyID +"',hhitemsA = '"+ _hhitemsA +"',hhitemsB = '"+ _hhitemsB +"',hhitemsC = '"+ _hhitemsC +"',hhitemsD = '"+ _hhitemsD +"',hhitemsE = '"+ _hhitemsE +"',hhitemsF = '"+ _hhitemsF +"',hhitemsG = '"+ _hhitemsG +"',hhitemsH = '"+ _hhitemsH +"',hhitemsI = '"+ _hhitemsI +"',TelevisionNo = '"+ _TelevisionNo +"',hhfuelA = '"+ _hhfuelA +"',hhfuelB = '"+ _hhfuelB +"',hhfuelC = '"+ _hhfuelC +"',hhfuelD = '"+ _hhfuelD +"',hhfuelE = '"+ _hhfuelE +"',hhfuelF = '"+ _hhfuelF +"',hhfuelG = '"+ _hhfuelG +"',hhfuelH = '"+ _hhfuelH +"',hhfuelHOth = '"+ _hhfuelHOth +"',hhflmatA = '"+ _hhflmatA +"',hhflmatB = '"+ _hhflmatB +"',hhflmatC = '"+ _hhflmatC +"',hhflmatD = '"+ _hhflmatD +"',hhflmatDOth = '"+ _hhflmatDOth +"',hhWmatA = '"+ _hhWmatA +"',hhWmatB = '"+ _hhWmatB +"',hhWmatC = '"+ _hhWmatC +"',hhWmatD = '"+ _hhWmatD +"',hhWmatDOth = '"+ _hhWmatDOth +"',hhrmatA = '"+ _hhrmatA +"',hhrmatB = '"+ _hhrmatB +"',hhrmatC = '"+ _hhrmatC +"',hhrmatD = '"+ _hhrmatD +"',hhrmatDOth = '"+ _hhrmatDOth +"',hhrooms = '"+ _hhrooms +"',hhvehA = '"+ _hhvehA +"',hhvehB = '"+ _hhvehB +"',hhvehC = '"+ _hhvehC +"',hhvehD = '"+ _hhvehD +"',hhvehE = '"+ _hhvehE +"',hhaccount = '"+ _hhaccount +"',comments = '"+ _comments +"'  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and DataId='"+ _DataId +"'";
+                 SQL = "Update "+ TableName +" Set Upload='2',modifyDate='" + _modifyDate + "' ,CountryCode = '"+ _CountryCode +"',FaciCode = '"+ _FaciCode +"',DataId = '"+ _DataId +"',StudyID = '"+ _StudyID +"',hhitemsA = '"+ _hhitemsA +"',hhitemsB = '"+ _hhitemsB +"',hhitemsC = '"+ _hhitemsC +"',hhitemsD = '"+ _hhitemsD +"',hhitemsE = '"+ _hhitemsE +"',hhitemsF = '"+ _hhitemsF +"',hhitemsG = '"+ _hhitemsG +"',hhitemsH = '"+ _hhitemsH +"',hhitemsI = '"+ _hhitemsI +"',TelevisionNo = '"+ _TelevisionNo +"',cooking='"+ _cooking +"',cookingOth='"+ _cookingOth +"',floor='"+ _floor +"',floorOth='"+ _floorOth +"',walls='"+ _walls +"',wallsOth='"+ _wallsOth +"',roof='"+ _roof +"',roofOth='"+ _roofOth +"',hhfuelA = '"+ _hhfuelA +"',hhfuelB = '"+ _hhfuelB +"',hhfuelC = '"+ _hhfuelC +"',hhfuelD = '"+ _hhfuelD +"',hhfuelE = '"+ _hhfuelE +"',hhfuelF = '"+ _hhfuelF +"',hhfuelG = '"+ _hhfuelG +"',hhfuelH = '"+ _hhfuelH +"',hhfuelHOth = '"+ _hhfuelHOth +"',hhflmatA = '"+ _hhflmatA +"',hhflmatB = '"+ _hhflmatB +"',hhflmatC = '"+ _hhflmatC +"',hhflmatD = '"+ _hhflmatD +"',hhflmatDOth = '"+ _hhflmatDOth +"',hhWmatA = '"+ _hhWmatA +"',hhWmatB = '"+ _hhWmatB +"',hhWmatC = '"+ _hhWmatC +"',hhWmatD = '"+ _hhWmatD +"',hhWmatDOth = '"+ _hhWmatDOth +"',hhrmatA = '"+ _hhrmatA +"',hhrmatB = '"+ _hhrmatB +"',hhrmatC = '"+ _hhrmatC +"',hhrmatD = '"+ _hhrmatD +"',hhrmatDOth = '"+ _hhrmatDOth +"',hhrooms = '"+ _hhrooms +"',hhvehA = '"+ _hhvehA +"',hhvehB = '"+ _hhvehB +"',hhvehC = '"+ _hhvehC +"',hhvehD = '"+ _hhvehD +"',hhvehE = '"+ _hhvehE +"',hhaccount = '"+ _hhaccount +"',comments = '"+ _comments +"'  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and DataId='"+ _DataId +"'";
                  C.Save(SQL);
                  C.close();
               }
@@ -447,6 +508,16 @@ import android.content.Context;
                 d._hhitemsH = cur.getString(cur.getColumnIndex("hhitemsH"));
                 d._hhitemsI = cur.getString(cur.getColumnIndex("hhitemsI"));
                 d._TelevisionNo = cur.getString(cur.getColumnIndex("TelevisionNo"));
+
+                d._cooking = cur.getString(cur.getColumnIndex("cooking"));
+                d._cookingOth = cur.getString(cur.getColumnIndex("cookingOth"));
+                d._floor = cur.getString(cur.getColumnIndex("floor"));
+                d._floorOth = cur.getString(cur.getColumnIndex("floorOth"));
+                d._walls = cur.getString(cur.getColumnIndex("walls"));
+                d._wallsOth = cur.getString(cur.getColumnIndex("wallsOth"));
+                d._roof = cur.getString(cur.getColumnIndex("roof"));
+                d._roofOth = cur.getString(cur.getColumnIndex("roofOth"));
+
                 d._hhfuelA = cur.getString(cur.getColumnIndex("hhfuelA"));
                 d._hhfuelB = cur.getString(cur.getColumnIndex("hhfuelB"));
                 d._hhfuelC = cur.getString(cur.getColumnIndex("hhfuelC"));

@@ -387,6 +387,23 @@
          TextView Vlblcomments;
          EditText txtcomments;
 
+     LinearLayout seccooking;
+     LinearLayout seccookingOth;
+     Spinner spncooking;
+     EditText txtcookingOth;
+     LinearLayout secfloor;
+     LinearLayout secfloorOth;
+     Spinner spnfloor;
+     EditText txtfloorOth;
+     LinearLayout secwalls;
+     LinearLayout secwallsOth;
+     Spinner spnwalls;
+     EditText txtwallsOth;
+     LinearLayout secroof;
+     LinearLayout secroofOth;
+     Spinner spnroof;
+     EditText txtroofOth;
+
     static String TableName;
 
     static String STARTTIME = "";
@@ -398,12 +415,23 @@
     static String COUNTRYCODE = "";
     static String FACICODE = "";
     static String DATAID = "";
+    static String STUDYID = "";
 
  public void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
    try
      {
-         setContentView(R.layout.recallsurvs5);
+         COUNTRYCODE = sp.getValue(this, "countrycode");
+         if(COUNTRYCODE.equals(ProjectSetting.BANGLADESH))
+             setContentView(R.layout.recallsurvs5_bd);
+         else if(COUNTRYCODE.equals(ProjectSetting.NEPAL))
+             setContentView(R.layout.recallsurvs5_np);
+         else if(COUNTRYCODE.equals(ProjectSetting.TANZANIA))
+             setContentView(R.layout.recallsurvs5_tz);
+         else
+             setContentView(R.layout.recallsurvs5);
+
+
          C = new Connection(this);
          g = Global.getInstance();
 
@@ -412,9 +440,15 @@
          ENTRYUSER = sp.getValue(this, "userid");
 
          IDbundle = getIntent().getExtras();
+         //COUNTRYCODE = sp.getValue(this, "countrycode");
+         FACICODE    = sp.getValue(this, "facicode");
+         DATAID = IDbundle.getString("dataid");
+         STUDYID = IDbundle.getString("studyid");
+
+         /*IDbundle = getIntent().getExtras();
          COUNTRYCODE = IDbundle.getString("CountryCode");
          FACICODE = IDbundle.getString("FaciCode");
-         DATAID = IDbundle.getString("DataId");
+         DATAID = IDbundle.getString("DataId");*/
 
          TableName = "RecallSurvS5";
 
@@ -440,23 +474,175 @@
                  adb.show();
              }});
 
+         seccooking=(LinearLayout)findViewById(R.id.seccooking) ;
+         seccookingOth=(LinearLayout)findViewById(R.id.seccookingOth) ;
+         spncooking=(Spinner)findViewById(R.id.spncooking) ;
+         List<String> listcooking = new ArrayList<String>();
+
+         listcooking.add("");
+         if(COUNTRYCODE.equals(ProjectSetting.BANGLADESH)){
+             listcooking.add("01-বিদ্যুৎ");
+             listcooking.add("02-গ্যাস");
+             listcooking.add("03-কেরোসিন");
+             listcooking.add("04-গোবর");
+             listcooking.add("05-চারকোল/ কয়লা");
+             listcooking.add("06-কাঠ");
+             listcooking.add("07-খানায় রান্না হয় না");
+             listcooking.add("97-অন্যান্য");
+         }else if(COUNTRYCODE.equals(ProjectSetting.NEPAL)){
+             listcooking.add("01-बिजुली");
+             listcooking.add("02-ग्याँस");
+             listcooking.add("03-मट्टीतेल");
+             listcooking.add("04-गोबर");
+             listcooking.add("05-कोइला");
+             listcooking.add("06-काठ");
+             listcooking.add("07-घरमा खाना पकाउने गरेको छैन");
+             listcooking.add("97-अन्य खुलाउने");
+         }else if(COUNTRYCODE.equals(ProjectSetting.TANZANIA)){
+             listcooking.add("01-Umeme");
+             listcooking.add("02-Gesi");
+             listcooking.add("03-Mafuata ya taa");
+             listcooking.add("04-Kinyesi cha wanyama");
+             listcooking.add("05-Mkaa/Makaa ya mawe");
+             listcooking.add("06-Kuni");
+             listcooking.add("07-Hakuna chakula kinachipikwa kwenye kaya");
+             listcooking.add("97-Nyingine, taja");
+         }else {
+             listcooking.add("01-Electricity");
+             listcooking.add("02-Gas");
+             listcooking.add("03-Kerosine");
+             listcooking.add("04-Animal dung");
+             listcooking.add("05-Charcoal/coal");
+             listcooking.add("06-Wood");
+             listcooking.add("07-No food cooked in household");
+             listcooking.add("97-Other");
+         }
+
+         ArrayAdapter<String> adptrcooking= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listcooking);
+         spncooking.setAdapter(adptrcooking);
+
+         txtcookingOth=(EditText)findViewById(R.id.txtcookingOth) ;
+
+         secfloor=(LinearLayout)findViewById(R.id.secfloor) ;
+         secfloorOth=(LinearLayout)findViewById(R.id.secfloorOth) ;
+         spnfloor=(Spinner)findViewById(R.id.spnfloor) ;
+         List<String> listfloor = new ArrayList<String>();
+
+         listfloor.add("");
+         if(COUNTRYCODE.equals(ProjectSetting.BANGLADESH)){
+             listfloor.add("1-কাঁচা মেঝে যেমন কাদামাটি, মাটি, বালু, গোবর");
+             listfloor.add("2-প্রাথমিক পর্যায়ের মেঝে যেমন কাঠ, তাল গাছ/বাঁশ");
+             listfloor.add("3-পরিপূর্ণ মেঝে যেমন সিমেন্ট, পালিশকৃত কাঠ, ভিনাইল স্ট্রিপ, টাইলস");
+             listfloor.add("7-অন্যান্য যেমন কার্পেট");
+         }else if(COUNTRYCODE.equals(ProjectSetting.NEPAL)){
+             listfloor.add("1-प्राकृतिक भुईं, जस्तै माटोले लिपेको ,गोबरले लिपेको, बालुवा");
+             listfloor.add("2-मौलिक भुईजस्तै दाउरा, काठ, बाँस");
+             listfloor.add("3-परिस्कृत (पक्का)  भुई जस्तै सिमेन्ट, रङ्गीन काठ, टाइल");
+             listfloor.add("7-अन्य खुलाउने जस्तै (कार्पेट)");
+         }else if(COUNTRYCODE.equals(ProjectSetting.TANZANIA)){
+             listfloor.add("1-पSakafu ya asili, kama ya uchafu, udongo, mchanga, kinyesi");
+             listfloor.add("2-Sakafu maalum kama vile, ya mbao, mianzi");
+             listfloor.add("3-Sakafu iliyokamilika, kama vile ya simenti, mbao iliyon’garishwa, yenye mistari maalum, vigae");
+             listfloor.add("7-Nyingine, taja, kama vile zulia");
+         }else {
+             listfloor.add("1-Natural floor, such as dirt, earth, sand, dung");
+             listfloor.add("2-Rudimentary floor, such as wood, palm/bamboo");
+             listfloor.add("3-Finished floor, such as cement, polished wood, vinyl strips, tiles");
+             listfloor.add("7-Other, specify, such as carpet");
+         }
+
+         ArrayAdapter<String> adptrfloor= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listfloor);
+         spnfloor.setAdapter(adptrfloor);
+
+         txtfloorOth=(EditText)findViewById(R.id.txtfloorOth) ;
+
+         secwalls=(LinearLayout)findViewById(R.id.secwalls) ;
+         secwallsOth=(LinearLayout)findViewById(R.id.secwallsOth) ;
+         spnwalls=(Spinner)findViewById(R.id.spnwalls) ;
+         List<String> listwall = new ArrayList<String>();
+
+         listwall.add("");
+         if(COUNTRYCODE.equals(ProjectSetting.BANGLADESH)){
+             listwall.add("1-স্বাভাবিক দেয়াল যেমন দেয়াল নাই, কাদামাটি, পাটকাঠি/ বেত/ তাল গাছ/ গাছের গুড়ি");
+             listwall.add("2-প্রাথমিক পর্যায়ের দেয়াল যেমন মাটিসহ বাঁশ, মাটিসহ পাথর, প্লাই-উড, কার্ডবোর্ড, পুনঃব্যবহৃত কাঠ");
+             listwall.add("3-পরিপূর্ণ দেয়াল যেমন সিমেন্ট, সিমেন্টের ব্লক, ইট, কাঠের তক্তা/ মোজাইক পাথর, পালিশকৃত কাঠ");
+             listwall.add("7-অন্যান্য");
+         }else if(COUNTRYCODE.equals(ProjectSetting.NEPAL)){
+             listwall.add("1-प्राकृतिक  भित्ता, भित्ता नभएको, वेत,माटो, छडि, रुखको बोक्रा");
+             listwall.add("2-मौलिक भित्ता जस्तै बाँस र माटो , ढुङ्गा र माटो , प्लाइ ऊड , कार्डबोर्ड , पुरानो (पुन: प्रयोगगरेको) काठ");
+             listwall.add("3-परिस्कृत (पक्का) भित्ता जस्तै सिमेन्टले बनेको, सीमेन्ट ब्लक, इट्ट्टाले बनेको, रङ्गीन काठ , काठको फल्याक");
+             listwall.add("7-अन्य खुलाउने");
+         }else if(COUNTRYCODE.equals(ProjectSetting.TANZANIA)){
+             listwall.add("1-Kuta halisi, kama vile, kutokuwa na kuta, chafu, miwa/miti/mashina");
+             listwall.add("2-Kuta maalum, kama vile za mianzi na udongo, mawe na udongo, kuta za mbao nyepesi, mbao ngumu, mbao zilizotumika");
+             listwall.add("3-Kuta zilizotumika, kama vile sementi, vigingi vya simenti, mbao nyembamba, mbao zilizo ng’arishwa");
+             listwall.add("7-Nyingine, taja");
+         }else {
+             listwall.add("1-Natural walls, such as no walls, dirt, cane/palm/trunks");
+             listwall.add("2-Rudimentary walls, such as bamboo with mud, stone with mud, plywood, cardboard, reused wood");
+             listwall.add("3-Finished walls, such as cement, cement blocks, wood planks/shingles, polished wood");
+             listwall.add("7-Other");
+         }
+
+         ArrayAdapter<String> adptrwall= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listwall);
+         spnwalls.setAdapter(adptrwall);
+
+
+         txtwallsOth=(EditText)findViewById(R.id.txtwallsOth) ;
+
+         secroof=(LinearLayout)findViewById(R.id.secroof) ;
+         secroofOth=(LinearLayout)findViewById(R.id.secroofOth) ;
+         spnroof=(Spinner)findViewById(R.id.spnroof) ;
+         List<String> listroof = new ArrayList<String>();
+
+         listroof.add("");
+         if(COUNTRYCODE.equals(ProjectSetting.BANGLADESH)){
+             listroof.add("1-স্বাভাবিক ছাদ যেমন ছাদ নাই, খড়/ছন/তালপাতা, ঘাস");
+             listroof.add("2-কাঁচা ছাদ যেমন কাঠ, কার্ডবোর্ড, তাল গাছ/বাঁশ");
+             listroof.add("3-পরিপূর্ণ ছাদ যেমন ধাতু, লোহার দন্ড, টালি, টাইলস, সিমেন্ট");
+             listroof.add("7-অন্যান্য");
+         }else if(COUNTRYCODE.equals(ProjectSetting.NEPAL)){
+             listroof.add("1-प्राकृतिक छानो जस्तै छानो नभएको , फुसको ( पराल, छवालि, खर, स्याउला)");
+             listroof.add("2-मौलिक छानो जस्तै गुन्द्रि/मान्द्रो , बाँस फल्याक/ काठ");
+             listroof.add("3-परिस्कृत (पक्का) छानो जस्तै ढुङ्गा र  सिमेन्ट,  फलाम,  टायल,  ईटा");
+             listroof.add("7-अन्य खुलाउने");
+         }else if(COUNTRYCODE.equals(ProjectSetting.TANZANIA)){
+             listroof.add("1-Paa ya asili, kama vile hakuna paa, paa ya nyasi, udongo");
+             listroof.add("2-Paa maalumu, kama vile ya mbao, paa ya kawaida, paa ya mbao laini, paa ya mianzi");
+             listroof.add("3-Paa iliyokamilika, kama vile chuma, paa ya mabati, paa ya vigae, paa ya simenti");
+             listroof.add("7-Nyingine, taja");
+         }else {
+             listroof.add("1-Natural roofing, such as no roof, thatch/palm leaf, sod");
+             listroof.add("2-Rudimentary roofing, such as wood, rustic mat, cardboard, palm/bamboo");
+             listroof.add("3-Finished roofing, such as metal, iron sheets, shingles, tiles, cement");
+             listroof.add("7-Other");
+         }
+         ArrayAdapter<String> adptrroof= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listroof);
+         spnroof.setAdapter(adptrroof);
+
+
+         txtroofOth=(EditText)findViewById(R.id.txtroofOth) ;
 
          secCountryCode=(LinearLayout)findViewById(R.id.secCountryCode);
          lineCountryCode=(View)findViewById(R.id.lineCountryCode);
          VlblCountryCode=(TextView) findViewById(R.id.VlblCountryCode);
          txtCountryCode=(EditText) findViewById(R.id.txtCountryCode);
+         txtCountryCode.setText(COUNTRYCODE);
          secFaciCode=(LinearLayout)findViewById(R.id.secFaciCode);
          lineFaciCode=(View)findViewById(R.id.lineFaciCode);
          VlblFaciCode=(TextView) findViewById(R.id.VlblFaciCode);
          txtFaciCode=(EditText) findViewById(R.id.txtFaciCode);
+         txtFaciCode.setText(FACICODE);
          secDataId=(LinearLayout)findViewById(R.id.secDataId);
          lineDataId=(View)findViewById(R.id.lineDataId);
          VlblDataId=(TextView) findViewById(R.id.VlblDataId);
          txtDataId=(EditText) findViewById(R.id.txtDataId);
+         txtDataId.setText(DATAID);
          secStudyID=(LinearLayout)findViewById(R.id.secStudyID);
          lineStudyID=(View)findViewById(R.id.lineStudyID);
          VlblStudyID=(TextView) findViewById(R.id.VlblStudyID);
          txtStudyID=(EditText) findViewById(R.id.txtStudyID);
+         txtStudyID.setText(STUDYID);
          seclblSecV=(LinearLayout)findViewById(R.id.seclblSecV);
          linelblSecV=(View)findViewById(R.id.linelblSecV);
          seclbl01=(LinearLayout)findViewById(R.id.seclbl01);
@@ -603,15 +789,15 @@
                     sechhfuelHOth.setVisibility(View.GONE);
                     linehhfuelHOth.setVisibility(View.GONE);
                     txthhfuelHOth.setText("");
-                    seclbl03.setVisibility(View.GONE);
-                    linelbl03.setVisibility(View.GONE);
+                    //seclbl03.setVisibility(View.GONE);
+                    //linelbl03.setVisibility(View.GONE);
              }
              else
              {
                     sechhfuelHOth.setVisibility(View.VISIBLE);
                     linehhfuelHOth.setVisibility(View.VISIBLE);
-                    seclbl03.setVisibility(View.VISIBLE);
-                    linelbl03.setVisibility(View.VISIBLE);
+                    //seclbl03.setVisibility(View.VISIBLE);
+                    //linelbl03.setVisibility(View.VISIBLE);
              }
             }
          public void onNothingSelected(AdapterView<?> adapterView) {
@@ -669,15 +855,15 @@
                     sechhflmatDOth.setVisibility(View.GONE);
                     linehhflmatDOth.setVisibility(View.GONE);
                     txthhflmatDOth.setText("");
-                    seclbl04.setVisibility(View.GONE);
-                    linelbl04.setVisibility(View.GONE);
+                    //seclbl04.setVisibility(View.GONE);
+                    //linelbl04.setVisibility(View.GONE);
              }
              else
              {
                     sechhflmatDOth.setVisibility(View.VISIBLE);
                     linehhflmatDOth.setVisibility(View.VISIBLE);
-                    seclbl04.setVisibility(View.VISIBLE);
-                    linelbl04.setVisibility(View.VISIBLE);
+                    //seclbl04.setVisibility(View.VISIBLE);
+                    //linelbl04.setVisibility(View.VISIBLE);
              }
             }
          public void onNothingSelected(AdapterView<?> adapterView) {
@@ -735,15 +921,15 @@
                     sechhWmatDOth.setVisibility(View.GONE);
                     linehhWmatDOth.setVisibility(View.GONE);
                     txthhWmatDOth.setText("");
-                    seclbl05.setVisibility(View.GONE);
-                    linelbl05.setVisibility(View.GONE);
+                    //seclbl05.setVisibility(View.GONE);
+                    //linelbl05.setVisibility(View.GONE);
              }
              else
              {
                     sechhWmatDOth.setVisibility(View.VISIBLE);
                     linehhWmatDOth.setVisibility(View.VISIBLE);
-                    seclbl05.setVisibility(View.VISIBLE);
-                    linelbl05.setVisibility(View.VISIBLE);
+                    //seclbl05.setVisibility(View.VISIBLE);
+                    //linelbl05.setVisibility(View.VISIBLE);
              }
             }
          public void onNothingSelected(AdapterView<?> adapterView) {
@@ -799,7 +985,7 @@
              if(rbData.equalsIgnoreCase("2"))
              {
                     sechhrmatDOth.setVisibility(View.GONE);
-                    linehhrmatDOth.setVisibility(View.GONE);
+                    //linehhrmatDOth.setVisibility(View.GONE);
                     txthhrmatDOth.setText("");
              }
              else
@@ -870,26 +1056,120 @@
          txtcomments=(EditText) findViewById(R.id.txtcomments);
 
 
+         rdogrphhitemsD.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+             @Override
+             public void onCheckedChanged(RadioGroup radioGroup,int radioButtonID) {
+                 if(rdohhitemsD1.isChecked()){
+                     secTelevisionNo.setVisibility(View.VISIBLE);
+                 }else{
+                     secTelevisionNo.setVisibility(View.GONE);
+                     txtTelevisionNo.setText("");
+                 }
+             }
+             public void onNothingSelected(AdapterView<?> adapterView) {
+                 return;
+             }
+         });
 
+         spncooking.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+         @Override
+         public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+             if(spncooking.getSelectedItemPosition()==0) return;
+             if(spncooking.getSelectedItem().toString().split("-")[0].equals("97")){
+                 seccookingOth.setVisibility(View.VISIBLE);
+             }else{
+                 seccookingOth.setVisibility(View.GONE);
+                 txtcookingOth.setText("");
+             }
+         }
+
+         @Override
+         public void onNothingSelected(AdapterView<?> parentView) {
+             // your code here
+         }
+
+        });
+
+         spnfloor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+             @Override
+             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                 if(spnfloor.getSelectedItemPosition()==0) return;
+                 if(spnfloor.getSelectedItem().toString().split("-")[0].equals("7")){
+                     secfloorOth.setVisibility(View.VISIBLE);
+                 }else{
+                     secfloorOth.setVisibility(View.GONE);
+                     txtfloorOth.setText("");
+                 }
+             }
+
+             @Override
+             public void onNothingSelected(AdapterView<?> parentView) {
+                 // your code here
+             }
+
+         });
+         spnwalls.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+             @Override
+             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                 if(spnwalls.getSelectedItemPosition()==0) return;
+                 if(spnwalls.getSelectedItem().toString().split("-")[0].equals("7")){
+                     secwallsOth.setVisibility(View.VISIBLE);
+                 }else{
+                     secwallsOth.setVisibility(View.GONE);
+                     txtwallsOth.setText("");
+                 }
+             }
+
+             @Override
+             public void onNothingSelected(AdapterView<?> parentView) {
+                 // your code here
+             }
+
+         });
+
+         spnroof.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+             @Override
+             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                 if(spnroof.getSelectedItemPosition()==0) return;
+                 if(spnroof.getSelectedItem().toString().split("-")[0].equals("7")){
+                     secroofOth.setVisibility(View.VISIBLE);
+                 }else{
+                     secroofOth.setVisibility(View.GONE);
+                     txtroofOth.setText("");
+                 }
+             }
+
+             @Override
+             public void onNothingSelected(AdapterView<?> parentView) {
+                 // your code here
+             }
+
+         });
 
 
          //Hide all skip variables
          sechhfuelHOth.setVisibility(View.GONE);
          linehhfuelHOth.setVisibility(View.GONE);
-         seclbl03.setVisibility(View.GONE);
-         linelbl03.setVisibility(View.GONE);
+         //seclbl03.setVisibility(View.GONE);
+         //linelbl03.setVisibility(View.GONE);
          sechhflmatDOth.setVisibility(View.GONE);
          linehhflmatDOth.setVisibility(View.GONE);
-         seclbl04.setVisibility(View.GONE);
+         //seclbl04.setVisibility(View.GONE);
          linelbl04.setVisibility(View.GONE);
          sechhWmatDOth.setVisibility(View.GONE);
          linehhWmatDOth.setVisibility(View.GONE);
-         seclbl05.setVisibility(View.GONE);
-         linelbl05.setVisibility(View.GONE);
+         //seclbl05.setVisibility(View.GONE);
+         //linelbl05.setVisibility(View.GONE);
          sechhrmatDOth.setVisibility(View.GONE);
-         linehhrmatDOth.setVisibility(View.GONE);
+         //linehhrmatDOth.setVisibility(View.GONE);
+         secTelevisionNo.setVisibility(View.GONE);
 
+         seccookingOth.setVisibility(View.GONE);
+         secfloorOth.setVisibility(View.GONE);
+         secwallsOth.setVisibility(View.GONE);
+         secroofOth.setVisibility(View.GONE);
 
+         DataSearch(COUNTRYCODE,FACICODE,DATAID);
         Button cmdSave = (Button) findViewById(R.id.cmdSave);
         cmdSave.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) { 
@@ -1239,12 +1519,12 @@
               rdohhaccount1.requestFocus();
               return;
            }
-         else if(txtcomments.getText().toString().length()==0 & seccomments.isShown())
+         /*else if(txtcomments.getText().toString().length()==0 & seccomments.isShown())
            {
              Connection.MessageBox(RecallSurvS5.this, "Required field: INTERVIEWER COMMENTS.");
              txtcomments.requestFocus(); 
              return;	
-           }
+           }*/
  
          String SQL = "";
          RadioButton rb;
@@ -1327,6 +1607,15 @@
          }
 
          objSave.setTelevisionNo(txtTelevisionNo.getText().toString());
+         objSave.setcooking((spncooking.getSelectedItemPosition() == 0 ? "" : Connection.SelectedSpinnerValue(spncooking.getSelectedItem().toString(), "-")));
+         objSave.setcookingOth(txtcookingOth.getText().toString());
+         objSave.setfloor((spnfloor.getSelectedItemPosition() == 0 ? "" : Connection.SelectedSpinnerValue(spnfloor.getSelectedItem().toString(), "-")));
+         objSave.setfloorOth(txtfloorOth.getText().toString());
+         objSave.setwalls((spnwalls.getSelectedItemPosition() == 0 ? "" : Connection.SelectedSpinnerValue(spnwalls.getSelectedItem().toString(), "-")));
+         objSave.setwallsOth(txtwallsOth.getText().toString());
+         objSave.setroof((spnroof.getSelectedItemPosition() == 0 ? "" : Connection.SelectedSpinnerValue(spnroof.getSelectedItem().toString(), "-")));
+         objSave.setroofOth(txtroofOth.getText().toString());
+
          String[] d_rdogrphhfuelA = new String[] {"1","2"};
          objSave.sethhfuelA("");
          for (int i = 0; i < rdogrphhfuelA.getChildCount(); i++)
@@ -1552,11 +1841,11 @@
 
          String status = objSave.SaveUpdateData(this);
          if(status.length()==0) {
-             Intent returnIntent = new Intent();
+             /*Intent returnIntent = new Intent();
              returnIntent.putExtra("res", "");
-             setResult(Activity.RESULT_OK, returnIntent);
+             setResult(Activity.RESULT_OK, returnIntent);*/
 
-             Connection.MessageBox(RecallSurvS5.this, "Saved Successfully");
+             Connection.MessageBoxNotClose(RecallSurvS5.this, "Saved Successfully");
          }
          else{
              Connection.MessageBox(RecallSurvS5.this, status);
@@ -1666,7 +1955,17 @@
                  }
              }
              txtTelevisionNo.setText(item.getTelevisionNo());
-             String[] d_rdogrphhfuelA = new String[] {"1","2"};
+               spncooking.setSelection(Global.SpinnerItemPositionAnyLength(spncooking, item.getcooking()));
+               txtcookingOth.setText(item.getcookingOth());
+               spnfloor.setSelection(Global.SpinnerItemPositionAnyLength(spnfloor, item.getfloor()));
+               txtfloorOth.setText(item.getfloorOth());
+               spnwalls.setSelection(Global.SpinnerItemPositionAnyLength(spnwalls, item.getwalls()));
+               txtwallsOth.setText(item.getwallsOth());
+               spnroof.setSelection(Global.SpinnerItemPositionAnyLength(spnroof, item.getroof()));
+                txtroofOth.setText(item.getroofOth());
+
+
+               String[] d_rdogrphhfuelA = new String[] {"1","2"};
              for (int i = 0; i < d_rdogrphhfuelA.length; i++)
              {
                  if (item.gethhfuelA().equals(String.valueOf(d_rdogrphhfuelA[i])))

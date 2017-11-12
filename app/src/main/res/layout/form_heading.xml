@@ -16,14 +16,14 @@
         android:layout_marginTop="20sp"
         android:visibility="visible">
 
-        <ImageView
+        <ImageView android:visibility="visible"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingLeft="10px"
             android:paddingRight="10px"
             android:scaleType="center"
-            android:src="@drawable/logo"
+            android:src="@drawable/enaplogo"
             android:textColor="#FFFFFF"
             android:textSize="30sp" />
     </LinearLayout>
@@ -38,7 +38,7 @@
 
         <TextView android:id="@+id/lblTitle"
             android:layout_width="fill_parent"
-            android:layout_height="45sp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingLeft="10px"
             android:paddingRight="10px"
@@ -47,19 +47,19 @@
             android:textSize="30sp" />
         <TextView android:id="@+id/Facility"
             android:layout_width="fill_parent"
-            android:layout_height="45sp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingLeft="10px"
             android:paddingRight="10px"
             android:textColor="@color/heading_font_color"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
         <TextView android:id="@+id/Country"
             android:layout_width="fill_parent"
-            android:layout_height="45sp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingLeft="10px"
             android:paddingRight="10px"
             android:textColor="@color/heading_font_color"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
     </LinearLayout>
 </LinearLayout>

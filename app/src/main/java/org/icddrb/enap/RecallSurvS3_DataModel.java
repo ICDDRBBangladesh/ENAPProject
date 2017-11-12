@@ -315,7 +315,16 @@ import android.content.Context;
         public void setdiswgtniDK(String newValue){
               _diswgtniDK = newValue;
          }
-        private String _StartTime = "";
+
+     private String _Comments = "";
+     public String getComments(){
+         return _Comments;
+     }
+     public void setComments(String newValue){
+         _Comments = newValue;
+     }
+
+     private String _StartTime = "";
         public void setStartTime(String newValue){
               _StartTime = newValue;
          }
@@ -378,7 +387,7 @@ import android.content.Context;
             String SQL = "";
             try
               {
-                 SQL = "Insert into "+ TableName +" (CountryCode,FaciCode,DataID,StudyID,bneoward,bprobknow,bprob,bprobOth,binfxn,binfxnOth,knowadwgtni,adwgtni,adwgtniDK,bseiz,bseizdays,bseizdaysDK,bantiknow,bantiname1,bantiname2,bantiname3,bantinameDK,bantitime,bantitimeDur,bantihome,boxy,bdiagtestknow,bdiagtestA,bdiagtestB,bdiagtestC,bdiagtestD,bdiagtestDOth,bdiagtestE,bfsupA,bfsupB,bfsupC,bfsupD,bfsupE,bphoto,blos,blosDK,bref,knowdiswgtni,diswgtni,diswgtniDK,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload,modifyDate)Values('"+ _CountryCode +"', '"+ _FaciCode +"', '"+ _DataID +"', '"+ _StudyID +"', '"+ _bneoward +"', '"+ _bprobknow +"', '"+ _bprob +"', '"+ _bprobOth +"', '"+ _binfxn +"', '"+ _binfxnOth +"', '"+ _knowadwgtni +"', '"+ _adwgtni +"', '"+ _adwgtniDK +"', '"+ _bseiz +"', '"+ _bseizdays +"', '"+ _bseizdaysDK +"', '"+ _bantiknow +"', '"+ _bantiname1 +"', '"+ _bantiname2 +"', '"+ _bantiname3 +"', '"+ _bantinameDK +"', '"+ _bantitime +"', '"+ _bantitimeDur +"', '"+ _bantihome +"', '"+ _boxy +"', '"+ _bdiagtestknow +"', '"+ _bdiagtestA +"', '"+ _bdiagtestB +"', '"+ _bdiagtestC +"', '"+ _bdiagtestD +"', '"+ _bdiagtestDOth +"', '"+ _bdiagtestE +"', '"+ _bfsupA +"', '"+ _bfsupB +"', '"+ _bfsupC +"', '"+ _bfsupD +"', '"+ _bfsupE +"', '"+ _bphoto +"', '"+ _blos +"', '"+ _blosDK +"', '"+ _bref +"', '"+ _knowdiswgtni +"', '"+ _diswgtni +"', '"+ _diswgtniDK +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"', '"+ _modifyDate +"')";
+                 SQL = "Insert into "+ TableName +" (CountryCode,FaciCode,DataID,StudyID,bneoward,bprobknow,bprob,bprobOth,binfxn,binfxnOth,knowadwgtni,adwgtni,adwgtniDK,bseiz,bseizdays,bseizdaysDK,bantiknow,bantiname1,bantiname2,bantiname3,bantinameDK,bantitime,bantitimeDur,bantihome,boxy,bdiagtestknow,bdiagtestA,bdiagtestB,bdiagtestC,bdiagtestD,bdiagtestDOth,bdiagtestE,bfsupA,bfsupB,bfsupC,bfsupD,bfsupE,bphoto,blos,blosDK,bref,knowdiswgtni,diswgtni,diswgtniDK,Comments,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload,modifyDate)Values('"+ _CountryCode +"', '"+ _FaciCode +"', '"+ _DataID +"', '"+ _StudyID +"', '"+ _bneoward +"', '"+ _bprobknow +"', '"+ _bprob +"', '"+ _bprobOth +"', '"+ _binfxn +"', '"+ _binfxnOth +"', '"+ _knowadwgtni +"', '"+ _adwgtni +"', '"+ _adwgtniDK +"', '"+ _bseiz +"', '"+ _bseizdays +"', '"+ _bseizdaysDK +"', '"+ _bantiknow +"', '"+ _bantiname1 +"', '"+ _bantiname2 +"', '"+ _bantiname3 +"', '"+ _bantinameDK +"', '"+ _bantitime +"', '"+ _bantitimeDur +"', '"+ _bantihome +"', '"+ _boxy +"', '"+ _bdiagtestknow +"', '"+ _bdiagtestA +"', '"+ _bdiagtestB +"', '"+ _bdiagtestC +"', '"+ _bdiagtestD +"', '"+ _bdiagtestDOth +"', '"+ _bdiagtestE +"', '"+ _bfsupA +"', '"+ _bfsupB +"', '"+ _bfsupC +"', '"+ _bfsupD +"', '"+ _bfsupE +"', '"+ _bphoto +"', '"+ _blos +"', '"+ _blosDK +"', '"+ _bref +"', '"+ _knowdiswgtni +"', '"+ _diswgtni +"', '"+ _diswgtniDK +"','"+ _Comments +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"', '"+ _modifyDate +"')";
                  C.Save(SQL);
                  C.close();
               }
@@ -396,7 +405,7 @@ import android.content.Context;
             String SQL = "";
             try
               {
-                 SQL = "Update "+ TableName +" Set Upload='2',modifyDate='" + _modifyDate + "' ,CountryCode = '"+ _CountryCode +"',FaciCode = '"+ _FaciCode +"',DataID = '"+ _DataID +"',StudyID = '"+ _StudyID +"',bneoward = '"+ _bneoward +"',bprobknow = '"+ _bprobknow +"',bprob = '"+ _bprob +"',bprobOth = '"+ _bprobOth +"',binfxn = '"+ _binfxn +"',binfxnOth = '"+ _binfxnOth +"',knowadwgtni = '"+ _knowadwgtni +"',adwgtni = '"+ _adwgtni +"',adwgtniDK = '"+ _adwgtniDK +"',bseiz = '"+ _bseiz +"',bseizdays = '"+ _bseizdays +"',bseizdaysDK = '"+ _bseizdaysDK +"',bantiknow = '"+ _bantiknow +"',bantiname1 = '"+ _bantiname1 +"',bantiname2 = '"+ _bantiname2 +"',bantiname3 = '"+ _bantiname3 +"',bantinameDK = '"+ _bantinameDK +"',bantitime = '"+ _bantitime +"',bantitimeDur = '"+ _bantitimeDur +"',bantihome = '"+ _bantihome +"',boxy = '"+ _boxy +"',bdiagtestknow = '"+ _bdiagtestknow +"',bdiagtestA = '"+ _bdiagtestA +"',bdiagtestB = '"+ _bdiagtestB +"',bdiagtestC = '"+ _bdiagtestC +"',bdiagtestD = '"+ _bdiagtestD +"',bdiagtestDOth = '"+ _bdiagtestDOth +"',bdiagtestE = '"+ _bdiagtestE +"',bfsupA = '"+ _bfsupA +"',bfsupB = '"+ _bfsupB +"',bfsupC = '"+ _bfsupC +"',bfsupD = '"+ _bfsupD +"',bfsupE = '"+ _bfsupE +"',bphoto = '"+ _bphoto +"',blos = '"+ _blos +"',blosDK = '"+ _blosDK +"',bref = '"+ _bref +"',knowdiswgtni = '"+ _knowdiswgtni +"',diswgtni = '"+ _diswgtni +"',diswgtniDK = '"+ _diswgtniDK +"'  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and DataID='"+ _DataID +"'";
+                 SQL = "Update "+ TableName +" Set Upload='2',modifyDate='" + _modifyDate + "' ,CountryCode = '"+ _CountryCode +"',FaciCode = '"+ _FaciCode +"',DataID = '"+ _DataID +"',StudyID = '"+ _StudyID +"',bneoward = '"+ _bneoward +"',bprobknow = '"+ _bprobknow +"',bprob = '"+ _bprob +"',bprobOth = '"+ _bprobOth +"',binfxn = '"+ _binfxn +"',binfxnOth = '"+ _binfxnOth +"',knowadwgtni = '"+ _knowadwgtni +"',adwgtni = '"+ _adwgtni +"',adwgtniDK = '"+ _adwgtniDK +"',bseiz = '"+ _bseiz +"',bseizdays = '"+ _bseizdays +"',bseizdaysDK = '"+ _bseizdaysDK +"',bantiknow = '"+ _bantiknow +"',bantiname1 = '"+ _bantiname1 +"',bantiname2 = '"+ _bantiname2 +"',bantiname3 = '"+ _bantiname3 +"',bantinameDK = '"+ _bantinameDK +"',bantitime = '"+ _bantitime +"',bantitimeDur = '"+ _bantitimeDur +"',bantihome = '"+ _bantihome +"',boxy = '"+ _boxy +"',bdiagtestknow = '"+ _bdiagtestknow +"',bdiagtestA = '"+ _bdiagtestA +"',bdiagtestB = '"+ _bdiagtestB +"',bdiagtestC = '"+ _bdiagtestC +"',bdiagtestD = '"+ _bdiagtestD +"',bdiagtestDOth = '"+ _bdiagtestDOth +"',bdiagtestE = '"+ _bdiagtestE +"',bfsupA = '"+ _bfsupA +"',bfsupB = '"+ _bfsupB +"',bfsupC = '"+ _bfsupC +"',bfsupD = '"+ _bfsupD +"',bfsupE = '"+ _bfsupE +"',bphoto = '"+ _bphoto +"',blos = '"+ _blos +"',blosDK = '"+ _blosDK +"',bref = '"+ _bref +"',knowdiswgtni = '"+ _knowdiswgtni +"',diswgtni = '"+ _diswgtni +"',diswgtniDK = '"+ _diswgtniDK +"',Comments='"+ _Comments +"'  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and DataID='"+ _DataID +"'";
                  C.Save(SQL);
                  C.close();
               }
@@ -463,6 +472,8 @@ import android.content.Context;
                 d._knowdiswgtni = cur.getString(cur.getColumnIndex("knowdiswgtni"));
                 d._diswgtni = cur.getString(cur.getColumnIndex("diswgtni"));
                 d._diswgtniDK = cur.getString(cur.getColumnIndex("diswgtniDK"));
+                d._Comments = cur.getString(cur.getColumnIndex("Comments"));
+
                 data.add(d);
 
                 cur.moveToNext();

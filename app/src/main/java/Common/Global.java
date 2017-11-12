@@ -29,6 +29,7 @@ public class Global {
 	public int mYear = c.get(Calendar.YEAR);
 	public int mMonth = c.get(Calendar.MONTH) + 1;
 	public int mDay = c.get(Calendar.DAY_OF_MONTH);
+
 	//Global Variable
 	//-------------------------------------------------------------------------
 	private String _UserId;
@@ -561,9 +562,9 @@ public class Global {
 		finally{
 			//br.close();
 		}
-
 		return dataList;
 	}
+
 
 	/*public String getUserId() {
 		return this._UserId;

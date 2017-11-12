@@ -56,6 +56,15 @@ import android.content.Context;
         public void setHospID(String newValue){
               _HospID = newValue;
          }
+     private String _HospIDReTyp = "";
+     public String getHospIDReTyp(){
+         return _HospIDReTyp;
+     }
+     public void setHospIDReTyp(String newValue){
+         _HospIDReTyp = newValue;
+     }
+
+
         private String _Consent = "";
         public String getConsent(){
               return _Consent;
@@ -63,7 +72,16 @@ import android.content.Context;
         public void setConsent(String newValue){
               _Consent = newValue;
          }
-        private String _StudyID = "";
+
+     private String _ConReason = "";
+     public String getConReason(){
+         return _ConReason;
+     }
+     public void setConReason(String newValue){
+         _ConReason = newValue;
+     }
+
+     private String _StudyID = "";
         public String getStudyID(){
               return _StudyID;
          }
@@ -77,7 +95,16 @@ import android.content.Context;
         public void setMotRegis(String newValue){
               _MotRegis = newValue;
          }
-        private String _MotStudyID = "";
+
+     private String _MotDataID = "";
+     public String getMotDataID(){
+         return _MotDataID;
+     }
+     public void setMotDataID(String newValue){
+         _MotDataID = newValue;
+     }
+
+         private String _MotStudyID = "";
         public String getMotStudyID(){
               return _MotStudyID;
          }
@@ -129,6 +156,31 @@ import android.content.Context;
         public void setMotAge(String newValue){
               _MotAge = newValue;
          }
+
+
+     private String _MotEdu = "";
+     public String getMotEdu(){
+         return _MotEdu;
+     }
+     public void setMotEdu(String newValue){
+         _MotEdu = newValue;
+     }
+     private String _MotEduDK = "";
+     public String getMotEduDK(){
+         return _MotEduDK;
+     }
+     public void setMotEduDK(String newValue){
+         _MotEduDK = newValue;
+     }
+
+     private String _Parity = "";
+     public String getParity(){
+         return _Parity;
+     }
+     public void setParity(String newValue){
+         _Parity = newValue;
+     }
+
         private String _MotEthnicity = "";
         public String getMotEthnicity(){
               return _MotEthnicity;
@@ -136,6 +188,14 @@ import android.content.Context;
         public void setMotEthnicity(String newValue){
               _MotEthnicity = newValue;
          }
+     private String _MotEthnicityOth = "";
+     public String getMotEthnicityOth(){
+         return _MotEthnicityOth;
+     }
+     public void setMotEthnicityOth(String newValue){
+         _MotEthnicityOth = newValue;
+     }
+
         private String _MotReligion = "";
         public String getMotReligion(){
               return _MotReligion;
@@ -143,7 +203,17 @@ import android.content.Context;
         public void setMotReligion(String newValue){
               _MotReligion = newValue;
          }
-        private String _Address1 = "";
+     private String _MotReligionOth = "";
+     public String getMotReligionOth(){
+         return _MotReligionOth;
+     }
+     public void setMotReligionOth(String newValue){
+         _MotReligionOth = newValue;
+     }
+
+
+
+     private String _Address1 = "";
         public String getAddress1(){
               return _Address1;
          }
@@ -206,7 +276,34 @@ import android.content.Context;
         public void setDOBNewborn(String newValue){
               _DOBNewborn = newValue;
          }
-        private String _AgeNewborn = "";
+
+     private String _DOBNewbornDK = "";
+     public String getDOBNewbornDK(){
+         return _DOBNewbornDK;
+     }
+     public void setDOBNewbornDK(String newValue){
+         _DOBNewbornDK = newValue;
+     }
+
+
+     private String _TOBNewborn = "";
+     public String getTOBNewborn(){
+         return _TOBNewborn;
+     }
+     public void setTOBNewborn(String newValue){
+         _TOBNewborn = newValue;
+     }
+
+     private String _TOBNewbornDK = "";
+     public String getTOBNewbornDK(){
+         return _TOBNewbornDK;
+     }
+     public void setTOBNewbornDK(String newValue){
+         _TOBNewbornDK = newValue;
+     }
+
+
+     private String _AgeNewborn = "";
         public String getAgeNewborn(){
               return _AgeNewborn;
          }
@@ -313,7 +410,7 @@ import android.content.Context;
             String SQL = "";
             try
               {
-                 SQL = "Insert into "+ TableName +" (CountryCode,FaciCode,RegisType,DataID,RegDate,RegTime,HospID,Consent,StudyID,MotRegis,MotStudyID,MotStudyIDReType,MotHospID,MotName,MotDOB,MotDOBDK,MotAge,MotEthnicity,MotReligion,Address1,Address2,Address3,Address4,AddressDetail,MotContact,AltContact,NameNewBorn,DOBNewborn,AgeNewborn,AgeNewbornDMY,Sex,FatherName,CompleteAdd,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload)Values('"+ _CountryCode +"', '"+ _FaciCode +"', '"+ _RegisType +"', '"+ _DataID +"', '"+ _RegDate +"', '"+ _RegTime +"', '"+ _HospID +"', '"+ _Consent +"', '"+ _StudyID +"', '"+ _MotRegis +"', '"+ _MotStudyID +"','"+ _MotStudyIDReType +"', '"+ _MotHospID +"', '"+ _MotName +"', '"+ _MotDOB +"', '"+ _MotDOBDK +"', '"+ _MotAge +"', '"+ _MotEthnicity +"', '"+ _MotReligion +"', '"+ _Address1 +"', '"+ _Address2 +"', '"+ _Address3 +"', '"+ _Address4 +"', '"+ _AddressDetail +"', '"+ _MotContact +"', '"+ _AltContact +"', '"+ _NameNewBorn +"', '"+ _DOBNewborn +"', '"+ _AgeNewborn +"', '"+ _AgeNewbornDMY +"','"+ _Sex +"','"+ _FatherName +"','"+ _CompleteAdd +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"')";
+                 SQL = "Insert into "+ TableName +" (CountryCode,FaciCode,RegisType,DataID,RegDate,RegTime,HospID,HospIDReTyp,Consent,ConReason,StudyID,MotRegis,MotDataID,MotStudyID,MotStudyIDReType,MotHospID,MotName,MotDOB,MotDOBDK,MotAge,MotEdu,MotEduDK,Parity,MotEthnicity,MotEthnicityOth,MotReligion,MotReligionOth,Address1,Address2,Address3,Address4,AddressDetail,MotContact,AltContact,NameNewBorn,DOBNewborn,DOBNewbornDK,TOBNewborn,TOBNewbornDK,AgeNewborn,AgeNewbornDMY,Sex,FatherName,CompleteAdd,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload)Values('"+ _CountryCode +"', '"+ _FaciCode +"', '"+ _RegisType +"', '"+ _DataID +"', '"+ _RegDate +"', '"+ _RegTime +"', '"+ _HospID +"','"+ _HospIDReTyp +"', '"+ _Consent +"','"+ _ConReason +"', '"+ _StudyID +"', '"+ _MotRegis +"','"+ _MotDataID +"', '"+ _MotStudyID +"','"+ _MotStudyIDReType +"', '"+ _MotHospID +"', '"+ _MotName +"', '"+ _MotDOB +"', '"+ _MotDOBDK +"', '"+ _MotAge +"','"+ _MotEdu +"','"+ _MotEduDK +"','"+ _Parity +"', '"+ _MotEthnicity +"','"+ _MotEthnicityOth +"', '"+ _MotReligion +"','"+ _MotReligionOth +"', '"+ _Address1 +"', '"+ _Address2 +"', '"+ _Address3 +"', '"+ _Address4 +"', '"+ _AddressDetail +"', '"+ _MotContact +"', '"+ _AltContact +"', '"+ _NameNewBorn +"', '"+ _DOBNewborn +"','"+ _DOBNewbornDK +"','"+ _TOBNewborn +"','"+ _TOBNewbornDK +"', '"+ _AgeNewborn +"', '"+ _AgeNewbornDMY +"','"+ _Sex +"','"+ _FatherName +"','"+ _CompleteAdd +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"')";
                  C.Save(SQL);
                  C.close();
               }
@@ -331,7 +428,7 @@ import android.content.Context;
             String SQL = "";
             try
               {
-                 SQL = "Update "+ TableName +" Set Upload='2',modifyDate='"+ _modifyDate +"',CountryCode = '"+ _CountryCode +"',FaciCode = '"+ _FaciCode +"',RegisType = '"+ _RegisType +"',DataID = '"+ _DataID +"',RegDate = '"+ _RegDate +"',RegTime = '"+ _RegTime +"',HospID = '"+ _HospID +"',Consent = '"+ _Consent +"',StudyID = '"+ _StudyID +"',MotRegis = '"+ _MotRegis +"',MotStudyID = '"+ _MotStudyID +"',MotStudyIDReType='"+ _MotStudyIDReType +"',MotHospID = '"+ _MotHospID +"',MotName = '"+ _MotName +"',MotDOB = '"+ _MotDOB +"',MotDOBDK = '"+ _MotDOBDK +"',MotAge = '"+ _MotAge +"',MotEthnicity = '"+ _MotEthnicity +"',MotReligion = '"+ _MotReligion +"',Address1 = '"+ _Address1 +"',Address2 = '"+ _Address2 +"',Address3 = '"+ _Address3 +"',Address4 = '"+ _Address4 +"',AddressDetail = '"+ _AddressDetail +"',MotContact = '"+ _MotContact +"',AltContact = '"+ _AltContact +"',NameNewBorn = '"+ _NameNewBorn +"',DOBNewborn = '"+ _DOBNewborn +"',AgeNewborn = '"+ _AgeNewborn +"',AgeNewbornDMY = '"+ _AgeNewbornDMY +"',Sex='"+ _Sex +"',FatherName='"+ _FatherName +"',CompleteAdd='"+ _CompleteAdd +"'  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and DataID='"+ _DataID +"'";
+                 SQL = "Update "+ TableName +" Set Upload='2',modifyDate='"+ _modifyDate +"',CountryCode = '"+ _CountryCode +"',FaciCode = '"+ _FaciCode +"',RegisType = '"+ _RegisType +"',DataID = '"+ _DataID +"',RegDate = '"+ _RegDate +"',RegTime = '"+ _RegTime +"',HospID = '"+ _HospID +"',HospIDReTyp='"+ _HospIDReTyp +"',Consent = '"+ _Consent +"',ConReason='"+ _ConReason +"',StudyID = '"+ _StudyID +"',MotRegis = '"+ _MotRegis +"',MotDataID='"+ _MotDataID +"',MotStudyID = '"+ _MotStudyID +"',MotStudyIDReType='"+ _MotStudyIDReType +"',MotHospID = '"+ _MotHospID +"',MotName = '"+ _MotName +"',MotDOB = '"+ _MotDOB +"',MotDOBDK = '"+ _MotDOBDK +"',MotAge = '"+ _MotAge +"',MotEdu='"+ _MotEdu +"',MotEduDK='"+ _MotEduDK +"',Parity='"+ _Parity +"',MotEthnicity = '"+ _MotEthnicity +"',MotEthnicityOth = '"+ _MotEthnicityOth +"',MotReligion = '"+ _MotReligion +"',MotReligionOth = '"+ _MotReligionOth +"',Address1 = '"+ _Address1 +"',Address2 = '"+ _Address2 +"',Address3 = '"+ _Address3 +"',Address4 = '"+ _Address4 +"',AddressDetail = '"+ _AddressDetail +"',MotContact = '"+ _MotContact +"',AltContact = '"+ _AltContact +"',NameNewBorn = '"+ _NameNewBorn +"',DOBNewborn = '"+ _DOBNewborn +"',DOBNewbornDK='"+ _DOBNewbornDK +"',TOBNewborn='"+ _TOBNewborn +"',TOBNewbornDK='"+ _TOBNewbornDK +"',AgeNewborn = '"+ _AgeNewborn +"',AgeNewbornDMY = '"+ _AgeNewbornDMY +"',Sex='"+ _Sex +"',FatherName='"+ _FatherName +"',CompleteAdd='"+ _CompleteAdd +"'  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and DataID='"+ _DataID +"'";
                  C.Save(SQL);
                  C.close();
               }
@@ -361,9 +458,14 @@ import android.content.Context;
                 d._RegDate = cur.getString(cur.getColumnIndex("RegDate"));
                 d._RegTime = cur.getString(cur.getColumnIndex("RegTime"));
                 d._HospID = cur.getString(cur.getColumnIndex("HospID"));
+                d._HospIDReTyp = cur.getString(cur.getColumnIndex("HospIDReTyp"));
                 d._Consent = cur.getString(cur.getColumnIndex("Consent"));
+                d._ConReason = cur.getString(cur.getColumnIndex("ConReason"));
+
                 d._StudyID = cur.getString(cur.getColumnIndex("StudyID"));
                 d._MotRegis = cur.getString(cur.getColumnIndex("MotRegis"));
+
+                d._MotDataID = cur.getString(cur.getColumnIndex("MotDataID"));
                 d._MotStudyID = cur.getString(cur.getColumnIndex("MotStudyID"));
                 d._MotStudyIDReType = cur.getString(cur.getColumnIndex("MotStudyIDReType"));
                 d._MotHospID = cur.getString(cur.getColumnIndex("MotHospID"));
@@ -371,8 +473,16 @@ import android.content.Context;
                 d._MotDOB = cur.getString(cur.getColumnIndex("MotDOB"));
                 d._MotDOBDK = cur.getString(cur.getColumnIndex("MotDOBDK"));
                 d._MotAge = cur.getString(cur.getColumnIndex("MotAge"));
+                d._MotEdu = cur.getString(cur.getColumnIndex("MotEdu"));
+                d._MotEduDK = cur.getString(cur.getColumnIndex("MotEduDK"));
+
+                d._Parity = cur.getString(cur.getColumnIndex("Parity"));
                 d._MotEthnicity = cur.getString(cur.getColumnIndex("MotEthnicity"));
+                d._MotEthnicityOth = cur.getString(cur.getColumnIndex("MotEthnicityOth"));
+
                 d._MotReligion = cur.getString(cur.getColumnIndex("MotReligion"));
+                d._MotReligionOth = cur.getString(cur.getColumnIndex("MotReligionOth"));
+
                 d._Address1 = cur.getString(cur.getColumnIndex("Address1"));
                 d._Address2 = cur.getString(cur.getColumnIndex("Address2"));
                 d._Address3 = cur.getString(cur.getColumnIndex("Address3"));
@@ -382,6 +492,11 @@ import android.content.Context;
                 d._AltContact = cur.getString(cur.getColumnIndex("AltContact"));
                 d._NameNewBorn = cur.getString(cur.getColumnIndex("NameNewBorn"));
                 d._DOBNewborn = cur.getString(cur.getColumnIndex("DOBNewborn"));
+                d._DOBNewbornDK = cur.getString(cur.getColumnIndex("DOBNewbornDK"));
+
+                d._TOBNewborn = cur.getString(cur.getColumnIndex("TOBNewborn"));
+                d._TOBNewbornDK = cur.getString(cur.getColumnIndex("TOBNewbornDK"));
+
                 d._AgeNewborn = cur.getString(cur.getColumnIndex("AgeNewborn"));
                 d._AgeNewbornDMY = cur.getString(cur.getColumnIndex("AgeNewbornDMY"));
                 d._Sex = cur.getString(cur.getColumnIndex("Sex"));
@@ -395,6 +510,85 @@ import android.content.Context;
           return data;
         }
 
+     private String _gaadmi = "";
+     public String getgaadmi(){
+         return _gaadmi;
+     }
+     public void setgaadmi(String newValue){
+         _gaadmi = newValue;
+     }
+
+     private String _gaadmiDK = "";
+     public String getgaadmiDK(){
+         return _gaadmiDK;
+     }
+     public void setgaadmiDK(String newValue){
+         _gaadmiDK = newValue;
+     }
+
+     public List<Registration_DataModel> SelectAll_Mother(Context context, String SQL)
+     {
+         Connection C = new Connection(context);
+         List<Registration_DataModel> data = new ArrayList<Registration_DataModel>();
+         Registration_DataModel d = new Registration_DataModel();
+         Cursor cur = C.ReadData(SQL);
+
+         cur.moveToFirst();
+         while(!cur.isAfterLast())
+         {
+             d = new Registration_DataModel();
+             d._CountryCode = cur.getString(cur.getColumnIndex("CountryCode"));
+             d._FaciCode = cur.getString(cur.getColumnIndex("FaciCode"));
+             d._RegisType = cur.getString(cur.getColumnIndex("RegisType"));
+             d._DataID = cur.getString(cur.getColumnIndex("DataID"));
+             d._RegDate = cur.getString(cur.getColumnIndex("RegDate"));
+             d._RegTime = cur.getString(cur.getColumnIndex("RegTime"));
+             d._HospID = cur.getString(cur.getColumnIndex("HospID"));
+             d._Consent = cur.getString(cur.getColumnIndex("Consent"));
+
+             d._StudyID = cur.getString(cur.getColumnIndex("StudyID"));
+
+             d._MotRegis = cur.getString(cur.getColumnIndex("MotRegis"));
+             d._MotStudyID = cur.getString(cur.getColumnIndex("MotStudyID"));
+             d._MotStudyIDReType = cur.getString(cur.getColumnIndex("MotStudyIDReType"));
+             d._MotHospID = cur.getString(cur.getColumnIndex("MotHospID"));
+             d._MotName = cur.getString(cur.getColumnIndex("MotName"));
+             d._MotDOB = cur.getString(cur.getColumnIndex("MotDOB"));
+             d._MotDOBDK = cur.getString(cur.getColumnIndex("MotDOBDK"));
+             d._MotAge = cur.getString(cur.getColumnIndex("MotAge"));
+             d._MotEdu = cur.getString(cur.getColumnIndex("MotEdu"));
+             d._MotEduDK = cur.getString(cur.getColumnIndex("MotEduDK"));
+
+             d._MotEthnicity = cur.getString(cur.getColumnIndex("MotEthnicity"));
+             d._MotEthnicityOth = cur.getString(cur.getColumnIndex("MotEthnicityOth"));
+
+             d._MotReligion = cur.getString(cur.getColumnIndex("MotReligion"));
+             d._MotReligionOth = cur.getString(cur.getColumnIndex("MotReligionOth"));
+
+             d._Address1 = cur.getString(cur.getColumnIndex("Address1"));
+             d._Address2 = cur.getString(cur.getColumnIndex("Address2"));
+             d._Address3 = cur.getString(cur.getColumnIndex("Address3"));
+             d._Address4 = cur.getString(cur.getColumnIndex("Address4"));
+             d._AddressDetail = cur.getString(cur.getColumnIndex("AddressDetail"));
+             d._MotContact = cur.getString(cur.getColumnIndex("MotContact"));
+             d._AltContact = cur.getString(cur.getColumnIndex("AltContact"));
+             d._NameNewBorn = cur.getString(cur.getColumnIndex("NameNewBorn"));
+             d._DOBNewborn = cur.getString(cur.getColumnIndex("DOBNewborn"));
+             d._AgeNewborn = cur.getString(cur.getColumnIndex("AgeNewborn"));
+             d._AgeNewbornDMY = cur.getString(cur.getColumnIndex("AgeNewbornDMY"));
+             d._Sex = cur.getString(cur.getColumnIndex("Sex"));
+             d._FatherName = cur.getString(cur.getColumnIndex("FatherName"));
+             d._CompleteAdd = cur.getString(cur.getColumnIndex("CompleteAdd"));
+             d._gaadmi = cur.getString(cur.getColumnIndex("gaadmi"));
+             d._gaadmiDK = cur.getString(cur.getColumnIndex("gaadmDK"));
+
+             data.add(d);
+
+             cur.moveToNext();
+         }
+         cur.close();
+         return data;
+     }
 
      private String _Observe = "";
      public String getObserve(){
@@ -403,6 +597,47 @@ import android.content.Context;
      public void setObserve(String newValue){
          _Observe = newValue;
      }
+
+     private String _RS = "";
+     public String getRS(){
+         return _RS;
+     }
+     public void setRS(String newValue){
+         _RS = newValue;
+     }
+
+     private String _DE = "";
+     public String getDE(){
+         return _DE;
+     }
+     public void setDE(String newValue){
+         _DE = newValue;
+     }
+
+     private String _ACSStatus = "";
+     public String getACSStatus(){
+         return _ACSStatus;
+     }
+     public void setACSStatus(String newValue){
+         _ACSStatus = newValue;
+     }
+
+     private String _INFXNStatus = "";
+     public String getINFXNStatus(){
+         return _INFXNStatus;
+     }
+     public void setINFXNStatus(String newValue){
+         _INFXNStatus = newValue;
+     }
+
+     private String _ACS = "";
+     public String getACS(){
+         return _ACS;
+     }
+     public void setACS(String newValue){
+         _ACS = newValue;
+     }
+
      public List<Registration_DataModel> SelectPatientList(Context context, String SQL)
      {
          Connection C = new Connection(context);
@@ -431,6 +666,7 @@ import android.content.Context;
              d._MotDOB = cur.getString(cur.getColumnIndex("MotDOB"));
              d._MotDOBDK = cur.getString(cur.getColumnIndex("MotDOBDK"));
              d._MotAge = cur.getString(cur.getColumnIndex("MotAge"));
+
              d._MotEthnicity = cur.getString(cur.getColumnIndex("MotEthnicity"));
              d._MotReligion = cur.getString(cur.getColumnIndex("MotReligion"));
              d._Address1 = cur.getString(cur.getColumnIndex("Address1"));
@@ -448,7 +684,89 @@ import android.content.Context;
              d._FatherName = cur.getString(cur.getColumnIndex("FatherName"));
              d._CompleteAdd = cur.getString(cur.getColumnIndex("CompleteAdd"));
              d._Observe = cur.getString(cur.getColumnIndex("Observe"));
+             d._RS = cur.getString(cur.getColumnIndex("RS"));
+             d._DE = cur.getString(cur.getColumnIndex("DE"));
+             d._ACSStatus = cur.getString(cur.getColumnIndex("ACSStatus"));
+             d._INFXNStatus = cur.getString(cur.getColumnIndex("INFXNStatus"));
 
+             d._ACS = cur.getString(cur.getColumnIndex("ACS"));
+
+             data.add(d);
+
+             cur.moveToNext();
+         }
+         cur.close();
+         return data;
+     }
+
+
+     private String _ObserverName = "";
+     public String getObserverName(){
+         return _ObserverName;
+     }
+     private String _SelectPat = "";
+     public String getSelectPat(){
+         return _SelectPat;
+     }
+
+     private String _deldt = "";
+     public String getdelDt(){
+         return _deldt;
+     }
+
+     public List<Registration_DataModel> SelectAll_Assign(Context context, String SQL)
+     {
+         Connection C = new Connection(context);
+         List<Registration_DataModel> data = new ArrayList<Registration_DataModel>();
+         Registration_DataModel d = new Registration_DataModel();
+         Cursor cur = C.ReadData(SQL);
+
+         cur.moveToFirst();
+         while(!cur.isAfterLast())
+         {
+             d = new Registration_DataModel();
+             d._CountryCode = cur.getString(cur.getColumnIndex("CountryCode"));
+             d._FaciCode = cur.getString(cur.getColumnIndex("FaciCode"));
+             d._RegisType = cur.getString(cur.getColumnIndex("RegisType"));
+             d._DataID = cur.getString(cur.getColumnIndex("DataID"));
+             d._RegDate = cur.getString(cur.getColumnIndex("RegDate"));
+             d._RegTime = cur.getString(cur.getColumnIndex("RegTime"));
+             d._HospID = cur.getString(cur.getColumnIndex("HospID"));
+             d._Consent = cur.getString(cur.getColumnIndex("Consent"));
+             d._StudyID = cur.getString(cur.getColumnIndex("StudyID"));
+             d._MotRegis = cur.getString(cur.getColumnIndex("MotRegis"));
+             d._MotStudyID = cur.getString(cur.getColumnIndex("MotStudyID"));
+             d._MotStudyIDReType = cur.getString(cur.getColumnIndex("MotStudyIDReType"));
+             d._MotHospID = cur.getString(cur.getColumnIndex("MotHospID"));
+             d._MotName = cur.getString(cur.getColumnIndex("MotName"));
+             d._MotDOB = cur.getString(cur.getColumnIndex("MotDOB"));
+             d._MotDOBDK = cur.getString(cur.getColumnIndex("MotDOBDK"));
+             d._MotAge = cur.getString(cur.getColumnIndex("MotAge"));
+             d._MotEthnicity = cur.getString(cur.getColumnIndex("MotEthnicity"));
+             d._MotEthnicityOth = cur.getString(cur.getColumnIndex("MotEthnicityOth"));
+
+             d._MotReligion = cur.getString(cur.getColumnIndex("MotReligion"));
+             d._MotReligionOth = cur.getString(cur.getColumnIndex("MotReligionOth"));
+
+             d._Address1 = cur.getString(cur.getColumnIndex("Address1"));
+             d._Address2 = cur.getString(cur.getColumnIndex("Address2"));
+             d._Address3 = cur.getString(cur.getColumnIndex("Address3"));
+             d._Address4 = cur.getString(cur.getColumnIndex("Address4"));
+             d._AddressDetail = cur.getString(cur.getColumnIndex("AddressDetail"));
+             d._MotContact = cur.getString(cur.getColumnIndex("MotContact"));
+             d._AltContact = cur.getString(cur.getColumnIndex("AltContact"));
+             d._NameNewBorn = cur.getString(cur.getColumnIndex("NameNewBorn"));
+             d._DOBNewborn = cur.getString(cur.getColumnIndex("DOBNewborn"));
+             d._AgeNewborn = cur.getString(cur.getColumnIndex("AgeNewborn"));
+             d._AgeNewbornDMY = cur.getString(cur.getColumnIndex("AgeNewbornDMY"));
+             d._Sex = cur.getString(cur.getColumnIndex("Sex"));
+             d._FatherName = cur.getString(cur.getColumnIndex("FatherName"));
+             d._CompleteAdd = cur.getString(cur.getColumnIndex("CompleteAdd"));
+
+             d._ObserverName= cur.getString(cur.getColumnIndex("UserName"));
+             d._SelectPat= cur.getString(cur.getColumnIndex("SelectPat"));
+
+             d._deldt= cur.getString(cur.getColumnIndex("deldt"));
              data.add(d);
 
              cur.moveToNext();

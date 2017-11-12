@@ -74,7 +74,7 @@ public class Sync_Service extends Service {
         }
 
         COUNTRYCODE = sp.getValue(this, "countrycode");
-        FACICODE    = sp.getValue(this, "facilitycode");
+        FACICODE    = sp.getValue(this, "facicode");
         DEVICEID    = sp.getValue(this, "deviceid");
 
         // do the actual work, in a separate thread
@@ -121,6 +121,8 @@ public class Sync_Service extends Service {
                     public void run() {
                         try {
                             Connection.SyncDataService(ID[0],ID[1],ID[2]);
+
+
                         } catch (Exception e) {
 
                         }

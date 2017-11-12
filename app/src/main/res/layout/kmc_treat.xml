@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_marginTop="20sp" xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="fill_parent"  android:layout_height="wrap_content" android:scrollbars="vertical">
+    <LinearLayout android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/heading_height" android:orientation="horizontal" android:background="@color/pageHeadingBack">
+        <ImageButton android:id="@+id/cmdBack" android:background="@color/pageHeadingBack" android:src="@drawable/back" android:layout_width="50sp" android:layout_height="match_parent"/>
+        <TextView android:id="@+id/lblHeading" android:text="KMC_Treat"  android:paddingLeft="10sp" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center_vertical" android:textSize="20sp" android:textColor="@color/pageHeading"/>
+    </LinearLayout>
+    <View android:layout_height="1dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_marginBottom="5sp" android:background="#CCCCCC" />
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:overScrollMode="always" android:isScrollContainer="true" android:scrollbarAlwaysDrawVerticalTrack="true" android:scrollbarStyle="outsideInset" android:scrollbars="vertical">
+    <LinearLayout android:layout_marginLeft="10sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical">
+    <LinearLayout android:id="@+id/secCountryCode" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblCountryCode" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblCountryCode" android:text="Country Code" android:layout_width="370sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtCountryCode" android:maxLength="1" android:layout_width="100sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+    </LinearLayout>
+    <View android:id="@+id/lineCountryCode" android:visibility="gone" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secFaciCode" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblFaciCode" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblFaciCode" android:text="Faci Code" android:layout_width="370sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtFaciCode" android:maxLength="1" android:layout_width="100sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+    </LinearLayout>
+    <View android:id="@+id/lineFaciCode" android:visibility="gone" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secDataID" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblDataID" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblDataID" android:text="Data ID" android:layout_width="370sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtDataID" android:maxLength="10" android:layout_width="100sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+    </LinearLayout>
+    <View android:id="@+id/lineDataID" android:visibility="gone" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/seclbl1" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <TextView android:id="@+id/lblHlbl1" android:text=" Other Treatments" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="20sp" style="@style/rowHeading"/>
+    </LinearLayout>
+    <View android:id="@+id/linelbl1" android:visibility="gone" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secsupcare" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblsupcare" android:text="1." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblsupcare" android:text="Is other supportive care being given?" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <RadioGroup android:id="@+id/rdogrpsupcare" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
+         
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdosupcare1" android:text="Yes"/>
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdosupcare2" android:text="No"/>
+        </RadioGroup>
+    </LinearLayout>
+    <View android:id="@+id/linesupcare" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secbanti" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblbanti" android:text="2." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblbanti" android:text="Are antibiotics being given" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <RadioGroup android:id="@+id/rdogrpbanti" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
+         
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdobanti1" android:text="Yes"/>
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdobanti2" android:text="No"/>
+        </RadioGroup>
+    </LinearLayout>
+    <View android:id="@+id/linebanti" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secanti1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblanti1" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblanti1" android:text="1) Antibiotic - 1" android:layout_width="180sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtanti1" android:maxLength="50" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+        <ImageButton android:id="@+id/btnAddAnti1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/plus" android:background="#FFFFFF" />
+    </LinearLayout>
+    <View android:id="@+id/lineanti1" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secanti2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblanti2" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblanti2" android:text="2) Antibiotic - 2" android:layout_width="180sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtanti2" android:maxLength="50" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+
+        <ImageButton android:id="@+id/btnRemAnti2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/minus" android:background="#FFFFFF" />
+    </LinearLayout>
+    <View android:id="@+id/lineanti2" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secanti3" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblanti3" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblanti3" android:text="3) Antibiotic - 3" android:layout_width="180sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtanti3" android:maxLength="50" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+
+        <ImageButton android:id="@+id/btnRemAnti3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/minus" android:background="#FFFFFF" />
+
+    </LinearLayout>
+    <View android:id="@+id/lineanti3" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secanti4" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblanti4" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblanti4" android:text="4) Antibiotic - 4" android:layout_width="180sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtanti4" android:maxLength="50" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+
+        <ImageButton android:id="@+id/btnRemAnti4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/minus" android:background="#FFFFFF" />
+
+    </LinearLayout>
+    <View android:id="@+id/lineanti4" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secanti5" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblanti5" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblanti5" android:text="5) Antibiotic - 5" android:layout_width="180sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtanti5" android:maxLength="50" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+
+        <ImageButton android:id="@+id/btnRemAnti5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/minus" android:background="#FFFFFF" />
+
+    </LinearLayout>
+    <View android:id="@+id/lineanti5" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secanti6" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblanti6" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblanti6" android:text="6) Antibiotic - 6" android:layout_width="180sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtanti6" android:maxLength="50" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+
+        <ImageButton android:id="@+id/btnRemAnti6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/minus" android:background="#FFFFFF" />
+
+    </LinearLayout>
+    <View android:id="@+id/lineanti6" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secanti7" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblanti7" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblanti7" android:text="7) Antibiotic - 7" android:layout_width="180sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtanti7" android:maxLength="50" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+        <ImageButton android:id="@+id/btnRemAnti7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/minus" android:background="#FFFFFF" />
+
+    </LinearLayout>
+    <View android:id="@+id/lineanti7" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secanti8" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblanti8" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblanti8" android:text="8) Antibiotic - 8" android:layout_width="180sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtanti8" android:maxLength="50" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+        <ImageButton android:id="@+id/btnRemAnti8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/minus" android:background="#FFFFFF" />
+
+    </LinearLayout>
+    <View android:id="@+id/lineanti8" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secotherttmnt" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblotherttmnt" android:text="3." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblotherttmnt" android:text="Other treatments being given?" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <RadioGroup android:id="@+id/rdogrpotherttmnt" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
+         
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdootherttmnt1" android:text="Yes"/>
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdootherttmnt2" android:text="No"/>
+        </RadioGroup>
+    </LinearLayout>
+    <View android:id="@+id/lineotherttmnt" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secotherttmntname" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblotherttmntname" android:text="4." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblotherttmntname" android:text="Treatments being given?" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <RadioGroup android:id="@+id/rdogrpotherttmntname" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
+         
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdootherttmntname1" android:text="Aminophylline"/>
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdootherttmntname2" android:text="Other"/>
+        </RadioGroup>
+    </LinearLayout>
+    <View android:id="@+id/lineotherttmntname" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secothtreat1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblothtreat1" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblothtreat1" android:text="1) Treatment - 1" android:layout_width="180sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtothtreat1" android:maxLength="50" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+        <ImageButton android:id="@+id/btnAddTre1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/plus" android:background="#FFFFFF" />
+
+    </LinearLayout>
+    <View android:id="@+id/lineothtreat1" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secothtreat2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblothtreat2" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblothtreat2" android:text="2) Treatment - 2" android:layout_width="180sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtothtreat2" android:maxLength="50" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+
+        <ImageButton android:id="@+id/btnRemTre2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/minus" android:background="#FFFFFF" />
+
+    </LinearLayout>
+    <View android:id="@+id/lineothtreat2" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secothtreat3" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblothtreat3" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblothtreat3" android:text="3) Treatment - 3" android:layout_width="180sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtothtreat3" android:maxLength="50" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+
+        <ImageButton android:id="@+id/btnRemTre3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/minus" android:background="#FFFFFF" />
+
+    </LinearLayout>
+    <View android:id="@+id/lineothtreat3" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secothtreat4" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblothtreat4" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblothtreat4" android:text="4) Treatment - 4" android:layout_width="180sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtothtreat4" android:maxLength="50" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+
+        <ImageButton android:id="@+id/btnRemTre4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/minus" android:background="#FFFFFF" />
+
+    </LinearLayout>
+    <View android:id="@+id/lineothtreat4" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secothtreat5" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblothtreat5" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblothtreat5" android:text="5) Treatment - 5" android:layout_width="180sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtothtreat5" android:maxLength="50" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+
+        <ImageButton android:id="@+id/btnRemTre5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/minus" android:background="#FFFFFF" />
+
+    </LinearLayout>
+    <View android:id="@+id/lineothtreat5" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secothtreat6" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblothtreat6" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblothtreat6" android:text="6) Treatment - 6" android:layout_width="180sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtothtreat6" android:maxLength="50" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+
+        <ImageButton android:id="@+id/btnRemTre6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/minus" android:background="#FFFFFF" />
+
+    </LinearLayout>
+    <View android:id="@+id/lineothtreat6" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secothtreat7" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblothtreat7" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblothtreat7" android:text="7) Treatment - 7" android:layout_width="180sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtothtreat7" android:maxLength="50" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+
+        <ImageButton android:id="@+id/btnRemTre7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/minus" android:background="#FFFFFF" />
+
+    </LinearLayout>
+    <View android:id="@+id/lineothtreat7" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secothtreat8" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblothtreat8" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlblothtreat8" android:text="8) Treatment - 8" android:layout_width="180sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtothtreat8" android:maxLength="50" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+
+        <ImageButton android:id="@+id/btnRemTre8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/minus" android:background="#FFFFFF" />
+
+    </LinearLayout>
+    <View android:id="@+id/lineothtreat8" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secoxygen" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lbloxygen" android:text="5." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/Vlbloxygen" android:text="Is oxygen being given?" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <RadioGroup android:id="@+id/rdogrpoxygen" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
+         
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdooxygen1" android:text="Yes"/>
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdooxygen2" android:text="No"/>
+        </RadioGroup>
+    </LinearLayout>
+    <View android:id="@+id/lineoxygen" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+       <LinearLayout android:layout_width="fill_parent" android:paddingTop="20sp" android:layout_height="wrap_content" android:orientation="horizontal">
+       	<Button android:id="@+id/cmdSave" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/button_style_green"
+       			android:textSize="20sp" android:text=" Save -> Continue " android:textColor="#FFFFFF" android:layout_marginBottom="20sp" android:layout_marginLeft="20sp" android:layout_marginRight="20sp"/>
+       </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+</LinearLayout>

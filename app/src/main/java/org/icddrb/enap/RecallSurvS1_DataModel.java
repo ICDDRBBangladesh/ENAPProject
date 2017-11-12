@@ -70,6 +70,31 @@ import android.content.Context;
         public void setlang(String newValue){
               _lang = newValue;
          }
+     private String _langOth = "";
+     public String getlangOth(){
+         return _langOth;
+     }
+     public void setlangOth(String newValue){
+         _langOth = newValue;
+     }
+
+     private String _interp = "";
+     public String getinterp(){
+         return _interp;
+     }
+     public void setinterp(String newValue){
+         _interp = newValue;
+     }
+
+     private String _interpName = "";
+     public String getinterpName(){
+         return _interpName;
+     }
+     public void setinterpName(String newValue){
+         _interpName = newValue;
+     }
+
+
         private String _cconditionb = "";
         public String getcconditionb(){
               return _cconditionb;
@@ -119,7 +144,24 @@ import android.content.Context;
         public void setMatageDK(String newValue){
               _MatageDK = newValue;
          }
-        private String _addr1 = "";
+
+     private String _FormEdu = "";
+     public String getFormEdu(){
+         return _FormEdu;
+     }
+     public void setFormEdu(String newValue){
+         _FormEdu = newValue;
+     }
+     private String _FormEduDK = "";
+     public String getFormEduDK(){
+         return _FormEduDK;
+     }
+     public void setFormEduDK(String newValue){
+         _FormEduDK = newValue;
+     }
+
+
+     private String _addr1 = "";
         public String getaddr1(){
               return _addr1;
          }
@@ -252,20 +294,73 @@ import android.content.Context;
         public void setEddDK(String newValue){
               _EddDK = newValue;
          }
-        private String _Gameth = "";
-        public String getGameth(){
-              return _Gameth;
+
+     private String _EddDKOth = "";
+     public String getEddDKOth(){
+         return _EddDKOth;
+     }
+     public void setEddDKOth(String newValue){
+         _EddDKOth = newValue;
+     }
+
+
+        private String _Gametha = "";
+        public String getGametha(){
+              return _Gametha;
          }
-        public void setGameth(String newValue){
-              _Gameth = newValue;
+        public void setGametha(String newValue){
+            _Gametha = newValue;
          }
-        private String _GamethOth = "";
-        public String getGamethOth(){
-              return _GamethOth;
+
+     private String _Gamethb = "";
+     public String getGamethb(){
+         return _Gamethb;
+     }
+     public void setGamethb(String newValue){
+         _Gamethb = newValue;
+     }
+
+     private String _Gamethc = "";
+     public String getGamethc(){
+         return _Gamethc;
+     }
+     public void setGamethc(String newValue){
+         _Gamethc = newValue;
+     }
+
+     private String _Gamethd = "";
+     public String getGamethd(){
+         return _Gamethd;
+     }
+     public void setGamethd(String newValue){
+         _Gamethd = newValue;
+     }
+
+     private String _Gamethe = "";
+     public String getGamethe(){
+         return _Gamethe;
+     }
+     public void setGamethe(String newValue){
+         _Gamethe = newValue;
+     }
+
+        private String _GametheOth = "";
+        public String getGametheOth(){
+              return _GametheOth;
          }
-        public void setGamethOth(String newValue){
-              _GamethOth = newValue;
+        public void setGametheOth(String newValue){
+            _GametheOth = newValue;
          }
+
+     private String _Gamethf = "";
+     public String getGamethf(){
+         return _Gamethf;
+     }
+     public void setGamethf(String newValue){
+         _Gamethf = newValue;
+     }
+
+
         private String _ga1anc = "";
         public String getga1anc(){
               return _ga1anc;
@@ -574,13 +669,43 @@ import android.content.Context;
         public void setanybcertcon(String newValue){
               _anybcertcon = newValue;
          }
-        private String _bcertcon = "";
+
+       /* private String _bcertcon = "";
         public String getbcertcon(){
               return _bcertcon;
          }
-        public void setbcertcon(String newValue){
-              _bcertcon = newValue;
-         }
+        public void setbcertcon(String newValue){_bcertcon = newValue;}*/
+
+     private String _bcertcona = "";
+     public String getbcertcona(){
+         return _bcertcona;
+     }
+     public void setbcertcona(String newValue){_bcertcona = newValue;}
+
+     private String _bcertconb = "";
+     public String getbcertconb(){
+         return _bcertconb;
+     }
+     public void setbcertconb(String newValue){_bcertconb = newValue;}
+
+     private String _bcertconc = "";
+     public String getbcertconc(){
+         return _bcertconc;
+     }
+     public void setbcertconc(String newValue){_bcertconc = newValue;}
+
+     private String _bcertcond = "";
+     public String getbcertcond(){
+         return _bcertcond;
+     }
+     public void setbcertcond(String newValue){_bcertcond = newValue;}
+
+     private String _bcertcone = "";
+     public String getbcertcone(){
+         return _bcertcone;
+     }
+     public void setbcertcone(String newValue){_bcertcone = newValue;}
+
         private String _bcertconOth = "";
         public String getbcertconOth(){
               return _bcertconOth;
@@ -588,7 +713,17 @@ import android.content.Context;
         public void setbcertconOth(String newValue){
               _bcertconOth = newValue;
          }
-        private String _StartTime = "";
+
+     private String _Comments = "";
+     public String getComments(){
+         return _Comments;
+     }
+     public void setComments(String newValue){
+         _Comments = newValue;
+     }
+
+
+     private String _StartTime = "";
         public void setStartTime(String newValue){
               _StartTime = newValue;
          }
@@ -651,7 +786,7 @@ import android.content.Context;
             String SQL = "";
             try
               {
-                 SQL = "Insert into "+ TableName +" (CountryCode,FaciCode,DataID,StudyID,ConsentMRS,ConsentFollo,doi,toi,lang,cconditionb,matconsent,MatbdateM,MatbdateY,MatbdateDK,Matage,MatageDK,addr1,addr2,addr3,addr4,AddressDetail,matmobile,Matmobnum,MatmobnumDK,Matmobnum1,Matmobnum1DK,husmob,Husmobnum,HusmobnumDK,Husmobnum2,Husmobnum2DK,contact1,eddknown,Edd,EddDK,Gameth,GamethOth,ga1anc,ga1ancWM,antcarenum,ga,gaWM,bheart,bcondition,placedeliv,placedelivOth,delivdate,delivdateDK,delivtime,delivtimeDK,typebirth,Timecsec,Toldcsecreas,Csecreas,OthReason,Bwgted,Bwgt,BwgtDK,bwgtmeth,Bsex,perceivesize,anybcomp,bcompA,bcompB,bcompC,bcompD,bcompE,bcompF,bcompG,bcompH,bcompI,bcompIOth,bcompJ,nightsnum,nightsnumDK,bnotif,bcert,bcertknow,bcerttime,bcerttimeWM,anybcertcon,bcertcon,bcertconOth,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload,modifyDate)Values('"+ _CountryCode +"', '"+ _FaciCode +"', '"+ _DataID +"', '"+ _StudyID +"', '"+ _ConsentMRS +"', '"+ _ConsentFollo +"', '"+ _doi +"', '"+ _toi +"', '"+ _lang +"', '"+ _cconditionb +"', '"+ _matconsent +"', '"+ _MatbdateM +"', '"+ _MatbdateY +"', '"+ _MatbdateDK +"', '"+ _Matage +"', '"+ _MatageDK +"', '"+ _addr1 +"', '"+ _addr2 +"', '"+ _addr3 +"', '"+ _addr4 +"', '"+ _AddressDetail +"', '"+ _matmobile +"', '"+ _Matmobnum +"', '"+ _MatmobnumDK +"', '"+ _Matmobnum1 +"', '"+ _Matmobnum1DK +"', '"+ _husmob +"', '"+ _Husmobnum +"', '"+ _HusmobnumDK +"', '"+ _Husmobnum2 +"', '"+ _Husmobnum2DK +"', '"+ _contact1 +"', '"+ _eddknown +"', '"+ _Edd +"', '"+ _EddDK +"', '"+ _Gameth +"', '"+ _GamethOth +"', '"+ _ga1anc +"', '"+ _ga1ancWM +"', '"+ _antcarenum +"', '"+ _ga +"', '"+ _gaWM +"', '"+ _bheart +"', '"+ _bcondition +"', '"+ _placedeliv +"', '"+ _placedelivOth +"', '"+ _delivdate +"', '"+ _delivdateDK +"', '"+ _delivtime +"', '"+ _delivtimeDK +"', '"+ _typebirth +"', '"+ _Timecsec +"', '"+ _Toldcsecreas +"', '"+ _Csecreas +"', '"+ _OthReason +"', '"+ _Bwgted +"', '"+ _Bwgt +"', '"+ _BwgtDK +"', '"+ _bwgtmeth +"', '"+ _Bsex +"', '"+ _perceivesize +"', '"+ _anybcomp +"', '"+ _bcompA +"', '"+ _bcompB +"', '"+ _bcompC +"', '"+ _bcompD +"', '"+ _bcompE +"', '"+ _bcompF +"', '"+ _bcompG +"', '"+ _bcompH +"', '"+ _bcompI +"', '"+ _bcompIOth +"', '"+ _bcompJ +"', '"+ _nightsnum +"', '"+ _nightsnumDK +"', '"+ _bnotif +"', '"+ _bcert +"', '"+ _bcertknow +"', '"+ _bcerttime +"', '"+ _bcerttimeWM +"', '"+ _anybcertcon +"', '"+ _bcertcon +"', '"+ _bcertconOth +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"', '"+ _modifyDate +"')";
+                 SQL = "Insert into "+ TableName +" (CountryCode,FaciCode,DataID,StudyID,ConsentMRS,ConsentFollo,doi,toi,lang,langOth,interp,interpName,cconditionb,matconsent,MatbdateM,MatbdateY,MatbdateDK,Matage,MatageDK,FormEdu,FormEduDK,addr1,addr2,addr3,addr4,AddressDetail,matmobile,Matmobnum,MatmobnumDK,Matmobnum1,Matmobnum1DK,husmob,Husmobnum,HusmobnumDK,Husmobnum2,Husmobnum2DK,contact1,eddknown,Edd,EddDK,EddDKOth,Gametha,Gamethb,Gamethc,Gamethd,Gamethe,GametheOth,Gamethf,ga1anc,ga1ancWM,antcarenum,ga,gaWM,bheart,bcondition,placedeliv,placedelivOth,delivdate,delivdateDK,delivtime,delivtimeDK,typebirth,Timecsec,Toldcsecreas,Csecreas,OthReason,Bwgted,Bwgt,BwgtDK,bwgtmeth,Bsex,perceivesize,anybcomp,bcompA,bcompB,bcompC,bcompD,bcompE,bcompF,bcompG,bcompH,bcompI,bcompIOth,bcompJ,nightsnum,nightsnumDK,bnotif,bcert,bcertknow,bcerttime,bcerttimeWM,anybcertcon,bcertcona,bcertconb,bcertconc,bcertcond,bcertcone,bcertconOth,Comments,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload,modifyDate)Values('"+ _CountryCode +"', '"+ _FaciCode +"', '"+ _DataID +"', '"+ _StudyID +"', '"+ _ConsentMRS +"', '"+ _ConsentFollo +"', '"+ _doi +"', '"+ _toi +"', '"+ _lang +"','"+ _langOth +"','"+ _interp +"','"+ _interpName +"', '"+ _cconditionb +"', '"+ _matconsent +"', '"+ _MatbdateM +"', '"+ _MatbdateY +"', '"+ _MatbdateDK +"', '"+ _Matage +"', '"+ _MatageDK +"','"+ _FormEdu +"','"+ _FormEduDK +"', '"+ _addr1 +"', '"+ _addr2 +"', '"+ _addr3 +"', '"+ _addr4 +"', '"+ _AddressDetail +"', '"+ _matmobile +"', '"+ _Matmobnum +"', '"+ _MatmobnumDK +"', '"+ _Matmobnum1 +"', '"+ _Matmobnum1DK +"', '"+ _husmob +"', '"+ _Husmobnum +"', '"+ _HusmobnumDK +"', '"+ _Husmobnum2 +"', '"+ _Husmobnum2DK +"', '"+ _contact1 +"', '"+ _eddknown +"', '"+ _Edd +"', '"+ _EddDK +"','"+ _EddDKOth +"', '"+ _Gametha +"','"+ _Gamethb +"','"+ _Gamethc +"','"+ _Gamethd +"','"+ _Gamethe +"','"+ _GametheOth +"','"+ _Gamethf +"', '"+ _ga1anc +"', '"+ _ga1ancWM +"', '"+ _antcarenum +"', '"+ _ga +"', '"+ _gaWM +"', '"+ _bheart +"', '"+ _bcondition +"', '"+ _placedeliv +"', '"+ _placedelivOth +"', '"+ _delivdate +"', '"+ _delivdateDK +"', '"+ _delivtime +"', '"+ _delivtimeDK +"', '"+ _typebirth +"', '"+ _Timecsec +"', '"+ _Toldcsecreas +"', '"+ _Csecreas +"', '"+ _OthReason +"', '"+ _Bwgted +"', '"+ _Bwgt +"', '"+ _BwgtDK +"', '"+ _bwgtmeth +"', '"+ _Bsex +"', '"+ _perceivesize +"', '"+ _anybcomp +"', '"+ _bcompA +"', '"+ _bcompB +"', '"+ _bcompC +"', '"+ _bcompD +"', '"+ _bcompE +"', '"+ _bcompF +"', '"+ _bcompG +"', '"+ _bcompH +"', '"+ _bcompI +"', '"+ _bcompIOth +"', '"+ _bcompJ +"', '"+ _nightsnum +"', '"+ _nightsnumDK +"', '"+ _bnotif +"', '"+ _bcert +"', '"+ _bcertknow +"', '"+ _bcerttime +"', '"+ _bcerttimeWM +"', '"+ _anybcertcon +"', '"+ _bcertcona +"','"+ _bcertconb +"','"+ _bcertconc +"','"+ _bcertcond +"','"+ _bcertcone +"', '"+ _bcertconOth +"','"+ _Comments +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"', '"+ _modifyDate +"')";
                  C.Save(SQL);
                  C.close();
               }
@@ -669,7 +804,7 @@ import android.content.Context;
             String SQL = "";
             try
               {
-                 SQL = "Update "+ TableName +" Set Upload='2',modifyDate='" + _modifyDate + "' ,CountryCode = '"+ _CountryCode +"',FaciCode = '"+ _FaciCode +"',DataID = '"+ _DataID +"',StudyID = '"+ _StudyID +"',ConsentMRS = '"+ _ConsentMRS +"',ConsentFollo = '"+ _ConsentFollo +"',doi = '"+ _doi +"',toi = '"+ _toi +"',lang = '"+ _lang +"',cconditionb = '"+ _cconditionb +"',matconsent = '"+ _matconsent +"',MatbdateM = '"+ _MatbdateM +"',MatbdateY = '"+ _MatbdateY +"',MatbdateDK = '"+ _MatbdateDK +"',Matage = '"+ _Matage +"',MatageDK = '"+ _MatageDK +"',addr1 = '"+ _addr1 +"',addr2 = '"+ _addr2 +"',addr3 = '"+ _addr3 +"',addr4 = '"+ _addr4 +"',AddressDetail = '"+ _AddressDetail +"',matmobile = '"+ _matmobile +"',Matmobnum = '"+ _Matmobnum +"',MatmobnumDK = '"+ _MatmobnumDK +"',Matmobnum1 = '"+ _Matmobnum1 +"',Matmobnum1DK = '"+ _Matmobnum1DK +"',husmob = '"+ _husmob +"',Husmobnum = '"+ _Husmobnum +"',HusmobnumDK = '"+ _HusmobnumDK +"',Husmobnum2 = '"+ _Husmobnum2 +"',Husmobnum2DK = '"+ _Husmobnum2DK +"',contact1 = '"+ _contact1 +"',eddknown = '"+ _eddknown +"',Edd = '"+ _Edd +"',EddDK = '"+ _EddDK +"',Gameth = '"+ _Gameth +"',GamethOth = '"+ _GamethOth +"',ga1anc = '"+ _ga1anc +"',ga1ancWM = '"+ _ga1ancWM +"',antcarenum = '"+ _antcarenum +"',ga = '"+ _ga +"',gaWM = '"+ _gaWM +"',bheart = '"+ _bheart +"',bcondition = '"+ _bcondition +"',placedeliv = '"+ _placedeliv +"',placedelivOth = '"+ _placedelivOth +"',delivdate = '"+ _delivdate +"',delivdateDK = '"+ _delivdateDK +"',delivtime = '"+ _delivtime +"',delivtimeDK = '"+ _delivtimeDK +"',typebirth = '"+ _typebirth +"',Timecsec = '"+ _Timecsec +"',Toldcsecreas = '"+ _Toldcsecreas +"',Csecreas = '"+ _Csecreas +"',OthReason = '"+ _OthReason +"',Bwgted = '"+ _Bwgted +"',Bwgt = '"+ _Bwgt +"',BwgtDK = '"+ _BwgtDK +"',bwgtmeth = '"+ _bwgtmeth +"',Bsex = '"+ _Bsex +"',perceivesize = '"+ _perceivesize +"',anybcomp = '"+ _anybcomp +"',bcompA = '"+ _bcompA +"',bcompB = '"+ _bcompB +"',bcompC = '"+ _bcompC +"',bcompD = '"+ _bcompD +"',bcompE = '"+ _bcompE +"',bcompF = '"+ _bcompF +"',bcompG = '"+ _bcompG +"',bcompH = '"+ _bcompH +"',bcompI = '"+ _bcompI +"',bcompIOth = '"+ _bcompIOth +"',bcompJ = '"+ _bcompJ +"',nightsnum = '"+ _nightsnum +"',nightsnumDK = '"+ _nightsnumDK +"',bnotif = '"+ _bnotif +"',bcert = '"+ _bcert +"',bcertknow = '"+ _bcertknow +"',bcerttime = '"+ _bcerttime +"',bcerttimeWM = '"+ _bcerttimeWM +"',anybcertcon = '"+ _anybcertcon +"',bcertcon = '"+ _bcertcon +"',bcertconOth = '"+ _bcertconOth +"'  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and DataID='"+ _DataID +"'";
+                 SQL = "Update "+ TableName +" Set Upload='2',modifyDate='" + _modifyDate + "' ,CountryCode = '"+ _CountryCode +"',FaciCode = '"+ _FaciCode +"',DataID = '"+ _DataID +"',StudyID = '"+ _StudyID +"',ConsentMRS = '"+ _ConsentMRS +"',ConsentFollo = '"+ _ConsentFollo +"',doi = '"+ _doi +"',toi = '"+ _toi +"',lang = '"+ _lang +"',langOth='"+ _langOth +"',interp='"+ _interp +"',interpName='"+ _interpName +"',cconditionb = '"+ _cconditionb +"',matconsent = '"+ _matconsent +"',MatbdateM = '"+ _MatbdateM +"',MatbdateY = '"+ _MatbdateY +"',MatbdateDK = '"+ _MatbdateDK +"',Matage = '"+ _Matage +"',MatageDK = '"+ _MatageDK +"',FormEdu='"+ _FormEdu +"',FormEduDK='"+ _FormEduDK +"',addr1 = '"+ _addr1 +"',addr2 = '"+ _addr2 +"',addr3 = '"+ _addr3 +"',addr4 = '"+ _addr4 +"',AddressDetail = '"+ _AddressDetail +"',matmobile = '"+ _matmobile +"',Matmobnum = '"+ _Matmobnum +"',MatmobnumDK = '"+ _MatmobnumDK +"',Matmobnum1 = '"+ _Matmobnum1 +"',Matmobnum1DK = '"+ _Matmobnum1DK +"',husmob = '"+ _husmob +"',Husmobnum = '"+ _Husmobnum +"',HusmobnumDK = '"+ _HusmobnumDK +"',Husmobnum2 = '"+ _Husmobnum2 +"',Husmobnum2DK = '"+ _Husmobnum2DK +"',contact1 = '"+ _contact1 +"',eddknown = '"+ _eddknown +"',Edd = '"+ _Edd +"',EddDK = '"+ _EddDK +"',EddDKOth='"+ _EddDKOth +"',Gametha='"+ _Gametha +"',Gamethb='"+ _Gamethb +"',Gamethc='"+ _Gamethc +"',Gamethd='"+ _Gamethd +"',Gamethe='"+ _Gamethe +"',GametheOth='"+ _GametheOth +"',Gamethf='"+ _Gamethf +"',ga1anc = '"+ _ga1anc +"',ga1ancWM = '"+ _ga1ancWM +"',antcarenum = '"+ _antcarenum +"',ga = '"+ _ga +"',gaWM = '"+ _gaWM +"',bheart = '"+ _bheart +"',bcondition = '"+ _bcondition +"',placedeliv = '"+ _placedeliv +"',placedelivOth = '"+ _placedelivOth +"',delivdate = '"+ _delivdate +"',delivdateDK = '"+ _delivdateDK +"',delivtime = '"+ _delivtime +"',delivtimeDK = '"+ _delivtimeDK +"',typebirth = '"+ _typebirth +"',Timecsec = '"+ _Timecsec +"',Toldcsecreas = '"+ _Toldcsecreas +"',Csecreas = '"+ _Csecreas +"',OthReason = '"+ _OthReason +"',Bwgted = '"+ _Bwgted +"',Bwgt = '"+ _Bwgt +"',BwgtDK = '"+ _BwgtDK +"',bwgtmeth = '"+ _bwgtmeth +"',Bsex = '"+ _Bsex +"',perceivesize = '"+ _perceivesize +"',anybcomp = '"+ _anybcomp +"',bcompA = '"+ _bcompA +"',bcompB = '"+ _bcompB +"',bcompC = '"+ _bcompC +"',bcompD = '"+ _bcompD +"',bcompE = '"+ _bcompE +"',bcompF = '"+ _bcompF +"',bcompG = '"+ _bcompG +"',bcompH = '"+ _bcompH +"',bcompI = '"+ _bcompI +"',bcompIOth = '"+ _bcompIOth +"',bcompJ = '"+ _bcompJ +"',nightsnum = '"+ _nightsnum +"',nightsnumDK = '"+ _nightsnumDK +"',bnotif = '"+ _bnotif +"',bcert = '"+ _bcert +"',bcertknow = '"+ _bcertknow +"',bcerttime = '"+ _bcerttime +"',bcerttimeWM = '"+ _bcerttimeWM +"',anybcertcon = '"+ _anybcertcon +"',bcertcona = '"+ _bcertcona +"',bcertconb = '"+ _bcertconb +"',bcertconc = '"+ _bcertconc +"',bcertcond = '"+ _bcertcond +"',bcertcone = '"+ _bcertcone +"',bcertconOth = '"+ _bcertconOth +"',Comments='"+ _Comments +"'  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and DataID='"+ _DataID +"'";
                  C.Save(SQL);
                  C.close();
               }
@@ -701,6 +836,11 @@ import android.content.Context;
                 d._doi = cur.getString(cur.getColumnIndex("doi"));
                 d._toi = cur.getString(cur.getColumnIndex("toi"));
                 d._lang = cur.getString(cur.getColumnIndex("lang"));
+                d._langOth = cur.getString(cur.getColumnIndex("langOth"));
+
+                d._interp = cur.getString(cur.getColumnIndex("interp"));
+                d._interpName = cur.getString(cur.getColumnIndex("interpName"));
+
                 d._cconditionb = cur.getString(cur.getColumnIndex("cconditionb"));
                 d._matconsent = cur.getString(cur.getColumnIndex("matconsent"));
                 d._MatbdateM = cur.getString(cur.getColumnIndex("MatbdateM"));
@@ -708,6 +848,10 @@ import android.content.Context;
                 d._MatbdateDK = cur.getString(cur.getColumnIndex("MatbdateDK"));
                 d._Matage = cur.getString(cur.getColumnIndex("Matage"));
                 d._MatageDK = cur.getString(cur.getColumnIndex("MatageDK"));
+
+                d._FormEdu = cur.getString(cur.getColumnIndex("FormEdu"));
+                d._FormEduDK = cur.getString(cur.getColumnIndex("FormEduDK"));
+
                 d._addr1 = cur.getString(cur.getColumnIndex("addr1"));
                 d._addr2 = cur.getString(cur.getColumnIndex("addr2"));
                 d._addr3 = cur.getString(cur.getColumnIndex("addr3"));
@@ -727,8 +871,15 @@ import android.content.Context;
                 d._eddknown = cur.getString(cur.getColumnIndex("eddknown"));
                 d._Edd = cur.getString(cur.getColumnIndex("Edd"));
                 d._EddDK = cur.getString(cur.getColumnIndex("EddDK"));
-                d._Gameth = cur.getString(cur.getColumnIndex("Gameth"));
-                d._GamethOth = cur.getString(cur.getColumnIndex("GamethOth"));
+                d._EddDKOth = cur.getString(cur.getColumnIndex("EddDKOth"));
+                d._Gametha = cur.getString(cur.getColumnIndex("Gametha"));
+                d._Gamethb = cur.getString(cur.getColumnIndex("Gamethb"));
+                d._Gamethc = cur.getString(cur.getColumnIndex("Gamethc"));
+                d._Gamethd = cur.getString(cur.getColumnIndex("Gamethd"));
+                d._Gamethe = cur.getString(cur.getColumnIndex("Gamethe"));
+                d._GametheOth = cur.getString(cur.getColumnIndex("GametheOth"));
+                d._Gamethf = cur.getString(cur.getColumnIndex("Gamethf"));
+
                 d._ga1anc = cur.getString(cur.getColumnIndex("ga1anc"));
                 d._ga1ancWM = cur.getString(cur.getColumnIndex("ga1ancWM"));
                 d._antcarenum = cur.getString(cur.getColumnIndex("antcarenum"));
@@ -773,8 +924,14 @@ import android.content.Context;
                 d._bcerttime = cur.getString(cur.getColumnIndex("bcerttime"));
                 d._bcerttimeWM = cur.getString(cur.getColumnIndex("bcerttimeWM"));
                 d._anybcertcon = cur.getString(cur.getColumnIndex("anybcertcon"));
-                d._bcertcon = cur.getString(cur.getColumnIndex("bcertcon"));
+                d._bcertcona = cur.getString(cur.getColumnIndex("bcertcona"));
+                d._bcertconb = cur.getString(cur.getColumnIndex("bcertconb"));
+                d._bcertconc = cur.getString(cur.getColumnIndex("bcertconc"));
+                d._bcertcond = cur.getString(cur.getColumnIndex("bcertcond"));
+                d._bcertcone = cur.getString(cur.getColumnIndex("bcertcone"));
+
                 d._bcertconOth = cur.getString(cur.getColumnIndex("bcertconOth"));
+                d._Comments = cur.getString(cur.getColumnIndex("Comments"));
                 data.add(d);
 
                 cur.moveToNext();

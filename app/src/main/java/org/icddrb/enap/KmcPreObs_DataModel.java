@@ -42,6 +42,14 @@ import android.content.Context;
         public void setadwghtkmc(String newValue){
               _adwghtkmc = newValue;
          }
+     private String _adwghtkmcdk = "";
+     public String getadwghtkmcdk(){
+         return _adwghtkmcdk;
+     }
+     public void setadwghtkmcdk(String newValue){
+         _adwghtkmcdk = newValue;
+     }
+
         private String _gaadm = "";
         public String getgaadm(){
               return _gaadm;
@@ -49,6 +57,14 @@ import android.content.Context;
         public void setgaadm(String newValue){
               _gaadm = newValue;
          }
+     private String _gaadmdk = "";
+     public String getgaadmdk(){
+         return _gaadmdk;
+     }
+     public void setgaadmdk(String newValue){
+         _gaadmdk = newValue;
+     }
+
         private String _placedeliv = "";
         public String getplacedeliv(){
               return _placedeliv;
@@ -133,7 +149,7 @@ import android.content.Context;
             String SQL = "";
             try
               {
-                 SQL = "Insert into "+ TableName +" (CountryCode,FaciCode,DataID,adwghedkmc,adwghtkmc,gaadm,placedeliv,placedelivoth,facnamedeliv,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload,modifyDate)Values('"+ _CountryCode +"', '"+ _FaciCode +"', '"+ _DataID +"', '"+ _adwghedkmc +"', '"+ _adwghtkmc +"', '"+ _gaadm +"', '"+ _placedeliv +"', '"+ _placedelivoth +"', '"+ _facnamedeliv +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"', '"+ _modifyDate +"')";
+                 SQL = "Insert into "+ TableName +" (CountryCode,FaciCode,DataID,adwghedkmc,adwghtkmc,adwghtkmcdk,gaadm,gaadmdk,placedeliv,placedelivoth,facnamedeliv,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload,modifyDate)Values('"+ _CountryCode +"', '"+ _FaciCode +"', '"+ _DataID +"', '"+ _adwghedkmc +"', '"+ _adwghtkmc +"','"+ _adwghtkmcdk +"', '"+ _gaadm +"','"+ _gaadmdk +"', '"+ _placedeliv +"', '"+ _placedelivoth +"', '"+ _facnamedeliv +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"', '"+ _modifyDate +"')";
                  C.Save(SQL);
                  C.close();
               }
@@ -151,7 +167,7 @@ import android.content.Context;
             String SQL = "";
             try
               {
-                 SQL = "Update "+ TableName +" Set Upload='2',modifyDate='" + _modifyDate + "' ,CountryCode = '"+ _CountryCode +"',FaciCode = '"+ _FaciCode +"',DataID = '"+ _DataID +"',adwghedkmc = '"+ _adwghedkmc +"',adwghtkmc = '"+ _adwghtkmc +"',gaadm = '"+ _gaadm +"',placedeliv = '"+ _placedeliv +"',placedelivoth = '"+ _placedelivoth +"',facnamedeliv = '"+ _facnamedeliv +"'  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and DataID='"+ _DataID +"'";
+                 SQL = "Update "+ TableName +" Set Upload='2',modifyDate='" + _modifyDate + "' ,CountryCode = '"+ _CountryCode +"',FaciCode = '"+ _FaciCode +"',DataID = '"+ _DataID +"',adwghedkmc = '"+ _adwghedkmc +"',adwghtkmc = '"+ _adwghtkmc +"',adwghtkmcdk = '"+ _adwghtkmcdk +"',gaadm = '"+ _gaadm +"',gaadmdk = '"+ _gaadmdk +"',placedeliv = '"+ _placedeliv +"',placedelivoth = '"+ _placedelivoth +"',facnamedeliv = '"+ _facnamedeliv +"'  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and DataID='"+ _DataID +"'";
                  C.Save(SQL);
                  C.close();
               }
@@ -179,7 +195,11 @@ import android.content.Context;
                 d._DataID = cur.getString(cur.getColumnIndex("DataID"));
                 d._adwghedkmc = cur.getString(cur.getColumnIndex("adwghedkmc"));
                 d._adwghtkmc = cur.getString(cur.getColumnIndex("adwghtkmc"));
+                d._adwghtkmcdk = cur.getString(cur.getColumnIndex("adwghtkmcDK"));
+
                 d._gaadm = cur.getString(cur.getColumnIndex("gaadm"));
+                d._gaadmdk = cur.getString(cur.getColumnIndex("gaadmDK"));
+
                 d._placedeliv = cur.getString(cur.getColumnIndex("placedeliv"));
                 d._placedelivoth = cur.getString(cur.getColumnIndex("placedelivoth"));
                 d._facnamedeliv = cur.getString(cur.getColumnIndex("facnamedeliv"));

@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <group android:checkableBehavior="single" android:enabled="true">
-        <item
+        <item android:visible="false"
             android:id="@+id/nav_DataSync"
             android:icon="@drawable/refresh"
             android:title="Data Sync" />
 
-        <item
+        <item android:visible="false"
             android:id="@+id/nav_Exit"
             android:icon="@drawable/exit1"
             android:title="Exit" />

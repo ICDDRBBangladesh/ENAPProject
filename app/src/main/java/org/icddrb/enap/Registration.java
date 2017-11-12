@@ -25,6 +25,10 @@
  import android.location.LocationManager;
  import android.net.Uri;
  import android.provider.Settings;
+ import android.text.Editable;
+ import android.text.InputFilter;
+ import android.text.InputType;
+ import android.text.TextWatcher;
  import android.view.Gravity;
  import android.view.KeyEvent;
  import android.os.Bundle;
@@ -39,6 +43,7 @@
  import android.view.Window;
  import android.view.WindowManager;
  import android.widget.AdapterView;
+ import android.widget.AutoCompleteTextView;
  import android.widget.Button;
  import android.widget.CheckBox;
  import android.widget.DatePicker;
@@ -87,6 +92,29 @@
     SimpleAdapter dataAdapter;
     ArrayList<HashMap<String, String>> dataList = new ArrayList<HashMap<String, String>>();
 
+     LinearLayout secConReason;
+     EditText txtConReason;
+
+     LinearLayout secMotEdu;
+     EditText txtMotEdu;
+     LinearLayout secMotEduDK;
+     CheckBox chkMotEduDK;
+
+     EditText txtMotDataID;
+
+     CheckBox chkadwghtkmcDK;
+     CheckBox chkgaadmDK;
+
+     LinearLayout secDOBNewbornDK;
+     CheckBox chkDOBNewbornDK;
+
+     CheckBox chkprevpregDK;
+     CheckBox chkprevlivebDK;
+     CheckBox chkprevstillbDK;
+     CheckBox chkprevabDK;
+     CheckBox chkprevcsecDK;
+     CheckBox chkyrslstbthDK;
+
      EditText txtMotStudyIDReType;
          TextView lblHeading;
          LinearLayout secCountryCode;
@@ -117,6 +145,7 @@
          View lineHospID;
          TextView VlblHospID;
          EditText txtHospID;
+     EditText txtHospIDReTyp;
          LinearLayout secConsent;
          View lineConsent;
          TextView VlblConsent;
@@ -124,6 +153,10 @@
          
          RadioButton rdoConsent1;
          RadioButton rdoConsent2;
+     RadioButton rdoConsent3;
+     RadioButton rdoConsent4;
+     RadioButton rdoConsent5;
+
          LinearLayout secStudyID;
          View lineStudyID;
          TextView VlblStudyID;
@@ -160,9 +193,16 @@
          TextView VlblMotAge;
          EditText txtMotAge;
          LinearLayout secMotEthnicity;
+
          View lineMotEthnicity;
          TextView VlblMotEthnicity;
          Spinner spnMotEthnicity;
+
+         LinearLayout secMotEthnicityOth;
+         EditText txtMotEthnicityOth;
+         LinearLayout secMotReligionOth;
+         EditText txtMotReligionOth;
+
          LinearLayout secMotReligion;
          View lineMotReligion;
          TextView VlblMotReligion;
@@ -171,6 +211,10 @@
          View lineAddress1;
          TextView VlblAddress1;
          Spinner spnAddress1;
+         AutoCompleteTextView txtAddress2;
+         AutoCompleteTextView txtAddress3;
+         AutoCompleteTextView txtAddress4;
+
          LinearLayout secAddress2;
          View lineAddress2;
          TextView VlblAddress2;
@@ -234,6 +278,7 @@
 
      RadioButton rdocard1;
      RadioButton rdocard2;
+     RadioButton rdocard7;
      LinearLayout secprevpreg;
      View lineprevpreg;
      TextView Vlblprevpreg;
@@ -267,6 +312,7 @@
      TextView VlbleddDK;
      CheckBox chkeddDK;
      LinearLayout secgaadm;
+     LinearLayout secgaadmi;
      View linegaadm;
      TextView Vlblgaadm;
      EditText txtgaadm;
@@ -280,6 +326,7 @@
      RadioButton rdogameth2;
      RadioButton rdogameth3;
      RadioButton rdogameth4;
+     RadioButton rdogameth5;
      LinearLayout secbb4expect;
      View linebb4expect;
      TextView Vlblbb4expect;
@@ -287,6 +334,7 @@
 
      RadioButton rdobb4expect1;
      RadioButton rdobb4expect2;
+     RadioButton rdobb4expect3;
      LinearLayout secnumbby;
      View linenumbby;
      TextView Vlblnumbby;
@@ -295,6 +343,7 @@
      RadioButton rdonumbby1;
      RadioButton rdonumbby2;
      RadioButton rdonumbby3;
+     RadioButton rdonumbby4;
      LinearLayout secnumPreg;
      View linenumPreg;
      TextView VlblnumPreg;
@@ -323,16 +372,7 @@
      LinearLayout secanybcompadm;
      View lineanybcompadm;
      TextView Vlblanybcompadm;
-     RadioGroup rdogrpanybcompadm;
 
-     RadioButton rdoanybcompadm1;
-     RadioButton rdoanybcompadm2;
-     RadioButton rdoanybcompadm3;
-     RadioButton rdoanybcompadm4;
-     RadioButton rdoanybcompadm5;
-     RadioButton rdoanybcompadm6;
-     RadioButton rdoanybcompadm7;
-     RadioButton rdoanybcompadm8;
      LinearLayout secallocobsv;
      View lineallocobsv;
      TextView Vlblallocobsv;
@@ -349,6 +389,7 @@
 
      RadioButton rdoadwghedkmc1;
      RadioButton rdoadwghedkmc2;
+     RadioButton rdoadwghedkmc3;
      LinearLayout secadwghtkmc;
      View lineadwghtkmc;
      TextView Vlbladwghtkmc;
@@ -371,6 +412,84 @@
      EditText txtfacnamedeliv;
      LinearLayout secKMCPreObs;
      LinearLayout secLDPreObs;
+     LinearLayout secgaadmiDK;
+     CheckBox chkgaadmiDK;
+
+     CheckBox chkanybcompadma;
+     CheckBox chkanybcompadmb;
+     CheckBox chkanybcompadmc;
+     CheckBox chkanybcompadmd;
+     CheckBox chkanybcompadme;
+     CheckBox chkanybcompadmf;
+     CheckBox chkanybcompadmg;
+     CheckBox chkanybcompadmh;
+     LinearLayout secanybcompadmoth;
+     EditText txtanybcompadmoth;
+
+     LinearLayout secParity;
+     Spinner spnParity;
+
+     //Infection Pre Obs
+     LinearLayout secInfDelPlace;
+     View lineInfDelPlace;
+     TextView VlblInfDelPlace;
+     Spinner spnInfDelPlace;
+     LinearLayout secInfDelPlaceoth;
+     View lineInfDelPlaceoth;
+     TextView VlblInfDelPlaceoth;
+     EditText txtInfDelPlaceoth;
+     LinearLayout secInfDelMod;
+     View lineInfDelMod;
+     TextView VlblInfDelMod;
+     Spinner spnInfDelMod;
+     LinearLayout seclblh;
+     View linelblh;
+     LinearLayout secInfMCompa;
+     View lineInfMCompa;
+     TextView VlblInfMCompa;
+     LinearLayout secInfMComp;
+     CheckBox chkInfMCompa;
+     LinearLayout secInfMCompb;
+     View lineInfMCompb;
+     TextView VlblInfMCompb;
+     CheckBox chkInfMCompb;
+     LinearLayout secInfMCompc;
+     View lineInfMCompc;
+     TextView VlblInfMCompc;
+     CheckBox chkInfMCompc;
+     LinearLayout secInfMCompd;
+     View lineInfMCompd;
+     TextView VlblInfMCompd;
+     CheckBox chkInfMCompd;
+     LinearLayout secInfMCompe;
+     View lineInfMCompe;
+     TextView VlblInfMCompe;
+     CheckBox chkInfMCompe;
+     LinearLayout secInfMCompf;
+     View lineInfMCompf;
+     TextView VlblInfMCompf;
+     CheckBox chkInfMCompf;
+     LinearLayout secInfMCompg;
+     View lineInfMCompg;
+     TextView VlblInfMCompg;
+     CheckBox chkInfMCompg;
+     LinearLayout secInfGAge;
+     View lineInfGAge;
+     TextView VlblInfGAge;
+     EditText txtInfGAge;
+     LinearLayout secInfGAgeDK;
+     View lineInfGAgeDK;
+     TextView VlblInfGAgeDK;
+     CheckBox chkInfGAgeDK;
+     LinearLayout secInfBWeight;
+     View lineInfBWeight;
+     TextView VlblInfBWeight;
+     EditText txtInfBWeight;
+     LinearLayout secInfBWeightDK;
+     View lineInfBWeightDK;
+     TextView VlblInfBWeightDK;
+     CheckBox chkInfBWeightDK;
+
 
 
     static String TableName;
@@ -385,14 +504,20 @@
     static String FACICODE = "";
     static String DATAID = "";
     static String LOCATIONID = "";
-     static String JOBTYPE     = "";
-     static String JOBLOCATION = "";
-
+    static String JOBTYPE     = "";
+    static String JOBLOCATION = "";
     static String SID = "";
 
     TextView lblTitle;
     LinearLayout seclbl1;
      Button cmdMotID;
+
+     LinearLayout secTOBNewborn;
+     EditText txtTOBNewborn;
+     LinearLayout secTOBNewbornDK;
+     CheckBox chkTOBNewbornDK;
+
+     LinearLayout secInfection;
 
  public void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
@@ -401,6 +526,7 @@
          setContentView(R.layout.registration);
          C = new Connection(this);
          g = Global.getInstance();
+         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
          STARTTIME = g.CurrentTime24();
          DEVICEID  = sp.getValue(this, "deviceid");
@@ -412,6 +538,7 @@
          IDbundle = getIntent().getExtras();
          DATAID      = IDbundle.getString("dataid");
          LOCATIONID  = IDbundle.getString("locationid");
+         SID  = IDbundle.getString("sid");
 
          TableName = "Registration";
 
@@ -421,6 +548,121 @@
          //FindLocation();
          // Double.toString(currentLatitude);
          // Double.toString(currentLongitude);
+         secConReason=(LinearLayout)findViewById(R.id.secConReason) ;
+         txtConReason=(EditText)findViewById(R.id.txtConReason) ;
+
+         secInfection = (LinearLayout)findViewById(R.id.secInfection);
+
+         secTOBNewborn=(LinearLayout)findViewById(R.id.secTOBNewborn) ;
+         txtTOBNewborn=(EditText)findViewById(R.id.txtTOBNewborn) ;
+         secTOBNewbornDK=(LinearLayout)findViewById(R.id.secTOBNewbornDK) ;
+         chkTOBNewbornDK=(CheckBox)findViewById(R.id.chkTOBNewbornDK) ;
+
+
+         secParity=(LinearLayout)findViewById(R.id.secParity) ;
+         spnParity=(Spinner)findViewById(R.id.spnParity) ;
+         List<String> listPatiry = new ArrayList<String>();
+         listPatiry.add("");
+         listPatiry.add("1-Primipara");
+         listPatiry.add("2-Multipara");
+         listPatiry.add("3-Grand Multipara");
+         listPatiry.add("9-Don't know");
+
+         ArrayAdapter<String> adptrParity= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listPatiry);
+         spnParity.setAdapter(adptrParity);
+
+         secMotEdu=(LinearLayout)findViewById(R.id.secMotEdu) ;
+         txtMotEdu=(EditText)findViewById(R.id.txtMotEdu) ;
+         secMotEduDK=(LinearLayout)findViewById(R.id.secMotEduDK) ;
+         chkMotEduDK=(CheckBox)findViewById(R.id.chkMotEduDK) ;
+
+         txtMotDataID=(EditText)findViewById(R.id.txtMotDataID);
+         chkadwghtkmcDK=(CheckBox)findViewById(R.id.chkadwghtkmcDK) ;
+         chkgaadmDK=(CheckBox)findViewById(R.id.chkgaadmDK) ;
+
+         secDOBNewbornDK=(LinearLayout)findViewById(R.id.secDOBNewbornDK) ;
+         chkDOBNewbornDK=(CheckBox)findViewById(R.id.chkDOBNewbornDK) ;
+
+         txtAddress2=(AutoCompleteTextView)findViewById(R.id.txtAddress2);
+         txtAddress2.setAdapter(C.getArrayAdapter("Select distinct UpName Address2 from AreaDB union Select distinct Address2 from Registration order by Address2"));
+         txtAddress2.setOnTouchListener(new View.OnTouchListener() {
+             @Override
+             public boolean onTouch(View v, MotionEvent event) {
+                 final int DRAWABLE_RIGHT = 2;
+                 if(event.getAction() == MotionEvent.ACTION_UP) {
+                     if(event.getRawX() >= (txtAddress2.getRight() - txtAddress2.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                         ((EditText)v).setText("");
+                         txtAddress2.setText("");
+                         return true;
+                     }
+                 }
+                 return false;
+             }
+         });
+
+         txtAddress3=(AutoCompleteTextView)findViewById(R.id.txtAddress3);
+         txtAddress3.setAdapter(C.getArrayAdapter("Select distinct UnName Address3 from AreaDB union Select distinct Address3 from Registration order by Address3"));
+         txtAddress3.setOnTouchListener(new View.OnTouchListener() {
+             @Override
+             public boolean onTouch(View v, MotionEvent event) {
+                 final int DRAWABLE_RIGHT = 2;
+                 if(event.getAction() == MotionEvent.ACTION_UP) {
+                     if(event.getRawX() >= (txtAddress3.getRight() - txtAddress3.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                         ((EditText)v).setText("");
+                         txtAddress3.setText("");
+                         return true;
+                     }
+                 }
+                 return false;
+             }
+         });
+
+
+
+         txtAddress4=(AutoCompleteTextView)findViewById(R.id.txtAddress4);
+         txtAddress4.setAdapter(C.getArrayAdapter("Select distinct VillName Address4 from AreaDB union Select distinct Address4 from Registration order by Address4"));
+         txtAddress4.setOnTouchListener(new View.OnTouchListener() {
+             @Override
+             public boolean onTouch(View v, MotionEvent event) {
+                 final int DRAWABLE_RIGHT = 2;
+                 if(event.getAction() == MotionEvent.ACTION_UP) {
+                     if(event.getRawX() >= (txtAddress4.getRight() - txtAddress4.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                         ((EditText)v).setText("");
+                         txtAddress4.setText("");
+                         return true;
+                     }
+                 }
+                 return false;
+             }
+         });
+
+         chkprevpregDK=(CheckBox)findViewById(R.id.chkprevpregDK) ;
+         chkprevlivebDK=(CheckBox)findViewById(R.id.chkprevlivebDK) ;
+         chkprevstillbDK=(CheckBox)findViewById(R.id.chkprevstillbDK) ;
+         chkprevabDK=(CheckBox)findViewById(R.id.chkprevabDK) ;
+         chkprevcsecDK=(CheckBox)findViewById(R.id.chkprevcsecDK) ;
+         chkyrslstbthDK=(CheckBox)findViewById(R.id.chkyrslstbthDK) ;
+
+         chkanybcompadma=(CheckBox)findViewById(R.id.chkanybcompadma) ;
+         chkanybcompadmb=(CheckBox)findViewById(R.id.chkanybcompadmb) ;
+         chkanybcompadmc=(CheckBox)findViewById(R.id.chkanybcompadmc) ;
+         chkanybcompadmd=(CheckBox)findViewById(R.id.chkanybcompadmd) ;
+         chkanybcompadme=(CheckBox)findViewById(R.id.chkanybcompadme) ;
+         chkanybcompadmf=(CheckBox)findViewById(R.id.chkanybcompadmf) ;
+         chkanybcompadmg=(CheckBox)findViewById(R.id.chkanybcompadmg) ;
+         chkanybcompadmh=(CheckBox)findViewById(R.id.chkanybcompadmh) ;
+
+         secanybcompadmoth=(LinearLayout)findViewById(R.id.secanybcompadmoth) ;
+         txtanybcompadmoth=(EditText)findViewById(R.id.txtanybcompadmoth) ;
+
+         secMotEthnicityOth=(LinearLayout)findViewById(R.id.secMotEthnicityOth) ;
+         txtMotEthnicityOth=(EditText)findViewById(R.id.txtMotEthnicityOth) ;
+         secMotReligionOth=(LinearLayout)findViewById(R.id.secMotReligionOth) ;
+         txtMotReligionOth=(EditText)findViewById(R.id.txtMotReligionOth) ;
+
+         secgaadmiDK = (LinearLayout)findViewById(R.id.secgaadmiDK);
+         chkgaadmiDK = (CheckBox)findViewById(R.id.chkgaadmiDK);
+
          secKMCPreObs = (LinearLayout)findViewById(R.id.secKMCPreObs);
          secLDPreObs = (LinearLayout)findViewById(R.id.secLDPreObs);
 
@@ -446,8 +688,6 @@
          rdoSex1=(RadioButton)findViewById(R.id.rdoSex1) ;
          rdoSex2=(RadioButton)findViewById(R.id.rdoSex2) ;
          rdoSex3=(RadioButton)findViewById(R.id.rdoSex3) ;
-
-
 
          ImageButton cmdBack = (ImageButton) findViewById(R.id.cmdBack);
          cmdBack.setOnClickListener(new View.OnClickListener() {
@@ -487,6 +727,7 @@
              txtDataID.setText(NewDataID(DEVICEID));
          else
              txtDataID.setText(DATAID);
+
          secRegDate=(LinearLayout)findViewById(R.id.secRegDate);
          lineRegDate=(View)findViewById(R.id.lineRegDate);
          VlblRegDate=(TextView) findViewById(R.id.VlblRegDate);
@@ -501,6 +742,8 @@
          lineHospID=(View)findViewById(R.id.lineHospID);
          VlblHospID=(TextView) findViewById(R.id.VlblHospID);
          txtHospID=(EditText) findViewById(R.id.txtHospID);
+         txtHospIDReTyp=(EditText) findViewById(R.id.txtHospIDReTyp);
+
          secConsent=(LinearLayout)findViewById(R.id.secConsent);
          lineConsent=(View)findViewById(R.id.lineConsent);
          VlblConsent = (TextView) findViewById(R.id.VlblConsent);
@@ -508,42 +751,33 @@
          
          rdoConsent1 = (RadioButton) findViewById(R.id.rdoConsent1);
          rdoConsent2 = (RadioButton) findViewById(R.id.rdoConsent2);
+         rdoConsent3 = (RadioButton) findViewById(R.id.rdoConsent3);
+         rdoConsent4 = (RadioButton) findViewById(R.id.rdoConsent4);
+         rdoConsent5 = (RadioButton) findViewById(R.id.rdoConsent5);
+
          rdogrpConsent.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
          @Override
          public void onCheckedChanged(RadioGroup radioGroup,int radioButtonID) {
              String rbData = "";
              RadioButton rb;
-             String[] d_rdogrpConsent = new String[] {"1","2"};
+             String[] d_rdogrpConsent = new String[] {"1","2","3","4","5"};
              for (int i = 0; i < rdogrpConsent.getChildCount(); i++)
              {
                rb = (RadioButton)rdogrpConsent.getChildAt(i);
                if (rb.isChecked()) rbData = d_rdogrpConsent[i];
              }
 
-             if(rbData.equalsIgnoreCase("1"))
+             if(rbData.equalsIgnoreCase("1") | rbData.equalsIgnoreCase("5"))
              {
                  if(SID.length()==0)
                      txtStudyID.setText(NewStudyID(DEVICEID));
                  else
-                     txtStudyID.setText(NewStudyID(SID));
-
+                     txtStudyID.setText(SID);
 
                  secStudyID.setVisibility(View.VISIBLE);
                  lineStudyID.setVisibility(View.VISIBLE);
-                 //secMotRegis.setVisibility(View.VISIBLE);
-                 //lineMotRegis.setVisibility(View.VISIBLE);
-                 secMotName.setVisibility(View.VISIBLE);
-                 lineMotName.setVisibility(View.VISIBLE);
-                 secMotDOB.setVisibility(View.VISIBLE);
-                 lineMotDOB.setVisibility(View.VISIBLE);
-                 secMotDOBDK.setVisibility(View.VISIBLE);
-                 lineMotDOBDK.setVisibility(View.VISIBLE);
-                 secMotAge.setVisibility(View.VISIBLE);
-                 lineMotAge.setVisibility(View.VISIBLE);
-                 secMotEthnicity.setVisibility(View.VISIBLE);
-                 lineMotEthnicity.setVisibility(View.VISIBLE);
-                 secMotReligion.setVisibility(View.VISIBLE);
-                 lineMotReligion.setVisibility(View.VISIBLE);
+                 secConReason.setVisibility(View.GONE);
+                 txtConReason.setText("");
                  secAddress1.setVisibility(View.VISIBLE);
                  lineAddress1.setVisibility(View.VISIBLE);
                  secAddress2.setVisibility(View.VISIBLE);
@@ -552,6 +786,33 @@
                  lineAddress3.setVisibility(View.VISIBLE);
                  secAddress4.setVisibility(View.VISIBLE);
                  lineAddress4.setVisibility(View.VISIBLE);
+
+                 //1-Bangladesh, 2-Nepal, 3-Tanzania
+                 if(COUNTRYCODE.equals(ProjectSetting.BANGLADESH))
+                 {
+                     VlblAddress1.setText("a. District");
+                     VlblAddress2.setText("b. Upazila/Thana");
+                     VlblAddress3.setText("c. Union/Ward");
+                     VlblAddress4.setText("d. Village/Moholla");
+                     //secAddress4.setVisibility(View.GONE);
+                 }
+                 else if(COUNTRYCODE.equals(ProjectSetting.NEPAL))
+                 {
+                     VlblAddress1.setText("a. District");
+                     VlblAddress2.setText("b. Municipailty/VDC");
+                     VlblAddress3.setText("c. Ward Number");
+                     VlblAddress4.setText("d. Street/Tole");
+                     //secAddress4.setVisibility(View.GONE);
+                 }
+                 else if(COUNTRYCODE.equals(ProjectSetting.TANZANIA))
+                 {
+                     VlblAddress1.setText("a. District");
+                     VlblAddress2.setText("b. Ward");
+                     VlblAddress3.setText("c. Street");
+                     secAddress4.setVisibility(View.GONE);
+                 }
+
+
                  secAddressDetail.setVisibility(View.VISIBLE);
                  lineAddressDetail.setVisibility(View.VISIBLE);
                  secMotContact.setVisibility(View.VISIBLE);
@@ -573,6 +834,14 @@
                      secNameNewBorn.setVisibility(View.GONE);
                      lineNameNewBorn.setVisibility(View.GONE);
                      secDOBNewborn.setVisibility(View.GONE);
+                     secDOBNewbornDK.setVisibility(View.GONE);
+
+                     secTOBNewborn.setVisibility(View.GONE);
+                     secTOBNewbornDK.setVisibility(View.GONE);
+
+                     secTOBNewborn.setVisibility(View.GONE);
+                     secTOBNewbornDK.setVisibility(View.GONE);
+
                      lineDOBNewborn.setVisibility(View.GONE);
                      secAgeNewborn.setVisibility(View.GONE);
                      secAgeNewbornDMY.setVisibility(View.GONE);
@@ -584,11 +853,18 @@
                      secKMCPreObs.setVisibility(View.GONE);
                      secLDPreObs.setVisibility(View.VISIBLE);
 
+                     secInfection.setVisibility(View.GONE);
+
                  }else if(LOCATIONID.equals(ProjectSetting.KMC_ID)){
                      secMotRegis.setVisibility(View.VISIBLE);
                      secNameNewBorn.setVisibility(View.VISIBLE);
                      lineNameNewBorn.setVisibility(View.VISIBLE);
                      secDOBNewborn.setVisibility(View.VISIBLE);
+                     secDOBNewbornDK.setVisibility(View.VISIBLE);
+
+                     secTOBNewborn.setVisibility(View.VISIBLE);
+                     secTOBNewbornDK.setVisibility(View.VISIBLE);
+
                      lineDOBNewborn.setVisibility(View.VISIBLE);
                      secAgeNewborn.setVisibility(View.VISIBLE);
                      secAgeNewbornDMY.setVisibility(View.GONE);
@@ -599,12 +875,17 @@
                      secKMCPreObs.setVisibility(View.VISIBLE);
                      secLDPreObs.setVisibility(View.GONE);
 
-
+                     secInfection.setVisibility(View.GONE);
                  }else if(LOCATIONID.equals(ProjectSetting.SEPSIS_ID)){
                      secMotRegis.setVisibility(View.VISIBLE);
                      secNameNewBorn.setVisibility(View.VISIBLE);
                      lineNameNewBorn.setVisibility(View.VISIBLE);
                      secDOBNewborn.setVisibility(View.VISIBLE);
+                     secDOBNewbornDK.setVisibility(View.VISIBLE);
+
+                     secTOBNewborn.setVisibility(View.VISIBLE);
+                     secTOBNewbornDK.setVisibility(View.VISIBLE);
+
                      lineDOBNewborn.setVisibility(View.VISIBLE);
                      secAgeNewborn.setVisibility(View.VISIBLE);
                      secAgeNewbornDMY.setVisibility(View.GONE);
@@ -615,52 +896,35 @@
                      secKMCPreObs.setVisibility(View.GONE);
                      secLDPreObs.setVisibility(View.GONE);
 
+                     secInfection.setVisibility(View.VISIBLE);
                  }
              }
-             else //if(rbData.equalsIgnoreCase("2"))
+             else
              {
+                 if(rbData.equalsIgnoreCase("4")){
+                    secConReason.setVisibility(View.VISIBLE);
+                 }else{
+                     secConReason.setVisibility(View.GONE);
+                     txtConReason.setText("");
+                 }
+
+
                     secStudyID.setVisibility(View.GONE);
                     lineStudyID.setVisibility(View.GONE);
                     txtStudyID.setText("");
-                    secMotRegis.setVisibility(View.GONE);
-                    lineMotRegis.setVisibility(View.GONE);
-                    rdogrpMotRegis.clearCheck();
-                    secMotStudyID.setVisibility(View.GONE);
-                    lineMotStudyID.setVisibility(View.GONE);
-                    txtMotStudyID.setText("");
-                    secMotHospID.setVisibility(View.GONE);
-                    lineMotHospID.setVisibility(View.GONE);
-                    txtMotHospID.setText("");
-                    secMotName.setVisibility(View.GONE);
-                    lineMotName.setVisibility(View.GONE);
-                    txtMotName.setText("");
-                    secMotDOB.setVisibility(View.GONE);
-                    lineMotDOB.setVisibility(View.GONE);
-                    dtpMotDOB.setText("");
-                    secMotDOBDK.setVisibility(View.GONE);
-                    lineMotDOBDK.setVisibility(View.GONE);
-                    chkMotDOBDK.setChecked(false);
-                    secMotAge.setVisibility(View.GONE);
-                    lineMotAge.setVisibility(View.GONE);
-                    txtMotAge.setText("");
-                    secMotEthnicity.setVisibility(View.GONE);
-                    lineMotEthnicity.setVisibility(View.GONE);
-                    spnMotEthnicity.setSelection(0);
-                    secMotReligion.setVisibility(View.GONE);
-                    lineMotReligion.setVisibility(View.GONE);
-                    spnMotReligion.setSelection(0);
+
                     secAddress1.setVisibility(View.GONE);
                     lineAddress1.setVisibility(View.GONE);
                     spnAddress1.setSelection(0);
                     secAddress2.setVisibility(View.GONE);
                     lineAddress2.setVisibility(View.GONE);
-                    spnAddress2.setSelection(0);
+                    txtAddress2.setText("");
                     secAddress3.setVisibility(View.GONE);
                     lineAddress3.setVisibility(View.GONE);
-                    spnAddress3.setSelection(0);
+                 txtAddress3.setText("");
                     secAddress4.setVisibility(View.GONE);
                     lineAddress4.setVisibility(View.GONE);
-                    spnAddress4.setSelection(0);
+                 txtAddress4.setText("");
                     secAddressDetail.setVisibility(View.GONE);
                     lineAddressDetail.setVisibility(View.GONE);
                     txtAddressDetail.setText("");
@@ -674,6 +938,13 @@
                     lineNameNewBorn.setVisibility(View.GONE);
                     txtNameNewBorn.setText("");
                     secDOBNewborn.setVisibility(View.GONE);
+                 secDOBNewbornDK.setVisibility(View.GONE);
+
+                 secTOBNewborn.setVisibility(View.GONE);
+                 secTOBNewbornDK.setVisibility(View.GONE);
+                 txtTOBNewborn.setText("");
+                 chkTOBNewbornDK.setChecked(false);
+
                     lineDOBNewborn.setVisibility(View.GONE);
                     dtpDOBNewborn.setText("");
                     secAgeNewborn.setVisibility(View.GONE);
@@ -690,6 +961,50 @@
 
                  secKMCPreObs.setVisibility(View.GONE);
                  secLDPreObs.setVisibility(View.GONE);
+                 secInfection.setVisibility(View.GONE);
+
+                 if(LOCATIONID.equals(ProjectSetting.LABOR_AND_DELIVERY_ID)){
+                     rdogrpcard.clearCheck();
+                     txtprevpreg.setText("");
+                     chkprevpregDK.setChecked(false);
+                     txtprevliveb.setText("");
+                     chkprevlivebDK.setChecked(false);
+                     txtprevstillb.setText("");
+                     chkprevstillbDK.setChecked(false);
+                     txtprevab.setText("");
+                     chkprevabDK.setChecked(false);
+                     txtprevcsec.setText("");
+                     chkprevcsecDK.setChecked(false);
+                     txtyrslstbth.setText("");
+                     chkyrslstbthDK.setChecked(false);
+                     dtpedd.setText("");
+                     chkeddDK.setChecked(false);
+                     txtgaadmi.setText("");
+                     chkgaadmiDK.setChecked(false);
+                     rdogrpgameth.clearCheck();
+                     rdogrpbb4expect.clearCheck();
+                     rdogrpnumbby.clearCheck();
+                     txtnumPreg.setText("");
+                     rdogrpbheartadm.clearCheck();
+                     rdogrpbheartrateadm.clearCheck();
+                     txtbheartratenum.setText("");
+
+                     chkanybcompadmg.setChecked(true);
+                     chkanybcompadmg.setChecked(false);
+                     chkanybcompadmh.setChecked(false);
+                     txtanybcompadmoth.setText("");
+                     rdogrpallocobsv.clearCheck();
+
+                 }else if(LOCATIONID.equals(ProjectSetting.KMC_ID)){
+                     rdogrpadwghedkmc.clearCheck();
+                     txtadwghtkmc.setText("");
+                     chkadwghtkmcDK.setChecked(false);
+                     txtgaadm.setText("");
+                     chkgaadmDK.setChecked(false);
+                     spnplacedeliv.setSelection(0);
+                     txtplacedelivoth.setText("");
+                     txtfacnamedeliv.setText("");
+                 }
              }
 
             }
@@ -786,38 +1101,156 @@
          VlblMotEthnicity=(TextView) findViewById(R.id.VlblMotEthnicity);
          spnMotEthnicity=(Spinner) findViewById(R.id.spnMotEthnicity);
          List<String> listMotEthnicity = new ArrayList<String>();
-         
-         listMotEthnicity.add("");
-         listMotEthnicity.add("1-A");
-         listMotEthnicity.add("2-B");
+
+
+         if(COUNTRYCODE.equals(ProjectSetting.TANZANIA)) {
+             listMotEthnicity.add("");
+             listMotEthnicity.add("101-Arusha");
+             listMotEthnicity.add("102-Bena");
+             listMotEthnicity.add("103-Bondei");
+             listMotEthnicity.add("104-Chaga");
+             listMotEthnicity.add("105-Digo");
+             listMotEthnicity.add("106-Fipa");
+             listMotEthnicity.add("107-Gogo");
+             listMotEthnicity.add("108-Gweno");
+             listMotEthnicity.add("109-Hangaza");
+             listMotEthnicity.add("110-Haya");
+             listMotEthnicity.add("111-Hehe");
+             listMotEthnicity.add("112-Irak");
+             listMotEthnicity.add("113-Jita");
+             listMotEthnicity.add("114-Kaburu");
+             listMotEthnicity.add("115-Kamba");
+             listMotEthnicity.add("116-Kerewe");
+             listMotEthnicity.add("117-Kinga");
+             listMotEthnicity.add("118-Kuria");
+             listMotEthnicity.add("119-Kwere");
+             listMotEthnicity.add("120-Luguru");
+             listMotEthnicity.add("121-Luo");
+             listMotEthnicity.add("122-Masai");
+             listMotEthnicity.add("123-Machinga");
+             listMotEthnicity.add("124-Mbulu");
+             listMotEthnicity.add("125-Mangonde");
+             listMotEthnicity.add("126-Makua");
+             listMotEthnicity.add("127-Manyema");
+             listMotEthnicity.add("128-Manda");
+             listMotEthnicity.add("129-Matumbi");
+             listMotEthnicity.add("130-Meru");
+             listMotEthnicity.add("131-Mwera");
+             listMotEthnicity.add("132-Ndali");
+             listMotEthnicity.add("133-Ndamba");
+             listMotEthnicity.add("134-Ndendeure");
+             listMotEthnicity.add("135-Ndengereko");
+             listMotEthnicity.add("136-Ngindo");
+             listMotEthnicity.add("137-Ngoni");
+             listMotEthnicity.add("138-Ngazija");
+             listMotEthnicity.add("139-Nyakyusa");
+             listMotEthnicity.add("140-Nyasa");
+             listMotEthnicity.add("141-Nyamwezi");
+             listMotEthnicity.add("142-Nyaturu");
+             listMotEthnicity.add("143-Nyiha");
+             listMotEthnicity.add("144-Nyiramba");
+             listMotEthnicity.add("145-Pare");
+             listMotEthnicity.add("146-Pogoro");
+             listMotEthnicity.add("147-Rangi");
+             listMotEthnicity.add("148-Rufiji");
+             listMotEthnicity.add("149-Sambaa");
+             listMotEthnicity.add("150-Sukuma");
+             listMotEthnicity.add("151-Yao");
+             listMotEthnicity.add("152-Zaramo");
+             listMotEthnicity.add("153-Zigua");
+             listMotEthnicity.add("154-Zinza");
+             listMotEthnicity.add("155-Zanzibari");
+             listMotEthnicity.add("777-Others");
+         }else if(COUNTRYCODE.equals(ProjectSetting.NEPAL)){
+             listMotEthnicity.add("");
+             listMotEthnicity.add("101-Dalit");
+             listMotEthnicity.add("102-Disadvantaged Janajatis");
+             listMotEthnicity.add("103-Disadvantaged non Dalit Terai Caste Groups");
+             listMotEthnicity.add("104-Religious Minorities");
+             listMotEthnicity.add("105-Relatively advantaged Janajatis");
+             listMotEthnicity.add("106-Upper Caste Groups");
+             /*listMotEthnicity.add("101-Hill Brahman/Chhetri");
+             listMotEthnicity.add("102-Terai/Madhesi Brahman/Chhetri");
+             listMotEthnicity.add("103-Terai/Madhesi Other Castes");
+             listMotEthnicity.add("104-Dalits");
+             listMotEthnicity.add("105-Newar");
+             listMotEthnicity.add("106-Janajati");
+             listMotEthnicity.add("107-Muslim");*/
+             listMotEthnicity.add("777-Others");
+         }else if(COUNTRYCODE.equals(ProjectSetting.BANGLADESH)){
+             listMotEthnicity.add("888-Not Applicable");
+         }
+
+
          ArrayAdapter<String> adptrMotEthnicity= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listMotEthnicity);
          spnMotEthnicity.setAdapter(adptrMotEthnicity);
+         spnMotEthnicity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+             @Override
+             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                 String rel = spnMotEthnicity.getSelectedItemPosition()==0?"":spnMotEthnicity.getSelectedItem().toString().split("-")[0];
+                 if(rel.equals("777")) secMotEthnicityOth.setVisibility(View.VISIBLE);
+                 else {
+                     secMotEthnicityOth.setVisibility(View.GONE);
+                     txtMotEthnicityOth.setText("");
+                 }
+             }
+
+             @Override
+             public void onNothingSelected(AdapterView<?> parentView) {
+                 // your code here
+             }
+
+         });
+
 
          secMotReligion=(LinearLayout)findViewById(R.id.secMotReligion);
          lineMotReligion=(View)findViewById(R.id.lineMotReligion);
          VlblMotReligion=(TextView) findViewById(R.id.VlblMotReligion);
          spnMotReligion=(Spinner) findViewById(R.id.spnMotReligion);
          List<String> listMotReligion = new ArrayList<String>();
-         
-         listMotReligion.add("");
-         listMotReligion.add("1-Muslim");
-         listMotReligion.add("2-Hindu");
-         listMotReligion.add("3-Buddhist");
-         listMotReligion.add("4-Christian");
-         listMotReligion.add("7-Others");
+
+         if(COUNTRYCODE.equals(ProjectSetting.BANGLADESH)|COUNTRYCODE.equals(ProjectSetting.NEPAL)) {
+             listMotReligion.add("");
+             listMotReligion.add("1-Muslim");
+             listMotReligion.add("2-Hindu");
+             listMotReligion.add("3-Buddhist");
+             listMotReligion.add("4-Christian");
+             listMotReligion.add("7-Others");
+         }else{
+             listMotReligion.add("8-Not Applicable");
+         }
+
          ArrayAdapter<String> adptrMotReligion= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listMotReligion);
          spnMotReligion.setAdapter(adptrMotReligion);
+         spnMotReligion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+             @Override
+             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                 String rel = spnMotReligion.getSelectedItemPosition()==0?"":spnMotReligion.getSelectedItem().toString().split("-")[0];
+                 if(rel.equals("7")) secMotReligionOth.setVisibility(View.VISIBLE);
+                 else {
+                     secMotReligionOth.setVisibility(View.GONE);
+                     txtMotReligionOth.setText("");
+                 }
+             }
+
+             @Override
+             public void onNothingSelected(AdapterView<?> parentView) {
+                 // your code here
+             }
+
+         });
 
          secAddress1=(LinearLayout)findViewById(R.id.secAddress1);
          lineAddress1=(View)findViewById(R.id.lineAddress1);
          VlblAddress1=(TextView) findViewById(R.id.VlblAddress1);
          spnAddress1=(Spinner) findViewById(R.id.spnAddress1);
-         List<String> listAddress1 = new ArrayList<String>();
+         spnAddress1.setAdapter(C.getArrayAdapter("Select '' union Select distinct District||'-'||DistName from AreaDB where CCode='"+ COUNTRYCODE +"'"));
+         /*List<String> listAddress1 = new ArrayList<String>();
          
          listAddress1.add("");
          listAddress1.add("01-Leve1");
          ArrayAdapter<String> adptrAddress1= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listAddress1);
-         spnAddress1.setAdapter(adptrAddress1);
+         spnAddress1.setAdapter(adptrAddress1);*/
 
          secAddress2=(LinearLayout)findViewById(R.id.secAddress2);
          lineAddress2=(View)findViewById(R.id.lineAddress2);
@@ -852,6 +1285,11 @@
          ArrayAdapter<String> adptrAddress4= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listAddress4);
          spnAddress4.setAdapter(adptrAddress4);
 
+
+         if(COUNTRYCODE.equals(ProjectSetting.NEPAL)){
+             txtAddress3.setInputType(InputType.TYPE_CLASS_NUMBER);
+         }
+
          secAddressDetail=(LinearLayout)findViewById(R.id.secAddressDetail);
          lineAddressDetail=(View)findViewById(R.id.lineAddressDetail);
          VlblAddressDetail=(TextView) findViewById(R.id.VlblAddressDetail);
@@ -864,7 +1302,16 @@
          lineAltContact=(View)findViewById(R.id.lineAltContact);
          VlblAltContact=(TextView) findViewById(R.id.VlblAltContact);
          txtAltContact=(EditText) findViewById(R.id.txtAltContact);
-
+         if(COUNTRYCODE.equals(ProjectSetting.BANGLADESH)){
+             txtMotContact.setFilters(new InputFilter[] {new InputFilter.LengthFilter(11)});
+             txtAltContact.setFilters(new InputFilter[] {new InputFilter.LengthFilter(11)});
+         }else if(COUNTRYCODE.equals(ProjectSetting.NEPAL)){
+             txtMotContact.setFilters(new InputFilter[] {new InputFilter.LengthFilter(10)});
+             txtAltContact.setFilters(new InputFilter[] {new InputFilter.LengthFilter(10)});
+         }else if(COUNTRYCODE.equals(ProjectSetting.TANZANIA)){
+             //txtMotContact.setFilters(new InputFilter[] {new InputFilter.LengthFilter(10)});
+             //txtAltContact.setFilters(new InputFilter[] {new InputFilter.LengthFilter(10)});
+         }
 
          VlblNameNewBorn=(TextView) findViewById(R.id.VlblNameNewBorn);
          txtNameNewBorn=(EditText) findViewById(R.id.txtNameNewBorn);
@@ -941,16 +1388,36 @@
            }
          });
 
+         txtTOBNewborn.setOnTouchListener(new View.OnTouchListener() {
+             @Override
+             public boolean onTouch(View v, MotionEvent event) {
+                 final int DRAWABLE_RIGHT = 2;
+                 if(event.getAction() == MotionEvent.ACTION_UP) {
+                     if(event.getRawX() >= (txtTOBNewborn.getRight() - txtTOBNewborn.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                         VariableID = "btnTOBNewborn"; showDialog(TIME_DIALOG);
+                         return true;
+                     }
+                 }
+                 return false;
+             }
+         });
+
+         ObsHos_Initialize();
+         KMCPreObs_Initialize();
+         InfectionPreObs_Initialize();
+
+
          //Hide all skip variables
          secStudyID.setVisibility(View.GONE);
          lineStudyID.setVisibility(View.GONE);
-         secMotRegis.setVisibility(View.GONE);
-         lineMotRegis.setVisibility(View.GONE);
+         //secMotRegis.setVisibility(View.GONE);
+         //lineMotRegis.setVisibility(View.GONE);
          secMotStudyID.setVisibility(View.GONE);
          lineMotStudyID.setVisibility(View.GONE);
          secMotStudyIDReType.setVisibility(View.GONE);
          secMotHospID.setVisibility(View.GONE);
          lineMotHospID.setVisibility(View.GONE);
+         /*
          secMotName.setVisibility(View.GONE);
          lineMotName.setVisibility(View.GONE);
          secMotDOB.setVisibility(View.GONE);
@@ -959,10 +1426,17 @@
          lineMotDOBDK.setVisibility(View.GONE);
          secMotAge.setVisibility(View.GONE);
          lineMotAge.setVisibility(View.GONE);
+         secMotEdu.setVisibility(View.GONE);
+         secMotEduDK.setVisibility(View.GONE);
+         secParity.setVisibility(View.GONE);
+
          secMotEthnicity.setVisibility(View.GONE);
+         secMotEthnicityOth.setVisibility(View.GONE);
          lineMotEthnicity.setVisibility(View.GONE);
          secMotReligion.setVisibility(View.GONE);
+         secMotReligionOth.setVisibility(View.GONE);
          lineMotReligion.setVisibility(View.GONE);
+         */
          secAddress1.setVisibility(View.GONE);
          lineAddress1.setVisibility(View.GONE);
          secAddress2.setVisibility(View.GONE);
@@ -980,6 +1454,12 @@
          secNameNewBorn.setVisibility(View.GONE);
          lineNameNewBorn.setVisibility(View.GONE);
          secDOBNewborn.setVisibility(View.GONE);
+         secDOBNewbornDK.setVisibility(View.GONE);
+
+         secTOBNewborn.setVisibility(View.GONE);
+         secTOBNewbornDK.setVisibility(View.GONE);
+
+
          lineDOBNewborn.setVisibility(View.GONE);
          secAgeNewborn.setVisibility(View.GONE);
          lineAgeNewborn.setVisibility(View.GONE);
@@ -993,8 +1473,8 @@
          seclbl1.setVisibility(View.GONE);
          secMotStudyIDReType.setVisibility(View.GONE);
          secFatherName.setVisibility(View.GONE);
-
-
+         secanybcompadmoth.setVisibility(View.GONE);
+         secInfection.setVisibility(View.GONE);
 
          //1-Bangladesh, 2-Nepal, 3-Tanzania
          if(COUNTRYCODE.equals(ProjectSetting.BANGLADESH))
@@ -1003,20 +1483,21 @@
              VlblAddress2.setText("b. Upazila/Thana");
              VlblAddress3.setText("c. Union/Ward");
              VlblAddress4.setText("d. Village/Moholla");
-             secAddress4.setVisibility(View.GONE);
+             //secAddress4.setVisibility(View.GONE);
          }
          else if(COUNTRYCODE.equals(ProjectSetting.NEPAL))
          {
              VlblAddress1.setText("a. District");
-             VlblAddress2.setText("b. Metropolitan/Municipalities");
-             VlblAddress3.setText("c. Ward/VDCS");
-             secAddress4.setVisibility(View.GONE);
+             VlblAddress2.setText("b. Municipailty/VDC");
+             VlblAddress3.setText("c. Ward Number");
+             VlblAddress4.setText("d. Street/Tole");
+             //secAddress4.setVisibility(View.GONE);
          }
          else if(COUNTRYCODE.equals(ProjectSetting.TANZANIA))
          {
              VlblAddress1.setText("a. District");
-             VlblAddress2.setText("b. Town");
-             VlblAddress3.setText("c. Union");
+             VlblAddress2.setText("b. Ward");
+             VlblAddress3.setText("c. Street");
              secAddress4.setVisibility(View.GONE);
          }
 
@@ -1031,9 +1512,51 @@
                      txtMotAge.setEnabled(true);
                      txtMotAge.requestFocus();
                  }
-
              }
          });
+
+
+         chkgaadmiDK.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if ( isChecked )
+                 {
+                     txtgaadmi.setText("");
+                 }
+             }
+         });
+         txtgaadmi.addTextChangedListener(new TextWatcher() {
+             public void afterTextChanged(Editable s) {}
+             public void beforeTextChanged(CharSequence s, int start,int count, int after) {}
+             public void onTextChanged(CharSequence s, int start,int before, int count) {
+                 if(txtgaadmi.getText().toString().length()>0) chkgaadmiDK.setChecked(false);
+             }
+         });
+
+         chkDOBNewbornDK.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if ( isChecked )
+                 {
+                     dtpDOBNewborn.setText("");
+                     txtAgeNewborn.setEnabled(true);
+                 }else{
+                     txtAgeNewborn.setEnabled(false);
+                 }
+             }
+         });
+         dtpDOBNewborn.addTextChangedListener(new TextWatcher() {
+             public void afterTextChanged(Editable s) {}
+             public void beforeTextChanged(CharSequence s, int start,int count, int after) {}
+             public void onTextChanged(CharSequence s, int start,int before, int count) {
+                 if(dtpDOBNewborn.getText().toString().length()>0) chkDOBNewbornDK.setChecked(false);
+             }
+         });
+
 
          txtMotAge.setEnabled(false);
          txtAgeNewborn.setEnabled(false);
@@ -1044,9 +1567,194 @@
                  LD_Patient_List_Form();
              }});
 
+         chkanybcompadmh.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if (isChecked)
+                 {
+                     //chkanybcompadma.setChecked(false);
+                     secanybcompadmoth.setVisibility(View.VISIBLE);
+                 }else{
+                     secanybcompadmoth.setVisibility(View.GONE);
+                     txtanybcompadmoth.setText("");
+                 }
 
-         ObsHos_Initialize();
-         KMCPreObs_Initialize();
+             }
+         });
+
+         chkanybcompadma.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if (isChecked)
+                 {
+                     /*chkanybcompadmb.setChecked(false);
+                     chkanybcompadmc.setChecked(false);
+                     chkanybcompadmd.setChecked(false);
+                     chkanybcompadme.setChecked(false);
+                     chkanybcompadmf.setChecked(false);
+                     chkanybcompadmg.setChecked(false);
+                     chkanybcompadmh.setChecked(false);*/
+                     chkanybcompadmg.setChecked(false);
+                 }
+
+             }
+         });
+
+         chkanybcompadmb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if (isChecked)
+                 {
+                     chkanybcompadmg.setChecked(false);
+                 }
+
+             }
+         });
+         chkanybcompadmc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if (isChecked)
+                 {
+                     chkanybcompadmg.setChecked(false);
+                 }
+
+             }
+         });
+         chkanybcompadmd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if (isChecked)
+                 {
+                     chkanybcompadmg.setChecked(false);
+                 }
+
+             }
+         });
+         chkanybcompadme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if (isChecked)
+                 {
+                     chkanybcompadmg.setChecked(false);
+                 }
+
+             }
+         });
+         chkanybcompadmf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if (isChecked)
+                 {
+                     chkanybcompadmg.setChecked(false);
+                 }
+
+             }
+         });
+         chkanybcompadmg.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if (isChecked)
+                 {
+                     /*chkanybcompadma.setChecked(false);
+                     chkanybcompadmb.setChecked(false);
+                     chkanybcompadmc.setChecked(false);
+                     chkanybcompadmd.setChecked(false);
+                     chkanybcompadme.setChecked(false);
+                     chkanybcompadmf.setChecked(false);
+                     chkanybcompadmh.setChecked(false);*/
+                     chkanybcompadma.setChecked(false);
+                     chkanybcompadmb.setChecked(false);
+                     chkanybcompadmc.setChecked(false);
+                     chkanybcompadmd.setChecked(false);
+                     chkanybcompadme.setChecked(false);
+                     chkanybcompadmf.setChecked(false);
+                     //chkanybcompadmg.setChecked(false);
+                     chkanybcompadmh.setChecked(false);
+                 }
+
+             }
+         });
+         /*chkanybcompadmh.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if (isChecked)
+                 {
+                     chkanybcompadma.setChecked(false);
+                 }
+
+             }
+         });*/
+
+
+
+         txtprevpreg.addTextChangedListener(new TextWatcher() {
+             public void onTextChanged(CharSequence s, int start, int before,int count) {
+             }
+             public void beforeTextChanged(CharSequence s, int start, int count,int after) {
+             }
+             public void afterTextChanged(Editable s) {
+                 if(COUNTRYCODE.equals(ProjectSetting.NEPAL)) {
+                     String preg = txtprevpreg.getText().toString().length() == 0 ? "0" : txtprevpreg.getText().toString();
+                     if (Integer.valueOf(preg) == 0) {
+                         txtprevliveb.setText("0");
+                         txtprevliveb.setEnabled(false);
+                         txtprevstillb.setText("0");
+                         txtprevstillb.setEnabled(false);
+                         txtprevab.setText("0");
+                         txtprevab.setEnabled(false);
+                         txtprevcsec.setText("0");
+                         txtprevcsec.setEnabled(false);
+                         txtyrslstbth.setText("0");
+                         txtyrslstbth.setEnabled(false);
+                     } else {
+                         txtprevliveb.setEnabled(true);
+                         txtprevstillb.setEnabled(true);
+                         txtprevab.setEnabled(true);
+                         txtprevcsec.setEnabled(true);
+                         txtyrslstbth.setEnabled(true);
+                     }
+                 }
+             }
+         });
+
+
+         chkTOBNewbornDK.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if ( isChecked )
+                 {
+                     txtTOBNewborn.setText("");
+                 }
+             }
+         });
+         txtTOBNewborn.addTextChangedListener(new TextWatcher() {
+             public void afterTextChanged(Editable s) {}
+             public void beforeTextChanged(CharSequence s, int start,int count, int after) {}
+             public void onTextChanged(CharSequence s, int start,int before, int count) {
+                 if(txtTOBNewborn.getText().toString().length()>0) chkTOBNewbornDK.setChecked(false);
+             }
+         });
+
 
          secLDPreObs.setVisibility(View.GONE);
          secKMCPreObs.setVisibility(View.GONE);
@@ -1057,6 +1765,11 @@
              secNameNewBorn.setVisibility(View.GONE);
              lineNameNewBorn.setVisibility(View.GONE);
              secDOBNewborn.setVisibility(View.GONE);
+             secDOBNewbornDK.setVisibility(View.GONE);
+
+             secTOBNewborn.setVisibility(View.GONE);
+             secTOBNewbornDK.setVisibility(View.GONE);
+
              lineDOBNewborn.setVisibility(View.GONE);
              secAgeNewborn.setVisibility(View.GONE);
              //lineAgeNewbornDMY.setVisibility(View.GONE);
@@ -1064,14 +1777,23 @@
              secSex.setVisibility(View.GONE);
              secFatherName.setVisibility(View.GONE);
              secMotStudyIDReType.setVisibility(View.GONE);
-
              //secLDPreObs.setVisibility(View.VISIBLE);
+
+             //15a: 05 jul 2017
+             secTOBNewborn.setVisibility(View.GONE);
+             secTOBNewbornDK.setVisibility(View.GONE);
+
          }else if(LOCATIONID.equals(ProjectSetting.KMC_ID)){
              lblTitle.setText(ProjectSetting.KMC_NAME);
-             secMotRegis.setVisibility(View.GONE);
+             //secMotRegis.setVisibility(View.GONE);
              secNameNewBorn.setVisibility(View.GONE);
              lineNameNewBorn.setVisibility(View.GONE);
              secDOBNewborn.setVisibility(View.GONE);
+             secDOBNewbornDK.setVisibility(View.GONE);
+
+             secTOBNewborn.setVisibility(View.GONE);
+             secTOBNewbornDK.setVisibility(View.GONE);
+
              lineDOBNewborn.setVisibility(View.GONE);
              secAgeNewborn.setVisibility(View.GONE);
              //lineAgeNewbornDMY.setVisibility(View.VISIBLE);
@@ -1079,14 +1801,23 @@
              secSex.setVisibility(View.GONE);
              secFatherName.setVisibility(View.GONE);
              secMotStudyIDReType.setVisibility(View.GONE);
-
              //secKMCPreObs.setVisibility(View.VISIBLE);
+
+             //15a: 05 jul 2017
+             secTOBNewborn.setVisibility(View.GONE);
+             secTOBNewbornDK.setVisibility(View.GONE);
+
          }else if(LOCATIONID.equals(ProjectSetting.SEPSIS_ID)){
              lblTitle.setText(ProjectSetting.SEPSIS_NAME);
-             secMotRegis.setVisibility(View.GONE);
+             //secMotRegis.setVisibility(View.GONE);
              secNameNewBorn.setVisibility(View.GONE);
              lineNameNewBorn.setVisibility(View.GONE);
              secDOBNewborn.setVisibility(View.GONE);
+             secDOBNewbornDK.setVisibility(View.GONE);
+
+             secTOBNewborn.setVisibility(View.GONE);
+             secTOBNewbornDK.setVisibility(View.GONE);
+
              lineDOBNewborn.setVisibility(View.GONE);
              secAgeNewborn.setVisibility(View.GONE);
              //lineAgeNewbornDMY.setVisibility(View.VISIBLE);
@@ -1094,12 +1825,193 @@
              secSex.setVisibility(View.GONE);
              secFatherName.setVisibility(View.GONE);
              secMotStudyIDReType.setVisibility(View.GONE);
+
+             //15a: 05 jul 2017
+             //secTOBNewborn.setVisibility(View.VISIBLE);
+             //secTOBNewbornDK.setVisibility(View.VISIBLE);
          }
 
+
+
+
+
+         chkprevpregDK.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if ( isChecked )
+                 {
+                     txtprevpreg.setText("");
+                 }
+             }
+         });
+         txtprevpreg.addTextChangedListener(new TextWatcher() {
+             public void afterTextChanged(Editable s) {}
+             public void beforeTextChanged(CharSequence s, int start,int count, int after) {}
+             public void onTextChanged(CharSequence s, int start,int before, int count) {
+                 if(txtprevpreg.getText().toString().length()>0) chkprevpregDK.setChecked(false);
+             }
+         });
+
+         chkprevlivebDK.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if ( isChecked )
+                 {
+                     txtprevliveb.setText("");
+                 }
+             }
+         });
+         txtprevliveb.addTextChangedListener(new TextWatcher() {
+             public void afterTextChanged(Editable s) {}
+             public void beforeTextChanged(CharSequence s, int start,int count, int after) {}
+             public void onTextChanged(CharSequence s, int start,int before, int count) {
+                 if(txtprevliveb.getText().toString().length()>0) chkprevlivebDK.setChecked(false);
+             }
+         });
+
+         chkprevstillbDK.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if ( isChecked )
+                 {
+                     txtprevstillb.setText("");
+                 }
+             }
+         });
+         txtprevstillb.addTextChangedListener(new TextWatcher() {
+             public void afterTextChanged(Editable s) {}
+             public void beforeTextChanged(CharSequence s, int start,int count, int after) {}
+             public void onTextChanged(CharSequence s, int start,int before, int count) {
+                 if(txtprevstillb.getText().toString().length()>0) chkprevstillbDK.setChecked(false);
+             }
+         });
+
+         chkprevabDK.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if ( isChecked )
+                 {
+                     txtprevab.setText("");
+                 }
+             }
+         });
+         txtprevab.addTextChangedListener(new TextWatcher() {
+             public void afterTextChanged(Editable s) {}
+             public void beforeTextChanged(CharSequence s, int start,int count, int after) {}
+             public void onTextChanged(CharSequence s, int start,int before, int count) {
+                 if(txtprevab.getText().toString().length()>0) chkprevabDK.setChecked(false);
+             }
+         });
+
+         chkprevcsecDK.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if ( isChecked )
+                 {
+                     txtprevcsec.setText("");
+                 }
+             }
+         });
+         txtprevcsec.addTextChangedListener(new TextWatcher() {
+             public void afterTextChanged(Editable s) {}
+             public void beforeTextChanged(CharSequence s, int start,int count, int after) {}
+             public void onTextChanged(CharSequence s, int start,int before, int count) {
+                 if(txtprevcsec.getText().toString().length()>0) chkprevcsecDK.setChecked(false);
+             }
+         });
+
+         chkyrslstbthDK.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if ( isChecked )
+                 {
+                     txtyrslstbth.setText("");
+                 }
+             }
+         });
+         txtyrslstbth.addTextChangedListener(new TextWatcher() {
+             public void afterTextChanged(Editable s) {}
+             public void beforeTextChanged(CharSequence s, int start,int count, int after) {}
+             public void onTextChanged(CharSequence s, int start,int before, int count) {
+                 if(txtyrslstbth.getText().toString().length()>0) chkyrslstbthDK.setChecked(false);
+             }
+         });
+
+         chkadwghtkmcDK.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if ( isChecked )
+                 {
+                     txtadwghtkmc.setText("");
+                 }
+             }
+         });
+         txtadwghtkmc.addTextChangedListener(new TextWatcher() {
+             public void afterTextChanged(Editable s) {}
+             public void beforeTextChanged(CharSequence s, int start,int count, int after) {}
+             public void onTextChanged(CharSequence s, int start,int before, int count) {
+                 if(txtadwghtkmc.getText().toString().length()>0) chkadwghtkmcDK.setChecked(false);
+             }
+         });
+
+         chkgaadmDK.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if ( isChecked )
+                 {
+                     txtgaadm.setText("");
+                 }
+             }
+         });
+         txtgaadm.addTextChangedListener(new TextWatcher() {
+             public void afterTextChanged(Editable s) {}
+             public void beforeTextChanged(CharSequence s, int start,int count, int after) {}
+             public void onTextChanged(CharSequence s, int start,int before, int count) {
+                 if(txtgaadm.getText().toString().length()>0) chkgaadmDK.setChecked(false);
+             }
+         });
+
+
+         chkMotEduDK.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if ( isChecked )
+                 {
+                     txtMotEdu.setText("");
+                 }
+             }
+         });
+         txtMotEdu.addTextChangedListener(new TextWatcher() {
+             public void afterTextChanged(Editable s) {}
+             public void beforeTextChanged(CharSequence s, int start,int count, int after) {}
+             public void onTextChanged(CharSequence s, int start,int before, int count) {
+                 if(txtMotEdu.getText().toString().length()>0) chkMotEduDK.setChecked(false);
+             }
+         });
+
+         secConReason.setVisibility(View.GONE);
          DataSearch(COUNTRYCODE,FACICODE,DATAID);
          DataSearchObsHis(COUNTRYCODE,FACICODE,DATAID);
          KMCPreObs_DataSearch(COUNTRYCODE,FACICODE,DATAID);
-
+         InfectionPreObs_DataSearch(COUNTRYCODE,FACICODE,DATAID);
 
         Button cmdSave = (Button) findViewById(R.id.cmdSave);
         cmdSave.setOnClickListener(new View.OnClickListener() {
@@ -1111,6 +2023,22 @@
              cmdSave.setVisibility(View.VISIBLE);
          }else{
              cmdSave.setVisibility(View.GONE);
+         }
+
+
+         if(LOCATIONID.equals(ProjectSetting.LABOR_AND_DELIVERY_ID)){
+             secParity.setVisibility(View.GONE);
+         }else{
+             secParity.setVisibility(View.VISIBLE);
+         }
+
+         if(COUNTRYCODE.equals(ProjectSetting.NEPAL)){
+             chkprevpregDK.setText("Not readable/Not recorded");
+             chkprevlivebDK.setText("Not readable/Not recorded");
+             chkprevstillbDK.setText("Not readable/Not recorded");
+             chkprevabDK.setText("Not readable/Not recorded");
+             chkprevcsecDK.setText("Not readable/Not recorded");
+             chkyrslstbthDK.setText("Not readable/Not recorded");
          }
      }
      catch(Exception  e)
@@ -1188,13 +2116,28 @@
              txtHospID.requestFocus(); 
              return;	
            }
-         
-         else if(!rdoConsent1.isChecked() & !rdoConsent2.isChecked() & secConsent.isShown())
+         else if(txtHospIDReTyp.getText().toString().length()==0 & secHospID.isShown())
+         {
+             Connection.MessageBox(Registration.this, "Required field: Re-Type Hospital ID/Registration Number.");
+             txtHospIDReTyp.requestFocus();
+             return;
+         }
+         else if(!txtHospID.getText().toString().equals(txtHospIDReTyp.getText().toString())){
+             Connection.MessageBox(Registration.this, "Hospital ID/Registration Number does not matched with the Re-Type Hospital ID/Registration Number.");
+             txtHospID.requestFocus();
+             return;
+         }
+         else if(!rdoConsent1.isChecked() & !rdoConsent2.isChecked() & !rdoConsent3.isChecked() & !rdoConsent4.isChecked() & !rdoConsent5.isChecked() & secConsent.isShown())
            {
               Connection.MessageBox(Registration.this, "Select anyone options from (Consent).");
               rdoConsent1.requestFocus();
               return;
            }
+           else if(rdoConsent4.isChecked() & txtConReason.getText().toString().length()==0 & secConsent.isShown()){
+             Connection.MessageBox(Registration.this, "Entry the specific reason for the Not asked-not eligible.");
+             txtConReason.requestFocus();
+             return;
+         }
          else if(txtStudyID.getText().toString().length()==0 & secStudyID.isShown())
            {
              Connection.MessageBox(Registration.this, "Required field: Study ID.");
@@ -1247,19 +2190,29 @@
              txtMotAge.requestFocus(); 
              return;	
            }
-         else if(Integer.valueOf(txtMotAge.getText().toString().length()==0 ? "1" : txtMotAge.getText().toString()) < 1 || Integer.valueOf(txtMotAge.getText().toString().length()==0 ? "99" : txtMotAge.getText().toString()) > 99)
+         else if(!chkMotEduDK.isChecked() & txtMotEdu.getText().toString().length()==0 & secMotEdu.isShown()){
+             Connection.MessageBox(Registration.this, "Required field: Mothers total years of formal education.");
+             txtMotEdu.requestFocus();
+             return;
+         }
+         else if(spnParity.getSelectedItemPosition()==0 & secParity.isShown()){
+             Connection.MessageBox(Registration.this, "Required field: 11b. Parity.");
+             spnParity.requestFocus();
+             return;
+         }
+         else if(Integer.valueOf(txtMotAge.getText().toString().length()==0 ? "1" : txtMotAge.getText().toString()) < 10 || Integer.valueOf(txtMotAge.getText().toString().length()==0 ? "99" : txtMotAge.getText().toString()) > 49)
            {
-             Connection.MessageBox(Registration.this, "Value should be between 1 and 99(Age of the Mother).");
+             Connection.MessageBox(Registration.this, "Value should be between 10 and 49(9. Age of the Mother).");
              txtMotAge.requestFocus(); 
              return;	
            }
-         else if(spnMotEthnicity.getSelectedItemPosition()==0  & secMotEthnicity.isShown())
+         else if(spnMotEthnicity.getSelectedItemPosition()==0 & secMotEthnicity.isShown() & !COUNTRYCODE.equals(ProjectSetting.BANGLADESH))
            {
              Connection.MessageBox(Registration.this, "Required field: Ethnicity of the Mother.");
              spnMotEthnicity.requestFocus(); 
              return;	
            }
-         else if(spnMotReligion.getSelectedItemPosition()==0  & secMotReligion.isShown())
+         else if(spnMotReligion.getSelectedItemPosition()==0  & secMotReligion.isShown() & (COUNTRYCODE.equals(ProjectSetting.BANGLADESH) | COUNTRYCODE.equals(ProjectSetting.NEPAL)))
            {
              Connection.MessageBox(Registration.this, "Required field: Religion of the Mother.");
              spnMotReligion.requestFocus(); 
@@ -1271,22 +2224,22 @@
              spnAddress1.requestFocus(); 
              return;	
            }
-         else if(spnAddress2.getSelectedItemPosition()==0  & secAddress2.isShown())
+         else if(txtAddress2.getText().toString().length()==0  & secAddress2.isShown())
            {
              Connection.MessageBox(Registration.this, "Required field: Level2.");
-             spnAddress2.requestFocus(); 
+               txtAddress2.requestFocus();
              return;	
            }
-         else if(spnAddress3.getSelectedItemPosition()==0  & secAddress3.isShown())
+         else if(txtAddress3.getText().toString().length()==0  & secAddress3.isShown())
            {
              Connection.MessageBox(Registration.this, "Required field: Level3.");
-             spnAddress3.requestFocus(); 
+               txtAddress3.requestFocus();
              return;	
            }
-         else if(spnAddress4.getSelectedItemPosition()==0  & secAddress4.isShown() & COUNTRYCODE.equals(ProjectSetting.BANGLADESH))
+         else if(txtAddress4.getText().toString().length()==0  & secAddress4.isShown() & COUNTRYCODE.equals(ProjectSetting.BANGLADESH))
            {
              Connection.MessageBox(Registration.this, "Required field: Level4.");
-             spnAddress4.requestFocus(); 
+               txtAddress4.requestFocus();
              return;	
            }
          /*else if(txtAddressDetail.getText().toString().length()==0 & secAddressDetail.isShown())
@@ -1315,21 +2268,28 @@
              return;	
            }
          DV = Global.DateValidate(dtpDOBNewborn.getText().toString());
-         if(DV.length()!=0 & secDOBNewborn.isShown())
+         if(!chkDOBNewbornDK.isChecked() & DV.length()!=0 & secDOBNewborn.isShown())
            {
-             Connection.MessageBox(Registration.this, DV);
+             Connection.MessageBox(Registration.this, "Invalid Date: 15. Date of birth of newborn.");
              dtpDOBNewborn.requestFocus(); 
              return;	
            }
-         else if(txtAgeNewborn.getText().toString().length()==0 & secAgeNewborn.isShown())
+
+           if(!chkTOBNewbornDK.isChecked() & txtTOBNewborn.getText().toString().length()==0 & secTOBNewborn.isShown()){
+               Connection.MessageBox(Registration.this, "Required field: 15a. Time of birth of the newborn.");
+               txtTOBNewborn.requestFocus();
+               return;
+           }
+
+           if(txtAgeNewborn.getText().toString().length()==0 & secAgeNewborn.isShown())
            {
              Connection.MessageBox(Registration.this, "Required field: Age of the Newborn.");
              txtAgeNewborn.requestFocus(); 
              return;	
            }
-         else if(Integer.valueOf(txtAgeNewborn.getText().toString().length()==0 ? "0" : txtAgeNewborn.getText().toString()) < 0 || Integer.valueOf(txtAgeNewborn.getText().toString().length()==0 ? "30" : txtAgeNewborn.getText().toString()) > 30)
+         else if(Integer.valueOf(txtAgeNewborn.getText().toString().length()==0 ? "0" : txtAgeNewborn.getText().toString()) < 0 || Integer.valueOf(txtAgeNewborn.getText().toString().length()==0 ? "60" : txtAgeNewborn.getText().toString()) > 60)
            {
-             Connection.MessageBox(Registration.this, "Value should be between 0 and 30(Age of the Newborn).");
+             Connection.MessageBox(Registration.this, "Value should be between 0 and 60(Age of the Newborn).");
              txtAgeNewborn.requestFocus(); 
              return;	
            }
@@ -1352,59 +2312,60 @@
                  Connection.MessageBox(Registration.this, "Required field: Data ID.");
                  txtDataID.requestFocus();
                  return;
-             } else if (!rdocard1.isChecked() & !rdocard2.isChecked() & seccard.isShown()) {
+             } else if (!rdocard1.isChecked() & !rdocard2.isChecked() & !rdocard7.isChecked() & seccard.isShown()) {
                  Connection.MessageBox(Registration.this, "Select anyone options from (Antenatal card available).");
                  rdocard1.requestFocus();
                  return;
-             } else if (txtprevpreg.getText().toString().length() == 0 & secprevpreg.isShown()) {
+             } else if (!chkprevpregDK.isChecked() & txtprevpreg.getText().toString().length() == 0 & secprevpreg.isShown()) {
                  Connection.MessageBox(Registration.this, "Required field: Number of previous pregnancies.");
                  txtprevpreg.requestFocus();
                  return;
-             } else if (Integer.valueOf(txtprevpreg.getText().toString().length() == 0 ? "0" : txtprevpreg.getText().toString()) < 0 || Integer.valueOf(txtprevpreg.getText().toString().length() == 0 ? "97" : txtprevpreg.getText().toString()) > 97) {
+             } else if (!chkprevpregDK.isChecked() & (Integer.valueOf(txtprevpreg.getText().toString().length() == 0 ? "0" : txtprevpreg.getText().toString()) < 0 || Integer.valueOf(txtprevpreg.getText().toString().length() == 0 ? "97" : txtprevpreg.getText().toString()) > 97)) {
                  Connection.MessageBox(Registration.this, "Value should be between 0 and 97(Number of previous pregnancies).");
                  txtprevpreg.requestFocus();
                  return;
-             } else if (txtprevliveb.getText().toString().length() == 0 & secprevliveb.isShown()) {
+             } else if (!chkprevlivebDK.isChecked() & txtprevliveb.getText().toString().length() == 0 & secprevliveb.isShown()) {
                  Connection.MessageBox(Registration.this, "Required field: Number of previous live births.");
                  txtprevliveb.requestFocus();
                  return;
-             } else if (Integer.valueOf(txtprevliveb.getText().toString().length() == 0 ? "0" : txtprevliveb.getText().toString()) < 0 || Integer.valueOf(txtprevliveb.getText().toString().length() == 0 ? "97" : txtprevliveb.getText().toString()) > 97) {
+             } else if (!chkprevlivebDK.isChecked() & (Integer.valueOf(txtprevliveb.getText().toString().length() == 0 ? "0" : txtprevliveb.getText().toString()) < 0 || Integer.valueOf(txtprevliveb.getText().toString().length() == 0 ? "97" : txtprevliveb.getText().toString()) > 97)) {
                  Connection.MessageBox(Registration.this, "Value should be between 0 and 97(Number of previous live births).");
                  txtprevliveb.requestFocus();
                  return;
-             } else if (txtprevstillb.getText().toString().length() == 0 & secprevstillb.isShown()) {
+             } else if (!chkprevstillbDK.isChecked() & txtprevstillb.getText().toString().length() == 0 & secprevstillb.isShown()) {
                  Connection.MessageBox(Registration.this, "Required field: Number of previous stillbirths (≥28/40).");
                  txtprevstillb.requestFocus();
                  return;
-             } else if (Integer.valueOf(txtprevstillb.getText().toString().length() == 0 ? "0" : txtprevstillb.getText().toString()) < 0 || Integer.valueOf(txtprevstillb.getText().toString().length() == 0 ? "97" : txtprevstillb.getText().toString()) > 97) {
+             } else if (!chkprevstillbDK.isChecked() & (Integer.valueOf(txtprevstillb.getText().toString().length() == 0 ? "0" : txtprevstillb.getText().toString()) < 0 || Integer.valueOf(txtprevstillb.getText().toString().length() == 0 ? "97" : txtprevstillb.getText().toString()) > 97)) {
                  Connection.MessageBox(Registration.this, "Value should be between 0 and 97(Number of previous stillbirths (≥28/40)).");
                  txtprevstillb.requestFocus();
                  return;
-             } else if (txtprevab.getText().toString().length() == 0 & secprevab.isShown()) {
+             } else if (!chkprevabDK.isChecked() & txtprevab.getText().toString().length() == 0 & secprevab.isShown()) {
                  Connection.MessageBox(Registration.this, "Required field: Number of previous abortions or miscarriages (<28 weeks).");
                  txtprevab.requestFocus();
                  return;
-             } else if (Integer.valueOf(txtprevab.getText().toString().length() == 0 ? "0" : txtprevab.getText().toString()) < 0 || Integer.valueOf(txtprevab.getText().toString().length() == 0 ? "97" : txtprevab.getText().toString()) > 97) {
+             } else if (!chkprevabDK.isChecked() & (Integer.valueOf(txtprevab.getText().toString().length() == 0 ? "0" : txtprevab.getText().toString()) < 0 || Integer.valueOf(txtprevab.getText().toString().length() == 0 ? "97" : txtprevab.getText().toString()) > 97)) {
                  Connection.MessageBox(Registration.this, "Value should be between 0 and 97(Number of previous abortions or miscarriages (<28 weeks)).");
                  txtprevab.requestFocus();
                  return;
-             } else if (txtprevcsec.getText().toString().length() == 0 & secprevcsec.isShown()) {
+             } else if (!chkprevcsecDK.isChecked() & txtprevcsec.getText().toString().length() == 0 & secprevcsec.isShown()) {
                  Connection.MessageBox(Registration.this, "Required field: Number of previous Caesarean sections.");
                  txtprevcsec.requestFocus();
                  return;
-             } else if (Integer.valueOf(txtprevcsec.getText().toString().length() == 0 ? "0" : txtprevcsec.getText().toString()) < 0 || Integer.valueOf(txtprevcsec.getText().toString().length() == 0 ? "99" : txtprevcsec.getText().toString()) > 99) {
+             } else if (!chkprevcsecDK.isChecked() & (Integer.valueOf(txtprevcsec.getText().toString().length() == 0 ? "0" : txtprevcsec.getText().toString()) < 0 || Integer.valueOf(txtprevcsec.getText().toString().length() == 0 ? "99" : txtprevcsec.getText().toString()) > 99)) {
                  Connection.MessageBox(Registration.this, "Value should be between 0 and 99(Number of previous Caesarean sections).");
                  txtprevcsec.requestFocus();
                  return;
-             } else if (txtyrslstbth.getText().toString().length() == 0 & secyrslstbth.isShown()) {
+             } else if (!chkyrslstbthDK.isChecked() & txtyrslstbth.getText().toString().length() == 0 & secyrslstbth.isShown()) {
                  Connection.MessageBox(Registration.this, "Required field: Number of years since last birth? (completed years).");
                  txtyrslstbth.requestFocus();
                  return;
-             } else if (Integer.valueOf(txtyrslstbth.getText().toString().length() == 0 ? "0" : txtyrslstbth.getText().toString()) < 0 || Integer.valueOf(txtyrslstbth.getText().toString().length() == 0 ? "99" : txtyrslstbth.getText().toString()) > 99) {
+             } else if (!chkyrslstbthDK.isChecked() & (Integer.valueOf(txtyrslstbth.getText().toString().length() == 0 ? "0" : txtyrslstbth.getText().toString()) < 0 || Integer.valueOf(txtyrslstbth.getText().toString().length() == 0 ? "99" : txtyrslstbth.getText().toString()) > 99)) {
                  Connection.MessageBox(Registration.this, "Value should be between 0 and 99(Number of years since last birth? (completed years)).");
                  txtyrslstbth.requestFocus();
                  return;
              }
+
              /*DV = Global.DateValidate(dtpedd.getText().toString());
              if (DV.length() != 0 & !chkeddDK.isChecked() & secedd.isShown()) {
                  Connection.MessageBox(Registration.this, "Expected date of delivery:" + DV);
@@ -1412,23 +2373,23 @@
                  return;
              } */
 
-             if (txtgaadmi.getText().toString().length() == 0 & secgaadm.isShown()) {
+             if (!chkgaadmiDK.isChecked() & txtgaadmi.getText().toString().length() == 0 & secgaadmi.isShown()) {
                  Connection.MessageBox(Registration.this, "Required field: Gestational age at admission (weeks).");
                  txtgaadmi.requestFocus();
                  return;
-             } else if ((Integer.valueOf(txtgaadmi.getText().toString().length() == 0 ? "10" : txtgaadmi.getText().toString()) < 10 || Integer.valueOf(txtgaadmi.getText().toString().length() == 0 ? "45" : txtgaadmi.getText().toString()) > 45) & !txtgaadmi.getText().toString().equals("97")) {
-                 Connection.MessageBox(Registration.this, "Value should be between 10 and 45, 97(Gestational age at admission (weeks)).");
+             } else if ((Integer.valueOf(txtgaadmi.getText().toString().length() == 0 ? "10" : txtgaadmi.getText().toString()) < 10 || Integer.valueOf(txtgaadmi.getText().toString().length() == 0 ? "45" : txtgaadmi.getText().toString()) > 45) & !chkgaadmiDK.isChecked()) {
+                 Connection.MessageBox(Registration.this, "Value should be between 10 and 45(Gestational age at admission (weeks)).");
                  txtgaadmi.requestFocus();
                  return;
-             } else if (!rdogameth1.isChecked() & !rdogameth2.isChecked() & !rdogameth3.isChecked() & !rdogameth4.isChecked() & secgameth.isShown()) {
+             } else if (!rdogameth1.isChecked() & !rdogameth2.isChecked() & !rdogameth3.isChecked() & !rdogameth4.isChecked() & !rdogameth5.isChecked() & secgameth.isShown()) {
                  Connection.MessageBox(Registration.this, "Select anyone options from (Gestational age assessment method).");
                  rdogameth1.requestFocus();
                  return;
-             } else if (!rdobb4expect1.isChecked() & !rdobb4expect2.isChecked() & secbb4expect.isShown()) {
-                 Connection.MessageBox(Registration.this, "Select anyone options from (Birth between 28- 34 completed weeks gestation?(Suspected premature labour)).");
+             } else if (!rdobb4expect1.isChecked() & !rdobb4expect2.isChecked() & !rdobb4expect3.isChecked() & secbb4expect.isShown()) {
+                 Connection.MessageBox(Registration.this, "Select anyone options from (Birth less than 34 completed weeks gestation?(Suspected premature labour)).");
                  rdobb4expect1.requestFocus();
                  return;
-             } else if (!rdonumbby1.isChecked() & !rdonumbby2.isChecked() & !rdonumbby3.isChecked() & secnumbby.isShown()) {
+             } else if (!rdonumbby1.isChecked() & !rdonumbby2.isChecked() & !rdonumbby3.isChecked() & !rdonumbby4.isChecked() & secnumbby.isShown()) {
                  Connection.MessageBox(Registration.this, "Select anyone options from (Current pregnancy).");
                  rdonumbby1.requestFocus();
                  return;
@@ -1456,36 +2417,57 @@
                  Connection.MessageBox(Registration.this, "Value should be between 1 and 999(Number).");
                  txtbheartratenum.requestFocus();
                  return;
-             } else if (!rdoanybcompadm1.isChecked() & !rdoanybcompadm2.isChecked() & !rdoanybcompadm3.isChecked() & !rdoanybcompadm4.isChecked() & !rdoanybcompadm5.isChecked() & !rdoanybcompadm6.isChecked() & !rdoanybcompadm7.isChecked() & !rdoanybcompadm8.isChecked() & secanybcompadm.isShown()) {
-                 Connection.MessageBox(Registration.this, "Select anyone options from (Maternal complications diagnosed or known at time of admission ).");
-                 rdoanybcompadm1.requestFocus();
-                 return;
-             } else if (!rdoallocobsv1.isChecked() & !rdoallocobsv2.isChecked() & secallocobsv.isShown()) {
+             }else if (!rdoallocobsv1.isChecked() & !rdoallocobsv2.isChecked() & secallocobsv.isShown()) {
                  Connection.MessageBox(Registration.this, "Select anyone options from (Allocated to an observer).");
                  rdoallocobsv1.requestFocus();
+                 return;
+             }else if(chkanybcompadmh.isChecked() & txtanybcompadmoth.getText().length()==0){
+                 Connection.MessageBox(Registration.this, "Required field:(37. Other complication specify).");
+                 txtanybcompadmoth.requestFocus();
+                 return;
+             }
+
+             //04 Jul 2017
+             if (!chkgaadmiDK.isChecked() & txtgaadmi.getText().toString().length() == 0 & secgaadmi.isShown()) {
+                 Connection.MessageBox(Registration.this, "Required field: Gestational age at admission (weeks).");
+                 txtgaadmi.requestFocus();
+                 return;
+             }
+
+             if (!chkgaadmiDK.isChecked() &
+                     (Integer.valueOf(txtgaadmi.getText().toString().length() == 0 ? "0" : txtgaadmi.getText().toString()) < 34) &
+                     !rdobb4expect1.isChecked() & secbb4expect.isShown()) {
+                 Connection.MessageBox(Registration.this, "33. Value should be Yes, Where gestational age is less than 34 weeks.");
+                 txtgaadmi.requestFocus();
+                 return;
+             }else if (!chkgaadmiDK.isChecked() &
+                     (Integer.valueOf(txtgaadmi.getText().toString().length() == 0 ? "0" : txtgaadmi.getText().toString()) >= 34) &
+                     rdobb4expect1.isChecked() & secbb4expect.isShown()) {
+                 Connection.MessageBox(Registration.this, "33. Value should not be Yes, Where gestational age is greater or equal 34 weeks.");
+                 txtgaadmi.requestFocus();
                  return;
              }
          }
 
          //KMC PreObserve
          else if(LOCATIONID.equals(ProjectSetting.KMC_ID)) {
-             if (!rdoadwghedkmc1.isChecked() & !rdoadwghedkmc2.isChecked() & secadwghedkmc.isShown()) {
+             if (!rdoadwghedkmc1.isChecked() & !rdoadwghedkmc2.isChecked() & !rdoadwghedkmc3.isChecked() & secadwghedkmc.isShown()) {
                  Connection.MessageBox(Registration.this, "Select anyone options from (Baby weighed at admission).");
                  rdoadwghedkmc1.requestFocus();
                  return;
-             } else if (txtadwghtkmc.getText().toString().length() == 0 & secadwghtkmc.isShown()) {
+             } else if (!chkadwghtkmcDK.isChecked() & txtadwghtkmc.getText().toString().length() == 0 & secadwghtkmc.isShown()) {
                  Connection.MessageBox(Registration.this, "Required field: Baby’s weight at admission.");
                  txtadwghtkmc.requestFocus();
                  return;
-             } else if (Integer.valueOf(txtadwghtkmc.getText().toString().length() == 0 ? "300" : txtadwghtkmc.getText().toString()) < 300 || Integer.valueOf(txtadwghtkmc.getText().toString().length() == 0 ? "6500" : txtadwghtkmc.getText().toString()) > 6500) {
-                 Connection.MessageBox(Registration.this, "Value should be between 300 and 6500(Baby’s weight at admission).");
+             } else if (!chkadwghtkmcDK.isChecked() & (Integer.valueOf(txtadwghtkmc.getText().toString().length() == 0 ? "400" : txtadwghtkmc.getText().toString()) < 400 || Integer.valueOf(txtadwghtkmc.getText().toString().length() == 0 ? "9999" : txtadwghtkmc.getText().toString()) > 9999)) {
+                 Connection.MessageBox(Registration.this, "Value should be between 400 and 9999(Baby’s weight at admission).");
                  txtadwghtkmc.requestFocus();
                  return;
-             } else if (txtgaadm.getText().toString().length() == 0 & secgaadm.isShown()) {
-                 Connection.MessageBox(Registration.this, "Required field: Gestational age at admission (weeks)-97 for Dont know.");
+             } else if (!chkgaadmDK.isChecked() & txtgaadm.getText().toString().length() == 0 & secgaadm.isShown()) {
+                 Connection.MessageBox(Registration.this, "Required field: Gestational age at admission (weeks).");
                  txtgaadm.requestFocus();
                  return;
-             } else if ((Integer.valueOf(txtgaadm.getText().toString().length() == 0 ? "10" : txtgaadm.getText().toString()) < 10 || Integer.valueOf(txtgaadm.getText().toString().length() == 0 ? "48" : txtgaadm.getText().toString()) > 48) & !txtgaadm.getText().toString().equals("97")) {
+             } else if (!chkgaadmDK.isChecked() & ((Integer.valueOf(txtgaadm.getText().toString().length() == 0 ? "10" : txtgaadm.getText().toString()) < 10 || Integer.valueOf(txtgaadm.getText().toString().length() == 0 ? "48" : txtgaadm.getText().toString()) > 48) & !txtgaadm.getText().toString().equals("97"))) {
                  Connection.MessageBox(Registration.this, "Value should be between 10 and 48, 97(Gestational age at admission (weeks)-97 for Dont know).");
                  txtgaadm.requestFocus();
                  return;
@@ -1504,6 +2486,52 @@
              }
          }
 
+         //Infection : 05 Jul 2017
+         else if(LOCATIONID.equals(ProjectSetting.SEPSIS_ID)) {
+             if(spnInfDelPlace.getSelectedItemPosition()==0  & secInfDelPlace.isShown())
+             {
+                 Connection.MessageBox(Registration.this, "Required field: Place of Delivery.");
+                 spnInfDelPlace.requestFocus();
+                 return;
+             }
+             else if(txtInfDelPlaceoth.getText().toString().length()==0 & secInfDelPlaceoth.isShown())
+             {
+                 Connection.MessageBox(Registration.this, "Required field: Other (Specify).");
+                 txtInfDelPlaceoth.requestFocus();
+                 return;
+             }
+             else if(spnInfDelMod.getSelectedItemPosition()==0  & secInfDelMod.isShown())
+             {
+                 Connection.MessageBox(Registration.this, "Required field: Mode of birth/delivery.");
+                 spnInfDelMod.requestFocus();
+                 return;
+             }
+             else if(!chkInfGAgeDK.isChecked() & txtInfGAge.getText().toString().length()==0 & secInfGAge.isShown())
+             {
+                 Connection.MessageBox(Registration.this, "Required field: Gestational age at birth (weeks).");
+                 txtInfGAge.requestFocus();
+                 return;
+             }
+             else if(!chkInfGAgeDK.isChecked() & (Integer.valueOf(txtInfGAge.getText().toString().length()==0 ? "10" : txtInfGAge.getText().toString()) < 10 || Integer.valueOf(txtInfGAge.getText().toString().length()==0 ? "45" : txtInfGAge.getText().toString()) > 45))
+             {
+                 Connection.MessageBox(Registration.this, "Value should be between 10 and 45(Gestational age at birth (weeks)).");
+                 txtInfGAge.requestFocus();
+                 return;
+             }
+             else if(!chkInfBWeightDK.isChecked() & txtInfBWeight.getText().toString().length()==0 & secInfBWeight.isShown())
+             {
+                 Connection.MessageBox(Registration.this, "Required field: Birth Weight.");
+                 txtInfBWeight.requestFocus();
+                 return;
+             }
+             else if(!chkInfBWeightDK.isChecked() & (Integer.valueOf(txtInfBWeight.getText().toString().length()==0 ? "400" : txtInfBWeight.getText().toString()) < 400 || Integer.valueOf(txtInfBWeight.getText().toString().length()==0 ? "9999" : txtInfBWeight.getText().toString()) > 9999))
+             {
+                 Connection.MessageBox(Registration.this, "Value should be between 400 and 9999(Birth Weight).");
+                 txtInfBWeight.requestFocus();
+                 return;
+             }
+         }
+
          String SQL = "";
          RadioButton rb;
 
@@ -1515,14 +2543,16 @@
          objSave.setRegDate(dtpRegDate.getText().toString().length() > 0 ? Global.DateConvertYMD(dtpRegDate.getText().toString()) : dtpRegDate.getText().toString());
          objSave.setRegTime(txtRegTime.getText().toString());
          objSave.setHospID(txtHospID.getText().toString());
-         String[] d_rdogrpConsent = new String[] {"1","2"};
+         objSave.setHospIDReTyp(txtHospIDReTyp.getText().toString());
+
+         String[] d_rdogrpConsent = new String[] {"1","2","3","4","5"};
          objSave.setConsent("");
          for (int i = 0; i < rdogrpConsent.getChildCount(); i++)
          {
              rb = (RadioButton)rdogrpConsent.getChildAt(i);
              if (rb.isChecked()) objSave.setConsent(d_rdogrpConsent[i]);
          }
-
+         objSave.setConReason(txtConReason.getText().toString());
          objSave.setStudyID(txtStudyID.getText().toString());
          String[] d_rdogrpMotRegis = new String[] {"1","2"};
          objSave.setMotRegis("");
@@ -1532,6 +2562,7 @@
              if (rb.isChecked()) objSave.setMotRegis(d_rdogrpMotRegis[i]);
          }
 
+         objSave.setMotDataID(txtMotDataID.getText().toString());
          objSave.setMotStudyID(txtMotStudyID.getText().toString());
          objSave.setMotStudyIDReType(txtMotStudyIDReType.getText().toString());
 
@@ -1540,17 +2571,36 @@
          objSave.setMotDOB(dtpMotDOB.getText().toString().length() > 0 ? Global.DateConvertYMD(dtpMotDOB.getText().toString()) : dtpMotDOB.getText().toString());
          objSave.setMotDOBDK((chkMotDOBDK.isChecked()?"1":(secMotDOBDK.isShown()?"2":"")));
          objSave.setMotAge(txtMotAge.getText().toString());
+
+         objSave.setMotEdu(txtMotEdu.getText().toString());
+         objSave.setMotEduDK(chkMotEduDK.isChecked()?"1":(secMotEdu.isShown()?"2":"3"));
+         objSave.setParity((spnParity.getSelectedItemPosition() == 0 ? "" : Connection.SelectedSpinnerValue(spnParity.getSelectedItem().toString(), "-")));
+
          objSave.setMotEthnicity((spnMotEthnicity.getSelectedItemPosition() == 0 ? "" : Connection.SelectedSpinnerValue(spnMotEthnicity.getSelectedItem().toString(), "-")));
+         objSave.setMotEthnicityOth(txtMotEthnicityOth.getText().toString());
+
          objSave.setMotReligion((spnMotReligion.getSelectedItemPosition() == 0 ? "" : Connection.SelectedSpinnerValue(spnMotReligion.getSelectedItem().toString(), "-")));
+         objSave.setMotReligionOth(txtMotReligionOth.getText().toString());
+
          objSave.setAddress1((spnAddress1.getSelectedItemPosition() == 0 ? "" : Connection.SelectedSpinnerValue(spnAddress1.getSelectedItem().toString(), "-")));
-         objSave.setAddress2((spnAddress2.getSelectedItemPosition() == 0 ? "" : Connection.SelectedSpinnerValue(spnAddress2.getSelectedItem().toString(), "-")));
-         objSave.setAddress3((spnAddress3.getSelectedItemPosition() == 0 ? "" : Connection.SelectedSpinnerValue(spnAddress3.getSelectedItem().toString(), "-")));
-         objSave.setAddress4((spnAddress4.getSelectedItemPosition() == 0 ? "" : Connection.SelectedSpinnerValue(spnAddress4.getSelectedItem().toString(), "-")));
+         //objSave.setAddress2((spnAddress2.getSelectedItemPosition() == 0 ? "" : Connection.SelectedSpinnerValue(spnAddress2.getSelectedItem().toString(), "-")));
+         //objSave.setAddress3((spnAddress3.getSelectedItemPosition() == 0 ? "" : Connection.SelectedSpinnerValue(spnAddress3.getSelectedItem().toString(), "-")));
+         //objSave.setAddress4((spnAddress4.getSelectedItemPosition() == 0 ? "" : Connection.SelectedSpinnerValue(spnAddress4.getSelectedItem().toString(), "-")));
+         objSave.setAddress2(txtAddress2.getText().toString());
+         objSave.setAddress3(txtAddress3.getText().toString());
+         objSave.setAddress4(txtAddress4.getText().toString());
+
+
          objSave.setAddressDetail(txtAddressDetail.getText().toString());
          objSave.setMotContact(txtMotContact.getText().toString());
          objSave.setAltContact(txtAltContact.getText().toString());
          objSave.setNameNewBorn(txtNameNewBorn.getText().toString());
          objSave.setDOBNewborn(dtpDOBNewborn.getText().toString().length() > 0 ? Global.DateConvertYMD(dtpDOBNewborn.getText().toString()) : dtpDOBNewborn.getText().toString());
+         objSave.setDOBNewbornDK(chkDOBNewbornDK.isChecked()?"1":(secDOBNewborn.isShown()?"2":""));
+
+         objSave.setTOBNewborn(txtTOBNewborn.getText().toString());
+         objSave.setTOBNewbornDK(chkTOBNewbornDK.isChecked()?"1":(secTOBNewborn.isShown()?"2":""));
+
          objSave.setAgeNewborn(txtAgeNewborn.getText().toString());
          String[] d_rdogrpAgeNewbornDMY = new String[] {"1","2","3"};
          objSave.setAgeNewbornDMY("");
@@ -1563,10 +2613,10 @@
          objSave.setFatherName(txtFatherName.getText().toString());
          String A,B,C,D;
          A = spnAddress1.getSelectedItemPosition()>0 ? spnAddress1.getSelectedItem().toString().split("-")[1]:"";
-         B = spnAddress2.getSelectedItemPosition()>0 ? spnAddress2.getSelectedItem().toString().split("-")[1]:"";
-         C = spnAddress3.getSelectedItemPosition()>0 ? spnAddress3.getSelectedItem().toString().split("-")[1]:"";
-         D = spnAddress4.getSelectedItemPosition()>0 ? spnAddress4.getSelectedItem().toString().split("-")[1]:"";
-         objSave.setCompleteAdd(A + ", "+ B +", "+ C +", "+ D);
+         //B = spnAddress2.getSelectedItemPosition()>0 ? spnAddress2.getSelectedItem().toString().split("-")[1]:"";
+         //C = spnAddress3.getSelectedItemPosition()>0 ? spnAddress3.getSelectedItem().toString().split("-")[1]:"";
+         //D = spnAddress4.getSelectedItemPosition()>0 ? spnAddress4.getSelectedItem().toString().split("-")[1]:"";
+         objSave.setCompleteAdd(A + ", "+ txtAddress2.getText().toString() +", "+ txtAddress3.getText().toString() +", "+ txtAddress4.getText().toString());
 
          objSave.setEnDt(Global.DateTimeNowYMDHMS());
          objSave.setStartTime(STARTTIME);
@@ -1591,6 +2641,12 @@
                      Connection.MessageBox(Registration.this, Status2);
                      return;
                  }
+             }else if(LOCATIONID.equals(ProjectSetting.SEPSIS_ID)) {
+                 String Status3 = InfectionPreObs_DataSave();
+                 if (Status3.length() != 0) {
+                     Connection.MessageBox(Registration.this, Status3);
+                     return;
+                 }
              }
              finish();
              Intent returnIntent = new Intent();
@@ -1598,6 +2654,15 @@
              setResult(Activity.RESULT_OK, returnIntent);
 
              Connection.MessageBox(Registration.this, "Saved Successfully");
+             //Connection.RegistrationDataSync(Registration.this);
+             new Thread() {
+                 public void run() {
+                     try {
+                         Connection.RegistrationDataSync(Registration.this);
+                     } catch (Exception e) {
+                     }
+                 }
+             }.start();
          }
          else{
              Connection.MessageBox(Registration.this, status);
@@ -1627,7 +2692,9 @@
              dtpRegDate.setText(item.getRegDate().toString().length()==0 ? "" : Global.DateConvertDMY(item.getRegDate()));
              txtRegTime.setText(item.getRegTime());
              txtHospID.setText(item.getHospID());
-             String[] d_rdogrpConsent = new String[] {"1","2"};
+             txtHospIDReTyp.setText(item.getHospIDReTyp());
+
+             String[] d_rdogrpConsent = new String[] {"1","2","3","4","5"};
              for (int i = 0; i < d_rdogrpConsent.length; i++)
              {
                  if (item.getConsent().equals(String.valueOf(d_rdogrpConsent[i])))
@@ -1636,8 +2703,12 @@
                      rb.setChecked(true);
                  }
              }
+             txtConReason.setText(item.getConReason());
+
              txtStudyID.setText(item.getStudyID());
+             //-------------------------------------------------------------------------------------
                SID = item.getStudyID();
+             //-------------------------------------------------------------------------------------
              String[] d_rdogrpMotRegis = new String[] {"1","2"};
              for (int i = 0; i < d_rdogrpMotRegis.length; i++)
              {
@@ -1647,6 +2718,7 @@
                      rb.setChecked(true);
                  }
              }
+             txtMotDataID.setText(item.getMotDataID());
              txtMotStudyID.setText(item.getMotStudyID());
                txtMotStudyIDReType.setText(item.getMotStudyIDReType());
              txtMotHospID.setText(item.getMotHospID());
@@ -1661,17 +2733,34 @@
                 chkMotDOBDK.setChecked(false);
              }
              txtMotAge.setText(item.getMotAge());
+               txtMotEdu.setText(item.getMotEdu());
+               if(item.getMotEduDK().equals("1")) chkMotEduDK.setChecked(true); else chkMotEduDK.setChecked(false);
+
+               spnParity.setSelection(Global.SpinnerItemPositionAnyLength(spnParity, item.getParity()));
+
              spnMotEthnicity.setSelection(Global.SpinnerItemPositionAnyLength(spnMotEthnicity, item.getMotEthnicity()));
+             txtMotEthnicityOth.setText(item.getMotEthnicityOth());
              spnMotReligion.setSelection(Global.SpinnerItemPositionAnyLength(spnMotReligion, item.getMotReligion()));
+             txtMotReligionOth.setText(item.getMotReligionOth());
              spnAddress1.setSelection(Global.SpinnerItemPositionAnyLength(spnAddress1, item.getAddress1()));
-             spnAddress2.setSelection(Global.SpinnerItemPositionAnyLength(spnAddress2, item.getAddress2()));
+             /*spnAddress2.setSelection(Global.SpinnerItemPositionAnyLength(spnAddress2, item.getAddress2()));
              spnAddress3.setSelection(Global.SpinnerItemPositionAnyLength(spnAddress3, item.getAddress3()));
-             spnAddress4.setSelection(Global.SpinnerItemPositionAnyLength(spnAddress4, item.getAddress4()));
+             spnAddress4.setSelection(Global.SpinnerItemPositionAnyLength(spnAddress4, item.getAddress4()));*/
+             txtAddress2.setText(item.getAddress2());
+             txtAddress3.setText(item.getAddress3());
+             txtAddress4.setText(item.getAddress4());
+
              txtAddressDetail.setText(item.getAddressDetail());
              txtMotContact.setText(item.getMotContact());
              txtAltContact.setText(item.getAltContact());
              txtNameNewBorn.setText(item.getNameNewBorn());
+
              dtpDOBNewborn.setText(item.getDOBNewborn().toString().length()==0 ? "" : Global.DateConvertDMY(item.getDOBNewborn()));
+             if(item.getDOBNewbornDK().equals("1")) chkDOBNewbornDK.setChecked(true); else chkDOBNewbornDK.setChecked(false);
+
+             txtTOBNewborn.setText(item.getTOBNewborn());
+             if(item.getTOBNewbornDK().equals("1")) chkTOBNewbornDK.setChecked(true); else chkTOBNewbornDK.setChecked(false);
+
              txtAgeNewborn.setText(item.getAgeNewborn());
              String[] d_rdogrpAgeNewbornDMY = new String[] {"1","2","3"};
              for (int i = 0; i < d_rdogrpAgeNewbornDMY.length; i++)
@@ -1707,11 +2796,53 @@
 
  protected Dialog onCreateDialog(int id) {
    final Calendar c = Calendar.getInstance();
-   hour = c.get(Calendar.HOUR_OF_DAY);
+   hour   = c.get(Calendar.HOUR_OF_DAY);
    minute = c.get(Calendar.MINUTE);
+
+     Calendar cal = Calendar.getInstance();
+     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+     String DT = "";
+     if (VariableID.equals("btnRegDate"))
+     {
+         DT = dtpRegDate.getText().toString();
+     }
+     else if (VariableID.equals("btnMotDOB"))
+     {
+         DT = dtpMotDOB.getText().toString();
+     }
+     else if (VariableID.equals("btnDOBNewborn"))
+     {
+         DT = dtpDOBNewborn.getText().toString();
+     }
+     else if(VariableID.equals("btnedd"))
+     {
+         DT = dtpedd.getText().toString();
+     }
+
+     try {
+         cal.setTime(formatter.parse(DT));
+     } catch (ParseException e) {
+         e.printStackTrace();
+     }
+
+     int mYear  = 0;
+     int mMonth = 0;
+     int mDay   = 0;
+
+     if(DT.length()==0){
+         mYear  = g.mYear;
+         mMonth = g.mMonth;
+         mDay   = g.mDay;
+     }else{
+         mYear  = cal.get(Calendar.YEAR);
+         mMonth = cal.get(Calendar.MONTH);
+         mDay   = cal.get(Calendar.DAY_OF_MONTH);
+     }
+
    switch (id) {
        case DATE_DIALOG:
-           return new DatePickerDialog(this, mDateSetListener,g.mYear,g.mMonth-1,g.mDay);
+           return new DatePickerDialog(this, mDateSetListener,mYear,mMonth,mDay);
+
        case TIME_DIALOG:
            return new TimePickerDialog(this, timePickerListener, hour, minute,false);
        }
@@ -1720,8 +2851,11 @@
 
  private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-      mYear = year; mMonth = monthOfYear+1; mDay = dayOfMonth;
-      EditText dtpDate;
+        mYear = year;
+        mMonth = monthOfYear+1;
+        mDay = dayOfMonth;
+
+        EditText dtpDate;
 
 
              dtpDate = (EditText)findViewById(R.id.dtpRegDate);
@@ -1775,11 +2909,16 @@
        hour = selectedHour; minute = selectedMinute;
        EditText tpTime;
 
+
               tpTime = (EditText)findViewById(R.id.txtRegTime);
              if (VariableID.equals("btnRegTime"))
               {
                   tpTime = (EditText)findViewById(R.id.txtRegTime);
               }
+              else if (VariableID.equals("btnTOBNewborn"))
+             {
+                 tpTime = (EditText)findViewById(R.id.txtTOBNewborn);
+             }
           tpTime.setText(new StringBuilder().append(Global.Right("00"+hour,2)).append(":").append(Global.Right("00"+minute,2)));
 
     }
@@ -1860,6 +2999,7 @@
      private String NewStudyID(String DeviceID)
      {
          String PID = C.ReturnSingleValue("Select (ifnull(max(cast(StudyID as numeric(12))),0)+1)MaxId from Registration where substr(StudyId,1,3)='"+ DeviceID +"'");
+         //String PID = C.ReturnSingleValue("Select (ifnull(max(cast(StudyID as numeric(12))),0)+1)MaxId from Registration where DeviceID='"+ DeviceID +"'");
          return DeviceID  + Global.Right("00000"+PID,6);
      }
 
@@ -1869,8 +3009,17 @@
          {
              RadioButton rb;
              Registration_DataModel d = new Registration_DataModel();
-             String SQL = "Select * from "+ TableName +"  Where CountryCode='"+ CountryCode +"' and FaciCode='"+ FaciCode +"' and DataID='"+ DataID +"'";
-             List<Registration_DataModel> data = d.SelectAll(this, SQL);
+             String SQL = "";//"Select * from "+ TableName +"  Where CountryCode='"+ CountryCode +"' and FaciCode='"+ FaciCode +"' and DataID='"+ DataID +"'";
+             SQL = "Select r.CountryCode, r.FaciCode, RegisType, r.DataID, RegDate, RegTime, HospID, Consent, StudyID, MotRegis, MotStudyID, MotStudyIDReType,";
+             SQL += " MotHospID, MotName, MotDOB, MotDOBDK, MotAge, MotEthnicity, MotEthnicityOth, MotReligion, MotReligionOth, Address1, Address2, Address3, Address4,";
+             SQL += " AddressDetail, MotContact, AltContact, NameNewBorn, DOBNewborn, AgeNewborn, AgeNewbornDMY, Sex, FatherName, CompleteAdd, CompleteStatus, ObjPause,";
+             SQL += " ObserverId, StatusObj, StatusRS, StatusDE, (case when h.gaadm is null then '' else h.gaadm end)gaadmi,";
+             SQL += " (case when h.gaadmDK is null then '2' else h.gaadmDK end)gaadmDK,MotEdu,MotEduDK";
+             SQL += " from Registration r";
+             SQL += " Left outer join ObsHisCurPreg h on r.CountryCode=h.CountryCode and r.FaciCode=h.FaciCode and r.DataID=h.DataID";
+             SQL += " Where r.CountryCode='"+ CountryCode +"' and r.FaciCode='"+ FaciCode +"' and r.DataID='"+ DataID +"'";
+
+             List<Registration_DataModel> data = d.SelectAll_Mother(this, SQL);
              for(Registration_DataModel item : data){
 
                  //txtMotStudyID.setText(item.getMotStudyID());
@@ -1889,13 +3038,22 @@
                  txtMotAge.setText(item.getMotAge());
                  spnMotEthnicity.setSelection(Global.SpinnerItemPositionAnyLength(spnMotEthnicity, item.getMotEthnicity()));
                  spnMotReligion.setSelection(Global.SpinnerItemPositionAnyLength(spnMotReligion, item.getMotReligion()));
+                 txtMotReligionOth.setText(item.getMotReligionOth());
                  spnAddress1.setSelection(Global.SpinnerItemPositionAnyLength(spnAddress1, item.getAddress1()));
-                 spnAddress2.setSelection(Global.SpinnerItemPositionAnyLength(spnAddress2, item.getAddress2()));
-                 spnAddress3.setSelection(Global.SpinnerItemPositionAnyLength(spnAddress3, item.getAddress3()));
-                 spnAddress4.setSelection(Global.SpinnerItemPositionAnyLength(spnAddress4, item.getAddress4()));
+
+                 txtAddress2.setText(item.getAddress2());
+                 txtAddress3.setText(item.getAddress3());
+                 txtAddress4.setText(item.getAddress4());
+
+                 //spnAddress2.setSelection(Global.SpinnerItemPositionAnyLength(spnAddress2, item.getAddress2()));
+                 //spnAddress3.setSelection(Global.SpinnerItemPositionAnyLength(spnAddress3, item.getAddress3()));
+                 //spnAddress4.setSelection(Global.SpinnerItemPositionAnyLength(spnAddress4, item.getAddress4()));
                  txtAddressDetail.setText(item.getAddressDetail());
                  txtMotContact.setText(item.getMotContact());
                  txtAltContact.setText(item.getAltContact());
+
+                 txtgaadm.setText(item.getgaadmi());
+                 if(item.getgaadmiDK().equals("1")) chkgaadmDK.setChecked(true); else chkgaadmDK.setChecked(false);
 
              }
          }
@@ -1935,7 +3093,7 @@
              {
                  Registration_DataModel d = new Registration_DataModel();
                  String param = "";
-                 String SQL = "Select * from Registration r Where r.CountryCode='"+ COUNTRYCODE +"' and r.FaciCode='"+ FACICODE +"' and r.Consent='1' and r.RegisType='2' order by r.EnDt desc limit 20";
+                 String SQL = "Select * from Registration r Where r.CountryCode='"+ COUNTRYCODE +"' and r.FaciCode='"+ FACICODE +"' and r.Consent='1' and r.RegisType='2' order by date(r.EnDt) desc limit 50";
 
                  List<Registration_DataModel> data = d.SelectAll(this, SQL);
                  dataList.clear();
@@ -2022,6 +3180,7 @@
 
              secRow.setOnClickListener(new View.OnClickListener() {
                  public void onClick(View v) {
+                     txtMotDataID.setText(o.get("dataid"));
                      txtMotStudyID.setText(o.get("studyid"));
                      txtMotStudyIDReType.setText(o.get("studyid"));
                      MotherDataSearch(COUNTRYCODE, FACICODE, o.get("dataid"));
@@ -2045,6 +3204,8 @@
 
          rdocard1 = (RadioButton) findViewById(R.id.rdocard1);
          rdocard2 = (RadioButton) findViewById(R.id.rdocard2);
+         rdocard7 = (RadioButton) findViewById(R.id.rdocard7);
+
          secprevpreg=(LinearLayout)findViewById(R.id.secprevpreg);
          lineprevpreg=(View)findViewById(R.id.lineprevpreg);
          Vlblprevpreg=(TextView) findViewById(R.id.Vlblprevpreg);
@@ -2077,7 +3238,7 @@
          lineeddDK=(View)findViewById(R.id.lineeddDK);
          VlbleddDK=(TextView) findViewById(R.id.VlbleddDK);
          chkeddDK=(CheckBox) findViewById(R.id.chkeddDK);
-         secgaadm=(LinearLayout)findViewById(R.id.secgaadm);
+         secgaadmi=(LinearLayout)findViewById(R.id.secgaadmi);
          linegaadm=(View)findViewById(R.id.linegaadm);
          Vlblgaadm=(TextView) findViewById(R.id.Vlblgaadm);
          txtgaadmi=(EditText) findViewById(R.id.txtgaadmi);
@@ -2090,6 +3251,7 @@
          rdogameth2 = (RadioButton) findViewById(R.id.rdogameth2);
          rdogameth3 = (RadioButton) findViewById(R.id.rdogameth3);
          rdogameth4 = (RadioButton) findViewById(R.id.rdogameth4);
+         rdogameth5 = (RadioButton) findViewById(R.id.rdogameth5);
 
          secbb4expect=(LinearLayout)findViewById(R.id.secbb4expect);
          linebb4expect=(View)findViewById(R.id.linebb4expect);
@@ -2098,6 +3260,7 @@
 
          rdobb4expect1 = (RadioButton) findViewById(R.id.rdobb4expect1);
          rdobb4expect2 = (RadioButton) findViewById(R.id.rdobb4expect2);
+         rdobb4expect3 = (RadioButton) findViewById(R.id.rdobb4expect3);
          secnumbby=(LinearLayout)findViewById(R.id.secnumbby);
          linenumbby=(View)findViewById(R.id.linenumbby);
          Vlblnumbby = (TextView) findViewById(R.id.Vlblnumbby);
@@ -2106,13 +3269,14 @@
          rdonumbby1 = (RadioButton) findViewById(R.id.rdonumbby1);
          rdonumbby2 = (RadioButton) findViewById(R.id.rdonumbby2);
          rdonumbby3 = (RadioButton) findViewById(R.id.rdonumbby3);
+         rdonumbby4 = (RadioButton) findViewById(R.id.rdonumbby4);
 
          rdogrpnumbby.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
              @Override
              public void onCheckedChanged(RadioGroup radioGroup,int radioButtonID) {
                  String rbData = "";
                  RadioButton rb;
-                 String[] d_rdogrpnumbby = new String[] {"1","2","3"};
+                 String[] d_rdogrpnumbby = new String[] {"1","2","3","7"};
                  for (int i = 0; i < rdogrpnumbby.getChildCount(); i++)
                  {
                      rb = (RadioButton)rdogrpnumbby.getChildAt(i);
@@ -2126,6 +3290,12 @@
                      txtnumPreg.setText("");
                  }
                  else if(rbData.equalsIgnoreCase("2"))
+                 {
+                     secnumPreg.setVisibility(View.GONE);
+                     linenumPreg.setVisibility(View.GONE);
+                     txtnumPreg.setText("");
+                 }
+                 else if(rbData.equalsIgnoreCase("7"))
                  {
                      secnumPreg.setVisibility(View.GONE);
                      linenumPreg.setVisibility(View.GONE);
@@ -2171,7 +3341,7 @@
                      linebheartrateadm.setVisibility(View.GONE);
                      rdogrpbheartrateadm.clearCheck();
                      secbheartratenum.setVisibility(View.GONE);
-                     linebheartratenum.setVisibility(View.GONE);
+                     //linebheartratenum.setVisibility(View.GONE);
                      txtbheartratenum.setText("");
                  }
                  else if(rbData.equalsIgnoreCase("7"))
@@ -2180,7 +3350,7 @@
                      linebheartrateadm.setVisibility(View.GONE);
                      rdogrpbheartrateadm.clearCheck();
                      secbheartratenum.setVisibility(View.GONE);
-                     linebheartratenum.setVisibility(View.GONE);
+                     //linebheartratenum.setVisibility(View.GONE);
                      txtbheartratenum.setText("");
                  }
                  else
@@ -2207,17 +3377,25 @@
              public void onCheckedChanged(RadioGroup radioGroup,int radioButtonID) {
                  String rbData = "";
                  RadioButton rb;
-                 String[] d_rdogrpbheartrateadm = new String[] {"1","2","3","7"};
+                 String[] d_rdogrpbheartrateadm = new String[] {"7","1","2","3"};
                  for (int i = 0; i < rdogrpbheartrateadm.getChildCount(); i++)
                  {
                      rb = (RadioButton)rdogrpbheartrateadm.getChildAt(i);
                      if (rb.isChecked()) rbData = d_rdogrpbheartrateadm[i];
                  }
 
-                 if(rbData.equalsIgnoreCase("1"))
+                 if(rbData.equalsIgnoreCase("3")){
+                     secbheartratenum.setVisibility(View.VISIBLE);
+                     linebheartratenum.setVisibility(View.VISIBLE);
+                 }else{
+                     secbheartratenum.setVisibility(View.GONE);
+                     txtbheartratenum.setText("");
+                 }
+
+                 /*if(rbData.equalsIgnoreCase("1"))
                  {
                      secbheartratenum.setVisibility(View.GONE);
-                     linebheartratenum.setVisibility(View.GONE);
+                     //linebheartratenum.setVisibility(View.GONE);
                      txtbheartratenum.setText("");
                      //secanybcompadm.setVisibility(View.GONE);
                      //lineanybcompadm.setVisibility(View.GONE);
@@ -2226,7 +3404,7 @@
                  else if(rbData.equalsIgnoreCase("2"))
                  {
                      secbheartratenum.setVisibility(View.GONE);
-                     linebheartratenum.setVisibility(View.GONE);
+                     //linebheartratenum.setVisibility(View.GONE);
                      txtbheartratenum.setText("");
                      //secanybcompadm.setVisibility(View.GONE);
                      //lineanybcompadm.setVisibility(View.GONE);
@@ -2235,7 +3413,7 @@
                  else if(rbData.equalsIgnoreCase("7"))
                  {
                      secbheartratenum.setVisibility(View.GONE);
-                     linebheartratenum.setVisibility(View.GONE);
+                     //linebheartratenum.setVisibility(View.GONE);
                      txtbheartratenum.setText("");
                      //secanybcompadm.setVisibility(View.GONE);
                      //lineanybcompadm.setVisibility(View.GONE);
@@ -2247,7 +3425,7 @@
                      linebheartratenum.setVisibility(View.VISIBLE);
                      //secanybcompadm.setVisibility(View.VISIBLE);
                      //lineanybcompadm.setVisibility(View.VISIBLE);
-                 }
+                 }*/
              }
              public void onNothingSelected(AdapterView<?> adapterView) {
                  return;
@@ -2260,16 +3438,7 @@
          secanybcompadm=(LinearLayout)findViewById(R.id.secanybcompadm);
          lineanybcompadm=(View)findViewById(R.id.lineanybcompadm);
          Vlblanybcompadm = (TextView) findViewById(R.id.Vlblanybcompadm);
-         rdogrpanybcompadm = (RadioGroup) findViewById(R.id.rdogrpanybcompadm);
 
-         rdoanybcompadm1 = (RadioButton) findViewById(R.id.rdoanybcompadm1);
-         rdoanybcompadm2 = (RadioButton) findViewById(R.id.rdoanybcompadm2);
-         rdoanybcompadm3 = (RadioButton) findViewById(R.id.rdoanybcompadm3);
-         rdoanybcompadm4 = (RadioButton) findViewById(R.id.rdoanybcompadm4);
-         rdoanybcompadm5 = (RadioButton) findViewById(R.id.rdoanybcompadm5);
-         rdoanybcompadm6 = (RadioButton) findViewById(R.id.rdoanybcompadm6);
-         rdoanybcompadm7 = (RadioButton) findViewById(R.id.rdoanybcompadm7);
-         rdoanybcompadm8 = (RadioButton) findViewById(R.id.rdoanybcompadm8);
          secallocobsv=(LinearLayout)findViewById(R.id.secallocobsv);
 
          Vlblallocobsv = (TextView) findViewById(R.id.Vlblallocobsv);
@@ -2315,13 +3484,13 @@
          secbheartrateadm.setVisibility(View.GONE);
          linebheartrateadm.setVisibility(View.GONE);
          secbheartratenum.setVisibility(View.GONE);
-         linebheartratenum.setVisibility(View.GONE);
+         //linebheartratenum.setVisibility(View.GONE);
          secbheartrateadm.setVisibility(View.GONE);
          linebheartrateadm.setVisibility(View.GONE);
          secbheartratenum.setVisibility(View.GONE);
-         linebheartratenum.setVisibility(View.GONE);
+         //linebheartratenum.setVisibility(View.GONE);
          secbheartratenum.setVisibility(View.GONE);
-         linebheartratenum.setVisibility(View.GONE);
+         //linebheartratenum.setVisibility(View.GONE);
          //secanybcompadm.setVisibility(View.GONE);
          //lineanybcompadm.setVisibility(View.GONE);
          //secbheartratenum.setVisibility(View.GONE);
@@ -2335,6 +3504,144 @@
      }
 
 
+    private void InfectionPreObs_Initialize()
+    {
+        secInfDelPlace=(LinearLayout)findViewById(R.id.secInfDelPlace);
+        lineInfDelPlace=(View)findViewById(R.id.lineInfDelPlace);
+        VlblInfDelPlace=(TextView) findViewById(R.id.VlblInfDelPlace);
+        spnInfDelPlace=(Spinner) findViewById(R.id.spnInfDelPlace);
+        List<String> listInfDelPlace = new ArrayList<String>();
+
+        listInfDelPlace.add("");
+        if(COUNTRYCODE.equals(ProjectSetting.NEPAL)) {
+            listInfDelPlace.add("2-Labour Room");
+            listInfDelPlace.add("7-Other");
+            listInfDelPlace.add("9-Don’t know");
+            //listplacedeliv.add("4-MNSC");
+        }
+        else {
+            listInfDelPlace.add("1-Admission Room");
+            listInfDelPlace.add("2-Labour Room");
+            listInfDelPlace.add("3-Operation theatre");
+            listInfDelPlace.add("7-Other");
+            listInfDelPlace.add("9-Don’t know");
+        }
+
+        /*listInfDelPlace.add("1-Admission room");
+        listInfDelPlace.add("2-Labour room");
+        listInfDelPlace.add("3-Operation theatre");
+        listInfDelPlace.add("7-Other");
+        listInfDelPlace.add("9-Don’t know");*/
+        ArrayAdapter<String> adptrInfDelPlace= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listInfDelPlace);
+        spnInfDelPlace.setAdapter(adptrInfDelPlace);
+
+
+        secInfDelPlaceoth=(LinearLayout)findViewById(R.id.secInfDelPlaceoth);
+        VlblInfDelPlaceoth=(TextView) findViewById(R.id.VlblInfDelPlaceoth);
+        txtInfDelPlaceoth=(EditText) findViewById(R.id.txtInfDelPlaceoth);
+        secInfDelMod=(LinearLayout)findViewById(R.id.secInfDelMod);
+        VlblInfDelMod=(TextView) findViewById(R.id.VlblInfDelMod);
+        spnInfDelMod=(Spinner) findViewById(R.id.spnInfDelMod);
+        List<String> listInfDelMod = new ArrayList<String>();
+
+        listInfDelMod.add("");
+        listInfDelMod.add("1-Normal vaginal delivery");
+        listInfDelMod.add("2-Vaginal breech");
+        listInfDelMod.add("3-Vacuum extraction");
+        listInfDelMod.add("4-Forcep (Any)");
+        listInfDelMod.add("5-Elective caesarean section");
+        listInfDelMod.add("6-Emergency caesarean section");
+        listInfDelMod.add("7-C/S not specified");
+        listInfDelMod.add("9-Don’t know");
+        ArrayAdapter<String> adptrInfDelMod= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listInfDelMod);
+        spnInfDelMod.setAdapter(adptrInfDelMod);
+
+        chkInfMCompa=(CheckBox) findViewById(R.id.chkInfMCompa);
+        chkInfMCompb=(CheckBox) findViewById(R.id.chkInfMCompb);
+        chkInfMCompc=(CheckBox) findViewById(R.id.chkInfMCompc);
+        chkInfMCompd=(CheckBox) findViewById(R.id.chkInfMCompd);
+        chkInfMCompe=(CheckBox) findViewById(R.id.chkInfMCompe);
+        chkInfMCompf=(CheckBox) findViewById(R.id.chkInfMCompf);
+        chkInfMCompg=(CheckBox) findViewById(R.id.chkInfMCompg);
+
+        secInfMComp=(LinearLayout)findViewById(R.id.secInfMComp);
+
+        secInfGAge=(LinearLayout)findViewById(R.id.secInfGAge);
+        lineInfGAge=(View)findViewById(R.id.lineInfGAge);
+        VlblInfGAge=(TextView) findViewById(R.id.VlblInfGAge);
+        txtInfGAge=(EditText) findViewById(R.id.txtInfGAge);
+        chkInfGAgeDK=(CheckBox) findViewById(R.id.chkInfGAgeDK);
+        secInfBWeight=(LinearLayout)findViewById(R.id.secInfBWeight);
+        VlblInfBWeight=(TextView) findViewById(R.id.VlblInfBWeight);
+        txtInfBWeight=(EditText) findViewById(R.id.txtInfBWeight);
+        chkInfBWeightDK=(CheckBox) findViewById(R.id.chkInfBWeightDK);
+
+        spnInfDelPlace.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                String spnData = "";
+                if (spnInfDelPlace.getSelectedItem().toString().length() != 0)
+                {
+                    spnData = Connection.SelectedSpinnerValue(spnInfDelPlace.getSelectedItem().toString(), "-");
+                }
+
+                if(spnData.equalsIgnoreCase("7"))
+                {
+                    secInfDelPlaceoth.setVisibility(View.VISIBLE);
+                    //lineInfDelPlaceoth.setVisibility(View.VISIBLE);
+                }else{
+                    secInfDelPlaceoth.setVisibility(View.GONE);
+                    //lineInfDelPlaceoth.setVisibility(View.GONE);
+                    txtInfDelPlaceoth.setText("");
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+            }
+        });
+
+        chkInfGAgeDK.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
+                if ( isChecked )
+                {
+                    txtInfGAge.setText("");
+                }
+            }
+        });
+        txtInfGAge.addTextChangedListener(new TextWatcher() {
+            public void afterTextChanged(Editable s) {}
+            public void beforeTextChanged(CharSequence s, int start,int count, int after) {}
+            public void onTextChanged(CharSequence s, int start,int before, int count) {
+                if(txtInfGAge.getText().toString().length()>0) chkInfGAgeDK.setChecked(false);
+            }
+        });
+
+        chkInfBWeightDK.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
+                if ( isChecked )
+                {
+                    txtInfBWeight.setText("");
+                }
+            }
+        });
+        txtInfBWeight.addTextChangedListener(new TextWatcher() {
+            public void afterTextChanged(Editable s) {}
+            public void beforeTextChanged(CharSequence s, int start,int count, int after) {}
+            public void onTextChanged(CharSequence s, int start,int before, int count) {
+                if(txtInfBWeight.getText().toString().length()>0) chkInfBWeightDK.setChecked(false);
+            }
+        });
+
+        //Hide all skip variables
+        secInfDelPlaceoth.setVisibility(View.GONE);
+    }
+
 
      public String DataSaveObsHis()
      {
@@ -2347,7 +3654,7 @@
              objSave.setCountryCode(txtCountryCode.getText().toString());
              objSave.setFaciCode(txtFaciCode.getText().toString());
              objSave.setDataID(txtDataID.getText().toString());
-             String[] d_rdogrpcard = new String[] {"1","2"};
+             String[] d_rdogrpcard = new String[] {"1","2","7"};
              objSave.setcard("");
              for (int i = 0; i < rdogrpcard.getChildCount(); i++)
              {
@@ -2356,15 +3663,28 @@
              }
 
              objSave.setprevpreg(txtprevpreg.getText().toString());
+             objSave.setprevpregdk(chkprevpregDK.isChecked()?"1":(secprevpreg.isShown()?"2":""));
+
              objSave.setprevliveb(txtprevliveb.getText().toString());
+             objSave.setprevlivebdk(chkprevlivebDK.isChecked()?"1":(secprevliveb.isShown()?"2":""));
+
              objSave.setprevstillb(txtprevstillb.getText().toString());
+             objSave.setprevstillbdk(chkprevstillbDK.isChecked()?"1":(secprevstillb.isShown()?"2":""));
+
              objSave.setprevab(txtprevab.getText().toString());
+             objSave.setprevabdk(chkprevabDK.isChecked()?"1":(secprevab.isShown()?"2":""));
+
              objSave.setprevcsec(txtprevcsec.getText().toString());
+             objSave.setprevcsecdk(chkprevcsecDK.isChecked()?"1":(secprevcsec.isShown()?"2":""));
+
              objSave.setyrslstbth(txtyrslstbth.getText().toString());
+             objSave.setyrslstbthdk(chkyrslstbthDK.isChecked()?"1":(secyrslstbth.isShown()?"2":""));
+
              objSave.setedd(dtpedd.getText().toString().length() > 0 ? Global.DateConvertYMD(dtpedd.getText().toString()) : dtpedd.getText().toString());
              objSave.seteddDK((chkeddDK.isChecked()?"1":(seceddDK.isShown()?"2":"")));
              objSave.setgaadm(txtgaadmi.getText().toString());
-             String[] d_rdogrpgameth = new String[] {"1","2","3","7"};
+             objSave.setgaadmDK(chkgaadmiDK.isChecked()?"1":(secgaadmi.isShown()?"2":""));
+             String[] d_rdogrpgameth = new String[] {"1","2","3","4","7"};
              objSave.setgameth("");
              for (int i = 0; i < rdogrpgameth.getChildCount(); i++)
              {
@@ -2372,7 +3692,7 @@
                  if (rb.isChecked()) objSave.setgameth(d_rdogrpgameth[i]);
              }
 
-             String[] d_rdogrpbb4expect = new String[] {"1","2"};
+             String[] d_rdogrpbb4expect = new String[] {"1","2","7"};
              objSave.setbb4expect("");
              for (int i = 0; i < rdogrpbb4expect.getChildCount(); i++)
              {
@@ -2380,7 +3700,7 @@
                  if (rb.isChecked()) objSave.setbb4expect(d_rdogrpbb4expect[i]);
              }
 
-             String[] d_rdogrpnumbby = new String[] {"1","2","3"};
+             String[] d_rdogrpnumbby = new String[] {"1","2","3","7"};
              objSave.setnumbby("");
              for (int i = 0; i < rdogrpnumbby.getChildCount(); i++)
              {
@@ -2397,7 +3717,7 @@
                  if (rb.isChecked()) objSave.setbheartadm(d_rdogrpbheartadm[i]);
              }
 
-             String[] d_rdogrpbheartrateadm = new String[] {"1","2","3","7"};
+             String[] d_rdogrpbheartrateadm = new String[] {"7","1","2","3"};
              objSave.setbheartrateadm("");
              for (int i = 0; i < rdogrpbheartrateadm.getChildCount(); i++)
              {
@@ -2406,13 +3726,22 @@
              }
 
              objSave.setbheartratenum(txtbheartratenum.getText().toString());
-             String[] d_rdogrpanybcompadm = new String[] {"0","1","2","3","4","5","6","7"};
+             /*String[] d_rdogrpanybcompadm = new String[] {"0","1","2","3","4","5","6","7"};
              objSave.setanybcompadm("");
              for (int i = 0; i < rdogrpanybcompadm.getChildCount(); i++)
              {
                  rb = (RadioButton)rdogrpanybcompadm.getChildAt(i);
                  if (rb.isChecked()) objSave.setanybcompadm(d_rdogrpanybcompadm[i]);
-             }
+             }*/
+             objSave.setanybcompadma(chkanybcompadma.isChecked()?"1":(secanybcompadm.isShown()?"2":""));
+             objSave.setanybcompadmb(chkanybcompadmb.isChecked()?"1":(secanybcompadm.isShown()?"2":""));
+             objSave.setanybcompadmc(chkanybcompadmc.isChecked()?"1":(secanybcompadm.isShown()?"2":""));
+             objSave.setanybcompadmd(chkanybcompadmd.isChecked()?"1":(secanybcompadm.isShown()?"2":""));
+             objSave.setanybcompadme(chkanybcompadme.isChecked()?"1":(secanybcompadm.isShown()?"2":""));
+             objSave.setanybcompadmf(chkanybcompadmf.isChecked()?"1":(secanybcompadm.isShown()?"2":""));
+             objSave.setanybcompadmg(chkanybcompadmg.isChecked()?"1":(secanybcompadm.isShown()?"2":""));
+             objSave.setanybcompadmh(chkanybcompadmh.isChecked()?"1":(secanybcompadm.isShown()?"2":""));
+             objSave.setanybcompadmoth(txtanybcompadmoth.getText().toString());
 
              String[] d_rdogrpallocobsv = new String[] {"1","2"};
              objSave.setallocobsv("");
@@ -2453,7 +3782,7 @@
                  txtCountryCode.setText(item.getCountryCode());
                  txtFaciCode.setText(item.getFaciCode());
                  txtDataID.setText(item.getDataID());
-                 String[] d_rdogrpcard = new String[] {"1","2"};
+                 String[] d_rdogrpcard = new String[] {"1","2","7"};
                  for (int i = 0; i < d_rdogrpcard.length; i++)
                  {
                      if (item.getcard().equals(String.valueOf(d_rdogrpcard[i])))
@@ -2462,12 +3791,31 @@
                          rb.setChecked(true);
                      }
                  }
+
                  txtprevpreg.setText(item.getprevpreg());
+                 if(item.getprevpregdk().equals("1")) chkprevpregDK.setChecked(true); else
+                     chkprevpregDK.setChecked(false);
+
                  txtprevliveb.setText(item.getprevliveb());
+                 if(item.getprevlivebdk().equals("1")) chkprevlivebDK.setChecked(true); else
+                     chkprevlivebDK.setChecked(false);
+
                  txtprevstillb.setText(item.getprevstillb());
+                 if(item.getprevstillbdk().equals("1")) chkprevstillbDK.setChecked(true); else
+                     chkprevstillbDK.setChecked(false);
+
                  txtprevab.setText(item.getprevab());
+                 if(item.getprevabdk().equals("1")) chkprevabDK.setChecked(true); else
+                     chkprevabDK.setChecked(false);
+
                  txtprevcsec.setText(item.getprevcsec());
+                 if(item.getprevcsecdk().equals("1")) chkprevcsecDK.setChecked(true); else
+                     chkprevcsecDK.setChecked(false);
+
                  txtyrslstbth.setText(item.getyrslstbth());
+                 if(item.getyrslstbthdk().equals("1")) chkyrslstbthDK.setChecked(true); else
+                     chkyrslstbthDK.setChecked(false);
+
                  dtpedd.setText(item.getedd().toString().length()==0 ? "" : Global.DateConvertDMY(item.getedd()));
                  if(item.geteddDK().equals("1"))
                  {
@@ -2478,7 +3826,8 @@
                      chkeddDK.setChecked(false);
                  }
                  txtgaadmi.setText(item.getgaadm());
-                 String[] d_rdogrpgameth = new String[] {"1","2","3","7"};
+                 if(item.getgaadmDK().equals("1")) chkgaadmiDK.setChecked(true); else chkgaadmiDK.setChecked(false);
+                 String[] d_rdogrpgameth = new String[] {"1","2","3","4","7"};
                  for (int i = 0; i < d_rdogrpgameth.length; i++)
                  {
                      if (item.getgameth().equals(String.valueOf(d_rdogrpgameth[i])))
@@ -2487,7 +3836,7 @@
                          rb.setChecked(true);
                      }
                  }
-                 String[] d_rdogrpbb4expect = new String[] {"1","2"};
+                 String[] d_rdogrpbb4expect = new String[] {"1","2","7"};
                  for (int i = 0; i < d_rdogrpbb4expect.length; i++)
                  {
                      if (item.getbb4expect().equals(String.valueOf(d_rdogrpbb4expect[i])))
@@ -2496,7 +3845,7 @@
                          rb.setChecked(true);
                      }
                  }
-                 String[] d_rdogrpnumbby = new String[] {"1","2","3"};
+                 String[] d_rdogrpnumbby = new String[] {"1","2","3","7"};
                  for (int i = 0; i < d_rdogrpnumbby.length; i++)
                  {
                      if (item.getnumbby().equals(String.valueOf(d_rdogrpnumbby[i])))
@@ -2515,7 +3864,7 @@
                          rb.setChecked(true);
                      }
                  }
-                 String[] d_rdogrpbheartrateadm = new String[] {"1","2","3","7"};
+                 String[] d_rdogrpbheartrateadm = new String[] {"7","1","2","3"};
                  for (int i = 0; i < d_rdogrpbheartrateadm.length; i++)
                  {
                      if (item.getbheartrateadm().equals(String.valueOf(d_rdogrpbheartrateadm[i])))
@@ -2525,7 +3874,7 @@
                      }
                  }
                  txtbheartratenum.setText(item.getbheartratenum());
-                 String[] d_rdogrpanybcompadm = new String[] {"0","1","2","3","4","5","6","7"};
+                 /*String[] d_rdogrpanybcompadm = new String[] {"0","1","2","3","4","5","6","7"};
                  for (int i = 0; i < d_rdogrpanybcompadm.length; i++)
                  {
                      if (item.getanybcompadm().equals(String.valueOf(d_rdogrpanybcompadm[i])))
@@ -2533,7 +3882,18 @@
                          rb = (RadioButton)rdogrpanybcompadm.getChildAt(i);
                          rb.setChecked(true);
                      }
-                 }
+                 }*/
+
+                 if(item.getanybcompadma().equals("1")) chkanybcompadma.setChecked(true); else chkanybcompadma.setChecked(false);
+                 if(item.getanybcompadmb().equals("1")) chkanybcompadmb.setChecked(true); else chkanybcompadmb.setChecked(false);
+                 if(item.getanybcompadmc().equals("1")) chkanybcompadmc.setChecked(true); else chkanybcompadmc.setChecked(false);
+                 if(item.getanybcompadmd().equals("1")) chkanybcompadmd.setChecked(true); else chkanybcompadmd.setChecked(false);
+                 if(item.getanybcompadme().equals("1")) chkanybcompadme.setChecked(true); else chkanybcompadme.setChecked(false);
+                 if(item.getanybcompadmf().equals("1")) chkanybcompadmf.setChecked(true); else chkanybcompadmf.setChecked(false);
+                 if(item.getanybcompadmg().equals("1")) chkanybcompadmg.setChecked(true); else chkanybcompadmg.setChecked(false);
+                 if(item.getanybcompadmh().equals("1")) chkanybcompadmh.setChecked(true); else chkanybcompadmh.setChecked(false);
+                 txtanybcompadmoth.setText(item.getanybcompadmoth());
+
                  String[] d_rdogrpallocobsv = new String[] {"1","2"};
                  for (int i = 0; i < d_rdogrpallocobsv.length; i++)
                  {
@@ -2565,23 +3925,25 @@
 
          rdoadwghedkmc1 = (RadioButton) findViewById(R.id.rdoadwghedkmc1);
          rdoadwghedkmc2 = (RadioButton) findViewById(R.id.rdoadwghedkmc2);
+         rdoadwghedkmc3 = (RadioButton) findViewById(R.id.rdoadwghedkmc3);
          rdogrpadwghedkmc.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
              @Override
              public void onCheckedChanged(RadioGroup radioGroup,int radioButtonID) {
                  String rbData = "";
                  RadioButton rb;
-                 String[] d_rdogrpadwghedkmc = new String[] {"1","2"};
+                 String[] d_rdogrpadwghedkmc = new String[] {"1","2","7"};
                  for (int i = 0; i < rdogrpadwghedkmc.getChildCount(); i++)
                  {
                      rb = (RadioButton)rdogrpadwghedkmc.getChildAt(i);
                      if (rb.isChecked()) rbData = d_rdogrpadwghedkmc[i];
                  }
 
-                 if(rbData.equalsIgnoreCase("2"))
+                 if(rbData.equalsIgnoreCase("2")|rbData.equalsIgnoreCase("7"))
                  {
                      secadwghtkmc.setVisibility(View.GONE);
                      lineadwghtkmc.setVisibility(View.GONE);
                      txtadwghtkmc.setText("");
+                     chkadwghtkmcDK.setChecked(false);
                  }
                  else
                  {
@@ -2608,10 +3970,20 @@
          List<String> listplacedeliv = new ArrayList<String>();
 
          listplacedeliv.add("");
-         listplacedeliv.add("1-Admission Room");
-         listplacedeliv.add("2-Labour room");
-         listplacedeliv.add("3-Operation theatre");
-         listplacedeliv.add("4-Other");
+         if(COUNTRYCODE.equals(ProjectSetting.NEPAL)) {
+             listplacedeliv.add("2-Labour Room");
+             listplacedeliv.add("7-Other");
+             //listplacedeliv.add("4-MNSC");
+         }
+         else {
+             listplacedeliv.add("1-Admission Room");
+             listplacedeliv.add("2-Labour Room");
+             listplacedeliv.add("3-Operation theatre");
+             listplacedeliv.add("7-Other");
+         }
+
+
+
          ArrayAdapter<String> adptrplacedeliv= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listplacedeliv);
          spnplacedeliv.setAdapter(adptrplacedeliv);
 
@@ -2638,6 +4010,12 @@
                      lineplacedelivoth.setVisibility(View.GONE);
                      txtplacedelivoth.setText("");
                  }
+                 else if(spnData.equalsIgnoreCase("4"))
+                 {
+                     secplacedelivoth.setVisibility(View.GONE);
+                     lineplacedelivoth.setVisibility(View.GONE);
+                     txtplacedelivoth.setText("");
+                 }
                  else
                  {
                      secplacedelivoth.setVisibility(View.VISIBLE);
@@ -2656,10 +4034,6 @@
          linefacnamedeliv=(View)findViewById(R.id.linefacnamedeliv);
          Vlblfacnamedeliv=(TextView) findViewById(R.id.Vlblfacnamedeliv);
          txtfacnamedeliv=(EditText) findViewById(R.id.txtfacnamedeliv);
-
-
-
-
 
          //Hide all skip variables
          secadwghtkmc.setVisibility(View.GONE);
@@ -2684,7 +4058,7 @@
              objSave.setCountryCode(txtCountryCode.getText().toString());
              objSave.setFaciCode(txtFaciCode.getText().toString());
              objSave.setDataID(txtDataID.getText().toString());
-             String[] d_rdogrpadwghedkmc = new String[] {"1","2"};
+             String[] d_rdogrpadwghedkmc = new String[] {"1","2","7"};
              objSave.setadwghedkmc("");
              for (int i = 0; i < rdogrpadwghedkmc.getChildCount(); i++)
              {
@@ -2693,7 +4067,11 @@
              }
 
              objSave.setadwghtkmc(txtadwghtkmc.getText().toString());
+             objSave.setadwghtkmcdk(chkadwghtkmcDK.isChecked()?"1":(secadwghtkmc.isShown()?"2":""));
+
              objSave.setgaadm(txtgaadm.getText().toString());
+             objSave.setgaadmdk(chkgaadmDK.isChecked()?"1":(secgaadm.isShown()?"2":""));
+
              objSave.setplacedeliv((spnplacedeliv.getSelectedItemPosition() == 0 ? "" : Connection.SelectedSpinnerValue(spnplacedeliv.getSelectedItem().toString(), "-")));
              objSave.setplacedelivoth(txtplacedelivoth.getText().toString());
              objSave.setfacnamedeliv(txtfacnamedeliv.getText().toString());
@@ -2717,6 +4095,49 @@
          }
      }
 
+     private String InfectionPreObs_DataSave()
+     {
+         try {
+             String SQL = "";
+             RadioButton rb;
+             InfPreObs_DataModel objSave = new InfPreObs_DataModel();
+             objSave.setCountryCode(txtCountryCode.getText().toString());
+             objSave.setFaciCode(txtFaciCode.getText().toString());
+             objSave.setDataID(txtDataID.getText().toString());
+             objSave.setInfDelPlace((spnInfDelPlace.getSelectedItemPosition() == 0 ? "" : Connection.SelectedSpinnerValue(spnInfDelPlace.getSelectedItem().toString(), "-")));
+             objSave.setInfDelPlaceoth(txtInfDelPlaceoth.getText().toString());
+             objSave.setInfDelMod((spnInfDelMod.getSelectedItemPosition() == 0 ? "" : Connection.SelectedSpinnerValue(spnInfDelMod.getSelectedItem().toString(), "-")));
+             objSave.setInfMCompa((chkInfMCompa.isChecked() ? "1" : (secInfMComp.isShown() ? "2" : "")));
+             objSave.setInfMCompb((chkInfMCompb.isChecked() ? "1" : (secInfMComp.isShown() ? "2" : "")));
+             objSave.setInfMCompc((chkInfMCompc.isChecked() ? "1" : (secInfMComp.isShown() ? "2" : "")));
+             objSave.setInfMCompd((chkInfMCompd.isChecked() ? "1" : (secInfMComp.isShown() ? "2" : "")));
+             objSave.setInfMCompe((chkInfMCompe.isChecked() ? "1" : (secInfMComp.isShown() ? "2" : "")));
+             objSave.setInfMCompf((chkInfMCompf.isChecked() ? "1" : (secInfMComp.isShown() ? "2" : "")));
+             objSave.setInfMCompg((chkInfMCompg.isChecked() ? "1" : (secInfMComp.isShown() ? "2" : "")));
+             objSave.setInfGAge(txtInfGAge.getText().toString());
+             objSave.setInfGAgeDK((chkInfGAgeDK.isChecked() ? "1" : (secInfGAge.isShown() ? "2" : "")));
+             objSave.setInfBWeight(txtInfBWeight.getText().toString());
+             objSave.setInfBWeightDK((chkInfBWeightDK.isChecked() ? "1" : (secInfBWeight.isShown() ? "2" : "")));
+             objSave.setEnDt(Global.DateTimeNowYMDHMS());
+             objSave.setStartTime(STARTTIME);
+             objSave.setEndTime(g.CurrentTime24());
+             objSave.setDeviceID(DEVICEID);
+             objSave.setEntryUser(ENTRYUSER); //from data entry user list
+             objSave.setmodifyDate(Global.DateTimeNowYMDHMS());
+             //objSave.setLat(Double.toString(currentLatitude));
+             //objSave.setLon(Double.toString(currentLongitude));
+
+             String status = objSave.SaveUpdateData(this);
+
+             return status;
+         }
+         catch(Exception  e)
+         {
+             return e.getMessage();
+         }
+     }
+
+
      private void KMCPreObs_DataSearch(String CountryCode, String FaciCode, String DataID)
      {
          try
@@ -2730,7 +4151,7 @@
                  txtCountryCode.setText(item.getCountryCode());
                  txtFaciCode.setText(item.getFaciCode());
                  txtDataID.setText(item.getDataID());
-                 String[] d_rdogrpadwghedkmc = new String[] {"1","2"};
+                 String[] d_rdogrpadwghedkmc = new String[] {"1","2","7"};
                  for (int i = 0; i < d_rdogrpadwghedkmc.length; i++)
                  {
                      if (item.getadwghedkmc().equals(String.valueOf(d_rdogrpadwghedkmc[i])))
@@ -2740,7 +4161,11 @@
                      }
                  }
                  txtadwghtkmc.setText(item.getadwghtkmc());
+                 if(item.getadwghtkmcdk().equals("1")) chkadwghtkmcDK.setChecked(true); else chkadwghtkmcDK.setChecked(false);
+
                  txtgaadm.setText(item.getgaadm());
+                 if(item.getgaadmdk().equals("1")) chkgaadmDK.setChecked(true); else chkgaadmDK.setChecked(false);
+
                  spnplacedeliv.setSelection(Global.SpinnerItemPositionAnyLength(spnplacedeliv, item.getplacedeliv()));
                  txtplacedelivoth.setText(item.getplacedelivoth());
                  txtfacnamedeliv.setText(item.getfacnamedeliv());
@@ -2752,5 +4177,106 @@
              return;
          }
      }
+
+
+     private void InfectionPreObs_DataSearch(String CountryCode, String FaciCode, String DataID)
+     {
+         try
+         {
+
+             RadioButton rb;
+             InfPreObs_DataModel d = new InfPreObs_DataModel();
+             String SQL = "Select * from InfPreObs Where CountryCode='"+ CountryCode +"' and FaciCode='"+ FaciCode +"' and DataID='"+ DataID +"'";
+             List<InfPreObs_DataModel> data = d.SelectAll(this, SQL);
+             for(InfPreObs_DataModel item : data){
+                 txtCountryCode.setText(item.getCountryCode());
+                 txtFaciCode.setText(item.getFaciCode());
+                 txtDataID.setText(item.getDataID());
+                 spnInfDelPlace.setSelection(Global.SpinnerItemPositionAnyLength(spnInfDelPlace, item.getInfDelPlace()));
+                 txtInfDelPlaceoth.setText(item.getInfDelPlaceoth());
+                 spnInfDelMod.setSelection(Global.SpinnerItemPositionAnyLength(spnInfDelMod, item.getInfDelMod()));
+                 if(item.getInfMCompa().equals("1"))
+                 {
+                     chkInfMCompa.setChecked(true);
+                 }
+                 else if(item.getInfMCompa().equals("2"))
+                 {
+                     chkInfMCompa.setChecked(false);
+                 }
+                 if(item.getInfMCompb().equals("1"))
+                 {
+                     chkInfMCompb.setChecked(true);
+                 }
+                 else if(item.getInfMCompb().equals("2"))
+                 {
+                     chkInfMCompb.setChecked(false);
+                 }
+                 if(item.getInfMCompc().equals("1"))
+                 {
+                     chkInfMCompc.setChecked(true);
+                 }
+                 else if(item.getInfMCompc().equals("2"))
+                 {
+                     chkInfMCompc.setChecked(false);
+                 }
+                 if(item.getInfMCompd().equals("1"))
+                 {
+                     chkInfMCompd.setChecked(true);
+                 }
+                 else if(item.getInfMCompd().equals("2"))
+                 {
+                     chkInfMCompd.setChecked(false);
+                 }
+                 if(item.getInfMCompe().equals("1"))
+                 {
+                     chkInfMCompe.setChecked(true);
+                 }
+                 else if(item.getInfMCompe().equals("2"))
+                 {
+                     chkInfMCompe.setChecked(false);
+                 }
+                 if(item.getInfMCompf().equals("1"))
+                 {
+                     chkInfMCompf.setChecked(true);
+                 }
+                 else if(item.getInfMCompf().equals("2"))
+                 {
+                     chkInfMCompf.setChecked(false);
+                 }
+                 if(item.getInfMCompg().equals("1"))
+                 {
+                     chkInfMCompg.setChecked(true);
+                 }
+                 else if(item.getInfMCompg().equals("2"))
+                 {
+                     chkInfMCompg.setChecked(false);
+                 }
+                 txtInfGAge.setText(item.getInfGAge());
+                 if(item.getInfGAgeDK().equals("1"))
+                 {
+                     chkInfGAgeDK.setChecked(true);
+                 }
+                 else if(item.getInfGAgeDK().equals("2"))
+                 {
+                     chkInfGAgeDK.setChecked(false);
+                 }
+                 txtInfBWeight.setText(item.getInfBWeight());
+                 if(item.getInfBWeightDK().equals("1"))
+                 {
+                     chkInfBWeightDK.setChecked(true);
+                 }
+                 else if(item.getInfBWeightDK().equals("2"))
+                 {
+                     chkInfBWeightDK.setChecked(false);
+                 }
+             }
+         }
+         catch(Exception  e)
+         {
+             Connection.MessageBox(Registration.this, e.getMessage());
+             return;
+         }
+     }
+
 
  }

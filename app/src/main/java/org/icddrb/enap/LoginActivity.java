@@ -157,12 +157,12 @@ public class LoginActivity extends Activity {
                             else
                             {
                                 //check for system date
-                                if(ServerDate.equals(Global.TodaysDateforCheck())==false)
+                                /*if(ServerDate.equals(Global.TodaysDateforCheck())==false)
                                 {
                                     Connection.MessageBox(LoginActivity.this, "আপনার ট্যাব এর তারিখ সঠিক নয় ["+ Global.DateNowDMY() +"]।");
                                     startActivity(new Intent(android.provider.Settings.ACTION_DATE_SETTINGS));
                                     return;
-                                }
+                                }*/
 
                                 final ProgressDialog progDailog = ProgressDialog.show(LoginActivity.this, "", "Please Wait . . .", true);
 
@@ -170,7 +170,7 @@ public class LoginActivity extends Activity {
                                     public void run() {
                                         try {
                                             finish();
-                                            Intent f1 = new Intent(getApplicationContext(),MainActivity.class);
+                                            Intent f1 = new Intent(getApplicationContext(),MainActivity2.class);
                                             startActivity(f1);
                                         } catch (Exception e) {
 
@@ -188,7 +188,7 @@ public class LoginActivity extends Activity {
                                 public void run() {
                                     try {
                                         finish();
-                                        Intent f1 = new Intent(getApplicationContext(),MainActivity.class);
+                                        Intent f1 = new Intent(getApplicationContext(),MainActivity2.class);
                                         startActivity(f1);
                                     } catch (Exception e) {
 
@@ -208,7 +208,7 @@ public class LoginActivity extends Activity {
                             public void run() {
                                 try {
                                     finish();
-                                    Intent f1 = new Intent(getApplicationContext(),MainActivity.class);
+                                    Intent f1 = new Intent(getApplicationContext(),MainActivity2.class);
                                     startActivity(f1);
                                 } catch (Exception e) {
 
