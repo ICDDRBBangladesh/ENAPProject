@@ -222,7 +222,7 @@ public class Observation_Time_Orig extends AppCompatActivity {
             SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate)";
             SQL += " Select '"+ COUNTRYCODE +"' CountryCode,'"+ FACICODE +"' FaciCode, '"+ TableId +"' TableId,'"+ DataId +"' DataID, VarName,'N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'"+ DEVICEID +"' DeviceId,'"+ ENTRYUSER +"' EntryUser,''Upload,''modifyDate from ObjVarList v";
             SQL += " where not exists(select CountryCode from Observation where CountryCode='"+ COUNTRYCODE +"' and FaciCode='"+ FACICODE +"' and TableId='"+ TableId +"' and DataId='"+ DataId +"' and VarName=v.VarName)";
-            C.Save(SQL);
+            C.SaveDT(SQL);
 
             SQL = " Select v.TableId, v.VarName, v.Description, v.ObjSeq1, v.ObjSeq2, (case when o.Observ is null then '' else o.Observ end) Status,";
             SQL += " VarData,";
@@ -240,7 +240,7 @@ public class Observation_Time_Orig extends AppCompatActivity {
             SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,SL,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate)";
             SQL += " Select '"+ COUNTRYCODE +"' CountryCode,'"+ FACICODE +"' FaciCode, '"+ TableId +"' TableId,'"+ DataId +"' DataID, VarName,'"+ ChildSL +"','N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'"+ DEVICEID +"' DeviceId,'"+ ENTRYUSER +"' EntryUser,''Upload,''modifyDate from ObjVarList v";
             SQL += " where not exists(select CountryCode from Observation where CountryCode='"+ COUNTRYCODE +"' and FaciCode='"+ FACICODE +"' and TableId='"+ TableId +"' and DataId='"+ DataId +"' and VarName=v.VarName and SL=v.SL)";
-            C.Save(SQL);
+            C.SaveDT(SQL);
 
             SQL = " Select v.TableId, v.VarName, v.Description, v.ObjSeq1, v.ObjSeq2, (case when o.Observ is null then '' else o.Observ end) Status,";
             SQL += " VarData,";

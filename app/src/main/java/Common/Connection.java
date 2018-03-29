@@ -134,7 +134,7 @@ public class Connection extends SQLiteOpenHelper {
         List<String> dataList = Global.ReadTextFile(fileName);
         Connection C = new Connection(ud_context);
         for (int i = 0; i < dataList.size(); i++) {
-            C.Save(dataList.get(i));
+            C.SaveDT(dataList.get(i));
         }
     }
 
@@ -247,7 +247,7 @@ public class Connection extends SQLiteOpenHelper {
 
     //Save/Update/Delete data in to database
     //----------------------------------------------------------------------------------------------
-    public void Save(String SQL) {
+    public void SaveDT(String SQL) {
         String response = "";
         SQLiteDatabase db = this.getWritableDatabase();
         try {
@@ -259,7 +259,6 @@ public class Connection extends SQLiteOpenHelper {
         }
     }
 
-    //Date: 22 Jun 2017 for DataSync
     public String SaveData(String SQL) {
         String response = "";
         SQLiteDatabase db = this.getWritableDatabase();
@@ -418,12 +417,13 @@ public class Connection extends SQLiteOpenHelper {
         return data;
     }
 
-    public List<DataClassProperty> GetDataListJSON(String VariableList, String TableName, String UniqueField) {
+    public List<DataClassProperty> GetDataListJSON(String VariableList, String TableName, String UniqueField, Integer BatchSize) {
         String SQL = "";
         if(TableName.equalsIgnoreCase("observation"))
-            SQL = "Select " + VariableList + " from " + TableName + " where Upload='2' and length(ObservDT)<>0";
+            SQL = "Select " + VariableList + " from " + TableName + " where Upload='2' and length(ObservDT)<>0 limit "+ BatchSize;
         else
-            SQL = "Select " + VariableList + " from " + TableName + " where Upload='2'";
+            SQL = "Select " + VariableList + " from " + TableName + " where Upload='2' limit "+ BatchSize;
+
 
         Cursor cur_H = ReadData(SQL);
         cur_H.moveToFirst();
@@ -603,7 +603,7 @@ public class Connection extends SQLiteOpenHelper {
                         }
                     }
 
-                    Save(SQL);
+                    SaveDT(SQL);
                 }
                 //Insert command
                 else {
@@ -617,7 +617,7 @@ public class Connection extends SQLiteOpenHelper {
                     }
                     SQL += ")";
 
-                    Save(SQL);
+                    SaveDT(SQL);
                 }
 
                 dataStatus.add(WhereClause);
@@ -693,7 +693,7 @@ public class Connection extends SQLiteOpenHelper {
                         }
                     }
 
-                    Save(SQL);
+                    SaveDT(SQL);
                 }
                 //Insert command
                 else {
@@ -707,7 +707,7 @@ public class Connection extends SQLiteOpenHelper {
                     }
                     SQL += ")";
 
-                    Save(SQL);
+                    SaveDT(SQL);
                 }
 
                 dataStatus.add(WhereClause);
@@ -786,7 +786,7 @@ public class Connection extends SQLiteOpenHelper {
                 //Delete command
                 SQL = "Delete from " + LocalTableName + " Where " + WhereClause;
 
-                Save(SQL);
+                SaveDT(SQL);
 
                 dataStatus.add(WhereClause);
             }
@@ -863,7 +863,7 @@ public class Connection extends SQLiteOpenHelper {
                 //Delete command
                 SQL = "Delete from " + LocalTableName + " Where " + WhereClause;
 
-                Save(SQL);
+                SaveDT(SQL);
 
                 dataStatus.add(WhereClause);
             }
@@ -925,9 +925,9 @@ public class Connection extends SQLiteOpenHelper {
         return dataStatus;
     }
 
-    public String UploadJSON(String TableName, String ColumnList, String UniqueFields) {
+    public String UploadJSON(String TableName, String ColumnList, String UniqueFields, Integer BatchSize) {
         String response = "";
-        List<DataClassProperty> data = GetDataListJSON(ColumnList, TableName, UniqueFields);
+        List<DataClassProperty> data = GetDataListJSON(ColumnList, TableName, UniqueFields,BatchSize);
 
         if (data.size() > 0) {
             DataClass dt = new DataClass();
@@ -951,14 +951,14 @@ public class Connection extends SQLiteOpenHelper {
 
                     //upload all records as successfull upload then update status of upload=2 for unsuccessfull
                     /*for (int i = 0; i < responseData.getdata().size(); i++) {
-                        Save("Update " + TableName + " Set Upload='1' where " + responseData.getdata().get(i).toString());
+                        SaveDT("Update " + TableName + " Set Upload='1' where " + responseData.getdata().get(i).toString());
                     }*/
 
                     String UpdateSQL = "";
                     for (int i = 0; i < responseData.getdata().size(); i++) {
                         UpdateSQL += "Update " + TableName + " Set Upload='1' where " + responseData.getdata().get(i).toString() +";";
                     }
-                    Save(UpdateSQL);
+                    SaveDT(UpdateSQL);
                 }
 
             } catch (Exception e) {
@@ -969,9 +969,9 @@ public class Connection extends SQLiteOpenHelper {
     }
 
     //23 Jun 2017
-    public String UploadJSON_Merge(String TableName, String ColumnList, String UniqueFields) {
+    public String UploadJSON_Merge(String TableName, String ColumnList, String UniqueFields, Integer BatchSize) {
         String response = "";
-        List<DataClassProperty> data = GetDataListJSON(ColumnList, TableName, UniqueFields);
+        List<DataClassProperty> data = GetDataListJSON(ColumnList, TableName, UniqueFields,BatchSize);
 
         if (data.size() > 0) {
             DataClass dt = new DataClass();
@@ -991,15 +991,15 @@ public class Connection extends SQLiteOpenHelper {
                     }.getType();
 
                     ResponseClass responseData = gson.fromJson(response, collType);
-                    Save(responseData.getdata().toString());
+                    SaveDT(responseData.getdata().toString());
 
                     //upload all records as successfull upload then update status of upload=2 for unsuccessfull
                     /*String UpdateSQL = "";
                     for (int i = 0; i < responseData.getdata().size(); i++) {
                         UpdateSQL += "Update " + TableName + " Set Upload='1' where " + responseData.getdata().get(i).toString() +";";
-                        //Save("Update " + TableName + " Set Upload='1' where " + responseData.getdata().get(i).toString());
+                        //SaveDT("Update " + TableName + " Set Upload='1' where " + responseData.getdata().get(i).toString());
                     }
-                    Save(UpdateSQL);*/
+                    SaveDT(UpdateSQL);*/
                 }
 
             } catch (Exception e) {
@@ -1465,6 +1465,7 @@ public class Connection extends SQLiteOpenHelper {
         return resp;
     }
 */
+
     //done
     public String[] Sync_Parameter(String TableName) {
         String VariableList = "";
@@ -1582,7 +1583,26 @@ public class Connection extends SQLiteOpenHelper {
         }
         cur_H.close();
 
-        Res = UploadJSON(TableName, VariableList, UniqueField);
+        Integer batchSize = 500;
+        Integer totalRecords = 0;
+        if(TableName.equalsIgnoreCase("observation"))
+            totalRecords = Integer.valueOf(ReturnSingleValue("Select count(*)totalrecord from " + TableName + " where Upload='2' and length(ObservDT)<>0"));
+        else
+            totalRecords = Integer.valueOf(ReturnSingleValue("Select count(*)totalrecord from " + TableName + " where Upload='2'"));
+
+
+        Integer totalBatch = 1;
+
+        if (batchSize == 0) {
+            totalBatch = 1;
+            batchSize = totalRecords;
+        } else if (batchSize > 0) {
+            totalBatch = totalRecords / batchSize;
+            if (totalRecords % batchSize > 0)
+                totalBatch += 1;
+        }
+        for(int i=0; i<totalBatch;i++)
+            Res = UploadJSON(TableName, VariableList, UniqueField,batchSize);
     }
 
 
@@ -1680,7 +1700,7 @@ public class Connection extends SQLiteOpenHelper {
                 }
             }
             if (matched == false) {
-                Save("Alter table " + TableName + " add column " + newVariable + " varchar(50) default ''");
+                SaveDT("Alter table " + TableName + " add column " + newVariable + " varchar(50) default ''");
             }
         }
     }
@@ -1793,7 +1813,7 @@ public class Connection extends SQLiteOpenHelper {
                             rowTableName = VarData[r].toString();
                     }
 
-                    Save(SQL);
+                    SaveDT(SQL);
                     TableStructureSync(rowTableName);
                 }
                 //Insert command
@@ -1815,7 +1835,7 @@ public class Connection extends SQLiteOpenHelper {
                     }
                     SQL += ")";
 
-                    Save(SQL);
+                    SaveDT(SQL);
                     TableStructureSync(rowTableName);
                 }
 
@@ -1942,7 +1962,7 @@ public class Connection extends SQLiteOpenHelper {
 
                     }
 
-                    Save(SQL);
+                    SaveDT(SQL);
 
                     TableStructureSync(rowTableName);
                 }
@@ -1969,7 +1989,7 @@ public class Connection extends SQLiteOpenHelper {
                     }
                     SQL += ")";
 
-                    Save(SQL);
+                    SaveDT(SQL);
                     TableStructureSync(rowTableName);
                 }
 
@@ -2145,6 +2165,38 @@ public class Connection extends SQLiteOpenHelper {
             C.Sync_Download("DataCollector", UniqueID, "CountryCode='"+ CountryCode +"' and FaciCode='"+ FaciCode +"'");
             C.Sync_Download("AreaDB",UniqueID,"CCode='"+ CountryCode +"'");
 
+            //Delete data from the local device
+            //09 Jan 2018
+            String UniqueID_Column = "";
+            String[] UniqueID_List;
+
+            try {
+                C.Sync_Download("DeleteID_List",UniqueID,"");
+
+                Cursor cur_H = C.ReadData("Select TableName,ID from DeleteID_List Where DeleteStatus='N' limit 50");
+                cur_H.moveToFirst();
+                while (!cur_H.isAfterLast()) {
+                    UniqueID_Column = "";
+                    UniqueID = C.ReturnSingleValue("select UniqueID from DatabaseTab where TableName='" + cur_H.getString(cur_H.getColumnIndex("TableName")) + "'");
+                    UniqueID_List = UniqueID.split(",");
+                    for (int i = 0; i < UniqueID_List.length; i++) {
+                        UniqueID_Column += UniqueID_Column.length() == 0 ? "Cast(" + UniqueID_List[i] + " as varchar(50))" : "||Cast(" + UniqueID_List[i] + " as varchar(50))";
+                    }
+
+                    try {
+                        C.SaveDT("Delete from " + cur_H.getString(cur_H.getColumnIndex("TableName")) + " where " + UniqueID_Column + "='" + cur_H.getString(cur_H.getColumnIndex("ID")) + "'");
+                        C.SaveDT("Update DeleteID_List set DeleteStatus='Y' where ID='" + cur_H.getString(cur_H.getColumnIndex("ID")) + "'");
+                    } catch (Exception ex) {
+
+                    }
+                    cur_H.moveToNext();
+                }
+                cur_H.close();
+
+            }catch (Exception ex){
+
+            }
+
             //Sync_Download
             // Parameter 1: table Name
             // Parameter 2: UniqueID of Device
@@ -2153,8 +2205,6 @@ public class Connection extends SQLiteOpenHelper {
             //C.Sync_Download("Registration", UniqueID,"CountryCode='"+ CountryCode +"' and FaciCode='"+ FaciCode +"' and DeviceID='"+ UniqueID +"'");
             //C.Sync_Download("ObsHisCurPreg", UniqueID,"CountryCode='"+ CountryCode +"' and FaciCode='"+ FaciCode +"' and DeviceID='"+ UniqueID +"'");
             //C.Sync_Download("KmcPreObs", UniqueID,"CountryCode='"+ CountryCode +"' and FaciCode='"+ FaciCode +"' and DeviceID='"+ UniqueID +"'");
-
-
 
             //Sync_Upload
             // Parameter 1: table list
@@ -2366,9 +2416,9 @@ public class Connection extends SQLiteOpenHelper {
         return data;
     }
 
-    public String UploadJSON_Sync_Management(String TableName, String ColumnList, String UniqueFields) {
+    public String UploadJSON_Sync_Management(String TableName, String ColumnList, String UniqueFields,Integer BatchSize) {
         String response = "";
-        List<DataClassProperty> data = GetDataListJSON(ColumnList, TableName, UniqueFields);
+        List<DataClassProperty> data = GetDataListJSON(ColumnList, TableName, UniqueFields, BatchSize);
 
         if (data.size() > 0) {
             DataClass dt = new DataClass();
@@ -2391,7 +2441,7 @@ public class Connection extends SQLiteOpenHelper {
 
                     //upload all records as successfull upload then update status of upload=2 for unsuccessfull
                     for (int i = 0; i < responseData.getdata().size(); i++) {
-                        Save("Update " + TableName + " Set Upload='1' where " + responseData.getdata().get(i).toString());
+                        SaveDT("Update " + TableName + " Set Upload='1' where " + responseData.getdata().get(i).toString());
                     }
                 }
 
@@ -2402,7 +2452,7 @@ public class Connection extends SQLiteOpenHelper {
         return response;
     }
 
-    private String Upload_Sync_Management(String SQL, String TableName, String ColumnList, String UniqueField, String UserId) {
+    private String Upload_Sync_Management(String SQL, String TableName, String ColumnList, String UniqueField, String UserId,Integer BatchSize) {
         String WhereClause = "";
         int varPos = 0;
 
@@ -2420,7 +2470,7 @@ public class Connection extends SQLiteOpenHelper {
             // loop start ****
             String UField[] = UniqueField.split(",");
             String VarList[] = ColumnList.split(",");
-            List<DataClassProperty> datalist = GetDataListJSON(ColumnList, TableName, UniqueField);
+            List<DataClassProperty> datalist = GetDataListJSON(ColumnList, TableName, UniqueField,BatchSize);
 
             //if (datalist.size() > 0) {
             for(int i=0;i<datalist.size();i++){
@@ -2835,7 +2885,7 @@ public class Connection extends SQLiteOpenHelper {
                             modifyDate = VarData[r].toString();
                     }
 
-                    Save(SQL);
+                    SaveDT(SQL);
                 }
                 //Insert command
                 else {
@@ -2853,7 +2903,7 @@ public class Connection extends SQLiteOpenHelper {
                     }
                     SQL += ")";
 
-                    Save(SQL);
+                    SaveDT(SQL);
                 }
 
                 DataList = TableName + "^" + UID + "^" + UserId + "^" + modifyDate;

@@ -218,7 +218,7 @@ public class Observation extends TabActivity{
                 adb.setNegativeButton("No", null);
                 adb.setPositiveButton("Yes", new AlertDialog.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        C.Save("Update Registration set ObjPause=(case when ObjPause='1' then '2' else '1' end),Upload='2',modifyDate='"+ Global.DateTimeNowYMDHMS() +"' where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and DataId='" + DATAID + "'");
+                        C.SaveDT("Update Registration set ObjPause=(case when ObjPause='1' then '2' else '1' end),Upload='2',modifyDate='"+ Global.DateTimeNowYMDHMS() +"' where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and DataId='" + DATAID + "'");
 
                         String SQL = "";
                         SQL = "Insert into ObjPauseLog(CountryCode, FaciCode, DataID, DT, DeviceID, EntryUser, Upload, modifyDate)Values(";
@@ -230,7 +230,7 @@ public class Observation extends TabActivity{
                         SQL += "'"+ ENTRYUSER +"',";
                         SQL += "'2',";
                         SQL += "'"+ Global.DateTimeNowYMDHMS() +"')";
-                        C.Save(SQL);
+                        C.SaveDT(SQL);
 
                         PauseObservation();
 
@@ -292,7 +292,7 @@ public class Observation extends TabActivity{
                     adb.setNegativeButton("Back to Observation", null);
                     adb.setPositiveButton("Continue Stop", new AlertDialog.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            C.Save("Update Registration set CompleteStatus='stop',modifyDate='"+ Global.DateTimeNowYMDHMS() +"' where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and DataId='" + DATAID + "'");
+                            C.SaveDT("Update Registration set CompleteStatus='stop',modifyDate='"+ Global.DateTimeNowYMDHMS() +"' where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and DataId='" + DATAID + "'");
                             //dialog.dismiss();
                             tabHost1.setCurrentTab(4);
                         }});

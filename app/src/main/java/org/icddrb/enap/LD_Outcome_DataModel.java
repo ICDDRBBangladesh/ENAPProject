@@ -323,7 +323,7 @@ import android.content.Context;
             try
               {
                  SQL = "Insert into "+ TableName +" (CountryCode,FaciCode,DataID,motcond,discdt,disctm,disctmdk,discto,disctooth,c1cond,c1deathdt,c1deathtm,c1deathdk,c1transto,c1transtooth,c1hospregno,c2cond,c2deathdt,c2deathtm,c2deathdk,c2transto,c2transtooth,c2hospregno,c3cond,c3deathdt,c3deathtm,c3deathdk,c3transto,c3transtooth,c3hospregno,objstatus,whyincom,reason,incirep,incident,inciformsl,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload,modifyDate)Values('"+ _CountryCode +"', '"+ _FaciCode +"', '"+ _DataID +"', '"+ _motcond +"', '"+ _discdt +"', '"+ _disctm +"', '"+ _disctmdk +"', '"+ _discto +"', '"+ _disctooth +"', '"+ _c1cond +"', '"+ _c1deathdt +"', '"+ _c1deathtm +"', '"+ _c1deathdk +"', '"+ _c1transto +"', '"+ _c1transtooth +"', '"+ _c1hospregno +"', '"+ _c2cond +"', '"+ _c2deathdt +"', '"+ _c2deathtm +"', '"+ _c2deathdk +"', '"+ _c2transto +"', '"+ _c2transtooth +"', '"+ _c2hospregno +"', '"+ _c3cond +"', '"+ _c3deathdt +"', '"+ _c3deathtm +"', '"+ _c3deathdk +"', '"+ _c3transto +"', '"+ _c3transtooth +"', '"+ _c3hospregno +"', '"+ _objstatus +"', '"+ _whyincom +"', '"+ _reason +"', '"+ _incirep +"', '"+ _incident +"', '"+ _inciformsl +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"', '"+ _modifyDate +"')";
-                 C.Save(SQL);
+                 response = C.SaveData(SQL);
                  C.close();
               }
               catch(Exception  e)
@@ -341,7 +341,7 @@ import android.content.Context;
             try
               {
                  SQL = "Update "+ TableName +" Set Upload='2',modifyDate='" + _modifyDate + "' ,CountryCode = '"+ _CountryCode +"',FaciCode = '"+ _FaciCode +"',DataID = '"+ _DataID +"',motcond = '"+ _motcond +"',discdt = '"+ _discdt +"',disctm = '"+ _disctm +"',disctmdk = '"+ _disctmdk +"',discto = '"+ _discto +"',disctooth = '"+ _disctooth +"',c1cond = '"+ _c1cond +"',c1deathdt = '"+ _c1deathdt +"',c1deathtm = '"+ _c1deathtm +"',c1deathdk = '"+ _c1deathdk +"',c1transto = '"+ _c1transto +"',c1transtooth = '"+ _c1transtooth +"',c1hospregno = '"+ _c1hospregno +"',c2cond = '"+ _c2cond +"',c2deathdt = '"+ _c2deathdt +"',c2deathtm = '"+ _c2deathtm +"',c2deathdk = '"+ _c2deathdk +"',c2transto = '"+ _c2transto +"',c2transtooth = '"+ _c2transtooth +"',c2hospregno = '"+ _c2hospregno +"',c3cond = '"+ _c3cond +"',c3deathdt = '"+ _c3deathdt +"',c3deathtm = '"+ _c3deathtm +"',c3deathdk = '"+ _c3deathdk +"',c3transto = '"+ _c3transto +"',c3transtooth = '"+ _c3transtooth +"',c3hospregno = '"+ _c3hospregno +"',objstatus = '"+ _objstatus +"',whyincom = '"+ _whyincom +"',reason = '"+ _reason +"',incirep = '"+ _incirep +"',incident = '"+ _incident +"',inciformsl = '"+ _inciformsl +"'  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and DataID='"+ _DataID +"'";
-                 C.Save(SQL);
+                 response = C.SaveData(SQL);
                  C.close();
               }
               catch(Exception  e)

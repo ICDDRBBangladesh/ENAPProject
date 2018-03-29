@@ -295,7 +295,7 @@ import android.content.Context;
             try
               {
                  SQL = "Insert into "+ TableName +" (CountryCode,FaciCode,DataID,refdoe,refgald,refgaldnot,refacsgiven,reftypebirth,refdelivdate,refdelivtime,refgacalc,refgacalcnot,refmedadeliv,refbStatus,Refsbtype,refbsex,refbwgt,refbwgtnot,refbstim,refbplast,refappcord,refbbfd,refpph,refpphnot,refretainplac,refbcond,refdodld,reftodld,refdisoutld,refTransPlace,refmatcond,refTransPlaceM,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload,modifyDate)Values('"+ _CountryCode +"', '"+ _FaciCode +"', '"+ _DataID +"', '"+ _refdoe +"', '"+ _refgald +"', '"+ _refgaldnot +"', '"+ _refacsgiven +"', '"+ _reftypebirth +"', '"+ _refdelivdate +"', '"+ _refdelivtime +"', '"+ _refgacalc +"', '"+ _refgacalcnot +"', '"+ _refmedadeliv +"', '"+ _refbStatus +"', '"+ _Refsbtype +"', '"+ _refbsex +"', '"+ _refbwgt +"', '"+ _refbwgtnot +"', '"+ _refbstim +"', '"+ _refbplast +"', '"+ _refappcord +"', '"+ _refbbfd +"', '"+ _refpph +"', '"+ _refpphnot +"', '"+ _refretainplac +"', '"+ _refbcond +"', '"+ _refdodld +"', '"+ _reftodld +"', '"+ _refdisoutld +"', '"+ _refTransPlace +"', '"+ _refmatcond +"', '"+ _refTransPlaceM +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"', '"+ _modifyDate +"')";
-                 C.Save(SQL);
+                 C.SaveDT(SQL);
                  C.close();
               }
               catch(Exception  e)
@@ -313,7 +313,7 @@ import android.content.Context;
             try
               {
                  SQL = "Update "+ TableName +" Set Upload='2',modifyDate='" + _modifyDate + "' ,CountryCode = '"+ _CountryCode +"',FaciCode = '"+ _FaciCode +"',DataID = '"+ _DataID +"',refdoe = '"+ _refdoe +"',refgald = '"+ _refgald +"',refgaldnot = '"+ _refgaldnot +"',refacsgiven = '"+ _refacsgiven +"',reftypebirth = '"+ _reftypebirth +"',refdelivdate = '"+ _refdelivdate +"',refdelivtime = '"+ _refdelivtime +"',refgacalc = '"+ _refgacalc +"',refgacalcnot = '"+ _refgacalcnot +"',refmedadeliv = '"+ _refmedadeliv +"',refbStatus = '"+ _refbStatus +"',Refsbtype = '"+ _Refsbtype +"',refbsex = '"+ _refbsex +"',refbwgt = '"+ _refbwgt +"',refbwgtnot = '"+ _refbwgtnot +"',refbstim = '"+ _refbstim +"',refbplast = '"+ _refbplast +"',refappcord = '"+ _refappcord +"',refbbfd = '"+ _refbbfd +"',refpph = '"+ _refpph +"',refpphnot = '"+ _refpphnot +"',refretainplac = '"+ _refretainplac +"',refbcond = '"+ _refbcond +"',refdodld = '"+ _refdodld +"',reftodld = '"+ _reftodld +"',refdisoutld = '"+ _refdisoutld +"',refTransPlace = '"+ _refTransPlace +"',refmatcond = '"+ _refmatcond +"',refTransPlaceM = '"+ _refTransPlaceM +"'  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and DataID='"+ _DataID +"'";
-                 C.Save(SQL);
+                 C.SaveDT(SQL);
                  C.close();
               }
               catch(Exception  e)

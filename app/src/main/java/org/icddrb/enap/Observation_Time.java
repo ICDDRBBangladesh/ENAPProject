@@ -365,25 +365,25 @@ public class Observation_Time extends AppCompatActivity {
         SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,SL,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate,Active)";
         SQL += " Select '" + COUNTRYCODE + "' CountryCode,'" + FACICODE + "' FaciCode, '1' TableId,'" + DataId + "' DataID, VarName,'','N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'" + DEVICEID + "' DeviceId,'" + ENTRYUSER + "' EntryUser,'2'Upload,'" + Global.DateTimeNowYMDHMS() + "' modifyDate,v.Active from ObjVarList v";
         SQL += " where TableId='1' and not exists(select CountryCode from Observation where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and TableId='1' and DataId='" + DataId + "' and VarName=v.VarName and SL='')";
-        C.Save(SQL);
+        C.SaveDT(SQL);
 
         //Table:2
         SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,SL,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate,Active)";
         SQL += " Select '" + COUNTRYCODE + "' CountryCode,'" + FACICODE + "' FaciCode, '2' TableId,'" + DataId + "' DataID, VarName,'" + ChildSL + "','N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'" + DEVICEID + "' DeviceId,'" + ENTRYUSER + "' EntryUser,'2'Upload,'" + Global.DateTimeNowYMDHMS() + "' modifyDate,v.Active from ObjVarList v";
         SQL += " where TableId='2' and not exists(select CountryCode from Observation where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and TableId='2' and DataId='" + DataId + "' and VarName=v.VarName and SL='" + ChildSL + "')";
-        C.Save(SQL);
+        C.SaveDT(SQL);
 
         //Table:3
         SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,SL,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate,Active)";
         SQL += " Select '" + COUNTRYCODE + "' CountryCode,'" + FACICODE + "' FaciCode, '3' TableId,'" + DataId + "' DataID, VarName,'" + ChildSL + "','N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'" + DEVICEID + "' DeviceId,'" + ENTRYUSER + "' EntryUser,'2'Upload,'" + Global.DateTimeNowYMDHMS() + "' modifyDate,v.Active from ObjVarList v";
         SQL += " where TableId='3' and not exists(select CountryCode from Observation where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and TableId='3' and DataId='" + DataId + "' and VarName=v.VarName and SL='" + ChildSL + "')";
-        C.Save(SQL);
+        C.SaveDT(SQL);
 
         //Table:4
         SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,SL,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate,Active)";
         SQL += " Select '" + COUNTRYCODE + "' CountryCode,'" + FACICODE + "' FaciCode, '4' TableId,'" + DataId + "' DataID, VarName,'','N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'" + DEVICEID + "' DeviceId,'" + ENTRYUSER + "' EntryUser,'2'Upload,'" + Global.DateTimeNowYMDHMS() + "' modifyDate,v.Active from ObjVarList v";
         SQL += " where TableId='4' and not exists(select CountryCode from Observation where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and TableId='4' and DataId='" + DataId + "' and VarName=v.VarName and SL='')";
-        C.Save(SQL);
+        C.SaveDT(SQL);
 
 
         if(WomanChild.equals("w")) {
@@ -391,7 +391,7 @@ public class Observation_Time extends AppCompatActivity {
                 SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,SL,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate,Active)";
                 SQL += " Select '" + COUNTRYCODE + "' CountryCode,'" + FACICODE + "' FaciCode, '" + TableId + "' TableId,'" + DataId + "' DataID, VarName,'','N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'" + DEVICEID + "' DeviceId,'" + ENTRYUSER + "' EntryUser,'2'Upload,'" + Global.DateTimeNowYMDHMS() + "' modifyDate,v.Active from ObjVarList v";
                 SQL += " where TableId='" + TableId + "' and not exists(select CountryCode from Observation where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and TableId='" + TableId + "' and DataId='" + DataId + "' and VarName=v.VarName)";
-                C.Save(SQL);
+                C.SaveDT(SQL);
             }
             SQL = " Select v.TableId, v.VarName, (case when o.sl is null then '' else o.sl end)SL, v.Description, v.ObjSeq1, v.ObjSeq2, (case when o.Observ is null then '' else o.Observ end) Status,";
             SQL += " VarData,";
@@ -411,7 +411,7 @@ public class Observation_Time extends AppCompatActivity {
                 SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,SL,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate)";
                 SQL += " Select '" + COUNTRYCODE + "' CountryCode,'" + FACICODE + "' FaciCode, '" + TableId + "' TableId,'" + DataId + "' DataID, VarName,'" + ChildSL + "','N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'" + DEVICEID + "' DeviceId,'" + ENTRYUSER + "' EntryUser,'2'Upload,'" + Global.DateTimeNowYMDHMS() + "' modifyDate from ObjVarList v";
                 SQL += " where TableId='" + TableId + "' and not exists(select CountryCode from Observation where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and TableId='" + TableId + "' and DataId='" + DataId + "' and VarName=v.VarName and SL='" + ChildSL + "')";
-                C.Save(SQL);
+                C.SaveDT(SQL);
             }*/
 
             SQL = " Select v.TableId, v.VarName, (case when o.sl is null then '' else o.sl end)SL, v.Description, v.ObjSeq1, v.ObjSeq2, (case when o.Observ is null then '' else o.Observ end) Status,";
@@ -433,7 +433,7 @@ public class Observation_Time extends AppCompatActivity {
                 SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,SL,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate,Active)";
                 SQL += " Select '" + COUNTRYCODE + "' CountryCode,'" + FACICODE + "' FaciCode, '" + TableId + "' TableId,'" + DataId + "' DataID, VarName,'" + ChildSL + "','N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'" + DEVICEID + "' DeviceId,'" + ENTRYUSER + "' EntryUser,'2'Upload,'" + Global.DateTimeNowYMDHMS() + "' modifyDate,v.Active from ObjVarList v";
                 SQL += " where TableId='" + TableId + "' and not exists(select CountryCode from Observation where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and TableId='" + TableId + "' and DataId='" + DataId + "' and VarName=v.VarName and SL='" + ChildSL + "')";
-                C.Save(SQL);
+                C.SaveDT(SQL);
             }
 
             SQL = " Select v.TableId, v.VarName, (case when o.sl is null then '' else o.sl end)SL, v.Description, v.ObjSeq1, v.ObjSeq2, (case when o.Observ is null then '' else o.Observ end) Status,";
@@ -453,7 +453,7 @@ public class Observation_Time extends AppCompatActivity {
                 SQL = "Insert into Observation(CountryCode,FaciCode,TableId,DataID,VarName,SL,Observ,VarData,ObservDT,FirstTm,FinalTm,EnDt,DeviceId,EntryUser,Upload,modifyDate,Active)";
                 SQL += " Select '" + COUNTRYCODE + "' CountryCode,'" + FACICODE + "' FaciCode, '" + TableId + "' TableId,'" + DataId + "' DataID, VarName,'','N'Observ,'' VarData,''ObservDT,''FirstTm,''FinalTm,''EnDt,'" + DEVICEID + "' DeviceId,'" + ENTRYUSER + "' EntryUser,'2'Upload,'" + Global.DateTimeNowYMDHMS() + "' modifyDate,v.Active from ObjVarList v";
                 SQL += " where TableId='" + TableId + "' and not exists(select CountryCode from Observation where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and TableId='" + TableId + "' and DataId='" + DataId + "' and VarName=v.VarName)";
-                C.Save(SQL);
+                C.SaveDT(SQL);
             }
 
             SQL = " Select v.TableId, v.VarName, (case when o.sl is null then '' else o.sl end)SL, v.Description, v.ObjSeq1, v.ObjSeq2, (case when o.Observ is null then '' else o.Observ end) Status,";
@@ -683,12 +683,12 @@ public class Observation_Time extends AppCompatActivity {
                                     VariableList_DataModel varlist1 = variableList.get(position + i);
                                     if(!varlist1.getVarName().equalsIgnoreCase("LiqTyp") & !varlist1.getVarName().equalsIgnoreCase("LiqSmlTyp") & !varlist1.getVarName().equalsIgnoreCase("ObjPlaceOth")) {
                                         varlist1.setActive("1");
-                                        C.Save("Update Observation set Active='1' where DataID='" + obj.getDataID() + "' and VarName='" + varlist1.getVarName() + "'");
+                                        C.SaveDT("Update Observation set Active='1' where DataID='" + obj.getDataID() + "' and VarName='" + varlist1.getVarName() + "'");
                                     }else{
                                         varlist1.setActive("2");
                                         varlist1.setStatus("N");
                                         varlist1.setVarData("");
-                                        C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                        C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                     }
                                 }
                             }else if(varlist.getVarName().equalsIgnoreCase("ObjStart") & !varlist.getStatus().equals("Y")){
@@ -697,7 +697,7 @@ public class Observation_Time extends AppCompatActivity {
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }
 
@@ -706,7 +706,7 @@ public class Observation_Time extends AppCompatActivity {
                                 for(int i=1; i<=2; i++) {
                                     VariableList_DataModel varlist1 = variableList.get(position + i);
                                     varlist1.setActive("1");
-                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }else if(varlist.getVarName().equalsIgnoreCase("LiqChk") & !varlist.getStatus().equals("Y")){
                                 for(int i=1; i<=2; i++) {
@@ -714,7 +714,7 @@ public class Observation_Time extends AppCompatActivity {
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }
 
@@ -728,12 +728,12 @@ public class Observation_Time extends AppCompatActivity {
                                     VariableList_DataModel varlist1 = variableList.get(position + i);
                                     if(!varlist1.getVarName().equalsIgnoreCase("DelPlaceOth") & !varlist1.getVarName().equalsIgnoreCase("CordApTypOth") & !varlist1.getVarName().equalsIgnoreCase("CordApTyp") & !varlist1.getVarName().equalsIgnoreCase("BabyWrpTyp")) {
                                         varlist1.setActive("1");
-                                        C.Save("Update Observation set Active='1' where DataID='" + obj.getDataID() + "' and SL='"+ CSL +"' and VarName='" + varlist1.getVarName() + "'");
+                                        C.SaveDT("Update Observation set Active='1' where DataID='" + obj.getDataID() + "' and SL='"+ CSL +"' and VarName='" + varlist1.getVarName() + "'");
                                     }else{
                                         varlist1.setActive("2");
                                         varlist1.setStatus("N");
                                         varlist1.setVarData("");
-                                        C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                        C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
                                     }
                                 }
                             }else if(varlist.getVarName().equalsIgnoreCase("BabyDel") & !varlist.getStatus().equals("Y")){
@@ -742,7 +742,7 @@ public class Observation_Time extends AppCompatActivity {
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }
 
@@ -751,7 +751,7 @@ public class Observation_Time extends AppCompatActivity {
                                 for(int i=1; i<=1; i++) {
                                     VariableList_DataModel varlist1 = variableList.get(position + i);
                                     varlist1.setActive("1");
-                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }else if(varlist.getVarName().equalsIgnoreCase("CordAppl") & !varlist.getStatus().equals("Y")){
                                 for(int i=1; i<=1; i++) {
@@ -759,7 +759,7 @@ public class Observation_Time extends AppCompatActivity {
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }
 
@@ -769,22 +769,22 @@ public class Observation_Time extends AppCompatActivity {
                                 varlist1.setActive("2");
                                 varlist1.setStatus("N");
                                 varlist1.setVarData("");
-                                C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
 
                                 VariableList_DataModel varlist2 = variableList.get(position + 2);
                                 varlist2.setActive("1");
-                                C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist2.getVarName() +"'");
+                                C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist2.getVarName() +"'");
 
                             }else if(varlist.getVarName().equalsIgnoreCase("BabyWrp") & !varlist.getStatus().equals("Y")){
                                 VariableList_DataModel varlist1 = variableList.get(position + 2);
                                 varlist1.setActive("2");
                                 varlist1.setStatus("N");
                                 varlist1.setVarData("");
-                                C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
 
                                 VariableList_DataModel varlist2 = variableList.get(position + 1);
                                 varlist2.setActive("1");
-                                C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist2.getVarName() +"'");
+                                C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist2.getVarName() +"'");
                             }
 
                             //Birth Weight
@@ -792,7 +792,7 @@ public class Observation_Time extends AppCompatActivity {
                                 for(int i=1; i<=2; i++) {
                                     VariableList_DataModel varlist1 = variableList.get(position + i);
                                     varlist1.setActive("1");
-                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }else if(varlist.getVarName().equalsIgnoreCase("BabyWt") & !varlist.getStatus().equals("Y")){
                                 for(int i=1; i<=2; i++) {
@@ -800,7 +800,7 @@ public class Observation_Time extends AppCompatActivity {
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }
 
@@ -831,12 +831,12 @@ public class Observation_Time extends AppCompatActivity {
                                             & !varlist1.getVarName().equalsIgnoreCase("ChtCompType2")
                                             ) {
                                         varlist1.setActive("1");
-                                        C.Save("Update Observation set Active='1' where DataID='" + obj.getDataID() + "' and SL='"+ CSL +"' and VarName='" + varlist1.getVarName() + "'");
+                                        C.SaveDT("Update Observation set Active='1' where DataID='" + obj.getDataID() + "' and SL='"+ CSL +"' and VarName='" + varlist1.getVarName() + "'");
                                     }else{
                                         varlist1.setActive("2");
                                         varlist1.setStatus("N");
                                         varlist1.setVarData("");
-                                        C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                        C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
                                     }
                                 }
                             }else if(varlist.getVarName().equalsIgnoreCase("BirthAsp") & !varlist.getStatus().equals("Y")){
@@ -845,7 +845,7 @@ public class Observation_Time extends AppCompatActivity {
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }
 
@@ -854,7 +854,7 @@ public class Observation_Time extends AppCompatActivity {
                                 for(int i=1; i<=1; i++) {
                                     VariableList_DataModel varlist1 = variableList.get(position + i);
                                     varlist1.setActive("1");
-                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }else if(varlist.getVarName().equalsIgnoreCase("StimDone") & !varlist.getStatus().equals("Y")){
                                 for(int i=1; i<=1; i++) {
@@ -862,7 +862,7 @@ public class Observation_Time extends AppCompatActivity {
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }
                             //Mouth Throat
@@ -870,7 +870,7 @@ public class Observation_Time extends AppCompatActivity {
                                 for(int i=1; i<=1; i++) {
                                     VariableList_DataModel varlist1 = variableList.get(position + i);
                                     varlist1.setActive("1");
-                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }else if(varlist.getVarName().equalsIgnoreCase("MNChk") & !varlist.getStatus().equals("Y")){
                                 for(int i=1; i<=1; i++) {
@@ -878,7 +878,7 @@ public class Observation_Time extends AppCompatActivity {
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }
                             //Suction
@@ -886,7 +886,7 @@ public class Observation_Time extends AppCompatActivity {
                                 for(int i=1; i<=2; i++) {
                                     VariableList_DataModel varlist1 = variableList.get(position + i);
                                     varlist1.setActive("1");
-                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }else if(varlist.getVarName().equalsIgnoreCase("SucDone") & !varlist.getStatus().equals("Y")){
                                 for(int i=1; i<=2; i++) {
@@ -894,7 +894,7 @@ public class Observation_Time extends AppCompatActivity {
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }
                             //Bag and Mask
@@ -902,7 +902,7 @@ public class Observation_Time extends AppCompatActivity {
                                 for(int i=1; i<=12; i++) {
                                     VariableList_DataModel varlist1 = variableList.get(position + i);
                                     varlist1.setActive("1");
-                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }else if(varlist.getVarName().equalsIgnoreCase("BagMask") & !varlist.getStatus().equals("Y")){
                                 for(int i=1; i<=12; i++) {
@@ -910,7 +910,7 @@ public class Observation_Time extends AppCompatActivity {
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }
                             //Drug1
@@ -918,7 +918,7 @@ public class Observation_Time extends AppCompatActivity {
                                 for(int i=1; i<=1; i++) {
                                     VariableList_DataModel varlist1 = variableList.get(position + i);
                                     varlist1.setActive("1");
-                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }else if(varlist.getVarName().equalsIgnoreCase("ChtCompDrug1") & !varlist.getStatus().equals("Y")){
                                 for(int i=1; i<=1; i++) {
@@ -926,7 +926,7 @@ public class Observation_Time extends AppCompatActivity {
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and SL='"+ CSL +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }
                             //Drug2
@@ -934,7 +934,7 @@ public class Observation_Time extends AppCompatActivity {
                                 for(int i=1; i<=1; i++) {
                                     VariableList_DataModel varlist1 = variableList.get(position + i);
                                     varlist1.setActive("1");
-                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }else if(varlist.getVarName().equalsIgnoreCase("ChtCompDrug2") & !varlist.getStatus().equals("Y")){
                                 for(int i=1; i<=1; i++) {
@@ -942,7 +942,7 @@ public class Observation_Time extends AppCompatActivity {
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }
 
@@ -954,7 +954,7 @@ public class Observation_Time extends AppCompatActivity {
                                 for(int i=1; i<=4; i++) {
                                     VariableList_DataModel varlist1 = variableList.get(position + i);
                                     varlist1.setActive("1");
-                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }else if(varlist.getVarName().equalsIgnoreCase("Utero") & !varlist.getStatus().equals("Y")){
                                 for(int i=1; i<=4; i++) {
@@ -962,7 +962,7 @@ public class Observation_Time extends AppCompatActivity {
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }
 
@@ -971,7 +971,7 @@ public class Observation_Time extends AppCompatActivity {
                                 for(int i=1; i<=2; i++) {
                                     VariableList_DataModel varlist1 = variableList.get(position + i);
                                     varlist1.setActive("1");
-                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }else if(varlist.getVarName().equalsIgnoreCase("UtePPH") & !varlist.getStatus().equals("Y")){
                                 for(int i=1; i<=2; i++) {
@@ -979,7 +979,7 @@ public class Observation_Time extends AppCompatActivity {
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }
 
@@ -987,11 +987,11 @@ public class Observation_Time extends AppCompatActivity {
                             if(varlist.getVarName().equalsIgnoreCase("AntGiv") & varlist.getStatus().equals("Y")){
                                 VariableList_DataModel varlist1 = variableList.get(position + 1);
                                 varlist1.setActive("1");
-                                C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
 
                                 VariableList_DataModel varlist2 = variableList.get(position + 3);
                                 varlist2.setActive("1");
-                                C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist2.getVarName() +"'");
+                                C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist2.getVarName() +"'");
 
                             }else if(varlist.getVarName().equalsIgnoreCase("AntGiv") & !varlist.getStatus().equals("Y")){
                                 for(int i=1; i<=4; i++) {
@@ -999,7 +999,7 @@ public class Observation_Time extends AppCompatActivity {
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }
 
@@ -1007,11 +1007,11 @@ public class Observation_Time extends AppCompatActivity {
                             if(varlist.getVarName().equalsIgnoreCase("AnalGiv") & varlist.getStatus().equals("Y")){
                                 VariableList_DataModel varlist1 = variableList.get(position + 1);
                                 varlist1.setActive("1");
-                                C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
 
                                 VariableList_DataModel varlist2 = variableList.get(position + 3);
                                 varlist2.setActive("1");
-                                C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist2.getVarName() +"'");
+                                C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist2.getVarName() +"'");
 
                             }else if(varlist.getVarName().equalsIgnoreCase("AnalGiv") & !varlist.getStatus().equals("Y")){
                                 for(int i=1; i<=4; i++) {
@@ -1019,7 +1019,7 @@ public class Observation_Time extends AppCompatActivity {
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }
 
@@ -1028,7 +1028,7 @@ public class Observation_Time extends AppCompatActivity {
                                 for(int i=1; i<=2; i++) {
                                     VariableList_DataModel varlist1 = variableList.get(position + i);
                                     varlist1.setActive("1");
-                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }else if(varlist.getVarName().equalsIgnoreCase("MRPlacen") & !varlist.getStatus().equals("Y")){
                                 for(int i=1; i<=2; i++) {
@@ -1036,7 +1036,7 @@ public class Observation_Time extends AppCompatActivity {
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
                             }
 
@@ -1281,13 +1281,13 @@ public class Observation_Time extends AppCompatActivity {
                                 if(varlist.getVarName().equalsIgnoreCase("ObjPlace") & holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("other")){
                                     VariableList_DataModel varlist1 = variableList.get(position+1);
                                     varlist1.setActive("1");
-                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }else if(varlist.getVarName().equalsIgnoreCase("ObjPlace") & !holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("other")) {
                                     VariableList_DataModel varlist1 = variableList.get(position + 1);
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
 
                                 //Table: Newborn
@@ -1295,26 +1295,26 @@ public class Observation_Time extends AppCompatActivity {
                                 if(varlist.getVarName().equalsIgnoreCase("DelPlace") & holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("other")){
                                     VariableList_DataModel varlist1 = variableList.get(position+1);
                                     varlist1.setActive("1");
-                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }else if(varlist.getVarName().equalsIgnoreCase("DelPlace") & !holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("other")) {
                                     VariableList_DataModel varlist1 = variableList.get(position + 1);
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
 
                                 //Cord apply type
                                 if(varlist.getVarName().equalsIgnoreCase("CordApTyp") & holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("other")){
                                     VariableList_DataModel varlist1 = variableList.get(position+1);
                                     varlist1.setActive("1");
-                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }else if(varlist.getVarName().equalsIgnoreCase("CordApTyp") & !holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("other")){
                                     VariableList_DataModel varlist1 = variableList.get(position + 1);
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
 
 
@@ -1340,12 +1340,12 @@ public class Observation_Time extends AppCompatActivity {
                                                 & !varlist1.getVarName().equalsIgnoreCase("SGlovMRP")
                                                 ) {
                                             varlist1.setActive("1");
-                                            C.Save("Update Observation set Active='1' where DataID='" + obj.getDataID() + "' and VarName='" + varlist1.getVarName() + "'");
+                                            C.SaveDT("Update Observation set Active='1' where DataID='" + obj.getDataID() + "' and VarName='" + varlist1.getVarName() + "'");
                                         }else{
                                             varlist1.setActive("2");
                                             varlist1.setStatus("N");
                                             varlist1.setVarData("");
-                                            C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                            C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                         }
                                     }
                                 }
@@ -1356,12 +1356,12 @@ public class Observation_Time extends AppCompatActivity {
 
                                         if(varlist1.getVarName().equalsIgnoreCase("MRPlacen") | varlist1.getVarName().equalsIgnoreCase("AntGiv") | varlist1.getVarName().equalsIgnoreCase("AnalGiv")) {
                                             varlist1.setActive("1");
-                                            C.Save("Update Observation set Active='1' where DataID='" + obj.getDataID() + "' and VarName='" + varlist1.getVarName() + "'");
+                                            C.SaveDT("Update Observation set Active='1' where DataID='" + obj.getDataID() + "' and VarName='" + varlist1.getVarName() + "'");
                                         }else {
                                             varlist1.setActive("2");
                                             varlist1.setStatus("N");
                                             varlist1.setVarData("");
-                                            C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='" + obj.getDataID() + "' and VarName='" + varlist1.getVarName() + "'");
+                                            C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='" + obj.getDataID() + "' and VarName='" + varlist1.getVarName() + "'");
                                         }
                                     }
                                 }*/
@@ -1371,52 +1371,52 @@ public class Observation_Time extends AppCompatActivity {
                                 if(varlist.getVarName().equalsIgnoreCase("AntGivTyp") & holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("others")){
                                     VariableList_DataModel varlist1 = variableList.get(position+1);
                                     varlist1.setActive("1");
-                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }else if(varlist.getVarName().equalsIgnoreCase("AntGivTyp") & !holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("others")){
                                     VariableList_DataModel varlist1 = variableList.get(position + 1);
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
 
                                 //Antibiotic Route
                                 if(varlist.getVarName().equalsIgnoreCase("AntGivRout") & holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("others")){
                                     VariableList_DataModel varlist1 = variableList.get(position+1);
                                     varlist1.setActive("1");
-                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }else if(varlist.getVarName().equalsIgnoreCase("AntGivRout") & !holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("others")){
                                     VariableList_DataModel varlist1 = variableList.get(position + 1);
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
 
                                 //Analgesia Type
                                 if(varlist.getVarName().equalsIgnoreCase("AnalGivTyp") & holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("others")){
                                     VariableList_DataModel varlist1 = variableList.get(position+1);
                                     varlist1.setActive("1");
-                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }else if(varlist.getVarName().equalsIgnoreCase("AnalGivTyp") & !holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("other")){
                                     VariableList_DataModel varlist1 = variableList.get(position + 1);
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
 
                                 //Analgesia Route
                                 if(varlist.getVarName().equalsIgnoreCase("AnalGivRout") & holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("others")){
                                     VariableList_DataModel varlist1 = variableList.get(position+1);
                                     varlist1.setActive("1");
-                                    C.Save("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set Active='1' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }else if(varlist.getVarName().equalsIgnoreCase("AnalGivRout") & !holder.spnDataList.getSelectedItem().toString().equalsIgnoreCase("other")){
                                     VariableList_DataModel varlist1 = variableList.get(position + 1);
                                     varlist1.setActive("2");
                                     varlist1.setStatus("N");
                                     varlist1.setVarData("");
-                                    C.Save("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
+                                    C.SaveDT("Update Observation set VarData='',Observ='N', ObservDT='', FirstTm='', FInalTm='', Active='2' where DataID='"+ obj.getDataID() +"' and VarName='"+ varlist1.getVarName() +"'");
                                 }
 
 

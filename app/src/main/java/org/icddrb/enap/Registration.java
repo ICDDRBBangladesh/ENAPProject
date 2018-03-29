@@ -528,9 +528,9 @@
          g = Global.getInstance();
          getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-         STARTTIME = g.CurrentTime24();
-         DEVICEID  = sp.getValue(this, "deviceid");
-         ENTRYUSER = sp.getValue(this, "userid");
+         STARTTIME   = g.CurrentTime24();
+         DEVICEID    = sp.getValue(this, "deviceid");
+         ENTRYUSER   = sp.getValue(this, "userid");
          COUNTRYCODE = sp.getValue(this, "countrycode");
          FACICODE    = sp.getValue(this, "facicode");
          JOBTYPE     = sp.getValue(this, "jobtype");
@@ -4183,7 +4183,6 @@
      {
          try
          {
-
              RadioButton rb;
              InfPreObs_DataModel d = new InfPreObs_DataModel();
              String SQL = "Select * from InfPreObs Where CountryCode='"+ CountryCode +"' and FaciCode='"+ FaciCode +"' and DataID='"+ DataID +"'";

@@ -355,7 +355,7 @@ import android.content.Context;
             try
               {
                  SQL = "Insert into "+ TableName +" (CountryCode,FaciCode,DataID,card,prevpreg,prevpregdk,prevliveb,prevlivebdk,prevstillb,prevstillbdk,prevab,prevabdk,prevcsec,prevcsecdk,yrslstbth,yrslstbthdk,edd,eddDK,gaadm,gaadmDK,gameth,bb4expect,numbby,numPreg,bheartadm,bheartrateadm,bheartratenum,anybcompadma,anybcompadmb,anybcompadmc,anybcompadmd,anybcompadme,anybcompadmf,anybcompadmg,anybcompadmh,anybcompadmoth,allocobsv,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload,modifyDate)Values('"+ _CountryCode +"', '"+ _FaciCode +"', '"+ _DataID +"', '"+ _card +"', '"+ _prevpreg +"','"+ _prevpregdk +"', '"+ _prevliveb +"','"+ _prevlivebdk +"', '"+ _prevstillb +"','"+ _prevstillbdk +"', '"+ _prevab +"','"+ _prevabdk +"', '"+ _prevcsec +"','"+ _prevcsecdk +"', '"+ _yrslstbth +"','"+ _yrslstbthdk +"', '"+ _edd +"', '"+ _eddDK +"', '"+ _gaadm +"','"+ _gaadmDK +"', '"+ _gameth +"', '"+ _bb4expect +"', '"+ _numbby +"', '"+ _numPreg +"', '"+ _bheartadm +"', '"+ _bheartrateadm +"', '"+ _bheartratenum +"', '"+ _anybcompadma +"','"+ _anybcompadmb +"','"+ _anybcompadmc +"','"+ _anybcompadmd +"','"+ _anybcompadme +"','"+ _anybcompadmf +"','"+ _anybcompadmg +"','"+ _anybcompadmh +"','"+ _anybcompadmoth +"', '"+ _allocobsv +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"', '"+ _modifyDate +"')";
-                 C.Save(SQL);
+                 response = C.SaveData(SQL);
                  C.close();
               }
               catch(Exception  e)
@@ -373,7 +373,7 @@ import android.content.Context;
             try
               {
                  SQL = "Update "+ TableName +" Set Upload='2',modifyDate='" + _modifyDate + "' ,CountryCode = '"+ _CountryCode +"',FaciCode = '"+ _FaciCode +"',DataID = '"+ _DataID +"',card = '"+ _card +"',prevpreg = '"+ _prevpreg +"',prevpregdk = '"+ _prevpregdk +"',prevliveb = '"+ _prevliveb +"',prevlivebdk = '"+ _prevlivebdk +"',prevstillb = '"+ _prevstillb +"',prevstillbdk = '"+ _prevstillbdk +"',prevab = '"+ _prevab +"',prevabdk = '"+ _prevabdk +"',prevcsec = '"+ _prevcsec +"',prevcsecdk = '"+ _prevcsecdk +"',yrslstbth = '"+ _yrslstbth +"',yrslstbthdk = '"+ _yrslstbthdk +"',edd = '"+ _edd +"',eddDK = '"+ _eddDK +"',gaadm = '"+ _gaadm +"',gaadmDK='"+ _gaadmDK +"',gameth = '"+ _gameth +"',bb4expect = '"+ _bb4expect +"',numbby = '"+ _numbby +"',numPreg = '"+ _numPreg +"',bheartadm = '"+ _bheartadm +"',bheartrateadm = '"+ _bheartrateadm +"',bheartratenum = '"+ _bheartratenum +"',anybcompadma='"+ _anybcompadma +"',anybcompadmb='"+ _anybcompadmb +"',anybcompadmc='"+ _anybcompadmc +"',anybcompadmd='"+ _anybcompadmd +"',anybcompadme='"+ _anybcompadme +"',anybcompadmf='"+ _anybcompadmf +"',anybcompadmg='"+ _anybcompadmg +"',anybcompadmh='"+ _anybcompadmh +"',anybcompadmoth='"+ _anybcompadmoth +"',allocobsv = '"+ _allocobsv +"'  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and DataID='"+ _DataID +"'";
-                 C.Save(SQL);
+                 response = C.SaveData(SQL);
                  C.close();
               }
               catch(Exception  e)

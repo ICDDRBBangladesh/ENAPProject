@@ -461,7 +461,8 @@ public class PatientList extends AppCompatActivity {
         SQL += " (case when r.StatusDE ='1' then '1' else '2' end)DE,";
         SQL += " (case when r.StatusACS ='1' then '1' else '2' end)ACSStatus,";
         SQL += " (case when r.StatusINFXN ='1' then '1' else '2' end)INFXNStatus,";
-        SQL += " (case when h.bb4expect is null then '2' else h.bb4expect end)ACS";
+        SQL += " (case when h.bb4expect is null then '2' else h.bb4expect end)ACS,";
+        SQL += " (case when h.anybcompadmd is null then '2' else h.anybcompadmd end)preterm";
         SQL += " from Registration r";
         SQL += " left outer join ObsHisCurPreg h on r.CountryCode=h.CountryCode and r.FaciCode=h.FaciCode and r.DataID=h.DataID";
         //SQL += " left outer join (Select CountryCode,FaciCode,DataID,sum(case when TableId='1' then 1 else 0 end)LD from Observation group by CountryCode,FaciCode,DataID)o on r.CountryCode=o.CountryCode and r.FaciCode=o.FaciCode and r.DataID=o.DataID";
@@ -639,8 +640,6 @@ public class PatientList extends AppCompatActivity {
         patientList.clear();
         int count = 0;
         for(Registration_DataModel item : data){
-            //Movie movie = new Movie(String.valueOf(count)+": "+ item.getpatName(), item.getPatAge(), item.getDataID());
-            //movieList.add(movie);
 
             Patient p = new Patient();
             p.setLocation(item.getRegisType());
@@ -669,6 +668,8 @@ public class PatientList extends AppCompatActivity {
             p.setINFXNStatus(item.getINFXNStatus());
             //----------------------
             p.setACS(item.getACS());
+
+            p.setanybcompadmd(item.getanybcompadmd());
 
             count +=1;
 
@@ -776,7 +777,7 @@ public class PatientList extends AppCompatActivity {
 
             holder.cmdACS.setVisibility(View.GONE);
 
-            if(patient.getACS().equals("1")){
+            if(patient.getACS().equals("1") | patient.getanybcompadmd().equals("1")){
                 holder.cmdACS.setVisibility(View.VISIBLE);
             }
 
@@ -972,7 +973,7 @@ public class PatientList extends AppCompatActivity {
 
                     IDbundle.putString("type", "de");
                     Intent intent = null;
-                    intent = new Intent(getApplicationContext(), Acs_Veri.class);
+                    intent = new Intent(getApplicationContext(), Acs_Veri1.class);
 
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.putExtras(IDbundle);
@@ -1186,11 +1187,15 @@ public class PatientList extends AppCompatActivity {
         }
         //------------------------------------------------------------------------------------------
         private String _ACS = "";
-        public String getACS(){
-            return _ACS;
-        }
+        public String getACS(){ return _ACS;}
         public void setACS(String newValue){
             _ACS = newValue;
+        }
+        //------------------------------------------------------------------------------------------
+        private String _anybcompadmd = "";
+        public String getanybcompadmd(){ return _anybcompadmd;}
+        public void setanybcompadmd(String newValue){
+            _anybcompadmd = newValue;
         }
     }
 
@@ -1409,7 +1414,7 @@ public class PatientList extends AppCompatActivity {
                             String OBJID = spnObserver.getSelectedItem().toString().split("-")[0];
                             for(int i=0;i<DataIdList.size();i++) {
                                 DID = DataIdList.get(i);
-                                C.Save("Update Registration set ObserverId='"+ OBJID +"',modifyDate='"+ Global.DateTimeNowYMDHMS() +"',Upload='2' where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and DataId='" + DID + "'");
+                                C.SaveDT("Update Registration set ObserverId='"+ OBJID +"',modifyDate='"+ Global.DateTimeNowYMDHMS() +"',Upload='2' where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and DataId='" + DID + "'");
                             }
 
                             //RegistrationDataSync(PatientList.this);
@@ -1428,7 +1433,7 @@ public class PatientList extends AppCompatActivity {
                 }
             });
 
-            C.Save("Update Registration set SelectPat='2'");
+            C.SaveDT("Update Registration set SelectPat='2'");
             PatientList(ProjectSetting.LABOR_AND_DELIVERY_ID);
 
             RadioGroup rdogrpLocation = (RadioGroup) dialog.findViewById(R.id.rdogrpLocation);
@@ -1643,7 +1648,7 @@ public class PatientList extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if(chkSelect.isChecked()){
-                        C.Save("Update Registration set SelectPat='1' where CountryCode='"+ o.get("countrycode") +"' and FaciCode='"+ o.get("facicode") +"' and DataID='"+ o.get("dataid") +"'");
+                        C.SaveDT("Update Registration set SelectPat='1' where CountryCode='"+ o.get("countrycode") +"' and FaciCode='"+ o.get("facicode") +"' and DataID='"+ o.get("dataid") +"'");
                         PatientListDataAdapter(ProjectSetting.LABOR_AND_DELIVERY_ID);
                         dataAdap = dataAdapter;
                         dataAdap.notifyDataSetChanged();
@@ -1653,7 +1658,7 @@ public class PatientList extends AppCompatActivity {
                         DataIdList.add(o.get("dataid"));
                         secRow.setBackgroundColor(Color.GREEN);
                     }else{
-                        C.Save("Update Registration set SelectPat='2' where CountryCode='"+ o.get("countrycode") +"' and FaciCode='"+ o.get("facicode") +"' and DataID='"+ o.get("dataid") +"'");
+                        C.SaveDT("Update Registration set SelectPat='2' where CountryCode='"+ o.get("countrycode") +"' and FaciCode='"+ o.get("facicode") +"' and DataID='"+ o.get("dataid") +"'");
                         PatientListDataAdapter(ProjectSetting.LABOR_AND_DELIVERY_ID);
                         dataAdap = dataAdapter;
                         dataAdap.notifyDataSetChanged();

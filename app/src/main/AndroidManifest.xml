@@ -99,5 +99,6 @@
             android:theme="@android:style/Theme.DeviceDefault.Dialog" />
         <activity android:name=".Infver_Inj" />
         <activity android:name=".Infver_Inj_list" />
+        <activity android:name=".Acs_Veri1" />
     </application>
 </manifest>

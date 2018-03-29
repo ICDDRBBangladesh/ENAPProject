@@ -401,14 +401,12 @@ public class MainActivity extends AppCompatActivity
             final String DEVICEID    = ID[2].toString();
             final String ENTRYUSER   = ID[3].toString();
 
-            //Connection.DataSync(COUNTRYCODE, FACICODE, DEVICEID, ENTRYUSER);
 
             try {
 
                 new Thread() {
                     public void run() {
                         try {
-
                             //Upload
                             List<String> tableList = new ArrayList<String>();
                             tableList.add("Registration");
@@ -446,9 +444,22 @@ public class MainActivity extends AppCompatActivity
                             tableList.add("Infver_labInv");
                             tableList.add("Infver_Outcome");
 
+                            //For Nepal: 19 Mar 2018
+                            /*tableList.clear();
+                            tableList.add("Observation");
+                            if(COUNTRYCODE.equals(ProjectSetting.NEPAL)){
+                                for (int i = 0; i < tableList.size(); i++) {
+                                    try {
+                                        C.SaveData("Update "+ tableList.get(i).toString() +"" +
+                                                " set Upload='2' where DeviceId='"+ DEVICEID +"' and endt>='2018-03-01'");
+                                    }catch(Exception ex){
+
+                                    }
+                                }
+                            }*/
+
                             int progressCount = 50/tableList.size();
                             int count = 0;
-                            //C.Sync_Upload(tableList);
                             for (int i = 0; i < tableList.size(); i++) {
                                 try {
                                     C.Sync_Upload_Process(tableList.get(i).toString());
@@ -475,46 +486,11 @@ public class MainActivity extends AppCompatActivity
                                 C.ExecuteCommandOnServer("sp_Data_Pull_From_ENAPDB");
                             }
 
-                            /*
-                            if(ProjectSetting.ProjectTitle.length()>0) {
-                                List<String> tableList_maindb = new ArrayList<String>();
-                                tableList_maindb.add("Registration");
-                                tableList_maindb.add("ObsHisCurPreg");
-                                tableList_maindb.add("KmcPreObs");
-                                tableList_maindb.add("InfPreObs");
-                                for (int i = 0; i < tableList_maindb.size(); i++) {
-                                    try {
-                                        C.Sync_Download_MainDB(tableList_maindb.get(i).toString(), DEVICEID, "CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "'");
-                                        count += progressCount;
-                                        onProgressUpdate(tableList_maindb.get(i).toString() + "," + String.valueOf(count));
-                                    } catch (Exception ex) {
-
-                                    }
-                                }
-                            }
-                            //Download from current database
-                            else{
-                                List<String> tableList_currentdb = new ArrayList<String>();
-                                tableList_currentdb.add("Registration");
-                                tableList_currentdb.add("ObsHisCurPreg");
-                                tableList_currentdb.add("KmcPreObs");
-                                tableList_currentdb.add("InfPreObs");
-                                for (int i = 0; i < tableList_currentdb.size(); i++) {
-                                    try {
-                                        C.Sync_Download_MainDB(tableList_currentdb.get(i).toString(), DEVICEID, "CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "'");
-                                        count += progressCount;
-                                        onProgressUpdate(tableList_currentdb.get(i).toString() + "," + String.valueOf(count));
-                                    } catch (Exception ex) {
-
-                                    }
-                                }
-                            }
-                            */
 
                             //Downlaod from Current DB
                             for (int i = 0; i < tableList.size(); i++) {
                                 try {
-                                    C.Sync_Download(tableList.get(i).toString(), DEVICEID,"CountryCode='"+ COUNTRYCODE +"' and FaciCode='"+ FACICODE +"'");
+                                    //C.Sync_Download(tableList.get(i).toString(), DEVICEID,"CountryCode='"+ COUNTRYCODE +"' and FaciCode='"+ FACICODE +"'");
                                     count +=progressCount;
                                     onProgressUpdate(tableList.get(i).toString()+","+String.valueOf(count));
                                 }catch(Exception ex){
@@ -702,7 +678,7 @@ public class MainActivity extends AppCompatActivity
                             String OBJID = spnObserver.getSelectedItem().toString().split("-")[0];
                             for(int i=0;i<DataIdList.size();i++) {
                                 DID = DataIdList.get(i);
-                                C.Save("Update Registration set ObserverId='"+ OBJID +"',modifyDate='"+ Global.DateTimeNowYMDHMS() +"',Upload='2' where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and DataId='" + DID + "'");
+                                C.SaveDT("Update Registration set ObserverId='"+ OBJID +"',modifyDate='"+ Global.DateTimeNowYMDHMS() +"',Upload='2' where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and DataId='" + DID + "'");
                             }
 
                             new Thread() {
@@ -728,7 +704,7 @@ public class MainActivity extends AppCompatActivity
                 }
             });
 
-            C.Save("Update Registration set SelectPat='2'");
+            C.SaveDT("Update Registration set SelectPat='2'");
             PatientList(ProjectSetting.LABOR_AND_DELIVERY_ID);
 
             RadioGroup rdogrpLocation = (RadioGroup) dialog.findViewById(R.id.rdogrpLocation);
@@ -931,7 +907,7 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public void onClick(View v) {
                     if(chkSelect.isChecked()){
-                        C.Save("Update Registration set SelectPat='1' where CountryCode='"+ o.get("countrycode") +"' and FaciCode='"+ o.get("facicode") +"' and DataID='"+ o.get("dataid") +"'");
+                        C.SaveDT("Update Registration set SelectPat='1' where CountryCode='"+ o.get("countrycode") +"' and FaciCode='"+ o.get("facicode") +"' and DataID='"+ o.get("dataid") +"'");
                         //o.put("select","1");
                         //PatientListDataAdapter(ProjectSetting.LABOR_AND_DELIVERY_ID);
                         PatientListDataAdapter(ProjectSetting.LABOR_AND_DELIVERY_ID);
@@ -940,7 +916,7 @@ public class MainActivity extends AppCompatActivity
                         DataIdList.add(o.get("dataid"));
                         secRow.setBackgroundColor(Color.GREEN);
                     }else{
-                        C.Save("Update Registration set SelectPat='2' where CountryCode='"+ o.get("countrycode") +"' and FaciCode='"+ o.get("facicode") +"' and DataID='"+ o.get("dataid") +"'");
+                        C.SaveDT("Update Registration set SelectPat='2' where CountryCode='"+ o.get("countrycode") +"' and FaciCode='"+ o.get("facicode") +"' and DataID='"+ o.get("dataid") +"'");
                         //o.put("select","2");
                         //PatientListDataAdapter(ProjectSetting.LABOR_AND_DELIVERY_ID);
                         PatientListDataAdapter(ProjectSetting.LABOR_AND_DELIVERY_ID);

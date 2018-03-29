@@ -205,8 +205,8 @@ public class Login extends Activity {
 
 
                         //Store Last Login information
-                        C.Save("Delete from LastLogin");
-                        C.Save("Insert into LastLogin(UserId)Values('"+ UID +"')");
+                        C.SaveDT("Delete from LastLogin");
+                        C.SaveDT("Insert into LastLogin(UserId)Values('"+ UID +"')");
 
                         //Download Updated System
                         //...................................................................................

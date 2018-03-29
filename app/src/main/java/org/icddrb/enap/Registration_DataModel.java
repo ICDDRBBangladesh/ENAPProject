@@ -411,7 +411,7 @@ import android.content.Context;
             try
               {
                  SQL = "Insert into "+ TableName +" (CountryCode,FaciCode,RegisType,DataID,RegDate,RegTime,HospID,HospIDReTyp,Consent,ConReason,StudyID,MotRegis,MotDataID,MotStudyID,MotStudyIDReType,MotHospID,MotName,MotDOB,MotDOBDK,MotAge,MotEdu,MotEduDK,Parity,MotEthnicity,MotEthnicityOth,MotReligion,MotReligionOth,Address1,Address2,Address3,Address4,AddressDetail,MotContact,AltContact,NameNewBorn,DOBNewborn,DOBNewbornDK,TOBNewborn,TOBNewbornDK,AgeNewborn,AgeNewbornDMY,Sex,FatherName,CompleteAdd,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload)Values('"+ _CountryCode +"', '"+ _FaciCode +"', '"+ _RegisType +"', '"+ _DataID +"', '"+ _RegDate +"', '"+ _RegTime +"', '"+ _HospID +"','"+ _HospIDReTyp +"', '"+ _Consent +"','"+ _ConReason +"', '"+ _StudyID +"', '"+ _MotRegis +"','"+ _MotDataID +"', '"+ _MotStudyID +"','"+ _MotStudyIDReType +"', '"+ _MotHospID +"', '"+ _MotName +"', '"+ _MotDOB +"', '"+ _MotDOBDK +"', '"+ _MotAge +"','"+ _MotEdu +"','"+ _MotEduDK +"','"+ _Parity +"', '"+ _MotEthnicity +"','"+ _MotEthnicityOth +"', '"+ _MotReligion +"','"+ _MotReligionOth +"', '"+ _Address1 +"', '"+ _Address2 +"', '"+ _Address3 +"', '"+ _Address4 +"', '"+ _AddressDetail +"', '"+ _MotContact +"', '"+ _AltContact +"', '"+ _NameNewBorn +"', '"+ _DOBNewborn +"','"+ _DOBNewbornDK +"','"+ _TOBNewborn +"','"+ _TOBNewbornDK +"', '"+ _AgeNewborn +"', '"+ _AgeNewbornDMY +"','"+ _Sex +"','"+ _FatherName +"','"+ _CompleteAdd +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"')";
-                 C.Save(SQL);
+                 response = C.SaveData(SQL);
                  C.close();
               }
               catch(Exception  e)
@@ -429,7 +429,7 @@ import android.content.Context;
             try
               {
                  SQL = "Update "+ TableName +" Set Upload='2',modifyDate='"+ _modifyDate +"',CountryCode = '"+ _CountryCode +"',FaciCode = '"+ _FaciCode +"',RegisType = '"+ _RegisType +"',DataID = '"+ _DataID +"',RegDate = '"+ _RegDate +"',RegTime = '"+ _RegTime +"',HospID = '"+ _HospID +"',HospIDReTyp='"+ _HospIDReTyp +"',Consent = '"+ _Consent +"',ConReason='"+ _ConReason +"',StudyID = '"+ _StudyID +"',MotRegis = '"+ _MotRegis +"',MotDataID='"+ _MotDataID +"',MotStudyID = '"+ _MotStudyID +"',MotStudyIDReType='"+ _MotStudyIDReType +"',MotHospID = '"+ _MotHospID +"',MotName = '"+ _MotName +"',MotDOB = '"+ _MotDOB +"',MotDOBDK = '"+ _MotDOBDK +"',MotAge = '"+ _MotAge +"',MotEdu='"+ _MotEdu +"',MotEduDK='"+ _MotEduDK +"',Parity='"+ _Parity +"',MotEthnicity = '"+ _MotEthnicity +"',MotEthnicityOth = '"+ _MotEthnicityOth +"',MotReligion = '"+ _MotReligion +"',MotReligionOth = '"+ _MotReligionOth +"',Address1 = '"+ _Address1 +"',Address2 = '"+ _Address2 +"',Address3 = '"+ _Address3 +"',Address4 = '"+ _Address4 +"',AddressDetail = '"+ _AddressDetail +"',MotContact = '"+ _MotContact +"',AltContact = '"+ _AltContact +"',NameNewBorn = '"+ _NameNewBorn +"',DOBNewborn = '"+ _DOBNewborn +"',DOBNewbornDK='"+ _DOBNewbornDK +"',TOBNewborn='"+ _TOBNewborn +"',TOBNewbornDK='"+ _TOBNewbornDK +"',AgeNewborn = '"+ _AgeNewborn +"',AgeNewbornDMY = '"+ _AgeNewbornDMY +"',Sex='"+ _Sex +"',FatherName='"+ _FatherName +"',CompleteAdd='"+ _CompleteAdd +"'  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and DataID='"+ _DataID +"'";
-                 C.Save(SQL);
+                 response = C.SaveData(SQL);
                  C.close();
               }
               catch(Exception  e)
@@ -638,6 +638,13 @@ import android.content.Context;
          _ACS = newValue;
      }
 
+     //------------------------------------------------------------------------------------------
+     private String _anybcompadmd = "";
+     public String getanybcompadmd(){ return _anybcompadmd;}
+     public void setanybcompadmd(String newValue){
+         _anybcompadmd = newValue;
+     }
+
      public List<Registration_DataModel> SelectPatientList(Context context, String SQL)
      {
          Connection C = new Connection(context);
@@ -690,6 +697,8 @@ import android.content.Context;
              d._INFXNStatus = cur.getString(cur.getColumnIndex("INFXNStatus"));
 
              d._ACS = cur.getString(cur.getColumnIndex("ACS"));
+
+             d._anybcompadmd = cur.getString(cur.getColumnIndex("preterm"));
 
              data.add(d);
 

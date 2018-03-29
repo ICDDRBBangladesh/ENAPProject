@@ -61,7 +61,7 @@ public class Sync_Data {
         }
         cur_H.close();
 
-        Res = C.UploadJSON(TableName,VariableList,UniqueField);
+        Res = C.UploadJSON(TableName,VariableList,UniqueField,500);
     }
 
 

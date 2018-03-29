@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * Created by TanvirHossain on 19/07/2016.
+ * Created by Tanvir Hossain on 19/07/2016.
 */
 public class ProjectSetting {
     public static String ProjectName    = "ENAP";
@@ -27,16 +27,15 @@ public class ProjectSetting {
     //Web Services
     //Development
     //**********************************************************************************************
-    public static String ProjectTitle   = "";
+    /*public static String ProjectTitle   = "";
     public static String apiName        = "enap_dev";
     public static String Namespace      = "http://chu.icddrb.org/";
-    public static String Country        = BANGLADESH;
+    public static String Country        = BANGLADESH;*/
 
     /*public static String ProjectTitle   = "QA Interview";
     public static String apiName        = "enap_dev_qa";
     public static String Namespace      = "http://chu.icddrb.org/";
     public static String Country        = BANGLADESH;*/
-
 
     /*public static String ProjectTitle   = "Supervisor Interview";
     public static String apiName        = "enap_dev_sup";
@@ -49,7 +48,6 @@ public class ProjectSetting {
     public static String apiName        = "enap";
     public static String Namespace      = "http://chu.icddrb.org/";
     public static String Country        = BANGLADESH;*/
-
 
     /*public static String ProjectTitle   = "QA Interview";
     public static String apiName        = "enap_qa";
@@ -64,10 +62,10 @@ public class ProjectSetting {
 
     //Nepal: Implemented - 18 May 2017
     //**********************************************************************************************
-    /*public static String ProjectTitle   = "";
+    public static String ProjectTitle   = "";
     public static String apiName        = "enap";
     public static String Namespace      = "http://202.50.53.25/";
-    public static String Country        = NEPAL;*/
+    public static String Country        = NEPAL;
 
 
     /*public static String ProjectTitle   = "QA Interview";
@@ -101,7 +99,7 @@ public class ProjectSetting {
     public static String Country        = TANZANIA;*/
 
     //**********************************************************************************************
-    public static String VersionDate    = "12112017"; //Format: DDMMYYYY
+    public static String VersionDate    = "25032018"; //Format: DDMMYYYY
     //**********************************************************************************************
 
     //Location

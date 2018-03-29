@@ -221,7 +221,7 @@ public class SettingFormNew extends Activity {
 
             File file = new File(Environment.getExternalStorageDirectory() + "/" + Global.DatabaseFolder + "/" + Global.DatabaseName);
             if (file.exists()) {
-                C.Save("Delete from UserList");
+                C.SaveDT("Delete from UserList");
                 C.Sync_Download_Rebuild("UserList", "UserId='" + UserID + "'");
                 C.ExecuteCommandOnServer("Update UserList set Setting='2' where UserId='" + UserID + "'");
 

@@ -192,7 +192,7 @@ import android.content.Context;
             try
               {
                  SQL = "Insert into "+ TableName +" (CountryCode,FaciCode,DataID,StudyID,kmcinit,initDate,initTime,kmced,kmcpos1,bhat,bvertcl,bnakchest,bfrog,bcheek,bnap,bfixed,bfixedOth,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload,modifyDate)Values('"+ _CountryCode +"', '"+ _FaciCode +"', '"+ _DataID +"', '"+ _StudyID +"','"+ _kmcinit +"', '"+ _initDate +"', '"+ _initTime +"', '"+ _kmced +"', '"+ _kmcpos1 +"', '"+ _bhat +"', '"+ _bvertcl +"', '"+ _bnakchest +"', '"+ _bfrog +"', '"+ _bcheek +"', '"+ _bnap +"', '"+ _bfixed +"', '"+ _bfixedOth +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"', '"+ _modifyDate +"')";
-                 C.Save(SQL);
+                 response = C.SaveData(SQL);
                  C.close();
               }
               catch(Exception  e)
@@ -210,7 +210,7 @@ import android.content.Context;
             try
               {
                  SQL = "Update "+ TableName +" Set Upload='2',modifyDate='" + _modifyDate + "' ,CountryCode = '"+ _CountryCode +"',FaciCode = '"+ _FaciCode +"',DataID = '"+ _DataID +"',StudyID = '"+ _StudyID +"',kmcinit='"+ _kmcinit +"',initDate = '"+ _initDate +"',initTime = '"+ _initTime +"',kmced = '"+ _kmced +"',kmcpos1 = '"+ _kmcpos1 +"',bhat = '"+ _bhat +"',bvertcl = '"+ _bvertcl +"',bnakchest = '"+ _bnakchest +"',bfrog = '"+ _bfrog +"',bcheek = '"+ _bcheek +"',bnap = '"+ _bnap +"',bfixed = '"+ _bfixed +"',bfixedOth = '"+ _bfixedOth +"'  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and DataID='"+ _DataID +"'";
-                 C.Save(SQL);
+                 response = C.SaveData(SQL);
                  C.close();
               }
               catch(Exception  e)

@@ -626,7 +626,7 @@ public class MainActivity2 extends AppCompatActivity
                             String OBJID = spnObserver.getSelectedItem().toString().split("-")[0];
                             for(int i=0;i<DataIdList.size();i++) {
                                 DID = DataIdList.get(i);
-                                C.Save("Update Registration set ObserverId='"+ OBJID +"',modifyDate='"+ Global.DateTimeNowYMDHMS() +"',Upload='2' where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and DataId='" + DID + "'");
+                                C.SaveDT("Update Registration set ObserverId='"+ OBJID +"',modifyDate='"+ Global.DateTimeNowYMDHMS() +"',Upload='2' where CountryCode='" + COUNTRYCODE + "' and FaciCode='" + FACICODE + "' and DataId='" + DID + "'");
                             }
 
                             Connection.RegistrationDataSync(MainActivity2.this);

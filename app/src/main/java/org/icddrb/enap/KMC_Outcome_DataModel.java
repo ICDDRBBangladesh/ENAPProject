@@ -232,7 +232,7 @@ import android.content.Context;
             try
               {
                  SQL = "Insert into "+ TableName +" (CountryCode,FaciCode,DataID,babycond,deathdt,deathtm,deathtmdk,discdt,disctm,disctmdk,discweight,discweightdk,discto,disctooth,motcond,motdiscto,motdisctooth,objstatus,whyincom,reason,incirep,incident,inciformsl,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload,modifyDate)Values('"+ _CountryCode +"', '"+ _FaciCode +"', '"+ _DataID +"', '"+ _babycond +"', '"+ _deathdt +"', '"+ _deathtm +"', '"+ _deathtmdk +"', '"+ _discdt +"', '"+ _disctm +"', '"+ _disctmdk +"', '"+ _discweight +"', '"+ _discweightdk +"', '"+ _discto +"', '"+ _disctooth +"', '"+ _motcond +"', '"+ _motdiscto +"', '"+ _motdisctooth +"', '"+ _objstatus +"', '"+ _whyincom +"', '"+ _reason +"', '"+ _incirep +"', '"+ _incident +"', '"+ _inciformsl +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"', '"+ _modifyDate +"')";
-                 C.Save(SQL);
+                 response = C.SaveData(SQL);
                  C.close();
               }
               catch(Exception  e)
@@ -250,7 +250,7 @@ import android.content.Context;
             try
               {
                  SQL = "Update "+ TableName +" Set Upload='2',modifyDate='" + _modifyDate + "' ,CountryCode = '"+ _CountryCode +"',FaciCode = '"+ _FaciCode +"',DataID = '"+ _DataID +"',babycond = '"+ _babycond +"',deathdt = '"+ _deathdt +"',deathtm = '"+ _deathtm +"',deathtmdk = '"+ _deathtmdk +"',discdt = '"+ _discdt +"',disctm = '"+ _disctm +"',disctmdk = '"+ _disctmdk +"',discweight = '"+ _discweight +"',discweightdk = '"+ _discweightdk +"',discto = '"+ _discto +"',disctooth = '"+ _disctooth +"',motcond = '"+ _motcond +"',motdiscto = '"+ _motdiscto +"',motdisctooth = '"+ _motdisctooth +"',objstatus = '"+ _objstatus +"',whyincom = '"+ _whyincom +"',reason = '"+ _reason +"',incirep = '"+ _incirep +"',incident = '"+ _incident +"',inciformsl = '"+ _inciformsl +"'  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and DataID='"+ _DataID +"'";
-                 C.Save(SQL);
+                 response = C.SaveData(SQL);
                  C.close();
               }
               catch(Exception  e)

@@ -211,7 +211,7 @@ import android.content.Context;
             try
               {
                  SQL = "Insert into "+ TableName +" (CountryCode,FaciCode,DataID,StudyID,objno,objdate,objtime,kmc,kmcwho,kmcwhooth,kmcpos2a,kmcpos2b,kmcpos2c,kmcpos2d,kmcpos2e,kmcpos2f,kmcpos2g,kmcpos2h,nokmcreas,nokmcreasoth,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload,modifyDate)Values('"+ _CountryCode +"', '"+ _FaciCode +"', '"+ _DataID +"', '"+ _StudyID +"', '"+ _objno +"', '"+ _objdate +"', '"+ _objtime +"', '"+ _kmc +"', '"+ _kmcwho +"', '"+ _kmcwhooth +"', '"+ _kmcpos2a +"', '"+ _kmcpos2b +"', '"+ _kmcpos2c +"', '"+ _kmcpos2d +"', '"+ _kmcpos2e +"', '"+ _kmcpos2f +"', '"+ _kmcpos2g +"', '"+ _kmcpos2h +"', '"+ _nokmcreas +"', '"+ _nokmcreasoth +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"', '"+ _modifyDate +"')";
-                 C.Save(SQL);
+                 response = C.SaveData(SQL);
                  C.close();
               }
               catch(Exception  e)
@@ -229,7 +229,7 @@ import android.content.Context;
             try
               {
                  SQL = "Update "+ TableName +" Set Upload='2',modifyDate='" + _modifyDate + "' ,CountryCode = '"+ _CountryCode +"',FaciCode = '"+ _FaciCode +"',DataID = '"+ _DataID +"',StudyID = '"+ _StudyID +"',objno = '"+ _objno +"',objdate = '"+ _objdate +"',objtime = '"+ _objtime +"',kmc = '"+ _kmc +"',kmcwho = '"+ _kmcwho +"',kmcwhooth = '"+ _kmcwhooth +"',kmcpos2a = '"+ _kmcpos2a +"',kmcpos2b = '"+ _kmcpos2b +"',kmcpos2c = '"+ _kmcpos2c +"',kmcpos2d = '"+ _kmcpos2d +"',kmcpos2e = '"+ _kmcpos2e +"',kmcpos2f = '"+ _kmcpos2f +"',kmcpos2g = '"+ _kmcpos2g +"',kmcpos2h = '"+ _kmcpos2h +"',nokmcreas = '"+ _nokmcreas +"',nokmcreasoth = '"+ _nokmcreasoth +"'  Where CountryCode='"+ _CountryCode +"' and FaciCode='"+ _FaciCode +"' and DataID='"+ _DataID +"' and objno='"+ _objno +"'";
-                 C.Save(SQL);
+                 response = C.SaveData(SQL);
                  C.close();
               }
               catch(Exception  e)
