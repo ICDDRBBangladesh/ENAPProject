@@ -73,7 +73,6 @@ public class ProjectSetting {
     public static String Namespace      = "http://202.50.53.25/";
     public static String Country        = NEPAL;*/
 
-
     /*public static String ProjectTitle   = "Supervisor Interview";
     public static String apiName        = "enap_sup";
     public static String Namespace      = "http://202.50.53.25/";

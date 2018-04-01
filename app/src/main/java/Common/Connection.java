@@ -950,15 +950,15 @@ public class Connection extends SQLiteOpenHelper {
                     DownloadClass responseData = gson.fromJson(response, collType);
 
                     //upload all records as successfull upload then update status of upload=2 for unsuccessfull
-                    /*for (int i = 0; i < responseData.getdata().size(); i++) {
+                    for (int i = 0; i < responseData.getdata().size(); i++) {
                         SaveDT("Update " + TableName + " Set Upload='1' where " + responseData.getdata().get(i).toString());
-                    }*/
+                    }
 
-                    String UpdateSQL = "";
+                    /*String UpdateSQL = "";
                     for (int i = 0; i < responseData.getdata().size(); i++) {
                         UpdateSQL += "Update " + TableName + " Set Upload='1' where " + responseData.getdata().get(i).toString() +";";
                     }
-                    SaveDT(UpdateSQL);
+                    SaveDT(UpdateSQL);*/
                 }
 
             } catch (Exception e) {
@@ -1601,8 +1601,9 @@ public class Connection extends SQLiteOpenHelper {
             if (totalRecords % batchSize > 0)
                 totalBatch += 1;
         }
-        for(int i=0; i<totalBatch;i++)
-            Res = UploadJSON(TableName, VariableList, UniqueField,batchSize);
+        for(int i=0; i<totalBatch;i++) {
+            Res = UploadJSON(TableName, VariableList, UniqueField, batchSize);
+        }
     }
 
 

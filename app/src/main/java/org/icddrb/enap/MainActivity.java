@@ -444,9 +444,10 @@ public class MainActivity extends AppCompatActivity
                             tableList.add("Infver_labInv");
                             tableList.add("Infver_Outcome");
 
+
                             //For Nepal: 19 Mar 2018
-                            /*tableList.clear();
-                            tableList.add("Observation");
+                            //tableList.clear();
+                            //tableList.add("Observation");
                             if(COUNTRYCODE.equals(ProjectSetting.NEPAL)){
                                 for (int i = 0; i < tableList.size(); i++) {
                                     try {
@@ -456,7 +457,7 @@ public class MainActivity extends AppCompatActivity
 
                                     }
                                 }
-                            }*/
+                            }
 
                             int progressCount = 50/tableList.size();
                             int count = 0;
