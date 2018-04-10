@@ -364,9 +364,6 @@ public class MainActivity extends AppCompatActivity
         adb.show();
     }
 
-
-
-
     private class DataSyncTask extends AsyncTask<String, Void, Void> {
         ProgressDialog dialog;
         private Context context;
@@ -388,7 +385,6 @@ public class MainActivity extends AppCompatActivity
         //@Override
         protected void onProgressUpdate(String... values) {
             //super.onProgressUpdate(values);
-
             //dialog.setMessage("Syncing Table "+ values[0].toString().split(",")[0] +" ...");
             dialog.setProgress(Integer.parseInt(values[0].toString().split(",")[1]));
         }
@@ -444,11 +440,10 @@ public class MainActivity extends AppCompatActivity
                             tableList.add("Infver_labInv");
                             tableList.add("Infver_Outcome");
 
-
                             //For Nepal: 19 Mar 2018
                             //tableList.clear();
                             //tableList.add("Observation");
-                            if(COUNTRYCODE.equals(ProjectSetting.NEPAL)){
+                            /*if(COUNTRYCODE.equals(ProjectSetting.NEPAL)){
                                 for (int i = 0; i < tableList.size(); i++) {
                                     try {
                                         C.SaveData("Update "+ tableList.get(i).toString() +"" +
@@ -457,7 +452,7 @@ public class MainActivity extends AppCompatActivity
 
                                     }
                                 }
-                            }
+                            }*/
 
                             int progressCount = 50/tableList.size();
                             int count = 0;
@@ -491,7 +486,7 @@ public class MainActivity extends AppCompatActivity
                             //Downlaod from Current DB
                             for (int i = 0; i < tableList.size(); i++) {
                                 try {
-                                    //C.Sync_Download(tableList.get(i).toString(), DEVICEID,"CountryCode='"+ COUNTRYCODE +"' and FaciCode='"+ FACICODE +"'");
+                                    C.Sync_Download(tableList.get(i).toString(), DEVICEID,"CountryCode='"+ COUNTRYCODE +"' and FaciCode='"+ FACICODE +"'");
                                     count +=progressCount;
                                     onProgressUpdate(tableList.get(i).toString()+","+String.valueOf(count));
                                 }catch(Exception ex){

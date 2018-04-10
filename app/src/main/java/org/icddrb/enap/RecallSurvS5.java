@@ -422,15 +422,19 @@
    try
      {
          COUNTRYCODE = sp.getValue(this, "countrycode");
-         if(COUNTRYCODE.equals(ProjectSetting.BANGLADESH))
-             setContentView(R.layout.recallsurvs5_bd);
-         else if(COUNTRYCODE.equals(ProjectSetting.NEPAL))
-             setContentView(R.layout.recallsurvs5_np);
-         else if(COUNTRYCODE.equals(ProjectSetting.TANZANIA))
-             setContentView(R.layout.recallsurvs5_tz);
-         else
-             setContentView(R.layout.recallsurvs5);
 
+         if(ProjectSetting.MRS_Language_English = true){
+             setContentView(R.layout.recallsurvs5);
+         }else {
+             if (COUNTRYCODE.equals(ProjectSetting.BANGLADESH))
+                 setContentView(R.layout.recallsurvs5_bd);
+             else if (COUNTRYCODE.equals(ProjectSetting.NEPAL))
+                 setContentView(R.layout.recallsurvs5_np);
+             else if (COUNTRYCODE.equals(ProjectSetting.TANZANIA))
+                 setContentView(R.layout.recallsurvs5_tz);
+             else
+                 setContentView(R.layout.recallsurvs5);
+         }
 
          C = new Connection(this);
          g = Global.getInstance();
