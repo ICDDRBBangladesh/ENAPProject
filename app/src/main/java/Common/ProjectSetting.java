@@ -27,11 +27,11 @@ public class ProjectSetting {
     //Web Services
     //Development
     //**********************************************************************************************
-    /*public static String ProjectTitle   = "";
+    public static String ProjectTitle   = "";
     public static String apiName        = "enap_dev";
     public static String Namespace      = "http://chu.icddrb.org/";
     public static String Country        = BANGLADESH;
-    public static Boolean MRS_Language_English = true;*/
+    public static Boolean MRS_Language_English = true;
 
     /*public static String ProjectTitle   = "QA Interview";
     public static String apiName        = "enap_dev_qa";
@@ -47,11 +47,11 @@ public class ProjectSetting {
 
     //Bangladesh: Implemented - 16 May 2017
     //**********************************************************************************************
-    public static String ProjectTitle   = "";
+    /*public static String ProjectTitle   = "";
     public static String apiName        = "enap";
     public static String Namespace      = "http://chu.icddrb.org/";
     public static String Country        = BANGLADESH;
-    public static Boolean MRS_Language_English = false;
+    public static Boolean MRS_Language_English = false;*/
 
     /*public static String ProjectTitle   = "QA Interview";
     public static String apiName        = "enap_qa";
@@ -70,19 +70,22 @@ public class ProjectSetting {
     //**********************************************************************************************
     /*public static String ProjectTitle   = "";
     public static String apiName        = "enap";
-    public static String Namespace      = "http://202.50.53.25/";
+    //public static String Namespace      = "http://202.50.53.25/";
+    public static String Namespace      = "http://202.79.33.7/";
     public static String Country        = NEPAL;
     public static Boolean MRS_Language_English = false;*/
 
     /*public static String ProjectTitle   = "QA Interview";
     public static String apiName        = "enap_qa";
-    public static String Namespace      = "http://202.50.53.25/";
+    //public static String Namespace      = "http://202.50.53.25/";
+    public static String Namespace      = "http://202.79.33.7/";
     public static String Country        = NEPAL;
     public static Boolean MRS_Language_English = false;*/
 
     /*public static String ProjectTitle   = "Supervisor Interview";
     public static String apiName        = "enap_sup";
-    public static String Namespace      = "http://202.50.53.25/";
+    //public static String Namespace      = "http://202.50.53.25/";
+    public static String Namespace      = "http://202.79.33.7/";
     public static String Country        = NEPAL;
     public static Boolean MRS_Language_English = false;*/
 
@@ -109,7 +112,7 @@ public class ProjectSetting {
     public static Boolean MRS_Language_English = false;*/
 
     //**********************************************************************************************
-    public static String VersionDate    = "19022018"; //Format: DDMMYYYY
+    public static String VersionDate    = "16082018"; //Format: DDMMYYYY
     //**********************************************************************************************
 
     //Location
