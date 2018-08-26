@@ -154,6 +154,21 @@ public class Login extends Activity {
                 //C.Save("Delete from BirthDeath where date(endt) <= '2016-02-10'");
             }*/
 
+
+            //Execute Specific Process
+            try {
+                C.CreateTable("process_tab", "Create table process_tab(process_id int)");
+                if (ProjectSetting.Country.equals(ProjectSetting.NEPAL) & !C.Existence("Select * from process_tab where process_id=1")) {
+                    String resp = C.SaveData("Update Registration set Upload='2' where DeviceId='203' and DataId in('203002978','203002979','203002980','203002981','203002982','203002983')");
+                    if (resp.length() == 0) {
+                        String r = C.SaveData("Insert into process_tab(process_id)values(1)");
+                    }
+                }
+            }catch (Exception ex){
+
+            }
+
+
             Button btnClose=(Button)findViewById(R.id.btnClose);
             btnClose.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
