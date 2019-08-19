@@ -592,9 +592,14 @@
          super.onCreate(savedInstanceState);
    try
      {
+         C = new Connection(this);
+         g = Global.getInstance();
+
+         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
          COUNTRYCODE = sp.getValue(this, "countrycode");
 
-         if(ProjectSetting.MRS_Language_English = true){
+         if(ProjectSetting.MRS_Language_English == true){
              setContentView(R.layout.recallsurvs1);
          }else {
              if (COUNTRYCODE.equals(ProjectSetting.BANGLADESH))
@@ -607,10 +612,7 @@
                  setContentView(R.layout.recallsurvs1);
          }
 
-         C = new Connection(this);
-         g = Global.getInstance();
 
-         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
          STARTTIME = g.CurrentTime24();
          DEVICEID  = sp.getValue(this, "deviceid");

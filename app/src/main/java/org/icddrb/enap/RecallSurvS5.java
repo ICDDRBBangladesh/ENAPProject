@@ -421,9 +421,11 @@
          super.onCreate(savedInstanceState);
    try
      {
+         C = new Connection(this);
+         g = Global.getInstance();
          COUNTRYCODE = sp.getValue(this, "countrycode");
 
-         if(ProjectSetting.MRS_Language_English = true){
+         if(ProjectSetting.MRS_Language_English == true){
              setContentView(R.layout.recallsurvs5);
          }else {
              if (COUNTRYCODE.equals(ProjectSetting.BANGLADESH))
@@ -436,8 +438,7 @@
                  setContentView(R.layout.recallsurvs5);
          }
 
-         C = new Connection(this);
-         g = Global.getInstance();
+
 
          STARTTIME = g.CurrentTime24();
          DEVICEID  = sp.getValue(this, "deviceid");
