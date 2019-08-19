@@ -1,0 +1,4341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:scrollbars="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/heading_height"
+        android:background="@color/pageHeadingBack"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/cmdBack"
+            android:layout_width="50sp"
+            android:layout_height="match_parent"
+            android:background="@color/pageHeadingBack"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/lblHeading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="10sp"
+            android:text="ACS"
+            android:textColor="@color/pageHeading"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:layout_marginBottom="5sp"
+        android:background="#CCCCCC"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:isScrollContainer="true"
+        android:overScrollMode="always"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarStyle="outsideInset"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/secCountryCode"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/lblCountryCode"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/VlblCountryCode"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:text="Country Code"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtCountryCode"
+                    style="@style/customEdit"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineCountryCode"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/secFaciCode"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/lblFaciCode"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/VlblFaciCode"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:text="FaciCode"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtFaciCode"
+                    style="@style/customEdit"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineFaciCode"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/secDataID"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/lblDataID"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/VlblDataID"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:text="Data ID"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtDataID"
+                    style="@style/customEdit"
+                    android:layout_width="150sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="10"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineDataID"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/secStudyID"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/lblStudyID"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/VlblStudyID"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:text="Nambari ya mshiriki"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtStudyID"
+                    style="@style/customEdit"
+                    android:layout_width="150sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="9"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineStudyID"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII6"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Section II: MATERNAL RECALL SURVEY MODULE (ACS, uterotonics, newborn resuscitation, ENC practices)"
+                    android:textColor="@color/headingColor"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII6"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII1"
+                    style="@style/rowHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Section II.1 ACS"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Kuna baadhi ya watoto wanazaliwa kabla ya muda na kuna njia za kuwasaidia waweze kupumua."
+                    android:textColor="@color/headingColor"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII1"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbb4expect"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbb4expect"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="01."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbb4expect"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Je unajua kama mtoto wako alizaliwa kabla ya tarehe iliyotarajiwa, au mapema sana au “Ulijua kama mtoto wako alizaliwa njiti”?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbb4expect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobb4expect1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Ndiyo"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobb4expect2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Hapana"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobb4expect3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebb4expect"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secredeliv"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblredeliv"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblredeliv"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="a) If No, Ulikuwa unadalili za kujifungua kabla ya wakati au kuapata unchungu kabla ya wakati “kujifungua njiti” au kwa namna yoyote ile uliambiwa kwamba ulikuwa katika hatari ya kujifungua mtoto wako kabla ya wakati? MHOJAJI ATUMIE NENO LINALOJULIKANA NA JAMII KWA AJILI YA MTOTO “ALIYEZALIWA KABLA YA WAKATI” KAMA INAFAA."
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpredeliv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdoredeliv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Ndiyo"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdoredeliv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Hapana"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdoredeliv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineredeliv"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII7"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII7"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Dodosa: Kabla ya tarehe uliyotarajia kujifungua?"
+                    android:textColor="@color/headingColor"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII7"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secedeliv"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbledeliv"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbledeliv"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="b) If YES, Ilikuwa mapema sana kwa siku/wiki/miezi mingapi?  Dodosa: Kabla ya tarehe uliyotarajia kujifungua? INATEGEMEA NA JIBU LA MAMA, ANDIKA JIBU KWA SIKU, MAJUMA AU MIEZI"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpedeliv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdoedeliv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="SIku"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdoedeliv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Majuma"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdoedeliv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Miezi"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdoedeliv4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineedeliv"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secedelivDur"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbledelivDur"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbledelivDur"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Ilikuwa mapema sana kwa siku/wiki/miezi mingapi? "
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtedelivDur"
+                    style="@style/customEdit"
+                    android:layout_width="60sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineedelivDur"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacsgiven"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacsgiven"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="02."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblacsgiven"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Kabla mtoto wako hajazaliwa ulikuwa unapewa dawa au sindano zozote kwasababu mtoto wako alikuwa katika hatari ya kuzaliwa kabla ya wakati?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpacsgiven"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdoacsgiven1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Ndiyo"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdoacsgiven2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Hapana"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdoacsgiven3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacsgiven"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacsreason"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacsreason"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="03."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblacsreason"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="Je unajua hizo dawa au sindano zilikuwa kwa ajili ya nini?"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spnacsreason"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacsreason"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacsreasonOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacsreasonOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblacsreasonOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="Specify"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtacsreasonOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacsreasonOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacsname"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacsname"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="04."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblacsname"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content" android:layout_marginBottom="10sp"
+                    android:text="What medicine were you given?  DODOSA: ONESHA MFANO WA DAWA KAMA ZIPO"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spnacsname"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacsname"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacsnameOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacsnameOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblacsnameOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="Specify"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtacsnameOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacsnameOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacsroute"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacsroute"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="05."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblacsroute"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Dawa ulipewa kwa njia gani? "
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spnacsroute"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacsroute"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacsrouteOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacsrouteOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblacsrouteOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="Specify"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtacsrouteOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacsrouteOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacsdoses"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacsdoses"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="06."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblacsdoses"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Je hiyo dawa ulipewa mara ngapi?"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtacsdoses"
+                    style="@style/customEdit"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacsdoses"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacsdosesDK"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacsdosesDK"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblacsdosesDK"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="Sijui/Sikumbuki"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkacsdosesDK"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacsdosesDK"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacstime"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacstime"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="07."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblacstime"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="Je dozi ya kwanza ulipewa wakati gani kabla ya kujifungua?"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spnacstime"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacstime"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII2"
+                    style="@style/rowHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Section II.2 Uterotonics"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII2"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII8"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII8"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sasa napenda kukuuliza maswali machache kuhusiana na kilichotokea baada ya kujifungua mtoto wako."
+                    android:textColor="@color/headingColor"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII8"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secmedadeliv"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblmedadeliv"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="08."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblmedadeliv"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Je ulipewa dawa yoyote mara tu baada ya kujifungua mtoto wako? "
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpmedadeliv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdomedadeliv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Ndiyo"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdomedadeliv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Hapana"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdomedadeliv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linemedadeliv"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII9"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII9"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="8a. Dawa ulipewa kwa njia gani? MULTIPLE SELECTION POSSIBLE- SELECT ALL RELEVANT ANSWER OPTIONS"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII9"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroroute1"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroroute1"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbluteroroute1"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="1) Sindano kwenye mapaja au kwenye matako"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteroroute1"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroroute1"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroroute2"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroroute2"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbluteroroute2"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="2) Njia ya ndripu"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteroroute2"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroroute2"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroroute3"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroroute3"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbluteroroute3"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="3) Vidonge vya kumeza au kuvimung’unya"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteroroute3"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroroute3"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroroute4"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroroute4"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbluteroroute4"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="4) Vidonge kwa njia ya haja kubwa"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteroroute4"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroroute4"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroroute5"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroroute5"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbluteroroute5"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="5) Sijui/Sikumbuki"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteroroute5"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroroute5"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuterotime"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluterotime"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="08b."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbluterotime"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="Je ni wakati gani ulichomwa hiyo sindano au kupewa hivyo vidonge?  SOMA MAJIBU YALIYOPENDEKEZWA."
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spnuterotime"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuterotime"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuterotold"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluterotold"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="09."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbluterotold"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Je, mtoa wa huduma ya afya alikueleza kwamba utapewa sindano/dawa mara tu baada ya kujifungua? "
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrputerotold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdouterotold1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Ndiyo"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdouterotold2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Hapana"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdouterotold3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuterotold"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroknow"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroknow"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="10."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbluteroknow"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Je, unajua ulipewa dawa ya aina gani? "
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrputeroknow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdouteroknow1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Ndiyo"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdouteroknow2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Hapana"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdouteroknow3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroknow"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII16"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII16"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="10a. Je unajua jina la dawa uliyopewa?  MULTIPLE SELECTION POSSIBLE- SELECT ALL RELEVANT ANSWER OPTIONS"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII16"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteronameA"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteronameA"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteronameA"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="a) Oxytocin"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteronameA"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteronameA"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteronameB"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteronameB"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteronameB"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="b) Ergometrine"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteronameB"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteronameB"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteronameC"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteronameC"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteronameC"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="c) Misoprostol"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteronameC"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteronameC"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteronameD"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteronameD"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteronameD"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="d) Nyingine"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteronameD"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteronameD"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteronameDOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteronameDOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteronameDOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="Specify"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtuteronameDOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteronameDOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteronameE"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteronameE"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteronameE"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="e) Sijui/Sikumbuki"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteronameE"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteronameE"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sectolduteroreas"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbltolduteroreas"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="11."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbltolduteroreas"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Je uliambiwa sababu ya kuchomwa hiyo sindano?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrptolduteroreas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdotolduteroreas1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Ndio"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdotolduteroreas2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Hapana"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdotolduteroreas3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linetolduteroreas"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII17"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII17"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="11a. Nini ilikuwa sababu yake?  MULTIPLE SELECTION POSSIBLE- SELECT ALL RELEVANT ANSWER OPTIONS. END SURVEY if BABY OUTCOME IS DEAD"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII17"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroreasA"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroreasA"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteroreasA"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="a) Kuzui kutokwa kwa damu kwa wingi"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteroreasA"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroreasA"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroreasB"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroreasB"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteroreasB"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="b) Nyingine"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteroreasB"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroreasB"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroreasOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroreasOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteroreasOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="Taja"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtuteroreasOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroreasOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroreasC"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroreasC"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteroreasC"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="c) Sijui/Sikumbuki"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteroreasC"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroreasC"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII3"
+                    style="@style/rowHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Section II.3 Essential Newborn Care Practices"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII3"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbdried"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbdried"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="12."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbdried"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Je, mtoto wako alifutwa au alipanguswa mara tu baada ya kuzaliwa? (ndani ya dakika chache)? "
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbdried"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobdried1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Ndiyo"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobdried2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Hapana"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobdried3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebdried"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbnakchest"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/lblbnakchest"
+                        android:layout_width="40sp"
+                        android:layout_height="wrap_content"
+                        android:text="13."
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/Vlblbnakchest"
+                        android:layout_width="300sp"
+                        android:layout_height="wrap_content"
+                        android:text="Je, mtoto wako aliwekwa katika kifua chako, akiwa uchi na kwa kugusanisha ngozi yako na yake?  DODOSA NA PICHA KAMA KUNA ULAZIMA"
+                        android:textSize="20sp" />
+
+                    <RadioGroup
+                        android:id="@+id/rdogrpbnakchest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:textSize="20sp">
+
+                        <RadioButton
+                            android:id="@+id/rdobnakchest1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:text="Ndiyo"
+                            android:textSize="20sp" />
+
+                        <RadioButton
+                            android:id="@+id/rdobnakchest2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:text="Hapana"
+                            android:textSize="20sp" />
+
+                        <RadioButton
+                            android:id="@+id/rdobnakchest3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:text="Sijui/Sikumbuki"
+                            android:textSize="20sp" />
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button android:id="@+id/btnQ13" android:text="Select for Photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebnakchest"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbchesttime"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbchesttime"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="13a."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbchesttime"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Je, ni muda muda gani mtoto wako alipolazwa kwenye kifua chako? SOMA JIBU CHAGUA"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbchesttime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobchesttime1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Mara tu baada ya kujifungua"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobchesttime2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Dakika"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobchesttime3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebchesttime"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbchesttimeM"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbchesttimeM"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblbchesttimeM"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Exact Minutes"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtbchesttimeM"
+                    style="@style/customEdit"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebchesttimeM"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbplaced"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbplaced"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="14."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbplaced"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="Kama hakuwekwa kwenye kifua chako, mtoto wako aliwekwa wapi mara tu baada ya kuzaliwa?"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spnbplaced"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebplaced"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbbathtime"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbbathtime"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="15."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbbathtime"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Je, ilichukua muda gani baada ya kujifungua hadi matoto alioogeshwa kwa mara ya kwanza? "
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbbathtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobbathtime1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Mara tu"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobbathtime2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Masaa"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobbathtime3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Siku"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobbathtime4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobbathtime5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Baby is not bathed"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebbathtime"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbbathtimeDur"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbbathtimeDur"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblbbathtimeDur"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Masaa/Siku"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtbbathtimeDur"
+                    style="@style/customEdit"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebbathtimeDur"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII10"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII10"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" KAMA NI CHINI YA SAA 1, ANDIKA ‘01’; KAMA CHINI YA MASAA 24 , ANDIKA MASAA; VINGINEVYO, ANDIKA SIKU."
+                    android:textColor="@color/headingColor"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII10"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbbfd"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbbfd"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="16."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbbfd"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Je umeshawahi kumnyonyesha mtoto wako?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbbfd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobbfd1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Ndiyo"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobbfd2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Hapana"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobbfd3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebbfd"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbfdtime"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbfdtime"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="16a."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbfdtime"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="Baada ya kujifungua ilichukua muda gani hadi ulipo muweka mtoto wako kwa mara ya kwanza kwenye maziwa? "
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spnbfdtime"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebfdtime"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbfdtimeDur"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbfdtimeDur"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblbfdtimeDur"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Masaa/Siku"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtbfdtimeDur"
+                    style="@style/customEdit"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebfdtimeDur"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII11"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII11"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" KAMA NI CHINI YA SAA MOJA, ANDIKA ‘01’; KAMA NI CHINI YA MASAA 24, ANDIKA MASAA; VINGINEVYO, ANDIKA SIKU"
+                    android:textColor="@color/headingColor"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII11"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secsupbfd"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblsupbfd"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="17."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblsupbfd"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Je, ulipata msaada wowote wa kukusaidia kunyonyesha kutoka kwa muhudumu wa afya?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpsupbfd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdosupbfd1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Ndiyo"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdosupbfd2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Hapana"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdosupbfd3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linesupbfd"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII18"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII18"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="18. Baada ya kujifungua wakati bado upo hospitalini, je mtoto wako alipewa kitu chochote cha kunywa zaidi ya maziwa yako? DODOSA: Kama vile maji, maziwa ya kopo, chai Lakini usihusishe vidonge/dawa? MULTIPLE SELECTION POSSIBLE- SELECT ALL RELEVANT ANSWER OPTIONS"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII18"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secaltdrinkA"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblaltdrinkA"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblaltdrinkA"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="a) Maji"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkaltdrinkA"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linealtdrinkA"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secaltdrinkB"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblaltdrinkB"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblaltdrinkB"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="b) Chai"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkaltdrinkB"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linealtdrinkB"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secaltdrinkC"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblaltdrinkC"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblaltdrinkC"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="c) Maziwa ya kopo"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkaltdrinkC"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linealtdrinkC"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secaltdrinkD"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblaltdrinkD"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblaltdrinkD"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="d) Nyingine"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkaltdrinkD"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linealtdrinkD"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secaltdrinkDOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblaltdrinkDOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblaltdrinkDOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="Taja"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtaltdrinkDOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linealtdrinkDOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secaltdrinkE"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblaltdrinkE"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblaltdrinkE"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="e) Hapana"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkaltdrinkE"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linealtdrinkE"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secaltdrinkF"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblaltdrinkF"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblaltdrinkF"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="f) Sijui/Sikumbuki"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkaltdrinkF"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linealtdrinkF"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII4"
+                    style="@style/rowHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Section II.4 Newborn Resuscitation"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII4"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbcry"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbcry"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="19."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbcry"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Je, mara tu baada ya kujifungua ulimsikia mtoto wako akilia?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbcry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobcry1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Ndiyo"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobcry2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Hapana"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobcry3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebcry"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbtroubbrth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbtroubbrth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="20."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbtroubbrth"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Je, mtoto wako alikuwa na tatizo la kupumua wakati anazaliwa?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbtroubbrth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobtroubbrth1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Ndiyo"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobtroubbrth2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Hapana"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobtroubbrth3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebtroubbrth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII13"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII13"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="20a. Kuna chochote kilifanyika kumsaidia mtoto wako kupumua? DODOSA KAMA KUNA ULAZIMA: Yaani, kuna mtu yeyote aliyejaribu kumsaidia mtoto wako kupumua? MULTIPLE SELECTION POSSIBLE- SELECT ALL RELEVANT ANSWER OPTIONS"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII13"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechelpbbrthA"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhelpbbrthA"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhelpbbrthA"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="a) Ndiyo"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkhelpbbrthA"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehelpbbrthA"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechelpbbrthB"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhelpbbrthB"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhelpbbrthB"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="b) Hapana, kwasababu mtoto alipelekwa chumba kingine"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkhelpbbrthB"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehelpbbrthB"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechelpbbrthC"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhelpbbrthC"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhelpbbrthC"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="c) Hapana, Sijui kwasababu mama hakuwa na hali nzuli au mafano, alifanyiwa operesheni"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkhelpbbrthC"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehelpbbrthC"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechelpbbrthD"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhelpbbrthD"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhelpbbrthD"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="d) Hapana, sijui kwasababu hakuna mtu aliyemjulisha mama"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkhelpbbrthD"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehelpbbrthD"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechelpbbrthE"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhelpbbrthE"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhelpbbrthE"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="e) Sijui/Sikumbuki"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkhelpbbrthE"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehelpbbrthE"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbstim"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbstim"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="21."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbstim"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Je, mtoto wako alifutwa kwa nguvu na kitambaa au taulo au namna yeyote ya kumsisimua ili kumsaidia mtoto aweze kupumua?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbstim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobstim1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Ndiyo"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobstim2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Hapana"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobstim3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebstim"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbplast"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/lblbplast"
+                        android:layout_width="40sp"
+                        android:layout_height="wrap_content"
+                        android:text="22."
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/Vlblbplast"
+                        android:layout_width="300sp"
+                        android:layout_height="wrap_content"
+                        android:text="Kuna mtu yeyote alitumia kifaa cha plastiki ili kumsaidia mtoto wako kupumua? PROMPT: SHOW PICTURE OF BAG AND MASK"
+                        android:textSize="20sp" />
+
+                    <RadioGroup
+                        android:id="@+id/rdogrpbplast"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:textSize="20sp">
+
+                        <RadioButton
+                            android:id="@+id/rdobplast1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:text="Ndiyo"
+                            android:textSize="20sp" />
+
+                        <RadioButton
+                            android:id="@+id/rdobplast2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:text="Hapana"
+                            android:textSize="20sp" />
+
+                        <RadioButton
+                            android:id="@+id/rdobplast3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:text="Sijui/Sikumbuki"
+                            android:textSize="20sp" />
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button android:id="@+id/btnQ22_sii" android:text="Select for Photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebplast"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbresustmin"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbresustmin"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="23."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbresustmin"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Kama kuna mtu alitumia kifaa cha plastiki kumsaidia mtoto wako kupumua, walikitumia kwa muda gani?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbresustmin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobresustmin1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Dakika"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobresustmin2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebresustmin"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbresustminDur"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbresustminDur"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblbresustminDur"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Minutes"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtbresustminDur"
+                    style="@style/customEdit"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebresustminDur"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbsuc"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbsuc"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="24."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbsuc"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Kuna mtu yeyote ambaye alimfyonza mdomo au pua mtoto wako baada ya kuzaliwa ili kusafisha njia za hewa?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbsuc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobsuc1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Ndiyo"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobsuc2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Hapana"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobsuc3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebsuc"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secoresusact"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbloresusact"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="25."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbloresusact"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Kuna hatua yoyote iliyochukuliwa kumsaidia mtoto wako kupumua?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrporesusact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdooresusact1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Ndiyo"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdooresusact2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Hapana"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdooresusact3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineoresusact"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secoresusactOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbloresusactOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbloresusactOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="Ndiyo"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtoresusactOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineoresusactOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbadmward"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbadmward"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="26."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbadmward"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Je, baada ya mtoto wako kuhitaji kusaidiwa kupumua alipelekwa kwenye wodi ya watoto wachanga?? DODOSA: Namaanisha katika wodi maalumu ya uangalizi au matibabu."
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbadmward"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobadmward1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Ndiyo"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobadmward2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Hapana"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobadmward3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebadmward"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sectoldresusexp"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbltoldresusexp"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="27."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbltoldresusexp"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="Je, kuna muhudumu yeyote wa afya ambaye alikueleza kilichotokea kwa mtoto wako?"
+                    android:textSize="20sp" />
+                <!--<Spinner android:id="@+id/spntoldresusexp" android:drawSelectorOnTop="true" android:layout_width="200sp" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="20sp" />-->
+                <RadioGroup
+                    android:id="@+id/rdogrptoldresusexp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdotoldresusexp1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Ndiyo"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdotoldresusexp2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Hapana"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdotoldresusexp3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Sijui/Sikumbuki"
+                        android:textSize="20sp" />
+                </RadioGroup>
+
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linetoldresusexp"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secresusexp"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblresusexp"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="27a"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblresusexp"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="Uliambiwa nini kimetokea?"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtresusexp"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineresusexp"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secresusexpDK"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblresusexpDK"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblresusexpDK"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="Sijui/Sikumbuki"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkresusexpDK"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineresusexpDK"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII14"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII14"
+                    style="@style/rowHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Section II.5 Cord care and chlorhexidine cord cleansing"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII14"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secappcord"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblappcord"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="28."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblappcord"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="After the cord was cut, was anything applied to the stump of the cord at any time?"
+                    android:textSize="20sp" />
+                <!--<Spinner android:id="@+id/spnappcord" android:drawSelectorOnTop="true" android:layout_width="200sp" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="20sp" />-->
+                <RadioGroup
+                    android:id="@+id/rdogrpappcord"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdoappcord1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdoappcord2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdoappcord3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Don’t know/don’t remember"
+                        android:textSize="20sp" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineappcord"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secmedappcord"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblmedappcord"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="28a."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblmedappcord"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="What was applied to the cord? (Show tube ) PROBE: Anything else? INSTRUCTIONS: SHOW A TUBE OF CHLORHEXIDINE TO THE MOTHER"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpmedappcord"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdomedappcord1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Chlorhexidine (tube)"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdomedappcord2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Other"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdomedappcord3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Don’t know/don’t remember"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linemedappcord"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secmedappcordOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblmedappcordOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblmedappcordOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="specify"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtmedappcordOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linemedappcordOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII15"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII15"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" PROBE: Anything else? INSTRUCTIONS: SHOW A TUBE OF CHLORHEXIDINE TO THE MOTHER"
+                    android:textColor="@color/headingColor"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII15"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sectimechl"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbltimechl"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="29."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbltimechl"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="How long after the cord was cut was chlorhexidine first applied?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrptimechl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdotimechl1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Hours"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdotimechl2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Days"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdotimechl3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Don’t know/don’t remember"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linetimechl"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sectimechlDur"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbltimechlDur"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbltimechlDur"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="Hours/Days"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txttimechlDur"
+                    style="@style/customEdit"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linetimechlDur"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII19"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII19"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" IF LESS THAN 1 HOUR, RECORD 01 HOURS; IF LESS THAN 24 HOURS, RECORD HOURS; OTHERWISE RECORD DAYS."
+                    android:textColor="@color/headingColor"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII19"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secwhoappchl"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblwhoappchl"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="30."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblwhoappchl"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="If chlorhexidine was applied, who applied the treatment within the last 24hours?"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spnwhoappchl"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linewhoappchl"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secwhoappchlOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblwhoappchlOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblwhoappchlOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="Specify"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtwhoappchlOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linewhoappchlOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sectoldchlreas"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbltoldchlreas"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="31."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbltoldchlreas"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="Were you told the reason why the treatment was being applied to the stump?"
+                    android:textSize="20sp" />
+                <!--<Spinner android:id="@+id/spntoldchlreas" android:drawSelectorOnTop="true" android:layout_width="200sp" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="20sp" />-->
+                <RadioGroup
+                    android:id="@+id/rdogrptoldchlreas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdotoldchlreas1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdotoldchlreas2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdotoldchlreas3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Don’t know/don’t remember"
+                        android:textSize="20sp" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linetoldchlreas"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secchlreas"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblchlreas"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="31a."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblchlreas"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="What was the reason?"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtchlreas"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linechlreas"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secchlreasDK"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblchlreasDK"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblchlreasDK"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="Don’t know"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkchlreasDK"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linechlreasDK"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secchlhome"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblchlhome"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="32."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblchlhome"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="Were you given the medicine to take home?"
+                    android:textSize="20sp" />
+                <!--<Spinner android:id="@+id/spnchlhome" android:drawSelectorOnTop="true" android:layout_width="200sp" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="20sp" />-->
+                <RadioGroup
+                    android:id="@+id/rdogrpchlhome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdochlhome1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Yes"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdochlhome2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="No"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdochlhome3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="Don’t know/don’t remember"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linechlhome"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seccomments"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblcomments"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblcomments"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="INTERVIEWER COMMENTS"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtcomments"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linecomments"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20sp">
+
+                <Button
+                    android:id="@+id/cmdSave"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20sp"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginRight="20sp"
+                    android:background="@drawable/button_style_green"
+                    android:text=" Save -> Continue "
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

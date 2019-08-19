@@ -1,0 +1,4342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:scrollbars="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/heading_height"
+        android:background="@color/pageHeadingBack"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/cmdBack"
+            android:layout_width="50sp"
+            android:layout_height="match_parent"
+            android:background="@color/pageHeadingBack"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/lblHeading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="10sp"
+            android:text="ACS"
+            android:textColor="@color/pageHeading"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:layout_marginBottom="5sp"
+        android:background="#CCCCCC"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:isScrollContainer="true"
+        android:overScrollMode="always"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarStyle="outsideInset"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/secCountryCode"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/lblCountryCode"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/VlblCountryCode"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:text="Country Code"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtCountryCode"
+                    style="@style/customEdit"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineCountryCode"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/secFaciCode"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/lblFaciCode"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/VlblFaciCode"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:text="FaciCode"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtFaciCode"
+                    style="@style/customEdit"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineFaciCode"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/secDataID"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/lblDataID"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/VlblDataID"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:text="डाटा आइ डि"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtDataID"
+                    style="@style/customEdit"
+                    android:layout_width="150sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="10"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineDataID"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/secStudyID"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/lblStudyID"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/VlblStudyID"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:text="सहभागीको आइडि"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtStudyID"
+                    style="@style/customEdit"
+                    android:layout_width="150sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="9"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineStudyID"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII6"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" खण्ड  २: मातृ स्मरण सर्वेक्षणमोड्युल्  (ACS, uterotonics, newborn resuscitation, ENC practices)"
+                    android:textColor="@color/headingColor"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII6"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII1"
+                    style="@style/rowHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" खण्ड  २ .1 ACS"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Some babies are born before term and there are methods to help with their breathing."
+                    android:textColor="@color/headingColor"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII1"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbb4expect"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbb4expect"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="01."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbb4expect"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="तपाईंलाई आफ्नो बच्चा अनुमानित मिति भन्दा छिटो जन्मिएको जस्तो लाग्छ?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbb4expect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobb4expect1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="लाग्छ"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobb4expect2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="लाग्दैन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobb4expect3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebb4expect"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secredeliv"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblredeliv"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblredeliv"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="a) यदि कुनै, के तपाईंलाई महिना नपुग्दै बच्चा जन्माउन सक्ने सम्भावना छ भनेर कसैले जानकारी दिएको थियो? INTERVIEWER TO USE LOCAL WORD FOR ‘PREMATURE’ IF APROPRIATE"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpredeliv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdoredeliv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="लाग्छ"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdoredeliv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="लाग्दैन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdoredeliv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineredeliv"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII7"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII7"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Prompt: That is, before your expected due date?"
+                    android:textColor="@color/headingColor"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII7"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secedeliv"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbledeliv"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbledeliv"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="b) If YES, तपाईंको बच्चा कति दिन/हप्ता/महिना छिटो जन्मिएको हो? (अनुमानित मिति भन्दा पहिले)आमाको उत्तरमा भर पर्छ, दिन, हप्ता वा महिनामा लेख्नुहोस्|"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpedeliv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdoedeliv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="दिन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdoedeliv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="हप्ता"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdoedeliv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="महिना"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdoedeliv4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineedeliv"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secedelivDur"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbledelivDur"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbledelivDur"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="तपाईंको बच्चा कति दिन/हप्ता/महिना छिटो जन्मिएको हो? "
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtedelivDur"
+                    style="@style/customEdit"
+                    android:layout_width="60sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineedelivDur"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacsgiven"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacsgiven"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="02."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblacsgiven"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="तपाईंको बच्चा समय भन्दा धेरै अगाडि जन्मन सक्ने खतरा छ भनेर तपाईंलाई कुनै औषधि वा सुई दिएको थियो?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpacsgiven"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdoacsgiven1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थियो"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdoacsgiven2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थिएन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdoacsgiven3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacsgiven"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacsreason"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacsreason"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="03."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblacsreason"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="औषधि वा सुई के को लागि दिएको थाहा छ?"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spnacsreason"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacsreason"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacsreasonOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacsreasonOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblacsreasonOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="निर्दिष्ट"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtacsreasonOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacsreasonOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacsname"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacsname"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="04."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblacsname"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content" android:layout_marginBottom="10sp"
+                    android:text="तपाईंलाई कुन औषधि दिइएको थियो? (सम्भव भए औषधिको नमुना देखाउने)"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spnacsname"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacsname"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacsnameOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacsnameOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblacsnameOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="निर्दिष्ट"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtacsnameOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacsnameOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacsroute"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacsroute"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="05."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblacsroute"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="तपाईंलाई औषधि कसरी दिइएको थियो?"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spnacsroute"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacsroute"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacsrouteOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacsrouteOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblacsrouteOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="निर्दिष्ट"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtacsrouteOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacsrouteOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacsdoses"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacsdoses"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="06."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblacsdoses"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="तपाईंले औषधिकति पटक पाउनु भयो?"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtacsdoses"
+                    style="@style/customEdit"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacsdoses"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacsdosesDK"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacsdosesDK"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblacsdosesDK"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="थाहा छैन/ यादछैन"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkacsdosesDK"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacsdosesDK"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secacstime"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblacstime"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="07."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblacstime"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="कसरी लामो आफ्नो बच्चाहरु अघि जन्म भएको थियो तपाईं अन्तिम खुराक प्राप्त गर्नुभयो?"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spnacstime"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineacstime"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII2"
+                    style="@style/rowHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Section II.2 Uterotonics"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII2"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII8"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII8"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="म तपाईंलाई बच्चा जन्मिसकेपछि के-के भयो भन्ने प्रश्नहरू सोध्नेछु|"
+                    android:textColor="@color/headingColor"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII8"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secmedadeliv"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblmedadeliv"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="08."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblmedadeliv"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="बच्चा जन्मने बित्तिकै तपाईंलाई कुनै औषधि दिइएको थियो?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpmedadeliv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdomedadeliv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थियो"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdomedadeliv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थिएन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdomedadeliv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linemedadeliv"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII9"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII9"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="८.क. थियो भने,कसरी दिइएको थियो थाहा छ? MULTIPLE SELECTION POSSIBLE- SELECT ALL RELEVANT ANSWER OPTIONS"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII9"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroroute1"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroroute1"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbluteroroute1"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="1) पुठ्ठावा तिघ्रामा सुई लगाएको"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteroroute1"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroroute1"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroroute2"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroroute2"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbluteroroute2"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="2) आइ भि ड्रिप् वा बोलस दिएको"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteroroute2"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroroute2"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroroute3"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroroute3"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbluteroroute3"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="3) ट्याब्लेट निलेको वा मुखमा राखेको"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteroroute3"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroroute3"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroroute4"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroroute4"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbluteroroute4"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="4) ट्याब्लेट  मलद्वारमाराखेको"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteroroute4"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroroute4"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroroute5"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroroute5"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbluteroroute5"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="5) थाहा छैन/ यादछैन"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteroroute5"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroroute5"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuterotime"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluterotime"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="08b."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbluterotime"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="तपाईंलाई सुई वा ट्याब्लेट कहिले दिइएको थियो? (उत्तरहरूपढेरसुनाउनुहोस्)"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spnuterotime"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuterotime"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuterotold"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluterotold"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="09."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbluterotold"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="तपाईंलाई स्वास्थ्यकर्मीले बच्चा जन्मिने बित्तिकै सुई/ औषधि दिन लागेको कुरा भन्नु भएको थियो?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrputerotold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdouterotold1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थियो"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdouterotold2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थिएन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdouterotold3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ यादछै"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuterotold"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroknow"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroknow"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="10."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbluteroknow"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="तपाईंलाई के औषधि दिइएको थियो थाहा छ?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrputeroknow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdouteroknow1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थियो"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdouteroknow2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थिएन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdouteroknow3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ यादछैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroknow"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII16"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII16"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="१०.क. थियो भने,तपाईंलाई दिइएको औषधिको नाम के थियो? MULTIPLE SELECTION POSSIBLE- SELECT ALL RELEVANT ANSWER OPTIONS"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII16"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteronameA"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteronameA"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteronameA"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="a) अक्सीटोसिन"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteronameA"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteronameA"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteronameB"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteronameB"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteronameB"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="b) एर्ग्रोमेट्रिन्"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteronameB"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteronameB"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteronameC"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteronameC"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteronameC"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="c) मिसोप्रोस्टोल"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteronameC"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteronameC"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteronameD"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteronameD"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteronameD"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="d) अन्य"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteronameD"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteronameD"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteronameDOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteronameDOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteronameDOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="निर्दिष्ट"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtuteronameDOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteronameDOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteronameE"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteronameE"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteronameE"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="e) थाहा छैन/ यादछैन"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteronameE"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteronameE"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sectolduteroreas"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbltolduteroreas"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="11."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbltolduteroreas"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="तपाईंलाई सुई /औषधि दिनुको कारण भनिएको थियो?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrptolduteroreas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdotolduteroreas1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थियो"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdotolduteroreas2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थिएन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdotolduteroreas3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन / यादछैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linetolduteroreas"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII17"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII17"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="११.क. थियो भने ,कारण के थियो? MULTIPLE SELECTION POSSIBLE- SELECT ALL RELEVANT ANSWER OPTIONS. END SURVEY if BABY OUTCOME IS DEAD"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII17"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroreasA"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroreasA"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteroreasA"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="a) बच्चा जन्मिएपछि धेरै रगत बग्नबाट रोक्न"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteroreasA"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroreasA"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroreasB"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroreasB"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteroreasB"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="b) अन्य"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteroreasB"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroreasB"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroreasOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroreasOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteroreasOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="निर्दिष्ट"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtuteroreasOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroreasOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secuteroreasC"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbluteroreasC"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbluteroreasC"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="c) थाहा छैन / यादछैन"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkuteroreasC"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineuteroreasC"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII3"
+                    style="@style/rowHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" भाग २. ग  अत्यावश्यक नवजातशिशुस्याहारअभ्यास"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII3"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbdried"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbdried"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="12."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbdried"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="बच्चा जन्मिने बित्तिकै  रुमाल वा कपडाले बच्चा पुछिएको थियो? (केही मिनेट भित्र)"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbdried"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobdried1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थियो"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobdried2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थिएन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobdried3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebdried"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbnakchest"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/lblbnakchest"
+                        android:layout_width="40sp"
+                        android:layout_height="wrap_content"
+                        android:text="13."
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/Vlblbnakchest"
+                        android:layout_width="300sp"
+                        android:layout_height="wrap_content"
+                        android:text="बच्चा जन्मिने बित्तिकै बच्चालाई तपाईंको नाङ्गो छातीमा टाँसेर राखिएको थियो? (आवश्यक परेमा चित्र देखाउनु होस्)"
+                        android:textSize="20sp" />
+
+                    <RadioGroup
+                        android:id="@+id/rdogrpbnakchest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:textSize="20sp">
+
+                        <RadioButton
+                            android:id="@+id/rdobnakchest1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:text="थियो"
+                            android:textSize="20sp" />
+
+                        <RadioButton
+                            android:id="@+id/rdobnakchest2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:text="थिएन"
+                            android:textSize="20sp" />
+
+                        <RadioButton
+                            android:id="@+id/rdobnakchest3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:text="थाहा छैन/ याद छैन"
+                            android:textSize="20sp" />
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button android:id="@+id/btnQ13" android:text="Select for Photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebnakchest"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbchesttime"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbchesttime"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="13a."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbchesttime"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="बच्चा जन्मेको कति समयमा तपाईंको छातिमा टाँसेर राखियो ? READ ANSWER CHOICES"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbchesttime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobchesttime1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="जन्मिने बित्तिकै "
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobchesttime2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="मिनेट"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobchesttime3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebchesttime"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbchesttimeM"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbchesttimeM"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblbchesttimeM"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="सही मिनेट"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtbchesttimeM"
+                    style="@style/customEdit"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebchesttimeM"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbplaced"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbplaced"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="14."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbplaced"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="यदि तपाईंको छातिमा टाँसेर राखिएको थिएन भने जन्मिने बित्तिकै  कहाँ राखियो?"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spnbplaced"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebplaced"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbbathtime"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbbathtime"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="15."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbbathtime"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="बच्चा जन्मिएको कति समय पछि पहिलो पटक बच्चालाई नुहाउनु भयो?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbbathtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobbathtime1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="जन्मिने बित्तिकै "
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobbathtime2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="घण्टा"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobbathtime3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="दिन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobbathtime4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobbathtime5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थनुहाएको छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebbathtime"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbbathtimeDur"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbbathtimeDur"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblbbathtimeDur"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="घण्टा/दिन"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtbbathtimeDur"
+                    style="@style/customEdit"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebbathtimeDur"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII10"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII10"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" IF LESS THAN 1 HOUR, RECORD 01 HOURS; IF LESS THAN 24 HOURS, RECORD HOURS; OTHERWISE RECORD DAYS."
+                    android:textColor="@color/headingColor"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII10"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbbfd"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbbfd"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="16."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbbfd"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="के तपाईंको बच्चालाई आफ्नो दूध खुवाउनु भयो?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbbfd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobbfd1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थियो"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobbfd2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थिएन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobbfd3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebbfd"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbfdtime"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbfdtime"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="16a."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbfdtime"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="बच्चा जन्मिएको कति समय पछि पहिलो पटकआफ्नो दुध खुवाउनु भयो?"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spnbfdtime"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebfdtime"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbfdtimeDur"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbfdtimeDur"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblbfdtimeDur"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="घण्टा/दिन"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtbfdtimeDur"
+                    style="@style/customEdit"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebfdtimeDur"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII11"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII11"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" IF LESS THAN 1 HOUR, RECORD 01 HOURS; IF LESS THAN 24 HOURS, RECORD HOURS; OTHERWISE RECORD DAYS."
+                    android:textColor="@color/headingColor"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII11"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secsupbfd"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblsupbfd"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="17."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblsupbfd"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="तपाईंलाई स्तनपान गराउनको लागि स्वास्थ्यकर्मीले केही  सहयोग गर्नु भएको थियो?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpsupbfd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdosupbfd1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थियो"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdosupbfd2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थिएन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdosupbfd3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linesupbfd"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII18"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII18"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="१८. बच्चा जन्मिएपछी अस्पतालमा रहदा बच्चालाई दूध बाहेक अरू केही  पिउनको लागि दिनु भयो? (जस्तै: पानी, पाउडर दुध, चिया तर  औषधि, ट्याब्लेट बाहेक)"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII18"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secaltdrinkA"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblaltdrinkA"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblaltdrinkA"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="a) पानी"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkaltdrinkA"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linealtdrinkA"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secaltdrinkB"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblaltdrinkB"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblaltdrinkB"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="b) चिया"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkaltdrinkB"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linealtdrinkB"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secaltdrinkC"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblaltdrinkC"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblaltdrinkC"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="c) बट्टाको दुध "
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkaltdrinkC"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linealtdrinkC"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secaltdrinkD"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblaltdrinkD"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblaltdrinkD"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="d) अन्य"
+		            android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkaltdrinkD"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linealtdrinkD"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secaltdrinkDOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblaltdrinkDOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblaltdrinkDOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="निर्दिष्ट"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtaltdrinkDOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linealtdrinkDOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secaltdrinkE"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblaltdrinkE"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblaltdrinkE"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="e) छैन"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkaltdrinkE"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linealtdrinkE"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secaltdrinkF"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblaltdrinkF"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblaltdrinkF"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="f) थाहा छैन/ याद छैन"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkaltdrinkF"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linealtdrinkF"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII4"
+                    style="@style/rowHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Section II.4 Newborn Resuscitation"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII4"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbcry"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbcry"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="19."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbcry"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="तपाईंको बच्चा जन्मिने बित्तिकै रोएको रोएको सुन्नु भयो ?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbcry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobcry1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थियो"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobcry2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थिएन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobcry3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebcry"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbtroubbrth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbtroubbrth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="20."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbtroubbrth"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="बच्चा जन्मिने बित्तिकै सासफेर्न समस्या भएको थियो?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbtroubbrth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobtroubbrth1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थियो"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobtroubbrth2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थिएन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobtroubbrth3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebtroubbrth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII13"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII13"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="२० (क). सास फेराउनको लागि केही  सहयोग गरिएको थियो? (जस्तै: कसैले केही  सहयोग गरेको थियो?)"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII13"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechelpbbrthA"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhelpbbrthA"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhelpbbrthA"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="a) थिएन"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkhelpbbrthA"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehelpbbrthA"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechelpbbrthB"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhelpbbrthB"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhelpbbrthB"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="b) थाहा छैन, किनकी बच्चालाई अर्कै कोठामा लगियो "
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkhelpbbrthB"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehelpbbrthB"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechelpbbrthC"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhelpbbrthC"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhelpbbrthC"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="c) थाहा छैन, आमा थाहा हुने स्थीतिमा थिईनन् (जस्तै : शल्यकृया  गरेको आमा)"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkhelpbbrthC"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehelpbbrthC"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechelpbbrthD"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhelpbbrthD"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhelpbbrthD"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="d) थाहा छैन किनकी कसैले पनि आमालाई भनेनन्"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkhelpbbrthD"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehelpbbrthD"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sechelpbbrthE"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblhelpbbrthE"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblhelpbbrthE"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="e) थाहा छैन/ याद छैन"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkhelpbbrthE"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linehelpbbrthE"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbstim"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbstim"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="21."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbstim"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="तपाईंको बच्चालाई सास फेराउनको लागि कूनै कपडा वा रुमालले पछाडी ढाडमा माडिएको अथवा सुम्सुम्यायीको थियो?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbstim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobstim1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थियो"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobstim2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थिएन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobstim3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन / याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebstim"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbplast"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/lblbplast"
+                        android:layout_width="40sp"
+                        android:layout_height="wrap_content"
+                        android:text="22."
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/Vlblbplast"
+                        android:layout_width="300sp"
+                        android:layout_height="wrap_content"
+                        android:text="सास फेराउनकोलागि कसैले केही प्लास्टिकले बनेकोसाधन प्रयोग गरेको थियो? ( ब्याग् र मास्क देखाएर बुझाउनु होला)"
+                        android:textSize="20sp" />
+
+                    <RadioGroup
+                        android:id="@+id/rdogrpbplast"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:textSize="20sp">
+
+                        <RadioButton
+                            android:id="@+id/rdobplast1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:text="थियो"
+                            android:textSize="20sp" />
+
+                        <RadioButton
+                            android:id="@+id/rdobplast2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:text="थिएन"
+                            android:textSize="20sp" />
+
+                        <RadioButton
+                            android:id="@+id/rdobplast3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:text="थाहा छैन / याद छैन"
+                            android:textSize="20sp" />
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button android:id="@+id/btnQ22_sii" android:text="Select for Photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebplast"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbresustmin"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbresustmin"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="23."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbresustmin"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="यदी कसैले प्लास्टिकको साधनप्रयोग गरेको थियो भने कति समयसम्म गरेको थियो?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbresustmin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobresustmin1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="मिनेट"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobresustmin2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebresustmin"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbresustminDur"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbresustminDur"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblbresustminDur"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="मिनेट"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtbresustminDur"
+                    style="@style/customEdit"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebresustminDur"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbsuc"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbsuc"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="24."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbsuc"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="के तपाईंको बच्चा जन्मिसकेपछि मुख र नाकमा भएको फोहोरहरु सक्सनबाट सफा गरिएको थियो?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbsuc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobsuc1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थियो"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobsuc2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थिएन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobsuc3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebsuc"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secoresusact"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbloresusact"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="25."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbloresusact"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="के तपाईंको बच्चालाई सास फेराउनको लागि अरु थपसहयोग गरिएको थियो?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrporesusact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdooresusact1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थियो"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdooresusact2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थिएन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdooresusact3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineoresusact"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secoresusactOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbloresusactOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbloresusactOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="निर्दिष्ट"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtoresusactOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineoresusactOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secbadmward"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblbadmward"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="26."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblbadmward"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="के तपाईंको बच्चालाई सास फेराउन सहयोग गर्न मद्दत गरिसके पछी थप निग्रानी वा उपचार गर्न को लागि शिशु कक्षमा भर्ना गरिएको थियो?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpbadmward"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdobadmward1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थियो"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobadmward2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थिएन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdobadmward3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linebadmward"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sectoldresusexp"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbltoldresusexp"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="27."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbltoldresusexp"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="तपाईंलाई कुनै स्वास्थ्यकर्मीले बच्चालाई के भएको भनेर भन्नु भएको थियो?"
+                    android:textSize="20sp" />
+                <!--<Spinner android:id="@+id/spntoldresusexp" android:drawSelectorOnTop="true" android:layout_width="200sp" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="20sp" />-->
+                <RadioGroup
+                    android:id="@+id/rdogrptoldresusexp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdotoldresusexp1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थियो"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdotoldresusexp2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थिएन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdotoldresusexp3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linetoldresusexp"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secresusexp"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblresusexp"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="27a"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblresusexp"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="तपाईंलाई स्वास्थ्य कर्मीले के कारण भन्नुभएको थियो?"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtresusexp"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineresusexp"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secresusexpDK"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblresusexpDK"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblresusexpDK"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="थाहा छैन/ याद छैन"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkresusexpDK"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineresusexpDK"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII14"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII14"
+                    style="@style/rowHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Section II.5 Cord care and chlorhexidine cord cleansing"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII14"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secappcord"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblappcord"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="28."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblappcord"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="के नाभी काटिसकेपछिकुनै समयमा नाभी मा  केही  लगाईएको थियो?"
+                    android:textSize="20sp" />
+                <!--<Spinner android:id="@+id/spnappcord" android:drawSelectorOnTop="true" android:layout_width="200sp" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="20sp" />-->
+                <RadioGroup
+                    android:id="@+id/rdogrpappcord"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdoappcord1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थियो"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdoappcord2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थिएन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdoappcord3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineappcord"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secmedappcord"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblmedappcord"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="28a."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblmedappcord"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="यदी थियो भने, के लगाईएको थियो?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrpmedappcord"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdomedappcord1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="नाभी मलम"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdomedappcord2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="अन्य"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdomedappcord3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linemedappcord"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secmedappcordOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblmedappcordOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblmedappcordOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="निर्दिष्ट"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtmedappcordOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linemedappcordOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII15"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII15"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" PROBE: Anything else? INSTRUCTIONS: SHOW A TUBE OF CHLORHEXIDINE TO THE MOTHER"
+                    android:textColor="@color/headingColor"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII15"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sectimechl"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbltimechl"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="29."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbltimechl"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="नाभी कटिएको कति समयमा पहिलो पटक नाभी मलम प्रयोग गर्नु भयो?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rdogrptimechl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdotimechl1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="घण्टा"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdotimechl2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="दिन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdotimechl3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linetimechl"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sectimechlDur"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbltimechlDur"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlbltimechlDur"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:text="घण्टा /दिन"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txttimechlDur"
+                    style="@style/customEdit"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linetimechlDur"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seclblsecII19"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblHlblsecII19"
+                    style="@style/rowStyle0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" IF LESS THAN 1 HOUR, RECORD 01 HOURS; IF LESS THAN 24 HOURS, RECORD HOURS; OTHERWISE RECORD DAYS."
+                    android:textColor="@color/headingColor"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linelblsecII19"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secwhoappchl"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblwhoappchl"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="30."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblwhoappchl"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="२४घण्टाभित्रयदि नाभी मलम प्रयोग गरेको थियो भने कसले प्रयोग गर्नुभएको थियो?"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spnwhoappchl"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/planet_prompt"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linewhoappchl"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secwhoappchlOth"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblwhoappchlOth"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblwhoappchlOth"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="निर्दिष्ट"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtwhoappchlOth"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linewhoappchlOth"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/sectoldchlreas"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lbltoldchlreas"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="31."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlbltoldchlreas"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="के तपाईंलाई यस मलम प्रयोग गर्नुको केही कारण भनिएको थियो?"
+                    android:textSize="20sp" />
+                <!--<Spinner android:id="@+id/spntoldchlreas" android:drawSelectorOnTop="true" android:layout_width="200sp" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="20sp" />-->
+                <RadioGroup
+                    android:id="@+id/rdogrptoldchlreas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdotoldchlreas1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थियो"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdotoldchlreas2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थिएन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdotoldchlreas3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linetoldchlreas"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secchlreas"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblchlreas"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="31a."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblchlreas"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="के कारण बताइएको थियो?"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtchlreas"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linechlreas"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secchlreasDK"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblchlreasDK"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/VlblchlreasDK"
+                    android:layout_width="400sp"
+                    android:layout_height="wrap_content"
+                    android:text="थाहा छैन"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/chkchlreasDK"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linechlreasDK"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secchlhome"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblchlhome"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text="32."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblchlhome"
+                    android:layout_width="300sp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10sp"
+                    android:text="के तपाईंलाइ धर लैजानको  लागी औषधि दिइएको थियो?"
+                    android:textSize="20sp" />
+                <!--<Spinner android:id="@+id/spnchlhome" android:drawSelectorOnTop="true" android:layout_width="200sp" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="20sp" />-->
+                <RadioGroup
+                    android:id="@+id/rdogrpchlhome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textSize="20sp">
+
+                    <RadioButton
+                        android:id="@+id/rdochlhome1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थियो"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdochlhome2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थिएन"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/rdochlhome3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="थाहा छैन/ याद छैन"
+                        android:textSize="20sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linechlhome"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/seccomments"
+                style="@style/rowStyle0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblcomments"
+                    android:layout_width="40sp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Vlblcomments"
+                    android:layout_width="220sp"
+                    android:layout_height="wrap_content"
+                    android:text="सुझाव"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtcomments"
+                    style="@style/customEdit"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linecomments"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20sp">
+
+                <Button
+                    android:id="@+id/cmdSave"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20sp"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginRight="20sp"
+                    android:background="@drawable/button_style_green"
+                    android:text=" Save -> Continue "
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

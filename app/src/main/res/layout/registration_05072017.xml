@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="fill_parent"  android:layout_height="wrap_content" android:scrollbars="vertical">
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="@dimen/heading_height" android:orientation="horizontal" android:background="@color/pageHeadingBack">
+        <ImageButton android:id="@+id/cmdBack" android:background="@color/pageHeadingBack" android:src="@drawable/back" android:layout_width="50sp" android:layout_height="match_parent"/>
+        <TextView android:id="@+id/lblHeading" android:text="Registration"  android:paddingLeft="10sp" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center_vertical" android:textSize="20sp" android:textColor="@color/pageHeading"/>
+    </LinearLayout>
+    <View android:layout_height="1dip" android:layout_width="fill_parent" android:layout_marginBottom="0sp" android:background="#CCCCCC" />
+    <LinearLayout android:background="#F3F3F3" android:layout_width="fill_parent" android:paddingTop="5sp" android:layout_height="45sp" android:orientation="horizontal">
+        <TextView android:id="@+id/lblTitle" android:text="Registration"  android:paddingLeft="10sp" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center_horizontal" android:textSize="25sp" android:textColor="@color/theme_color"/>
+    </LinearLayout>
+    <View android:layout_height="1dip" android:layout_width="fill_parent" android:layout_marginBottom="5sp" android:background="#CCCCCC" />
+
+
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:overScrollMode="always" android:isScrollContainer="true" android:scrollbarAlwaysDrawVerticalTrack="true" android:scrollbarStyle="outsideInset" android:scrollbars="vertical">
+        <LinearLayout android:layout_marginLeft="10sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <LinearLayout android:id="@+id/secCountryCode" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblCountryCode" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+                <TextView android:id="@+id/VlblCountryCode" android:text="Country" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            </LinearLayout>
+            <View android:id="@+id/lineCountryCode" android:visibility="gone" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+            <LinearLayout android:id="@+id/secFaciCode" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblFaciCode" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+                <EditText android:id="@+id/txtCountryCode" android:maxLength="1" android:layout_width="40sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+                <TextView android:id="@+id/VlblFaciCode" android:text="Facility" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
+         <EditText android:id="@+id/txtFaciCode" android:maxLength="1" android:layout_width="40sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+    </LinearLayout>
+    <View android:id="@+id/lineFaciCode" android:visibility="gone" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secRegisType" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblRegisType" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblRegisType" android:text="Registration Type" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
+         <EditText android:id="@+id/txtRegisType" android:maxLength="1" android:layout_width="40sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+    </LinearLayout>
+    <View android:id="@+id/lineRegisType" android:visibility="gone" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secDataID" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblDataID" android:text="1." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblDataID" android:text="Data ID" android:layout_width="200sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtDataID" android:maxLength="10" android:layout_width="150sp" android:enabled="false" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+    </LinearLayout>
+    <View android:id="@+id/lineDataID" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secRegDate" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblRegDate" android:text="2." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblRegDate" android:text="Date" android:layout_width="200sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/dtpRegDate" android:drawableRight="@drawable/calendersmall" android:layout_width="150sp" android:inputType="text" android:layout_height="wrap_content" android:focusable="false" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp"/>
+    </LinearLayout>
+    <View android:id="@+id/lineRegDate" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secRegTime" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblRegTime" android:text="3." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblRegTime" android:text="Time" android:layout_width="200sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtRegTime" android:drawableRight="@drawable/clocksmall" android:layout_width="140sp" android:inputType="text" android:layout_height="wrap_content" android:focusable="false" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp"/>
+    </LinearLayout>
+    <View android:id="@+id/lineRegTime" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secHospID" android:layout_width="fill_parent" android:layout_gravity="center" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblHospID" android:text="4." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblHospID" android:text="Hospital ID/Registration Number" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp" />
+    </LinearLayout>
+        <LinearLayout  android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0" android:gravity="center">
+            <EditText android:id="@+id/txtHospID" android:maxLength="10" android:layout_width="150sp"  android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+            <TextView android:id="@+id/lblHospID1" android:text=" Re-Type" android:layout_width="100sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            <EditText android:id="@+id/txtHospIDReTyp" android:maxLength="10" android:layout_width="150sp"  android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+        </LinearLayout>
+
+
+    <View android:id="@+id/lineHospID" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secMotRegis" android:background="#F3F3F3" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblMotRegis" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblMotRegis" android:text="Mother Registered" android:layout_width="230sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <RadioGroup android:id="@+id/rdogrpMotRegis" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
+         
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdoMotRegis1" android:text="Yes"/>
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdoMotRegis2" android:text="No"/>
+        </RadioGroup>
+    </LinearLayout>
+    <View android:id="@+id/lineMotRegis" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+        <LinearLayout android:background="#F3F3F3" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+            <TextView android:text="Mothers Data ID" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp" />
+            <EditText android:id="@+id/txtMotDataID" android:maxLength="10" android:layout_width="150sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/secMotStudyID" android:background="#F3F3F3" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblMotStudyID" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblMotStudyID" android:text=" a) Mother's Study ID" android:layout_width="230sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtMotStudyID" android:maxLength="9" android:layout_width="150sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+        <Button android:id="@+id/cmdMotID" android:layout_width="wrap_content" android:layout_height="35sp" android:background="@drawable/button_style_sky"
+            android:textSize="20sp" android:text="List" android:textColor="#FFFFFF" android:layout_marginLeft="10sp"/>
+    </LinearLayout>
+        <LinearLayout android:id="@+id/secMotStudyIDReType" android:background="#F3F3F3" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+            <TextView android:id="@+id/lblMotStudyIDReType" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            <TextView android:id="@+id/VlblMotStudyIDReType" android:text="     Re-Type" android:layout_width="230sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            <EditText android:id="@+id/txtMotStudyIDReType" android:maxLength="9" android:layout_width="150sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+        </LinearLayout>
+
+    <View android:id="@+id/lineMotStudyID" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secMotHospID" android:background="#F3F3F3" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblMotHospID" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblMotHospID" android:text=" b) Mother's Hospital ID" android:layout_width="230sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtMotHospID" android:maxLength="10" android:layout_width="150sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+    </LinearLayout>
+    <View android:id="@+id/lineMotHospID" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secMotName" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblMotName" android:text="7." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblMotName" android:text="Name of Mother" android:layout_width="230sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtMotName" android:maxLength="60" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+    </LinearLayout>
+    <View android:id="@+id/lineMotName" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secMotDOB" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblMotDOB" android:text="8." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblMotDOB" android:text="Date of Birth of the Mother" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/dtpMotDOB" android:drawableRight="@drawable/calendersmall" android:layout_width="150sp" android:inputType="text" android:layout_height="wrap_content" android:focusable="false" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp"/>
+    </LinearLayout>
+    <View android:id="@+id/lineMotDOB" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secMotDOBDK" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblMotDOBDK" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblMotDOBDK" android:text="" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <CheckBox android:id="@+id/chkMotDOBDK" android:text="Don't Know" android:layout_width="wrap_content" android:inputType="text" android:layout_height="wrap_content" android:layout_marginRight="10sp" android:textSize="20sp" />
+    </LinearLayout>
+    <View android:id="@+id/lineMotDOBDK" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secMotAge" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblMotAge" android:text="9." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblMotAge" android:text="Age of the Mother (Years)" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
+         <EditText android:id="@+id/txtMotAge" android:maxLength="2" android:layout_width="50sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+    </LinearLayout>
+    <View android:id="@+id/lineMotAge" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secMotEthnicity" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblMotEthnicity" android:text="10." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblMotEthnicity" android:text="Ethnicity of the Mother" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <Spinner android:id="@+id/spnMotEthnicity" android:drawSelectorOnTop="true" android:layout_width="250sp" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="20sp" />
+    </LinearLayout>
+        <View android:id="@+id/lineMotHospID1" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+        <LinearLayout android:id="@+id/secMotEthnicityOth" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+            <TextView android:id="@+id/lblMotEthnicityOth" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            <TextView android:id="@+id/VlblMotEthnicityOth" android:text="Others Ethnicity" android:layout_width="200sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            <EditText android:id="@+id/txtMotEthnicityOth" android:maxLength="50" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+        </LinearLayout>
+
+
+
+    <View android:id="@+id/lineMotEthnicity" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secMotReligion" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblMotReligion" android:text="11." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblMotReligion" android:text="Religion of the Mother" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <Spinner android:id="@+id/spnMotReligion" android:drawSelectorOnTop="true" android:layout_width="250sp" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="20sp" />
+    </LinearLayout>
+        <View android:id="@+id/lineMotHospID2" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+        <LinearLayout android:id="@+id/secMotReligionOth" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+            <TextView android:id="@+id/lblMotReligionOth" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            <TextView android:id="@+id/VlblMotReligionOth" android:text="Others Religion" android:layout_width="200sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            <EditText android:id="@+id/txtMotReligionOth" android:maxLength="50" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+        </LinearLayout>
+
+        <View android:id="@+id/lineMotEdu" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+        <LinearLayout android:id="@+id/secMotEdu" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+            <TextView android:id="@+id/lblMotEdu" android:text="11a." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            <TextView android:id="@+id/VlblMotEdu" android:text="Mothers total years of formal education." android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            <EditText android:id="@+id/txtMotEdu" android:maxLength="2" android:layout_width="50sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/secMotEduDK" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+            <TextView android:id="@+id/lblMotEduDK" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            <TextView android:id="@+id/VlblMotEduDK" android:text="" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            <CheckBox android:id="@+id/chkMotEduDK" android:text="Don't Know" android:layout_width="wrap_content" android:inputType="text" android:layout_height="wrap_content" android:layout_marginRight="10sp" android:textSize="20sp" />
+        </LinearLayout>
+
+
+            <View android:id="@+id/linePatity" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+            <LinearLayout android:id="@+id/secParity" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblPatity" android:text="11b." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+                <TextView android:id="@+id/VlblPatity" android:text="Parity" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
+                <Spinner android:id="@+id/spnParity" android:drawSelectorOnTop="true" android:layout_width="250sp" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="20sp" />
+            </LinearLayout>
+
+
+
+
+            <View android:id="@+id/lineStudyID" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+            <LinearLayout android:id="@+id/secConsent" android:background="#F3F3F3" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblConsent" android:text="11c." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+                <TextView android:id="@+id/VlblConsent" android:text="Consent Given" android:layout_width="200sp" android:layout_height="wrap_content" android:textSize="20sp" />
+                <RadioGroup android:id="@+id/rdogrpConsent" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
+
+                    <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdoConsent1" android:text="Yes"/>
+                    <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdoConsent2" android:text="No"/>
+                </RadioGroup>
+            </LinearLayout>
+            <View android:id="@+id/lineConsent" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+            <LinearLayout android:id="@+id/secStudyID" android:background="#D7D7D7" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblStudyID" android:text="11d." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+                <TextView android:id="@+id/VlblStudyID" android:text="Study ID" android:layout_width="200sp" android:layout_height="wrap_content" android:textSize="20sp" />
+                <EditText android:id="@+id/txtStudyID" android:maxLength="9" android:layout_width="150sp" android:enabled="false" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+            </LinearLayout>
+
+            <View android:id="@+id/lineMotReligion" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+        <LinearLayout android:id="@+id/seclbl1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal"  style="@style/rowStyle0">
+            <TextView android:text="12." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            <TextView android:id="@+id/lblHlbl1" android:text="Address" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="20sp"/>
+        </LinearLayout>
+        <View android:id="@+id/linelbl1" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+
+
+        <LinearLayout android:id="@+id/secAddress1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblAddress1" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblAddress1" android:text="a) Level1" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <Spinner android:id="@+id/spnAddress1" android:drawSelectorOnTop="true" android:layout_width="300sp" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="20sp" />
+    </LinearLayout>
+    <View android:id="@+id/lineAddress1" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secAddress2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblAddress2" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblAddress2" android:text="b) Level2" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <Spinner android:id="@+id/spnAddress2" android:visibility="gone" android:drawSelectorOnTop="true" android:layout_width="250sp" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="20sp" />
+        <AutoCompleteTextView android:id="@+id/txtAddress2" android:maxLength="50"
+            android:ems="10"  android:drawableRight="@drawable/close"
+            android:maxLines="1" android:completionThreshold="1"
+            android:scrollHorizontally="true" android:textSize="20sp"
+            android:dropDownSelector="#D7D7D7"
+            android:layout_width="300sp" android:inputType="text"
+            android:layout_height="35sp"
+            style="@style/customEdit" android:layout_marginRight="1sp"  />
+    </LinearLayout>
+    <View android:id="@+id/lineAddress2" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secAddress3" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblAddress3" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblAddress3" android:text="c) Level3" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <Spinner android:id="@+id/spnAddress3" android:visibility="gone" android:drawSelectorOnTop="true" android:layout_width="250sp" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="20sp" />
+        <AutoCompleteTextView android:id="@+id/txtAddress3" android:maxLength="50"
+            android:ems="10"  android:drawableRight="@drawable/close"
+            android:maxLines="1" android:completionThreshold="1"
+            android:scrollHorizontally="true" android:textSize="20sp"
+            android:dropDownSelector="#D7D7D7"
+            android:layout_width="300sp" android:inputType="text"
+            android:layout_height="35sp"
+            style="@style/customEdit" android:layout_marginRight="1sp"  />
+    </LinearLayout>
+    <View android:id="@+id/lineAddress3" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secAddress4" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblAddress4" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblAddress4" android:text="d) Level4" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <Spinner android:id="@+id/spnAddress4" android:visibility="gone" android:drawSelectorOnTop="true" android:layout_width="250sp" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="20sp" />
+        <AutoCompleteTextView android:id="@+id/txtAddress4" android:maxLength="50"
+            android:ems="10"  android:drawableRight="@drawable/close"
+            android:maxLines="1" android:completionThreshold="1"
+            android:scrollHorizontally="true" android:textSize="20sp"
+            android:dropDownSelector="#D7D7D7"
+            android:layout_width="300sp" android:inputType="text"
+            android:layout_height="35sp"
+            style="@style/customEdit" android:layout_marginRight="1sp"  />
+    </LinearLayout>
+    <View android:id="@+id/lineAddress4" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secAddressDetail" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblAddressDetail" android:visibility="gone" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblAddressDetail" android:text="Detail Address" android:layout_marginLeft="50sp" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtAddressDetail" android:maxLength="150" android:layout_marginLeft="50sp" android:layout_width="match_parent" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+    </LinearLayout>
+    <View android:id="@+id/lineAddressDetail" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secMotContact" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblMotContact" android:text="13." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblMotContact" android:text="Contact Number - Mother" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
+         <EditText android:id="@+id/txtMotContact" android:maxLength="15" android:layout_width="160sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+    </LinearLayout>
+    <View android:id="@+id/lineMotContact" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secAltContact" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblAltContact" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblAltContact" android:text="Alternate" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
+         <EditText android:id="@+id/txtAltContact" android:maxLength="15" android:layout_width="160sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+    </LinearLayout>
+    <View android:id="@+id/lineAltContact" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secNameNewBorn" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblNameNewBorn" android:text="14." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblNameNewBorn" android:text="Name of Newborn" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtNameNewBorn" android:maxLength="60" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+    </LinearLayout>
+    <View android:id="@+id/lineNameNewBorn" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secDOBNewborn" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblDOBNewborn" android:text="15." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblDOBNewborn" android:text="Date of birth of the Newborn" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/dtpDOBNewborn" android:drawableRight="@drawable/calendersmall" android:layout_width="150sp" android:inputType="text" android:layout_height="wrap_content" android:focusable="false" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp"/>
+    </LinearLayout>
+
+        <LinearLayout android:id="@+id/secDOBNewbornDK" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+            <TextView android:id="@+id/lblDOBNewbornDK" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            <TextView android:id="@+id/VlbDOBNewbornDK" android:text="" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            <CheckBox android:id="@+id/chkDOBNewbornDK" android:text="Don't Know" android:layout_width="wrap_content" android:inputType="text" android:layout_height="wrap_content" android:layout_marginRight="10sp" android:textSize="20sp" />
+        </LinearLayout>
+    <View android:id="@+id/lineDOBNewborn" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secAgeNewborn" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblAgeNewborn" android:text="16." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblAgeNewborn" android:text="Age of the Newborn" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtAgeNewborn" android:maxLength="3" android:layout_width="60sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+        <TextView android:text=" days" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
+    </LinearLayout>
+    <View android:id="@+id/lineAgeNewborn" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:id="@+id/secAgeNewbornDMY" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <TextView android:id="@+id/lblAgeNewbornDMY" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblAgeNewbornDMY" android:text="" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <RadioGroup android:id="@+id/rdogrpAgeNewbornDMY" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
+           <RadioButton android:layout_height="wrap_content" android:checked="true" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdoAgeNewbornDMY1" android:text="Days"/>
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdoAgeNewbornDMY2" android:text="Month"/>
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdoAgeNewbornDMY3" android:text="Year"/>
+        </RadioGroup>
+    </LinearLayout>
+
+        <View android:id="@+id/lineSex" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+        <LinearLayout android:id="@+id/secSex" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+            <TextView android:id="@+id/lblSex" android:text="17." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            <TextView android:id="@+id/VlblSex" android:text="Sex of the Newborn" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            <RadioGroup android:id="@+id/rdogrpSex" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">
+                <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdoSex1" android:text="Male"/>
+                <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdoSex2" android:text="Female"/>
+                <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdoSex3" android:text="Ambiguous"/>
+            </RadioGroup>
+        </LinearLayout>
+        <View android:id="@+id/lineFather" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+        <LinearLayout android:id="@+id/secFatherName" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+            <TextView android:id="@+id/lblFatherName" android:text="18." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            <TextView android:id="@+id/VlblFatherName" android:text="Name of Father" android:layout_width="220sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            <EditText android:id="@+id/txtFatherName" android:maxLength="60" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+        </LinearLayout>
+
+        <View android:id="@+id/lineAgeNewbornDMY" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+        <include android:id="@+id/secKMCPreObs"
+            layout="@layout/kmcpreobs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <include android:id="@+id/secLDPreObs"
+            layout="@layout/obshiscurpreg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout android:layout_width="fill_parent" android:paddingTop="20sp" android:layout_height="wrap_content" android:orientation="horizontal">
+       	<Button android:id="@+id/cmdSave" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/button_style_green"
+       			android:textSize="20sp" android:text=" Save -> Continue " android:textColor="#FFFFFF" android:layout_marginBottom="20sp" android:layout_marginLeft="20sp" android:layout_marginRight="20sp"/>
+       </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+
+</LinearLayout>
